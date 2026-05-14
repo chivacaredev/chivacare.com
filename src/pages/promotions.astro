@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const promos = [
+  {
+    image: '/images/promo-1.jpg',
+    title: 'Pain Relief Program',
+    desc: 'Comprehensive physician-supervised pain management combining physical therapy and advanced pain relief techniques for lasting results.',
+    tag: 'Program'
+  },
+  {
+    image: '/images/promo-2.jpg',
+    title: 'Shockwave Therapy Program',
+    desc: 'Targeted shockwave therapy to treat chronic muscle and tendon pain at the source. Rapid recovery without surgery.',
+    tag: 'New'
+  },
+  {
+    image: '/images/promo-3.jpg',
+    title: 'Intensive Pain Treatment',
+    desc: 'Full-spectrum intensive program for persistent or severe pain. Combines multiple advanced modalities for maximum effect.',
+    tag: 'Best Value'
+  },
+  {
+    image: '/images/promo-4.jpg',
+    title: 'Deep Muscle Relief × 2',
+    desc: 'Specialized 2-session package targeting deep muscle tightness and chronic tension. Dissolve pain at the source.',
+    tag: 'Package'
+  },
+  {
+    image: '/images/promo-5.jpg',
+    title: 'Dry Needling',
+    desc: 'Western-style acupuncture (Dry Needling) precisely targeting trigger points for deep muscle pain relief and recovery.',
+    tag: 'Promotion'
+  },
+  {
+    image: '/images/promo-6.jpg',
+    title: 'Depression Treatment Package',
+    desc: 'Treat depression with TMS electromagnetic wave technology. Weekly package — effective, doctor-supervised, no medication needed.',
+    tag: 'Popular'
+  },
+  {
+    image: '/images/promo-7.jpg',
+    title: 'TMS Insomnia Treatment',
+    desc: 'Transcranial Magnetic Stimulation (TMS) brain stimulation therapy for insomnia. Drug-free path to deep, restful sleep.',
+    tag: 'Recommended'
+  },
+  {
+    image: '/images/promo-8.jpg',
+    title: 'Insomnia Without Medication',
+    desc: 'Treat chronic insomnia using non-pharmacological approaches. TMS brain stimulation for natural, lasting sleep improvement.',
+    tag: 'Drug-Free'
+  },
+  {
+    image: '/images/promo-9.jpg',
+    title: 'IV Vitamin Therapy',
+    desc: 'Strengthen your body and boost brain health through specialized intravenous vitamin infusion therapy.',
+    tag: 'Wellness'
+  }
+];
+---
+
+<Layout title="Promotions">
+  <!-- Hero -->
+  <section class="py-20 md:py-28 bg-primary text-white text-center">
+    <div class="section-container">
+      <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Limited Time</span>
+      <h1 class="text-[36px] md:text-[52px] font-bold mt-4 mb-6">Special Promotions</h1>
+      <p class="text-[18px] opacity-90 max-w-2xl mx-auto">
+        Curated treatment packages designed by our specialists for your optimal recovery and wellness. All programs supervised by physicians.
+      </p>
+    </div>
+  </section>
+
+  <!-- All Promotions -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {promos.map((promo) => (
+          <div class="chiva-card group">
+            <div class="relative h-[260px] overflow-hidden">
+              <img src={promo.image} alt={promo.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">
+                {promo.tag}
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-[19px] font-bold mb-3 text-primary leading-tight">{promo.title}</h3>
+              <p class="mb-6 text-[14px] leading-relaxed text-text-body">{promo.desc}</p>
+              <div class="flex items-center justify-between">
+                <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">
+                  Inquire Now <span>→</span>
+                </a>
+                <span class="text-[11px] text-gray-400">T&C Apply</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-accent">
+    <div class="section-container text-center space-y-8">
+      <h2 class="text-[28px] md:text-[36px] font-bold text-primary">Secure Your Package Today</h2>
+      <p class="text-text-body max-w-xl mx-auto text-[17px]">
+        Promotions are updated regularly. Contact us to confirm availability and get the best plan tailored to your needs.
+      </p>
+      <div class="flex flex-wrap gap-5 justify-center">
+        <a href="/contact" class="chiva-btn chiva-btn-primary !px-10 !py-4 text-[17px]">Contact Us</a>
+        <a href="tel:+66969800126" class="chiva-btn chiva-btn-outline !px-10 !py-4 text-[17px]">+66 96-980-0126</a>
+      </div>
+    </div>
+  </section>
+</Layout>

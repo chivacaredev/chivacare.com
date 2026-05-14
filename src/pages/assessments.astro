@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const assessments = [
+  {
+    category: 'Brain & Cognitive Health',
+    icon: '🧠',
+    tests: [
+      { name: 'Dementia & Alzheimer\'s Screening', desc: 'Evaluate memory loss and cognitive decline.' },
+      { name: 'Depression & Mental Health', desc: 'Assess emotional well-being and clinical symptoms.' },
+      { name: 'Sleep Quality Assessment', desc: 'Identify patterns and causes of insomnia.' }
+    ]
+  },
+  {
+    category: 'Physical & Posture',
+    icon: '🧘',
+    tests: [
+      { name: 'Office Syndrome Risk', desc: 'Check for issues caused by improper working posture.' },
+      { name: 'Text Neck Screening', desc: 'Assess chronic neck pain from mobile device use.' },
+      { name: 'Musculoskeletal Health', desc: 'Evaluate joint and muscle function (Knee, Hip, Spine).' }
+    ]
+  },
+  {
+    category: 'Neurological Evaluation',
+    icon: '⚡',
+    tests: [
+      { name: 'Stroke Recovery Potential', desc: 'Evaluate motor function and recovery progress.' },
+      { name: 'Migraine & Headache Profile', desc: 'Diagnostic review for chronic headache patterns.' },
+      { name: 'Nerve Function (NCV-EMG)', desc: 'Objective testing for nerve and muscle health.' }
+    ]
+  }
+];
+---
+
+<Layout title="Health Assessments">
+  <section class="section bg-[#f0f9ff] text-center border-b border-blue-100">
+    <div class="container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Health Assessments</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Early detection and precise diagnosis are the first steps toward effective recovery. Explore our specialized screening programs.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {assessments.map(cat => (
+        <div class="space-y-6">
+          <div class="flex items-center gap-4 p-4 bg-accent rounded-xl">
+            <span class="text-4xl">{cat.icon}</span>
+            <h2 class="text-2xl font-bold text-primary">{cat.category}</h2>
+          </div>
+          <div class="space-y-4">
+            {cat.tests.map(test => (
+              <div class="p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-secondary transition-all group">
+                <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{test.name}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">{test.desc}</p>
+                <a href="/contact" class="text-secondary font-bold text-xs uppercase tracking-widest hover:underline">Book Assessment →</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section bg-primary text-white overflow-hidden relative">
+    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="container relative z-10 text-center space-y-8">
+      <h2 class="text-white text-3xl md:text-4xl font-bold">Unsure which assessment you need?</h2>
+      <p class="opacity-90 max-w-2xl mx-auto text-lg">Our medical team can guide you to the most appropriate screening based on your symptoms and health history.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/contact" class="btn bg-white text-primary hover:bg-gray-100 w-full sm:w-auto">Consult a Specialist</a>
+        <span class="text-white/60">or call us at</span>
+        <a href="tel:+66969800126" class="text-2xl font-bold hover:text-secondary transition-colors">+66 96-980-0126</a>
+      </div>
+    </div>
+  </section>
+</Layout>

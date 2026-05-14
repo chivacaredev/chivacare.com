@@ -1,0 +1,75 @@
+---
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Medical Team', href: '/doctors' },
+  { name: 'Services', href: '#', dropdown: [
+    { name: 'Brain & Neurology Clinic', href: '/services/brain-neurology' },
+    { name: 'Physical & Occupational Therapy', href: '/services/physical-therapy' },
+    { name: 'Geriatric Rehabilitation Center', href: '/services/geriatric-rehab' },
+  ]},
+  { name: 'Service Rates', href: '#', dropdown: [
+    { name: 'Brain Clinic Rates', href: '/rates/brain-clinic' },
+    { name: 'Physical Therapy Rates', href: '/rates/physical-therapy' },
+  ]},
+  { name: 'Promotions', href: '/promotions' },
+  { name: 'Assessments', href: '/assessments' },
+  { name: 'News & Knowledge', href: '#', dropdown: [
+    { name: 'Health Knowledge', href: '/knowledge/health' },
+    { name: 'News & Activities', href: '/knowledge/news' },
+  ]},
+  { name: 'Contact Us', href: '/contact' },
+];
+---
+
+<header class="bg-white sticky top-0 z-[1000] shadow-sm">
+  <div class="max-w-[1200px] mx-auto px-4 lg:px-6 flex justify-between items-center py-4">
+    <!-- Logo Section -->
+    <a href="/" class="flex-shrink-0">
+      <img src="/images/logo-chivacare.png" alt="ChivaCare Logo" class="h-10 lg:h-12 object-contain" />
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="hidden xl:block">
+      <ul class="flex items-center gap-0">
+        {navItems.map((item) => (
+          <li class="relative group">
+            <a href={item.href} class="px-3 py-2 text-[15px] font-bold text-primary flex items-center gap-1 transition-colors hover:text-secondary whitespace-nowrap">
+              {item.name}
+              {item.dropdown && (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mt-0.5 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              )}
+            </a>
+            {item.dropdown && (
+              <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <ul class="bg-white shadow-xl min-w-[280px] py-4 rounded-xl border border-gray-50 overflow-hidden">
+                  {item.dropdown.map((subItem) => (
+                    <li>
+                      <a href={subItem.href} class="block px-6 py-3 text-[14px] font-bold text-gray-700 hover:bg-accent hover:text-primary transition-colors border-b border-gray-50 last:border-0">
+                        {subItem.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-3">
+      <a href="/contact" class="hidden sm:flex chiva-btn chiva-btn-primary !px-6 !py-2 text-[14px]">
+        Book Now
+      </a>
+      <!-- Mobile Menu Toggle -->
+      <button class="xl:hidden p-2 text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

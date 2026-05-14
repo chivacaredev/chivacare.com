@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const conditions = [
+  { name: 'Office Syndrome', desc: 'Chronic pain from prolonged desk work — neck, shoulders, and back. The cycle of pain-massage-pain ends here.' },
+  { name: 'Frozen Shoulder', desc: 'Adhesive capsulitis causing limited shoulder movement and pain. Manual therapy and Shockwave for recovery.' },
+  { name: 'Tennis Elbow', desc: 'Lateral epicondylitis from repetitive arm use. Shockwave and PMS for targeted relief.' },
+  { name: 'Carpal Tunnel Syndrome', desc: 'Nerve compression at the wrist causing numbness and tingling. Early treatment prevents surgery.' },
+  { name: 'Knee Osteoarthritis', desc: 'Cartilage degeneration causing knee pain. Shockwave, PMS, and targeted exercise therapy.' },
+  { name: 'Hip Osteoarthritis', desc: 'Hip joint cartilage degeneration affecting mobility. Rehabilitation to restore function and independence.' },
+  { name: 'Spinal Osteoarthritis', desc: 'Cervical and lumbar spine degeneration. Manual therapy, traction, and therapeutic exercise.' },
+  { name: 'Post-Surgical Rehabilitation', desc: 'Recovery after joint replacement, orthopedic surgery, or neurosurgery. Structured return-to-function programs.' },
+  { name: 'Stroke & Neurological Rehab', desc: 'Recovery of motor function and daily living skills after stroke or neurological events.' },
+];
+
+const treatments = [
+  { name: 'Shockwave Therapy', desc: 'Swiss Doloclast® extracorporeal shockwave targeting chronic muscle and tendon pain at depth.', icon: '⚡' },
+  { name: 'PMS (Peripheral Magnetic Stimulation)', desc: 'Electromagnetic stimulation for nerve pain, numbness, and muscle weakness — non-invasive and effective.', icon: '🧲' },
+  { name: 'Dry Needling', desc: 'Western-style acupuncture targeting myofascial trigger points for rapid deep muscle pain relief.', icon: '💉' },
+  { name: 'Manual Therapy & Medical Massage', desc: 'Hands-on techniques to restore joint mobility and reduce muscle tension.', icon: '🤝' },
+  { name: 'Therapeutic Exercise', desc: 'Individually designed exercise programs to rebuild strength, flexibility, and function.', icon: '🏃' },
+  { name: 'Occupational Therapy', desc: 'Training for daily living activities, swallowing rehabilitation, and return to work.', icon: '🎯' },
+];
+---
+
+<Layout title="Physical and Occupational Therapy">
+  <!-- Hero -->
+  <section class="relative py-28 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/category-pt.jpg" alt="Physical and Occupational Therapy" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-secondary/80"></div>
+    </div>
+    <div class="section-container relative z-10 text-center text-white">
+      <span class="text-white/70 font-extrabold uppercase tracking-[0.2em] text-[13px]">Expert Rehabilitation</span>
+      <h1 class="text-[36px] md:text-[56px] font-bold mt-4 mb-6">Physical & Occupational Therapy</h1>
+      <p class="text-[18px] opacity-90 max-w-3xl mx-auto">
+        Personalized rehabilitation combining expert therapists with advanced Shockwave, PMS, and Dry Needling treatments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conditions -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">What We Treat</span>
+        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Conditions & Focus Areas</h2>
+        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {conditions.map(c => (
+          <div class="p-6 bg-accent rounded-2xl hover:shadow-chiva hover:bg-white transition-all group">
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-xl flex-shrink-0 mt-0.5">✓</span>
+              <div>
+                <h3 class="font-bold text-primary group-hover:text-secondary transition-colors mb-1">{c.name}</h3>
+                <p class="text-[13px] text-text-body leading-relaxed">{c.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments -->
+  <section class="py-20 bg-accent">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Advanced Methods</span>
+        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Treatment Techniques</h2>
+        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {treatments.map(t => (
+          <div class="bg-white p-8 rounded-2xl shadow-chiva hover:-translate-y-2 hover:shadow-chiva-hover transition-all border-l-4 border-secondary">
+            <div class="text-3xl mb-4">{t.icon}</div>
+            <h3 class="text-[19px] font-bold text-primary mb-3">{t.name}</h3>
+            <p class="text-text-body text-[14px] leading-relaxed">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <img src="/images/category-pt.jpg" alt="Physical Therapy" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
+        <img src="/images/service-5.jpg" alt="Rehabilitation" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
+        <img src="/images/service-6.jpg" alt="Occupational Therapy" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-secondary text-white text-center">
+    <div class="section-container space-y-8">
+      <h2 class="text-[28px] md:text-[38px] font-bold">Ready to start your recovery?</h2>
+      <p class="opacity-90 max-w-2xl mx-auto text-[17px]">Consult with our rehabilitation team. Get a personalized plan tailored to your condition.</p>
+      <div class="flex flex-wrap gap-5 justify-center">
+        <a href="/contact" class="chiva-btn bg-white text-secondary hover:bg-primary hover:text-white !px-10 !py-4 text-[17px]">Book an Appointment</a>
+        <a href="/rates/physical-therapy" class="chiva-btn border-2 border-white text-white hover:bg-white hover:text-secondary !px-10 !py-4 text-[17px]">View Rates</a>
+      </div>
+    </div>
+  </section>
+</Layout>

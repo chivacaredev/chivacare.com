@@ -1,0 +1,76 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-white pt-24 pb-12">
+  <div class="section-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+      <!-- About Section -->
+      <div class="space-y-8">
+        <img src="/images/logo-chivacare.png" alt="ChivaCare Logo" class="h-12 brightness-0 invert" />
+        <p class="text-[16px] opacity-80 leading-relaxed font-medium">
+          ChivaCare is a specialized medical center in Chiang Mai focusing on Brain and Pain management. We provide high-standard healthcare with a warm service.
+        </p>
+        <div class="flex gap-5">
+          <a href="#" class="w-11 h-11 rounded-full border border-white/25 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
+             <span class="sr-only">Facebook</span>
+             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="w-11 h-11 rounded-full border border-white/25 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
+             <span class="sr-only">Line</span>
+             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.59.121.301.079.771.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.074 9.436-6.972 1.731-1.876 2.548-3.794 2.548-5.971zm-17.881 3.251h-1.371c-.139 0-.252-.113-.252-.252v-3.725c0-.139.113-.252.252-.252h1.371c.139 0 .252.113.252.252v3.725c0 .139-.113.252-.252.252zm1.758-.252c0 .139-.113.252-.252.252h-1.371c-.139 0-.252-.113-.252-.252v-3.725c0-.139.113-.252.252-.252h1.371c.139 0 .252.113.252.252v3.725zm8.484-3.725c0-.139-.113-.252-.252-.252h-2.31c-.139 0-.252.113-.252.252v3.725c0 .139.113.252.252.252h2.31c.139 0 .252-.113.252-.252v-3.725zm-2.058 3.251h-.504v-2.747h.504v2.747zm5.275-3.251c0-.139-.113-.252-.252-.252h-1.371c-.139 0-.252.113-.252.252v3.725c0 .139.113.252.252.252h1.371c.139 0 .252-.113.252-.252v-3.725zm-1.758 3.251h-.504v-2.747h.504v2.747z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-8">
+        <h3 class="text-[20px] font-bold border-l-4 border-secondary pl-5">Quick Links</h3>
+        <ul class="space-y-4">
+          <li><a href="/doctors" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Medical Team</a></li>
+          <li><a href="/services" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Our Services</a></li>
+          <li><a href="/promotions" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Promotions</a></li>
+          <li><a href="/contact" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="space-y-8">
+        <h3 class="text-[20px] font-bold border-l-4 border-secondary pl-5">Our Clinics</h3>
+        <ul class="space-y-4">
+          <li><a href="/services/brain-neurology" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Brain and Neurology</a></li>
+          <li><a href="/services/physical-therapy" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Physical Therapy</a></li>
+          <li><a href="/services/geriatric-rehab" class="text-[16px] opacity-80 hover:opacity-100 hover:translate-x-2 inline-block transition-all duration-300 font-medium">Geriatric Rehab</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-8">
+        <h3 class="text-[20px] font-bold border-l-4 border-secondary pl-5">Contact Info</h3>
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <span class="opacity-60 text-xl">📍</span>
+            <p class="text-[15px] opacity-85 leading-relaxed font-medium">Sirimangkalajarn Soi 11, Suthep, Chiang Mai 50200</p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <span class="opacity-60 text-xl">📞</span>
+            <p class="text-[15px] opacity-85 font-medium">+66 96-980-0126</p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <span class="opacity-60 text-xl">✉️</span>
+            <p class="text-[15px] opacity-85 font-medium">info@chivacare.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] opacity-60 font-medium">
+      <p>&copy; {currentYear} ChivaCare Brain and Pain Center. All rights reserved.</p>
+      <div class="flex gap-8">
+        <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+        <a href="#" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

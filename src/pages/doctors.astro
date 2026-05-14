@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Medical Team">
+  <!-- Hero -->
+  <section class="relative py-28 md:py-36 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/bg-teams.jpg" alt="ChivaCare Medical Team" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-primary/70"></div>
+    </div>
+    <div class="section-container relative z-10 text-center text-white">
+      <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Our Professionals</span>
+      <h1 class="text-[36px] md:text-[56px] font-bold mt-4 mb-6">Medical Team & Specialists</h1>
+      <p class="text-[18px] opacity-90 max-w-2xl mx-auto">
+        Meet our multidisciplinary team of specialists dedicated to your health and recovery. Every treatment step is supervised by a physician.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lead Doctor -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Founding Specialist</span>
+        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Lead Physician</h2>
+      </div>
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-chiva overflow-hidden border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-5">
+          <div class="md:col-span-2">
+            <img src="/images/service-1.jpg" alt="Assoc. Prof. Dr. Surat Tanprawet" class="w-full h-full object-cover min-h-[300px]" />
+          </div>
+          <div class="md:col-span-3 p-10 md:p-14 flex flex-col justify-center space-y-6">
+            <div>
+              <h3 class="text-[26px] md:text-[30px] font-bold text-primary">Assoc. Prof. Dr. Surat Tanprawet</h3>
+              <p class="text-secondary font-bold text-[17px] mt-1">Neurologist & Rehabilitation Specialist</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {['Brain & Nervous System', 'Rehabilitation Medicine', 'Geriatric Medicine', 'Neurology'].map(s => (
+                <span class="bg-accent text-primary px-4 py-1.5 rounded-full text-[13px] font-bold">{s}</span>
+              ))}
+            </div>
+            <p class="text-text-body leading-relaxed text-[16px]">
+              Founder of The Brain Clinic (est. 2016). Expert in diagnosis and treatment of neurological conditions including dementia, Alzheimer's disease, migraines, Parkinson's disease, and stroke rehabilitation. Specialist in TMS brain stimulation therapy.
+            </p>
+            <div class="pt-2">
+              <a href="/contact" class="chiva-btn chiva-btn-primary !px-8">Book a Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Categories -->
+  <section class="py-20 bg-accent">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Multidisciplinary</span>
+        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Our Care Team</h2>
+        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-10 shadow-chiva border-t-4 border-primary">
+          <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+            </svg>
+          </div>
+          <h3 class="text-[20px] font-bold text-primary mb-4">Rehabilitation Physicians</h3>
+          <p class="text-text-body leading-relaxed">Specialists in physical medicine and recovery, helping patients regain function and manage pain through evidence-based treatment protocols.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-10 shadow-chiva border-t-4 border-secondary">
+          <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[20px] font-bold text-primary mb-4">Physical Therapists</h3>
+          <p class="text-text-body leading-relaxed">Experts in musculoskeletal issues, office syndrome, and post-operative recovery. Certified in Swiss Doloclast Shockwave therapy techniques.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-10 shadow-chiva border-t-4 border-[#5fa8d3]">
+          <div class="w-14 h-14 bg-[#5fa8d3]/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#5fa8d3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[20px] font-bold text-primary mb-4">Occupational Therapists</h3>
+          <p class="text-text-body leading-relaxed">Focused on functional recovery, daily living skills, swallowing rehabilitation, and specialized care for elderly patients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Advanced Equipment</span>
+        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Medical Technologies We Use</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {[
+          { name: 'TMS', full: 'Transcranial Magnetic Stimulation', desc: 'Brain stimulation for depression, insomnia, stroke' },
+          { name: 'PMS', full: 'Peripheral Magnetic Stimulation', desc: 'Peripheral nerve pain and muscle weakness' },
+          { name: 'Shockwave', full: 'Swiss Doloclast® Technology', desc: 'Chronic muscle & tendon pain relief' },
+          { name: 'NCV-EMG', full: 'Nerve Conduction Velocity', desc: 'Nerve and muscle diagnostic testing' },
+        ].map(t => (
+          <div class="bg-accent rounded-2xl p-8 text-center hover:shadow-chiva transition-all">
+            <div class="text-[32px] font-black text-primary mb-2">{t.name}</div>
+            <div class="text-[12px] font-bold text-secondary uppercase tracking-wide mb-3">{t.full}</div>
+            <p class="text-[13px] text-text-body leading-relaxed">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary text-white text-center">
+    <div class="section-container space-y-8">
+      <h2 class="text-[28px] md:text-[38px] font-bold">Consult with a Specialist</h2>
+      <p class="opacity-90 max-w-xl mx-auto text-[17px]">Our medical team is ready to guide you to the most appropriate treatment based on your symptoms and health history.</p>
+      <div class="flex flex-wrap gap-5 justify-center">
+        <a href="/contact" class="chiva-btn bg-white text-primary hover:bg-secondary hover:text-white !px-10 !py-4 text-[17px]">Book an Appointment</a>
+        <a href="tel:+66969800126" class="chiva-btn border-2 border-white text-white hover:bg-white hover:text-primary !px-10 !py-4 text-[17px]">+66 96-980-0126</a>
+      </div>
+    </div>
+  </section>
+</Layout>

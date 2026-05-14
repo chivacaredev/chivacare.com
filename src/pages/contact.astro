@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us">
+  <section class="section bg-primary text-white text-center">
+    <div class="container">
+      <h1 class="text-white text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+      <p class="text-xl opacity-90 max-w-2xl mx-auto">We are here to help. Reach out to us for appointments, inquiries, or any health concerns.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <!-- Contact Info -->
+      <div class="space-y-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-xl">📍</div>
+              <div>
+                <h3 class="font-bold text-primary">Our Location</h3>
+                <p class="text-gray-600">Sirimangkalajarn Soi 11, Suthep, Mueang Chiang Mai District, Chiang Mai 50200</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-xl">📞</div>
+              <div>
+                <h3 class="font-bold text-primary">Phone</h3>
+                <p class="text-gray-600">+66 96-980-0126</p>
+                <p class="text-gray-600">+66 52-005-457</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-xl">💬</div>
+              <div>
+                <h3 class="font-bold text-primary">LINE (Free Consultation)</h3>
+                <p class="text-gray-600">@sam6768c</p>
+                <p class="text-gray-600">Facebook: ChivaCareInfo</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-xl">⏰</div>
+              <div>
+                <h3 class="font-bold text-primary">Opening Hours</h3>
+                <p class="text-gray-600">Monday - Friday: 09:00 - 18:00</p>
+                <p class="text-gray-600">Saturday: 09:00 - 16:00</p>
+                <p class="text-gray-600 text-secondary font-semibold">Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="w-full h-64 rounded-2xl overflow-hidden shadow-chiva">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.5!2d98.971779!3d18.793752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQ3JzM3LjUiTiA5OMKwNTgnMTguNCJF!5e0!3m2!1sen!2sth!4v1600000000000!5m2!1sen!2sth"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="ChivaCare Location Map"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-100">
+        <h2 class="text-2xl font-bold mb-8">Send us a Message</h2>
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-700">First Name</label>
+              <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="John" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-700">Last Name</label>
+              <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="Doe" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-gray-700">Email Address</label>
+            <input type="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="john@example.com" />
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-gray-700">Subject</label>
+            <select class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors">
+              <option>Make an Appointment</option>
+              <option>General Inquiry</option>
+              <option>Service Rates</option>
+              <option>Feedback</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-gray-700">Your Message</label>
+            <textarea class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors h-32" placeholder="How can we help you?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full shadow-lg shadow-primary/20">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

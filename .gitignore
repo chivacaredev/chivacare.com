@@ -22,3 +22,17 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VSCode
+.vscode/
+
+# OS files
+Thumbs.db
+
+# local env variants
+.env.local
+.env.development.local
+.env.test.local
+
+# bun
+bun.lockb

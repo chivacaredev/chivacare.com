@@ -1,17 +1,327 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="relative h-[65vh] md:h-[90vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/bg-teams.jpg"
+        alt="ChivaCare Clinic"
+        class="absolute w-full h-full object-cover object-center"
+      />
+      <div class="absolute inset-0 bg-primary/60"></div>
+    </div>
+
+    <div class="section-container relative z-10 w-full">
+      <div class="max-w-[750px] text-white">
+        <h1 class="text-[40px] md:text-[68px] font-bold leading-[1.1] mb-6">
+          ChivaCare <br/>
+          Brain and Pain Center
+        </h1>
+        <p class="text-[20px] md:text-[26px] font-medium mb-10 opacity-95">
+          Every treatment step supervised by physicians.<br/>
+          <span class="text-secondary">If the pain won't go away, consult us.</span>
+        </p>
+        <div class="flex flex-wrap gap-5">
+          <a href="/contact" class="chiva-btn chiva-btn-primary min-w-[200px] py-4 text-[18px]">
+            Make Appointment
+          </a>
+          <a href="/services/brain-neurology" class="chiva-btn bg-white/20 backdrop-blur-md text-white border border-white/40 hover:bg-white hover:text-primary min-w-[200px] py-4 text-[18px]">
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ChivaCare -->
+  <section class="py-16 bg-white border-b border-gray-100">
+    <div class="section-container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="group">
+          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
+            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="text-[16px] font-bold text-primary mb-2">High Standards</h3>
+          <p class="text-[13px] text-text-body">International medical quality</p>
+        </div>
+        <div class="group">
+          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
+            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[16px] font-bold text-primary mb-2">Expert Team</h3>
+          <p class="text-[13px] text-text-body">Experienced specialists</p>
+        </div>
+        <div class="group">
+          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
+            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[16px] font-bold text-primary mb-2">Warm Service</h3>
+          <p class="text-[13px] text-text-body">Caring like family</p>
+        </div>
+        <div class="group">
+          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
+            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[16px] font-bold text-primary mb-2">Affordable</h3>
+          <p class="text-[13px] text-text-body">Fair and clear pricing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions Section -->
+  <section class="py-20 md:py-28 bg-accent">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Limited Time</span>
+        <h2 class="text-[32px] md:text-[42px] font-bold text-primary mt-3 mb-5">Special Promotions</h2>
+        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Pain Relief -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-1.jpg" alt="Pain Relief Program" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">Pain Relief Program</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">Comprehensive pain management program combining physical therapy and advanced pain relief techniques.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Shockwave -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-2.jpg" alt="Shockwave Program" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">Shockwave Therapy</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">Advanced shockwave treatment targeting deep muscle and tendon pain for rapid, lasting relief.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Intensive Pain -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-3.jpg" alt="Intensive Pain Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Best Value</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">Intensive Pain Treatment</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">Full-spectrum pain treatment program for chronic or severe conditions. Doctor-supervised at every step.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Dry Needling -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-5.jpg" alt="Dry Needling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">Dry Needling</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">Western-style acupuncture precisely targeting trigger points for deep muscle pain relief.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- TMS Depression -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-6.jpg" alt="Depression Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Popular</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">Depression Treatment Package</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">TMS electromagnetic technology for depression — weekly package, no medication required.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- IV Therapy -->
+        <div class="chiva-card group">
+          <div class="relative h-[260px] overflow-hidden">
+            <img src="/images/promo-9.jpg" alt="IV Vitamin Therapy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Wellness</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-[20px] font-bold mb-3 text-primary">IV Vitamin Therapy</h3>
+            <p class="mb-6 text-[14px] leading-relaxed">Strengthen your body and brain health with specialized vitamin infusion therapy.</p>
+            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="/promotions" class="chiva-btn chiva-btn-outline">View All Promotions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinic Sections -->
+  <section class="py-28 bg-white overflow-hidden">
+    <div class="section-container">
+      <!-- Brain Clinic -->
+      <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-24 mb-32">
+        <div class="w-full lg:w-1/2 relative">
+          <div class="absolute -top-6 -left-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
+          <img src="/images/category-brain.jpg" alt="Brain and Neurology Clinic" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
+        </div>
+        <div class="w-full lg:w-1/2 space-y-8">
+          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Our Specialized Clinics</span>
+          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
+            Brain and <br/> Neurology Clinic
+          </h2>
+          <p class="text-[18px] leading-[1.8] text-text-body">
+            Founded in 2016 by Assoc. Prof. Dr. Surat Tanprawet. Specialized in comprehensive diagnosis and treatment of neurological disorders — migraines, stroke, Parkinson's, dementia — using modern technologies like TMS brain stimulation.
+          </p>
+          <ul class="space-y-2 text-[16px] text-text-body">
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Dementia & Alzheimer's disease</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Parkinson's disease</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Paralysis rehabilitation</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Depression & Insomnia (TMS)</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Chronic Migraines</li>
+          </ul>
+          <div class="pt-4">
+            <a href="/services/brain-neurology" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
+              Explore Clinic <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Physical Therapy -->
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-16 md:gap-24 mb-32">
+        <div class="w-full lg:w-1/2 relative">
+          <div class="absolute -top-6 -right-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
+          <img src="/images/category-pt.jpg" alt="Physical Therapy Clinic" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
+        </div>
+        <div class="w-full lg:w-1/2 space-y-8">
+          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Professional Rehabilitation</span>
+          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
+            Physical and <br/> Occupational Therapy
+          </h2>
+          <p class="text-[18px] leading-[1.8] text-text-body">
+            Personalized recovery programs for office syndrome, chronic pain, and post-surgery rehabilitation. We combine manual therapy with advanced Shockwave, PMS, and Dry Needling treatments.
+          </p>
+          <ul class="space-y-2 text-[16px] text-text-body">
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Office Syndrome & Back Pain</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Frozen Shoulder & Tennis Elbow</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Knee & Hip Osteoarthritis</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Post-surgical Rehabilitation</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Paralysis recovery</li>
+          </ul>
+          <div class="pt-4">
+            <a href="/services/physical-therapy" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
+              Explore Therapy <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Geriatric -->
+      <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
+        <div class="w-full lg:w-1/2 relative">
+          <div class="absolute -top-6 -left-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
+          <img src="/images/service-3.jpg" alt="Geriatric Rehabilitation" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
+        </div>
+        <div class="w-full lg:w-1/2 space-y-8">
+          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Elderly Care</span>
+          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
+            Geriatric <br/> Rehabilitation Center
+          </h2>
+          <p class="text-[18px] leading-[1.8] text-text-body">
+            Specialized care and rehabilitation for elderly patients. Our multidisciplinary team combines geriatric medicine, neurology, and physical therapy to improve mobility, independence, and quality of life.
+          </p>
+          <ul class="space-y-2 text-[16px] text-text-body">
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Neurological recovery</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Fall prevention & Balance training</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Post-surgical Rehabilitation</li>
+            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Functional independence support</li>
+          </ul>
+          <div class="pt-4">
+            <a href="/services/geriatric-rehab" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
+              Explore Center <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-accent">
+    <div class="section-container">
+      <div class="text-center mb-14">
+        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Patient Stories</span>
+        <h2 class="text-[32px] md:text-[42px] font-bold text-primary mt-3 mb-5">What Our Patients Say</h2>
+        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 shadow-chiva relative">
+          <div class="text-secondary text-[60px] leading-none font-serif absolute top-4 left-8 opacity-20">"</div>
+          <p class="text-[16px] leading-relaxed text-text-body relative z-10 mb-6">
+            "Rehabilitation targeted precisely. Previously suffered unbearable pain, couldn't sleep, had to leave my job. Now I'm back to full health."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <span class="text-primary font-bold text-[18px]">M</span>
+            </div>
+            <div>
+              <p class="font-bold text-primary">Khun Mod</p>
+              <p class="text-[13px] text-text-body">Pain Rehabilitation Patient</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-10 shadow-chiva relative">
+          <div class="text-secondary text-[60px] leading-none font-serif absolute top-4 left-8 opacity-20">"</div>
+          <p class="text-[16px] leading-relaxed text-text-body relative z-10 mb-6">
+            "Excellent care and advice. My pain improved significantly. The staff is incredibly attentive and patient-focused. Best clinic I've visited."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <span class="text-primary font-bold text-[18px]">S</span>
+            </div>
+            <div>
+              <p class="font-bold text-primary">Khun Sasikanya</p>
+              <p class="text-[13px] text-text-body">Physical Therapy Patient</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-20 bg-primary">
+    <div class="section-container text-center text-white">
+      <h2 class="text-[32px] md:text-[42px] font-bold mb-6">Ready to Start Your Recovery?</h2>
+      <p class="text-[18px] opacity-90 mb-10 max-w-2xl mx-auto">
+        Our specialist team is ready to help you. Located in central Chiang Mai on Sirimangkalajarn Road.
+      </p>
+      <div class="flex flex-wrap gap-5 justify-center">
+        <a href="/contact" class="chiva-btn bg-white text-primary hover:bg-secondary hover:text-white min-w-[220px] py-4 text-[18px]">
+          Make Appointment
+        </a>
+        <a href="tel:+66969800126" class="chiva-btn border-2 border-white text-white hover:bg-white hover:text-primary min-w-[220px] py-4 text-[18px]">
+          Call +66 96-980-0126
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
