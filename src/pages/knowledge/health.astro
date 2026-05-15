@@ -1,92 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const articles = [
-  {
-    image: '/images/blog-1.jpg',
-    tag: 'Occupational Therapy',
-    title: 'Tongue Stiffness, Speech & Swallowing Difficulties',
-    desc: 'Signs you should not ignore — and the role of occupational therapists in rehabilitation for neurological speech and swallowing problems.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-2.jpg',
-    tag: 'Physical Therapy',
-    title: 'Say Goodbye to the Pain–Massage–Pain Loop',
-    desc: 'Why physical therapy is the only way out of office syndrome — addressing root structural causes rather than just temporary relief.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-3.jpg',
-    tag: 'Technology',
-    title: 'PMS: Treating Pain and Numbness with Electromagnetic Waves',
-    desc: 'How Peripheral Magnetic Stimulation (PMS) technology effectively treats chronic nerve pain and office syndrome.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-4.jpg',
-    tag: 'Brain & TMS',
-    title: 'Stroke Rehabilitation with TMS Technology',
-    desc: 'Transcranial Magnetic Stimulation as an effective, non-invasive option for stroke recovery — without surgery or medication.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-5.jpg',
-    tag: 'Migraine',
-    title: 'Innovative Migraine Reduction Using TMS',
-    desc: 'New technology for managing chronic migraine headaches. How TMS helps where conventional treatments fall short.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-6.jpg',
-    tag: 'Mental Health',
-    title: 'Treating Depression & Insomnia Without Medication',
-    desc: 'Understanding the role of TMS brain stimulation in mental wellness — an effective, drug-free path to recovery.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-7.jpg',
-    tag: 'Neurology',
-    title: 'TMS: Another Option for Stroke-Related Paralysis',
-    desc: 'How electromagnetic brain stimulation offers new hope for patients with stroke-related hemiplegia and hemiparesis.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-8.jpg',
-    tag: 'Joint Health',
-    title: 'Warning: Early-Onset Knee Osteoarthritis',
-    desc: 'Knee cartilage degeneration is no longer just for the elderly. Prevention strategies and when to seek treatment.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-9.jpg',
-    tag: 'Pain Relief',
-    title: 'Can Shockwave Therapy Reduce Migraine Pain?',
-    desc: 'Over 50% of migraine sufferers also have office syndrome. Exploring the connection and shockwave as a treatment option.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-10.jpg',
-    tag: 'Muscular Health',
-    title: 'Muscle Weakness and the Risk of Muscle Atrophy',
-    desc: 'Understanding progressive muscle weakness conditions across all body areas and early intervention strategies.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-11.jpg',
-    tag: 'Depression',
-    title: 'How TMS Treats Depression',
-    desc: 'The effectiveness of Transcranial Magnetic Stimulation for depression, including treatment-resistant cases.',
-    href: '#'
-  },
-  {
-    image: '/images/blog-12.jpg',
-    tag: 'Nerve Compression',
-    title: 'What Causes Carpal Tunnel Syndrome?',
-    desc: 'Understanding nerve compression at the wrist — causes, symptoms, and treatment options for office workers.',
-    href: '#'
-  },
-];
+import { articles } from '../../data/articles';
 ---
 
 <Layout title="Health Knowledge">
@@ -114,9 +28,10 @@ const articles = [
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
+              <p class="text-[12px] text-text-body mb-2 font-medium">{article.date}</p>
               <h3 class="text-[18px] font-bold mb-3 text-primary leading-snug group-hover:text-secondary transition-colors">{article.title}</h3>
               <p class="text-text-body text-[14px] mb-6 leading-relaxed flex-grow">{article.desc}</p>
-              <a href={article.href} class="text-secondary font-bold text-[14px] hover:underline mt-auto inline-flex items-center gap-2">
+              <a href={`/knowledge/articles/${article.slug}`} class="text-secondary font-bold text-[14px] hover:underline mt-auto inline-flex items-center gap-2">
                 Read Article <span class="text-lg">→</span>
               </a>
             </div>
