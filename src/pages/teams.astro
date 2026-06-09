@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const doctors = [
+  {
+    name: 'Asst. Prof. Dr. Surat Tanprawate',
+    title: 'Neurologist, Co-founder',
+    sub: 'Specialist in Headache & Migraine, Stroke, Movement Disorders',
+    img: 'https://chivacare.com/assets/images/team-01.jpg',
+  },
+  {
+    name: 'Dr. Atiwat Soontornpun',
+    title: 'Neurologist',
+    sub: 'Specialist in Epilepsy & Sleep Disorders',
+    img: 'https://chivacare.com/assets/images/team-02.jpg',
+  },
+  {
+    name: 'Dr. Kanokwan Boonyapisit',
+    title: 'Neurologist',
+    sub: 'Specialist in Peripheral Nerve & Muscle Diseases',
+    img: 'https://chivacare.com/assets/images/team-03.jpg',
+  },
+  {
+    name: 'Dr. Sirikan Nawanopparatsakul',
+    title: 'Rehabilitation Physician',
+    sub: 'Specialist in Physical Medicine & Rehabilitation',
+    img: 'https://chivacare.com/assets/images/team-04.jpg',
+  },
+  {
+    name: 'Physical Therapy Team',
+    title: 'Licensed Physical Therapists',
+    sub: 'Manual therapy, exercise therapy, electrotherapy',
+    img: 'https://chivacare.com/assets/images/team-05.jpg',
+  },
+  {
+    name: 'Occupational Therapy Team',
+    title: 'Licensed Occupational Therapists',
+    sub: 'Cognitive rehabilitation, daily living skills',
+    img: 'https://chivacare.com/assets/images/team-06.jpg',
+  },
+];
+---
+
+<Layout
+  title="Medical Team & Specialists - Chivacare Chiang Mai"
+  description="Meet the board-certified neurologists, rehabilitation physicians, physical therapists, and occupational therapists of Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Medical Team & Specialists</h1>
+      <p>Board-certified physicians and licensed therapists with extensive clinical experience.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {doctors.map((d) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;text-align:center;">
+            <img src={d.img} alt={d.name} class="img-responsive" style="border-radius:50%;width:200px;height:200px;object-fit:cover;margin:0 auto 20px;" />
+            <h4 style="color:#30c1b8;margin-bottom:5px;">{d.name}</h4>
+            <p style="font-weight:bold;margin-bottom:5px;">{d.title}</p>
+            <p style="color:#666;">{d.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

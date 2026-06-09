@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const rates = [
+  { item: 'New patient consultation (Neurologist)', price: '1,500 THB' },
+  { item: 'Follow-up consultation', price: '1,000 THB' },
+  { item: 'TMS therapy - single session', price: '2,500 THB' },
+  { item: 'TMS therapy - 20-session depression package', price: '40,000 THB' },
+  { item: 'TMS therapy - 10-session insomnia package', price: '22,000 THB' },
+  { item: 'EEG (Electroencephalogram)', price: '3,500 THB' },
+  { item: 'MMSE cognitive screening', price: '800 THB' },
+  { item: 'PHQ-9 / GAD-7 mental health assessment', price: '500 THB' },
+  { item: 'Sleep study consultation', price: '1,500 THB' },
+  { item: 'Migraine consultation & treatment plan', price: '1,800 THB' },
+];
+---
+
+<Layout
+  title="Brain Clinic Rates - Chivacare Chiang Mai"
+  description="Service rates for the Brain & Nervous System Clinic at Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Brain Clinic Rates</h1>
+      <p>Transparent pricing for our brain & nervous system services.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr style="background:#30c1b8;color:white;">
+            <th>Service</th>
+            <th style="text-align:right;">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rates.map((r) => (
+            <tr>
+              <td>{r.item}</td>
+              <td style="text-align:right;font-weight:bold;color:#30c1b8;">{r.price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p style="color:#999;font-size:0.9em;margin-top:20px;"><em>Rates are subject to change. Please contact us to confirm prices and ask about insurance coverage.</em></p>
+    </div>
+  </section>
+</Layout>

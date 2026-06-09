@@ -1,124 +1,47 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const services = [
-  {
-    title: 'Stroke & Neurological Recovery',
-    desc: 'Specialized programs for stroke survivors and those with Parkinson\'s disease or Dementia. Restoring independence step by step.',
-    icon: '🧠'
-  },
-  {
-    title: 'Post-Surgical Rehabilitation',
-    desc: 'Expert recovery plans after joint replacement, orthopedic, or neurological surgeries. Evidence-based return-to-function programs.',
-    icon: '🏥'
-  },
-  {
-    title: 'Mobility & Fall Prevention',
-    desc: 'Balance training, strength exercises, and movement strategies to prevent falls and maintain active daily living.',
-    icon: '🚶'
-  },
-  {
-    title: 'Functional Independence',
-    desc: 'Occupational therapy helping seniors perform daily tasks — dressing, cooking, bathing — with confidence and safety.',
-    icon: '🤝'
-  },
-  {
-    title: 'Swallowing Rehabilitation',
-    desc: 'Specialized care for dysphagia (swallowing difficulties) common after stroke or neurological events.',
-    icon: '💊'
-  },
-  {
-    title: 'Cognitive Stimulation',
-    desc: 'Programs to maintain and improve cognitive function, memory, and mental engagement for elderly patients.',
-    icon: '🧩'
-  },
+const programs = [
+  { title: 'Post-stroke Rehabilitation', desc: 'Intensive programs to restore mobility, speech, and daily function after stroke.', img: 'https://chivacare.com/assets/images/geri-stroke.jpg' },
+  { title: 'Fall Prevention Program', desc: 'Balance training, strength building, and home safety assessment.', img: 'https://chivacare.com/assets/images/geri-fall.jpg' },
+  { title: 'Cognitive Stimulation', desc: 'Activities and exercises to preserve cognitive function in early dementia.', img: 'https://chivacare.com/assets/images/geri-cognitive.jpg' },
+  { title: 'Chronic Pain Management', desc: 'Specialized pain management for older adults with arthritis and chronic conditions.', img: 'https://chivacare.com/assets/images/geri-pain.jpg' },
+  { title: 'Post-surgical Recovery', desc: 'Recovery programs after joint replacement and other surgical procedures.', img: 'https://chivacare.com/assets/images/geri-surgery.jpg' },
+  { title: 'Caregiver Education', desc: 'Training and support for family caregivers.', img: 'https://chivacare.com/assets/images/geri-caregiver.jpg' },
 ];
 ---
 
-<Layout title="Geriatric Rehabilitation Center">
-  <!-- Hero -->
-  <section class="relative py-28 overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/images/service-3.jpg" alt="Geriatric Rehabilitation" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-[#3a7ca5]/80"></div>
-    </div>
-    <div class="section-container relative z-10 text-center text-white">
-      <span class="text-white/70 font-extrabold uppercase tracking-[0.2em] text-[13px]">Elderly Care</span>
-      <h1 class="text-[36px] md:text-[56px] font-bold mt-4 mb-6">Geriatric Rehabilitation Center</h1>
-      <p class="text-[18px] opacity-90 max-w-3xl mx-auto">
-        Specialized multidisciplinary care for elderly patients — combining neurology, geriatric medicine, and therapy to enhance mobility and quality of life.
-      </p>
+<Layout
+  title="Geriatric Rehabilitation Center - Chivacare Chiang Mai"
+  description="Comprehensive rehabilitation programs for older adults: post-stroke recovery, fall prevention, cognitive stimulation, and caregiver support."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Geriatric Rehabilitation Center</h1>
+      <p>Specialized care for older adults to maintain independence and quality of life.</p>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="py-20 bg-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="space-y-8">
-          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Our Approach</span>
-          <h2 class="text-[30px] md:text-[40px] font-bold text-primary leading-tight">Holistic Care for Seniors</h2>
-          <p class="text-[17px] leading-relaxed text-text-body">
-            At ChivaCare, we understand the unique health challenges faced by the elderly. Our Geriatric Rehabilitation Center takes a multidisciplinary approach, combining neurology, geriatric medicine, physical therapy, and occupational therapy.
-          </p>
-          <p class="text-[17px] leading-relaxed text-text-body">
-            Our goal is to help senior patients regain their independence, restore mobility, and live a full, active life — with dignity and confidence.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            {['Doctor-supervised', 'Multidisciplinary team', 'Personalized programs', 'Evidence-based'].map(tag => (
-              <span class="bg-accent text-primary px-4 py-2 rounded-full text-[13px] font-bold">{tag}</span>
-            ))}
-          </div>
-          <a href="/contact" class="chiva-btn chiva-btn-primary inline-flex !px-10 !py-4">Book a Consultation</a>
-        </div>
-        <div class="relative">
-          <div class="absolute -top-6 -right-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
-          <img src="/images/service-4.jpg" alt="Geriatric Care Team" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="py-20 bg-accent">
-    <div class="section-container">
-      <div class="text-center mb-14">
-        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Our Programs</span>
-        <h2 class="text-[28px] md:text-[38px] font-bold text-primary mt-3">Specialized Services</h2>
-        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mt-5"></div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map(s => (
-          <div class="bg-white p-8 rounded-2xl shadow-chiva hover:-translate-y-2 hover:shadow-chiva-hover transition-all border-t-4 border-[#5fa8d3]">
-            <div class="text-3xl mb-4">{s.icon}</div>
-            <h3 class="text-[19px] font-bold text-primary mb-3">{s.title}</h3>
-            <p class="text-text-body text-[14px] leading-relaxed">{s.desc}</p>
+  <section style="padding:60px 0;">
+    <div class="container">
+      <h2 style="color:#30c1b8;margin-bottom:30px;">Our Programs</h2>
+      <div class="row">
+        {programs.map((p) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
+            <img src={p.img} alt={p.title} class="img-responsive" style="border-radius:8px;margin-bottom:15px;" />
+            <h4 style="color:#30c1b8;">{p.title}</h4>
+            <p>{p.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section class="py-20 bg-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <img src="/images/service-3.jpg" alt="Geriatric Care" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
-        <img src="/images/service-4.jpg" alt="Elderly Rehabilitation" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
-        <img src="/images/category-pt.jpg" alt="Mobility Training" class="w-full rounded-2xl shadow-chiva object-cover aspect-video" />
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-20 bg-[#3a7ca5] text-white text-center">
-    <div class="section-container space-y-8">
-      <h2 class="text-[28px] md:text-[38px] font-bold">Give your loved ones the care they deserve</h2>
-      <p class="opacity-90 max-w-xl mx-auto text-[17px]">Contact us to learn more about our geriatric programs and how we can help your family member.</p>
-      <div class="flex flex-wrap gap-5 justify-center">
-        <a href="/contact" class="chiva-btn bg-white text-[#3a7ca5] hover:bg-secondary hover:text-white !px-10 !py-4 text-[17px]">Book an Appointment</a>
-        <a href="tel:+66969800126" class="chiva-btn border-2 border-white text-white hover:bg-white hover:text-[#3a7ca5] !px-10 !py-4 text-[17px]">+66 96-980-0126</a>
-      </div>
+  <section style="padding:60px 0;background:#f7fafc;">
+    <div class="container text-center">
+      <h3>Start Your Loved One's Journey to Recovery</h3>
+      <p>Speak with our geriatric specialists today.</p>
+      <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="btn btn-primary btn-lg">Contact on Line</a>
     </div>
   </section>
 </Layout>

@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const conditions = [
+  { title: 'Depression', desc: 'Comprehensive treatment combining medication, psychotherapy, and TMS for treatment-resistant cases.', img: 'https://chivacare.com/assets/images/brain-depression.jpg' },
+  { title: 'Insomnia', desc: 'Evidence-based treatment with CBT-I, sleep hygiene coaching, and TMS therapy when appropriate.', img: 'https://chivacare.com/assets/images/brain-insomnia.jpg' },
+  { title: 'Stroke', desc: 'Acute care coordination, rehabilitation, and secondary prevention to maximize recovery.', img: 'https://chivacare.com/assets/images/brain-stroke.jpg' },
+  { title: 'Dementia', desc: 'Memory assessment, diagnosis, and tailored care plans for patients and families.', img: 'https://chivacare.com/assets/images/brain-dementia.jpg' },
+  { title: 'Parkinson\'s Disease', desc: 'Medication management, movement therapy, and long-term follow-up by movement disorder specialists.', img: 'https://chivacare.com/assets/images/brain-parkinson.jpg' },
+  { title: 'Migraine & Headache', desc: 'Specialist care for migraine, cluster headache, tension headache, and chronic daily headache.', img: 'https://chivacare.com/assets/images/brain-migraine.jpg' },
+];
+---
+
+<Layout
+  title="Brain & Nervous System Clinic - Chivacare Chiang Mai"
+  description="Specialist clinic for migraine, stroke, depression, insomnia, dementia, Parkinson's, and other neurological conditions."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Brain & Nervous System Clinic</h1>
+      <p>Diagnosis and treatment of brain and nervous system disorders by board-certified neurologists.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <h2 style="color:#30c1b8;margin-bottom:30px;">Conditions We Treat</h2>
+      <div class="row">
+        {conditions.map((c) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
+            <img src={c.img} alt={c.title} class="img-responsive" style="border-radius:8px;margin-bottom:15px;" />
+            <h4 style="color:#30c1b8;">{c.title}</h4>
+            <p>{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;background:#f7fafc;">
+    <div class="container text-center">
+      <h3>Book a Consultation</h3>
+      <p>Talk to our specialists about your symptoms.</p>
+      <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="btn btn-primary btn-lg">Contact on Line</a>
+    </div>
+  </section>
+</Layout>

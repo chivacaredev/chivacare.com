@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const assessments = [
+  {
+    title: 'Depression Self-Assessment (PHQ-9)',
+    desc: 'A 9-item screening tool to check whether you may be experiencing symptoms of depression.',
+    img: 'https://chivacare.com/assets/images/assessment-depression.jpg',
+    link: '#',
+  },
+  {
+    title: 'Anxiety Self-Assessment (GAD-7)',
+    desc: 'A 7-item screening tool to evaluate symptoms of generalized anxiety disorder.',
+    img: 'https://chivacare.com/assets/images/assessment-anxiety.jpg',
+    link: '#',
+  },
+  {
+    title: 'Insomnia Severity Index',
+    desc: 'Assess the severity of your sleep difficulties and their impact on daily life.',
+    img: 'https://chivacare.com/assets/images/assessment-insomnia.jpg',
+    link: '#',
+  },
+  {
+    title: 'Office Syndrome Risk Check',
+    desc: 'Evaluate your risk of developing office syndrome from prolonged desk work.',
+    img: 'https://chivacare.com/assets/images/assessment-office.jpg',
+    link: '#',
+  },
+  {
+    title: 'Stroke Risk Assessment',
+    desc: 'Identify your risk factors for stroke and learn how to reduce them.',
+    img: 'https://chivacare.com/assets/images/assessment-stroke.jpg',
+    link: '#',
+  },
+  {
+    title: 'Dementia Screening (MMSE)',
+    desc: 'Initial screening for cognitive impairment and early signs of dementia.',
+    img: 'https://chivacare.com/assets/images/assessment-dementia.jpg',
+    link: '#',
+  },
+];
+---
+
+<Layout
+  title="Self-Assessment - Chivacare Chiang Mai"
+  description="Free online self-assessments for depression, anxiety, insomnia, office syndrome, stroke risk, and dementia screening."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Self-Assessment</h1>
+      <p>Take a free screening test to better understand your health. Results are not a diagnosis - please consult our specialists for proper evaluation.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {assessments.map((a) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;height:100%;">
+              <img src={a.img} alt={a.title} class="img-responsive" style="width:100%;height:200px;object-fit:cover;" />
+              <div style="padding:20px;">
+                <h4 style="color:#30c1b8;">{a.title}</h4>
+                <p>{a.desc}</p>
+                <a href={a.link} class="btn btn-primary btn-sm">Start Assessment</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

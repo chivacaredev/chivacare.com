@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const news = [
+  { title: 'Chivacare Launches New TMS Brain Center', date: 'June 5, 2024', img: 'https://chivacare.com/assets/images/news-1.jpg', desc: 'Our new TMS center in Chiang Mai offers cutting-edge treatment for depression and chronic insomnia.' },
+  { title: 'Community Free Brain Health Screening Event', date: 'May 18, 2024', img: 'https://chivacare.com/assets/images/news-2.jpg', desc: 'We hosted a free brain health screening event in collaboration with local community organizations.' },
+  { title: 'New Geriatric Rehabilitation Program Launched', date: 'April 22, 2024', img: 'https://chivacare.com/assets/images/news-3.jpg', desc: 'Chivacare welcomes seniors to our newly designed rehabilitation program tailored for elderly patients.' },
+  { title: 'Medical Conference: Modern Pain Management', date: 'March 30, 2024', img: 'https://chivacare.com/assets/images/news-4.jpg', desc: 'Our physicians presented at the annual conference on advances in pain management therapy.' },
+];
+---
+
+<Layout
+  title="News & Events - Chivacare Chiang Mai"
+  description="Latest news, clinic updates, and community events at Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">News & Events</h1>
+      <p>Latest news and updates from Chivacare.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {news.map((n) => (
+          <div class="col-md-6" style="margin-bottom:30px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;display:flex;height:100%;">
+              <img src={n.img} alt={n.title} style="width:200px;height:200px;object-fit:cover;" />
+              <div style="padding:20px;">
+                <p style="color:#999;font-size:0.85em;margin-bottom:5px;">{n.date}</p>
+                <h4 style="color:#30c1b8;">{n.title}</h4>
+                <p>{n.desc}</p>
+                <a href="#" class="btn btn-link" style="padding-left:0;">Read more &rarr;</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

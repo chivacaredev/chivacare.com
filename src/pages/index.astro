@@ -1,327 +1,581 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Promotion cards data (titles + descriptions translated from the original site)
+const promotions = [
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671434_.jpg', title: 'Pain Relief Program', desc: '', link: '/promotions/pain-relief' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671343_clip.jpg', title: 'Shockwave Program', desc: '', link: '/promotions/shockwave' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671303_clip.jpg', title: 'Intensive Pain Treatment Program', desc: '', link: '/promotions/intensive-pain' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671270_clip.jpg', title: 'Deep Pain & Muscle Tension Relief x 2', desc: '', link: '/promotions/deep-pain-relief' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671229_clip.jpg', title: 'Dry Needling (Western Acupuncture)', desc: 'Pinpoint deep pain relief', link: '/promotions/dry-needling' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671180_clip.jpg', title: 'Depression Treatment Package', desc: 'Treat depression with electromagnetic wave technology', link: '/promotions/depression-package' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750671106_clip.jpg', title: 'TMS Program for Insomnia', desc: 'TMS technology stimulates the brain with electromagnetic waves', link: '/promotions/tms-insomnia' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750649404_clip.jpg', title: 'Insomnia Relief, No Medication Needed', desc: '', link: '/promotions/insomnia-no-meds' },
+  { img: 'https://chivacare.com/assets/uploads/img_advertiser/promo/1750648234_clip.jpg', title: 'IV Therapy — Vitamin Drip', desc: 'Replenish vitamins for a stronger body', link: '/promotions/iv-therapy' },
+];
+
+// Brain & Nervous System conditions
+const brainConditions = [
+  { img: 'https://chivacare.com/assets/uploads/img_service/1720844790_clip.jpg', title: 'Depression', desc: 'A mood disorder marked by persistent sadness that affects thoughts, feelings, and behavior.', link: '/services/depression' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1720844262_clip.jpg', title: 'Insomnia', desc: 'A condition where patients cannot fall asleep, have poor sleep quality, or take more than 20 minutes to fall asleep.', link: '/services/insomnia' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620375204_.jpg', title: 'Stroke', desc: 'A condition where the brain is deprived of blood due to narrowed, blocked, or ruptured blood vessels, damaging brain tissue and disrupting brain function.', link: '/services/stroke' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620375189_.jpg', title: 'Dementia', desc: 'A group of symptoms caused by various disorders that affect the brain, impacting thinking, behavior, and the ability to perform daily activities.', link: '/services/dementia' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620375177_.jpg', title: "Parkinson's Disease", desc: 'A degenerative brain disease where certain nerve cells die, reducing the amount of dopamine — a neurotransmitter in the brain.', link: '/services/parkinsons' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620374818_.jpg', title: 'Migraine', desc: 'Migraine is caused by abnormal constriction and dilation of arteries in the brain, leading to severe, rapid-onset headaches with nausea and vomiting.', link: '/services/migraine' },
+];
+
+// Physical Therapy conditions
+const physicalConditions = [
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620973383_.jpg', title: 'Tennis Elbow (Lateral Epicondylitis)', desc: 'A common condition in people who use their wrists and elbows frequently — whether in heavy or light work involving repetitive gripping motions.', link: '/services/tennis-elbow' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620446495_.jpg', title: 'Carpal Tunnel Syndrome', desc: 'A nerve compression condition at the wrist caused by thickening of the connective tissue around the joint.', link: '/services/carpal-tunnel' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620446506_.jpg', title: 'Frozen Shoulder', desc: 'Adhesive Capsulitis (Frozen Shoulder) is a condition with limited shoulder joint movement.', link: '/services/frozen-shoulder' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620377943_.jpg', title: 'Hip Osteoarthritis', desc: 'A form of arthritis caused by the cartilage covering the joint surface wearing away from various causes.', link: '/services/hip-osteoarthritis' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620377995_.jpg', title: 'Knee Osteoarthritis', desc: 'A condition where the cartilage of the knee joint slowly wears down and worsens over time — commonly found in the elderly.', link: '/services/knee-osteoarthritis' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620378034_.jpg', title: 'Degenerative Spine Disease', desc: 'Caused by degeneration of the spinal joints and intervertebral discs in the cervical, thoracic, and lumbar regions.', link: '/services/spine-degeneration' },
+  { img: 'https://chivacare.com/assets/uploads/img_service/1620378076_.jpg', title: 'Office Syndrome', desc: 'A group of conditions caused by unsuitable work habits, such as sitting at a desk for many consecutive hours.', link: '/services/office-syndrome' },
+];
+
+// Video clips
+const videos = [
+  { embed: 'https://www.youtube.com/embed/vPHTu15GneQ', title: 'ChivaCare : Shock Wave Therapy — Pain Relief with Shockwave' },
+  { embed: 'https://www.youtube.com/embed/cJkqFgvlVd0', title: "Dementia and Forgetfulness — What Are They? [Asst. Prof. Dr. Surat Tanprawate] — ChivaCare" },
+  { embed: 'https://www.youtube.com/embed/lsw_6dvB568', title: 'Dementia and Forgetfulness — What Are They? [Asst. Prof. Dr. Surat Tanprawate]' },
+  { embed: 'https://www.youtube.com/embed/McTHxn94ArQ', title: 'Plantar Fasciitis — Treatment with Shockwave' },
+  { embed: 'https://www.youtube.com/embed/3xBQ1eSXyGI', title: 'Self-care During COVID' },
+  { embed: 'https://www.youtube.com/embed/KYDIsqfVw-M', title: 'Shoulder and Joint Post-Surgery Rehabilitation Program' },
+];
+
+// Blog (health articles)
+const blogPosts = [
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1777097794_.jpg', title: 'Stiff Tongue, Difficulty Speaking and Swallowing: Warning Signs You Shouldn\'t Ignore — and the Role of Occupational Therapists in Recovery', desc: 'Stiff tongue, slurred speech, swallowing difficulty — is it dangerous? Learn causes, symptoms, and detailed rehab approaches by occupational therapists.', link: '/blog/swallowing-rehab' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1769481720_clip.jpg', title: "Saying Goodbye to the 'Pain-Massage-Pain' Loop: Why Physical Therapy Is the Only Way Out for Office Syndrome Sufferers", desc: 'Tired of massages that don\'t bring lasting relief? Learn the root causes of office syndrome and how physical therapy solves the problem.', link: '/blog/office-syndrome-pt' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1769295467_.jpg', title: 'PMS Device for Pain, Numbness, and Office Syndrome', desc: 'A new technology that sends electromagnetic waves to stimulate parts of the body, treating pain and numbness.', link: '/blog/pms-device' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1634630572_.jpg', title: 'Stroke Rehabilitation with TMS Technology', desc: 'There are many ways to treat stroke patients today, including TMS.', link: '/blog/stroke-tms' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1634630351_.jpg', title: 'Innovative Migraine Relief with TMS', desc: 'Migraines disrupting your daily life — having to take medication all the time? Say goodbye to migraines with the new TMS technology!', link: '/blog/migraine-tms' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1630908030_.jpg', title: 'Treating "Depression and Insomnia" Without Medication', desc: 'If you\'re experiencing stress, depression, loss of appetite, insomnia, or restlessness…', link: '/blog/depression-no-meds' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1630219036_.jpg', title: 'TMS: Another Option for Treating Hemiparesis and Paralysis', desc: 'In stroke patients, TMS therapy can improve weakness that affects daily life.', link: '/blog/tms-stroke-rehab' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1629654445_.jpg', title: 'Warning! Premature Knee Osteoarthritis — Prevention Is Better Than Cure', desc: 'Knee osteoarthritis is a common issue, especially in seniors, and significantly affects daily life.', link: '/blog/knee-prevention' },
+  { img: 'https://chivacare.com/assets/uploads/img_blog/1629195092_.jpg', title: 'Reducing Migraine Pain with Shockwave?', desc: 'Migraines can come from many causes — over 50% of migraine sufferers also have office syndrome.', link: '/blog/migraine-shockwave' },
+];
+
+// Patient reviews
+const reviews = [
+  { img: 'https://chivacare.com/assets/uploads/img_review/1617955025_.jpg', name: 'Khun Mod', desc: 'Targeted recovery. From unbearable pain that prevented me from sleeping and made me leave my job, I\'m now much better.' },
+  { img: 'https://chivacare.com/assets/uploads/img_review/1619754235_.jpg', name: 'Khun Sasikan', desc: 'Excellent care and consultations. My pain has improved significantly. Truly the most attentive patient care.' },
+];
 ---
 
-<Layout title="Home">
-  <!-- Hero Section -->
-  <section class="relative h-[65vh] md:h-[90vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img
-        src="/images/bg-teams.jpg"
-        alt="ChivaCare Clinic"
-        class="absolute w-full h-full object-cover object-center"
-      />
-      <div class="absolute inset-0 bg-primary/60"></div>
-    </div>
+<Layout title="Brain Clinic, Physical Therapy Clinic, TMS Brain Center - Chivacare Chiang Mai">
+  <div id="notificator" class="alert"></div>
 
-    <div class="section-container relative z-10 w-full">
-      <div class="max-w-[750px] text-white">
-        <h1 class="text-[40px] md:text-[68px] font-bold leading-[1.1] mb-6">
-          ChivaCare <br/>
-          Brain and Pain Center
-        </h1>
-        <p class="text-[20px] md:text-[26px] font-medium mb-10 opacity-95">
-          Every treatment step supervised by physicians.<br/>
-          <span class="text-secondary">If the pain won't go away, consult us.</span>
-        </p>
-        <div class="flex flex-wrap gap-5">
-          <a href="/contact" class="chiva-btn chiva-btn-primary min-w-[200px] py-4 text-[18px]">
-            Make Appointment
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Hero / About Section -->
+      <section class="main-clinic">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="about" id="aboutus">
+              <div class="col-md-12 col-sm-12 box-icon-wrapper">
+                <div class="chiva-icon text-center _pdt-15px">
+                  <a href="/appointment" target="_blank" title="Book Appointment" class="_text_bluegreen _text_bluegreen-d">
+                    <span class="icon_calendar _bgc-blue _bgc-blue-d"></span>
+                    <h4>Book Appointment</h4>
+                  </a>
+                  <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" title="Order Medication" class="_text_black _text_bluegreen-d">
+                    <span class="icon_pill _bgc-black _bgc-blue-d"></span>
+                    <h4>Order Medication</h4>
+                  </a>
+                  <a href="/contactus" target="_blank" title="Contact Us" class="_text_yellow _text_bluegreen-d">
+                    <span class="icon_contactus _bgc-yellow _bgc-blue-d"></span>
+                    <h4>Contact Us</h4>
+                  </a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 _pdlr25px text-justify">
+                <h1 class="scrollanimation animated fadeIn adl-1 _title-h _fw-700" style="text-align: center;">
+                  Chivacare — Brain & Pain Management Center
+                </h1>
+                <p class="scrollanimation animated fadeIn adl-2">
+                  Chivacare focuses on care delivered by board-certified specialist physicians in neurology and geriatric medicine, supported by experienced physical and occupational therapists. We provide treatment, rehabilitation, physical therapy, occupational therapy, medical massage, neurological disorder care, and orthopedic recovery.
+                </p>
+                <h3 class="scrollanimation animated fadeIn adl-3 _title-1 _fw-700-m" style="text-align: center;">
+                  Every step of treatment is supervised by physicians
+                </h3>
+                <div class="text-center _pdv-15px">
+                  <button class="primary-btn -solid _bdrd-16px _pdtb-10px _bgb_blue" type="button">
+                    <span class="-text _fs18 _fw500">"Pain that won't go away? Talk to us."</span>
+                  </button>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <div class="video scrollanimation animated fadeInRight adl-1">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KYDIsqfVw-M" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Promotions -->
+      <section class="main-promotion mbg-48px">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12 highlight-wrapper">
+              <div class="head-title">
+                <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Promotions</h2>
+              </div>
+              <div class="swiper-container promotions-swiper mtg-48px mbg-38px">
+                <div class="swiper-wrapper">
+                  {promotions.map((p) => (
+                    <div class="swiper-slide">
+                      <div class="content-wrapper">
+                        <a href={p.link} target="_blank">
+                          <img class="img-responsive" alt={p.title} title={p.title} src={p.img} />
+                        </a>
+                        <div class="col-md-12 col-sm-12 no-padding">
+                          <div class="box-btn-booking text-center">
+                            <a href="/appointment">
+                              <button type="button" class="primary-btn -solid">
+                                <span class="-text _fs18 _fw500">Book Appointment</span>
+                              </button>
+                            </a>
+                          </div>
+                          <a href={p.link} target="_blank"><h4>{p.title}</h4></a>
+                          <p>{p.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 _pdb-15px">
+                <a href="/promotions" class="btn-wrapper has-text-blue-primary pull-right">
+                  <span class="-text">View More Promotions <i class="ion-chevron-right"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Chivacare -->
+      <section class="main-why mbg-48px" id="main-why">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12">
+            <div class="head-title">
+              <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Why Choose Chivacare</h2>
+            </div>
+            <div class="mtg-48px">
+              <div class="pre-icons _pdlr20px">
+                <div class="pre-icons-list">
+                  <div class="pre-icons-item col-md-4 col-sm-4">
+                    <a href="#">
+                      <div class="pre-icons-img-wrapper"><i class="fa fa-users" aria-hidden="true"></i></div>
+                      <div class="pre-icons-title">Warm, Personalized Service</div>
+                    </a>
+                  </div>
+                  <div class="pre-icons-item col-md-4 col-sm-4">
+                    <a href="#">
+                      <div class="pre-icons-img-wrapper"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                      <div class="pre-icons-title">High Standards & Certified Credentials</div>
+                    </a>
+                  </div>
+                  <div class="pre-icons-item col-md-4 col-sm-4">
+                    <a href="#">
+                      <div class="pre-icons-img-wrapper"><i class="fa fa-money"></i></div>
+                      <div class="pre-icons-title">Accessible, Affordable Pricing</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="text-justify">
+                  <p>• Chivacare's physical therapy programs are designed by nationally renowned specialist physicians in brain and neurological disorders, together with rehabilitation specialists and highly experienced physical therapists — allowing us to treat conditions precisely. Our physical therapists are trained in the Swiss DolorClast method, expert in using shockwave therapy for pain relief.</p>
+                  <p>• Chivacare is run by a team of specialist physicians in brain and nervous system disorders alongside rehabilitation physicians experienced in geriatric medicine and stroke recovery — including hemiparesis, paralysis, and other brain conditions.</p>
+                  <p>• Chivacare uses modern, medically certified equipment, such as TMS for brain treatment with electromagnetic waves, Shockwave for muscular treatment, and NCV-EMG for nerve and muscle assessment.</p>
+                  <p>• Chivacare — Brain & Physical Therapy Clinic in Chiang Mai — is located in the heart of Chiang Mai (Sirimangkalajarn Road), in a tourist and medical hub area. It's easy and safe to reach, and close to your doctor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="clearfix"></div>
+
+      <!-- Doctors banner -->
+      <section class="main-doctor">
+        <div class="_pdvrm-15px">
+          <div class="container">
+            <div class="single_banner _bg_g">
+              <img src="https://chivacare.com/assets/uploads/img_advertiser/bg-teams.jpg" alt="Medical Team" />
+              <div class="single_banner_info _single_banner_info _pdl-55px text-center">
+                <h4 class="single_bn_title1 text-center _color_white">Our Expert Medical Team</h4>
+                <a href="/teams" class="text-center">
+                  <button type="button" class="primary-btn -solid _bgb_blue">
+                    <span class="-text _fs18 _fw500">Meet Our Medical Team</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </section>
+
+      <div class="clearfix"></div>
+
+      <!-- Certificates -->
+      <section class="main-cert">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12 text-center mbg-48px">
+            <div class="head-title">
+              <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">CERTIFICATIONS FROM LEADING INSTITUTIONS</h2>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="owl-cert owl-carousel">
+                <div class="col-md-12 col-sm-12"><img alt="Certificate" class="img-responsive" src="https://chivacare.com/assets/uploads/img_cert/cert-1.jpg" /></div>
+                <div class="col-md-12 col-sm-12"><img alt="Certificate" class="img-responsive" src="https://chivacare.com/assets/uploads/img_cert/cert-2.jpg" /></div>
+                <div class="col-md-12 col-sm-12"><img alt="Certificate" class="img-responsive center-block" src="https://chivacare.com/assets/uploads/img_cert/cert-3.jpg" /></div>
+                <div class="col-md-12 col-sm-12"><img alt="Certificate" class="img-responsive" src="https://chivacare.com/assets/uploads/img_cert/cert-4.jpg" /></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="clearfix"></div>
+
+      <!-- Services with tabs -->
+      <section class="main-services mtg-48px">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12 highlight-wrapper no-padding">
+              <div class="head-title mbg-38px _pdlr24">
+                <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Our Services</h2>
+              </div>
+              <div class="tabbable-panel">
+                <div class="tabbable-line">
+                  <ul class="nav nav-tabs _pdlr24">
+                    <li class="active"><a href="#tab_default_0" class="primary-btn -solid _fs18 _fw500 text-center" data-toggle="tab">Brain & Nervous System Clinic</a></li>
+                    <li><a href="#tab_default_1" class="primary-btn -solid _fs18 _fw500 text-center" data-toggle="tab">Physical & Occupational Therapy Clinic</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <!-- Tab 1: Brain Clinic -->
+                    <div class="tab-pane animated fadeIn active" id="tab_default_0">
+                      <div>
+                        <div class="col-md-3 col-sm-3 _pdlr24">
+                          <img style="margin: 0 0 15px;" class="img-responsive" src="https://chivacare.com/assets/uploads/img_service/1623824442_category.jpg" alt="Brain & Nervous System Clinic" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 _pdlr24">
+                          <h3>Brain & Nervous System Clinic</h3>
+                          <div class="mbg-38px">
+                            <p>The Brain Clinic, a branch of Chivacare, was founded in 2016 by Asst. Prof. Dr. Surat Tanprawate. The clinic provides professional diagnosis, investigation, and treatment for a wide range of brain and nervous system disorders — including dementia, Alzheimer's disease, migraine, Parkinson's disease, stroke, hemiparesis and paralysis rehabilitation, and related conditions.</p>
+                            <p>&nbsp;</p>
+                          </div>
+                          <div class="col-md-12 col-sm-12 _pdb24">
+                            <a href="/services/brain-clinic" class="btn-wrapper has-text-blue-primary pull-right">
+                              <span class="-text ellipsis">Read More &gt;&gt;&gt;</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-12 col-sm-12 _pdlr24">
+                        <div class="head-title _mgt-0px">
+                          <h4>Brain & Nervous System Conditions We Treat</h4>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="_pdlr24 _mgt-16px">
+                        <div class="swiper-container brain-swiper mbg-38px">
+                          <div class="swiper-wrapper">
+                            {brainConditions.map((c) => (
+                              <div class="swiper-slide">
+                                <div class="content-wrapper">
+                                  <a class="link" href={c.link} target="_blank">
+                                    <img style="margin: 0 0 15px;" class="img-responsive" src={c.img} alt={c.title} title={c.title} />
+                                  </a>
+                                  <div class="col-md-12 col-sm-12">
+                                    <a class="link" href={c.link} target="_blank">
+                                      <h4>{c.title}</h4>
+                                      <p>{c.desc}</p>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-button-next swiper-button-black"></div>
+                          <div class="swiper-button-prev swiper-button-black"></div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 _pdb24">
+                          <a href="/services/brain-clinic" class="btn-wrapper has-text-blue-primary pull-right">
+                            <span class="-text ellipsis">View More Brain & Nervous System Services <i class="ion-chevron-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Tab 2: Physical Therapy -->
+                    <div class="tab-pane animated fadeIn" id="tab_default_1">
+                      <div>
+                        <div class="col-md-3 col-sm-3 _pdlr24">
+                          <img style="margin: 0 0 15px;" class="img-responsive" src="https://chivacare.com/assets/uploads/img_service/1623824430_category.jpg" alt="Physical & Occupational Therapy Clinic" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 _pdlr24">
+                          <h3>Physical & Occupational Therapy Clinic</h3>
+                          <div class="mbg-38px">
+                            <p>Our Physical and Occupational Therapy clinic is staffed by specialized physical and occupational therapists with expertise in geriatric medicine. The clinic provides assessment, evaluation, and treatment for muscle and bone problems — such as office syndrome, knee osteoarthritis, and back pain or pain in other parts of the body — as well as post-surgical joint and muscle rehabilitation, and neurological pain (e.g., stroke recovery, hemiparesis and paralysis rehabilitation) so that patients can live to their fullest potential.</p>
+                            <p>&nbsp;</p>
+                          </div>
+                          <div class="col-md-12 col-sm-12 _pdb24">
+                            <a href="/services/physical-therapy" class="btn-wrapper has-text-blue-primary pull-right">
+                              <span class="-text ellipsis">Read More &gt;&gt;&gt;</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-12 col-sm-12 _pdlr24">
+                        <div class="head-title _mgt-0px">
+                          <h4>Physical Conditions We Treat</h4>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="_pdlr24 _mgt-16px">
+                        <div class="swiper-container physical-swiper mbg-38px">
+                          <div class="swiper-wrapper">
+                            {physicalConditions.map((c) => (
+                              <div class="swiper-slide">
+                                <div class="content-wrapper">
+                                  <a class="link" href={c.link} target="_blank">
+                                    <img style="margin: 0 0 15px;" class="img-responsive" src={c.img} alt={c.title} title={c.title} />
+                                  </a>
+                                  <div class="col-md-12 col-sm-12">
+                                    <a class="link" href={c.link} target="_blank">
+                                      <h4>{c.title}</h4>
+                                      <p>{c.desc}</p>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-button-next swiper-button-black"></div>
+                          <div class="swiper-button-prev swiper-button-black"></div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 _pdb24">
+                          <a href="/services/physical-therapy" class="btn-wrapper has-text-blue-primary pull-right">
+                            <span class="-text ellipsis">View More Physical & Occupational Therapy Services <i class="ion-chevron-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center mtg-48px mbg-48px">
+          <a href="/appointment" class="text-center">
+            <button type="button" class="primary-btn -solid">
+              <span class="-text _fs18 _fw500">Book Appointment</span>
+            </button>
           </a>
-          <a href="/services/brain-neurology" class="chiva-btn bg-white/20 backdrop-blur-md text-white border border-white/40 hover:bg-white hover:text-primary min-w-[200px] py-4 text-[18px]">
-            Our Services
-          </a>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Why ChivaCare -->
-  <section class="py-16 bg-white border-b border-gray-100">
-    <div class="section-container">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="group">
-          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
-            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
+      <!-- Video Clips -->
+      <section class="main-videoclip mbg-48px">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12 container-overflow">
+            <div class="head-title">
+              <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Chivacare Video Clips</h2>
+            </div>
+            <div class="clearfix"></div>
+            <div class="mtg-48px">
+              <div class="swiper-container videos-swiper custom-overflow">
+                <div class="swiper-wrapper">
+                  {videos.map((v) => (
+                    <div class="swiper-slide _pdv-32px">
+                      <div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src={v.embed} allowfullscreen></iframe>
+                        </div>
+                        <div class="col-md-12 col-sm-12 _pdtb-10px">
+                          <h4>{v.title}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <a href="/video" class="btn-wrapper has-text-blue-primary pull-right">
+                  <span class="-text">View More Videos <i class="ion-chevron-right"></i></span>
+                </a>
+              </div>
+            </div>
           </div>
-          <h3 class="text-[16px] font-bold text-primary mb-2">High Standards</h3>
-          <p class="text-[13px] text-text-body">International medical quality</p>
         </div>
-        <div class="group">
-          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
-            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-[16px] font-bold text-primary mb-2">Expert Team</h3>
-          <p class="text-[13px] text-text-body">Experienced specialists</p>
-        </div>
-        <div class="group">
-          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
-            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-[16px] font-bold text-primary mb-2">Warm Service</h3>
-          <p class="text-[13px] text-text-body">Caring like family</p>
-        </div>
-        <div class="group">
-          <div class="w-20 h-20 bg-accent rounded-[24px] shadow-chiva flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary">
-            <svg class="w-10 h-10 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-[16px] font-bold text-primary mb-2">Affordable</h3>
-          <p class="text-[13px] text-text-body">Fair and clear pricing</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Promotions Section -->
-  <section class="py-20 md:py-28 bg-accent">
-    <div class="section-container">
-      <div class="text-center mb-14">
-        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Limited Time</span>
-        <h2 class="text-[32px] md:text-[42px] font-bold text-primary mt-3 mb-5">Special Promotions</h2>
-        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Pain Relief -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-1.jpg" alt="Pain Relief Program" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">Pain Relief Program</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">Comprehensive pain management program combining physical therapy and advanced pain relief techniques.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+      <!-- Blog / Health Articles -->
+      <section class="main-blog mbg-48px">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12 container-overflow">
+            <div class="head-title">
+              <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Health Articles</h2>
+            </div>
+            <div class="swiper-container blog-swiper custom-overflow mtg-48px">
+              <div class="swiper-wrapper">
+                {blogPosts.map((b) => (
+                  <div class="swiper-slide _pdv-32px">
+                    <div class="_h-100pct">
+                      <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                        <a href={b.link} target="_blank">
+                          <img class="img-responsive" src={b.img} alt={b.title} title={b.title} />
+                        </a>
+                        <div class="col-md-12 col-sm-12">
+                          <a class="link" href={b.link} target="_blank">
+                            <h4 class="title ellipsis">{b.title}</h4>
+                          </a>
+                          <p>{b.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next swiper-button-black"></div>
+              <div class="swiper-button-prev swiper-button-black"></div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <a href="/blog" class="btn-wrapper has-text-blue-primary pull-right">
+                <span class="-text">View More Articles <i class="ion-chevron-right"></i></span>
+              </a>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Shockwave -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-2.jpg" alt="Shockwave Program" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">Shockwave Therapy</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">Advanced shockwave treatment targeting deep muscle and tendon pain for rapid, lasting relief.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+      <!-- Reviews -->
+      <section class="main-reviews mbg-48px">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12 container-overflow">
+            <div class="head-title">
+              <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Patient Reviews</h2>
+            </div>
+            <div class="_pst-rlt _w-100pct">
+              <div class="swiper-container reviews-swiper custom-overflow mtg-48px">
+                <div class="swiper-wrapper">
+                  {reviews.map((r) => (
+                    <div class="swiper-slide _pdv-32px">
+                      <div>
+                        <a href={`/reviews/${r.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+                            <div><img class="img-responsive" src={r.img} alt={r.name} title={r.name} /></div>
+                            <div class="col-md-12 col-sm-12">
+                              <h4>{r.name}</h4>
+                              <p>{r.desc}</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <a href="/reviews" class="btn-wrapper has-text-blue-primary pull-right">
+                  <span class="-text">View More Reviews <i class="ion-chevron-right"></i></span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Intensive Pain -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-3.jpg" alt="Intensive Pain Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Best Value</div>
+      <!-- About Us -->
+      <section class="main-aboutus">
+        <div class="container _pdvrm-15px">
+          <div class="col-md-12 col-sm-12 head-title">
+            <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">About Us</h2>
           </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">Intensive Pain Treatment</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">Full-spectrum pain treatment program for chronic or severe conditions. Doctor-supervised at every step.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
+          <div class="clearfix"></div>
+          <div class="mtg-48px">
+            <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+              <div class="chiva-icon2 text-center">
+                <a href="#aboutus" class="page-scroll" title="About Chivacare">
+                  <span class="icon_buildingclinic"></span>
+                  <h4>About Chivacare</h4>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+              <div class="chiva-icon2 text-center">
+                <a href="#main-why" class="page-scroll" title="Why Chivacare">
+                  <span class="icon_hartdoctor"></span>
+                  <h4>Why Choose Chivacare</h4>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+              <div class="chiva-icon2 text-center">
+                <a href="/teams" title="Expert Doctors">
+                  <span class="icon_doctor"></span>
+                  <h4>Expert Doctors</h4>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+              <div class="chiva-icon2 text-center">
+                <a href="https://www.google.com/maps/place/ChivaCare+Medical+%26+Physical+Therapy+Clinic/@18.793752,98.971779,17z" target="_blank" title="Map">
+                  <span class="icon_location"></span>
+                  <h4>Location Map</h4>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Dry Needling -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-5.jpg" alt="Dry Needling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Promotion</div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">Dry Needling</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">Western-style acupuncture precisely targeting trigger points for deep muscle pain relief.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
-          </div>
-        </div>
-
-        <!-- TMS Depression -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-6.jpg" alt="Depression Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Popular</div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">Depression Treatment Package</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">TMS electromagnetic technology for depression — weekly package, no medication required.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
-          </div>
-        </div>
-
-        <!-- IV Therapy -->
-        <div class="chiva-card group">
-          <div class="relative h-[260px] overflow-hidden">
-            <img src="/images/promo-9.jpg" alt="IV Vitamin Therapy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-extrabold shadow uppercase tracking-wider">Wellness</div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-[20px] font-bold mb-3 text-primary">IV Vitamin Therapy</h3>
-            <p class="mb-6 text-[14px] leading-relaxed">Strengthen your body and brain health with specialized vitamin infusion therapy.</p>
-            <a href="/contact" class="font-bold text-primary hover:text-secondary flex items-center gap-2 transition-colors text-[15px]">Book Now <span>→</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href="/promotions" class="chiva-btn chiva-btn-outline">View All Promotions →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clinic Sections -->
-  <section class="py-28 bg-white overflow-hidden">
-    <div class="section-container">
-      <!-- Brain Clinic -->
-      <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-24 mb-32">
-        <div class="w-full lg:w-1/2 relative">
-          <div class="absolute -top-6 -left-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
-          <img src="/images/category-brain.jpg" alt="Brain and Neurology Clinic" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
-        </div>
-        <div class="w-full lg:w-1/2 space-y-8">
-          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Our Specialized Clinics</span>
-          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
-            Brain and <br/> Neurology Clinic
-          </h2>
-          <p class="text-[18px] leading-[1.8] text-text-body">
-            Founded in 2016 by Assoc. Prof. Dr. Surat Tanprawet. Specialized in comprehensive diagnosis and treatment of neurological disorders — migraines, stroke, Parkinson's, dementia — using modern technologies like TMS brain stimulation.
-          </p>
-          <ul class="space-y-2 text-[16px] text-text-body">
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Dementia & Alzheimer's disease</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Parkinson's disease</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Paralysis rehabilitation</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Depression & Insomnia (TMS)</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Chronic Migraines</li>
-          </ul>
-          <div class="pt-4">
-            <a href="/services/brain-neurology" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
-              Explore Clinic <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
+      <!-- Free consultation CTA -->
+      <section>
+        <div class="container _pdvrm-15px text-center _pdv-32px">
+          <div class="box-consult">
+            <a href="https://line.me/R/ti/p/@sam6768c" target="_blank">
+              <button type="button" class="primary-btn -solid">
+                <span class="-text _fs18 _fw500">Free Consultation <i class="md-chat _fs30"></i></span>
+              </button>
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Physical Therapy -->
-      <div class="flex flex-col lg:flex-row-reverse items-center gap-16 md:gap-24 mb-32">
-        <div class="w-full lg:w-1/2 relative">
-          <div class="absolute -top-6 -right-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
-          <img src="/images/category-pt.jpg" alt="Physical Therapy Clinic" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
-        </div>
-        <div class="w-full lg:w-1/2 space-y-8">
-          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Professional Rehabilitation</span>
-          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
-            Physical and <br/> Occupational Therapy
-          </h2>
-          <p class="text-[18px] leading-[1.8] text-text-body">
-            Personalized recovery programs for office syndrome, chronic pain, and post-surgery rehabilitation. We combine manual therapy with advanced Shockwave, PMS, and Dry Needling treatments.
-          </p>
-          <ul class="space-y-2 text-[16px] text-text-body">
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Office Syndrome & Back Pain</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Frozen Shoulder & Tennis Elbow</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Knee & Hip Osteoarthritis</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Post-surgical Rehabilitation</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Paralysis recovery</li>
-          </ul>
-          <div class="pt-4">
-            <a href="/services/physical-therapy" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
-              Explore Therapy <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Geriatric -->
-      <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
-        <div class="w-full lg:w-1/2 relative">
-          <div class="absolute -top-6 -left-6 w-full h-full border-2 border-secondary/30 rounded-3xl z-0"></div>
-          <img src="/images/service-3.jpg" alt="Geriatric Rehabilitation" class="w-full rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3]" />
-        </div>
-        <div class="w-full lg:w-1/2 space-y-8">
-          <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Elderly Care</span>
-          <h2 class="text-[36px] md:text-[48px] font-bold text-primary leading-[1.15]">
-            Geriatric <br/> Rehabilitation Center
-          </h2>
-          <p class="text-[18px] leading-[1.8] text-text-body">
-            Specialized care and rehabilitation for elderly patients. Our multidisciplinary team combines geriatric medicine, neurology, and physical therapy to improve mobility, independence, and quality of life.
-          </p>
-          <ul class="space-y-2 text-[16px] text-text-body">
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Stroke & Neurological recovery</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Fall prevention & Balance training</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Post-surgical Rehabilitation</li>
-            <li class="flex items-center gap-3"><span class="text-secondary font-bold">✓</span> Functional independence support</li>
-          </ul>
-          <div class="pt-4">
-            <a href="/services/geriatric-rehab" class="chiva-btn chiva-btn-outline group !px-10 !py-4">
-              Explore Center <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-24 bg-accent">
-    <div class="section-container">
-      <div class="text-center mb-14">
-        <span class="text-secondary font-extrabold uppercase tracking-[0.2em] text-[13px]">Patient Stories</span>
-        <h2 class="text-[32px] md:text-[42px] font-bold text-primary mt-3 mb-5">What Our Patients Say</h2>
-        <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-        <div class="bg-white rounded-2xl p-10 shadow-chiva relative">
-          <div class="text-secondary text-[60px] leading-none font-serif absolute top-4 left-8 opacity-20">"</div>
-          <p class="text-[16px] leading-relaxed text-text-body relative z-10 mb-6">
-            "Rehabilitation targeted precisely. Previously suffered unbearable pain, couldn't sleep, had to leave my job. Now I'm back to full health."
-          </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <span class="text-primary font-bold text-[18px]">M</span>
-            </div>
-            <div>
-              <p class="font-bold text-primary">Khun Mod</p>
-              <p class="text-[13px] text-text-body">Pain Rehabilitation Patient</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white rounded-2xl p-10 shadow-chiva relative">
-          <div class="text-secondary text-[60px] leading-none font-serif absolute top-4 left-8 opacity-20">"</div>
-          <p class="text-[16px] leading-relaxed text-text-body relative z-10 mb-6">
-            "Excellent care and advice. My pain improved significantly. The staff is incredibly attentive and patient-focused. Best clinic I've visited."
-          </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <span class="text-primary font-bold text-[18px]">S</span>
-            </div>
-            <div>
-              <p class="font-bold text-primary">Khun Sasikanya</p>
-              <p class="text-[13px] text-text-body">Physical Therapy Patient</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="py-20 bg-primary">
-    <div class="section-container text-center text-white">
-      <h2 class="text-[32px] md:text-[42px] font-bold mb-6">Ready to Start Your Recovery?</h2>
-      <p class="text-[18px] opacity-90 mb-10 max-w-2xl mx-auto">
-        Our specialist team is ready to help you. Located in central Chiang Mai on Sirimangkalajarn Road.
-      </p>
-      <div class="flex flex-wrap gap-5 justify-center">
-        <a href="/contact" class="chiva-btn bg-white text-primary hover:bg-secondary hover:text-white min-w-[220px] py-4 text-[18px]">
-          Make Appointment
-        </a>
-        <a href="tel:+66969800126" class="chiva-btn border-2 border-white text-white hover:bg-white hover:text-primary min-w-[220px] py-4 text-[18px]">
-          Call +66 96-980-0126
-        </a>
-      </div>
-    </div>
-  </section>
+  </div>
 </Layout>

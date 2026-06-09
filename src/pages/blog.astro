@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  { title: 'Understanding Migraine: Causes & Modern Treatments', cat: 'Brain & Nervous System', date: 'June 1, 2024', img: 'https://chivacare.com/assets/images/blog-1.jpg' },
+  { title: 'How TMS Therapy Helps Depression', cat: 'Mental Health', date: 'May 20, 2024', img: 'https://chivacare.com/assets/images/blog-2.jpg' },
+  { title: 'Office Syndrome - Prevention & Self-care', cat: 'Physical Therapy', date: 'May 10, 2024', img: 'https://chivacare.com/assets/images/blog-3.jpg' },
+  { title: 'Stroke Warning Signs You Should Never Ignore', cat: 'Brain & Nervous System', date: 'April 28, 2024', img: 'https://chivacare.com/assets/images/blog-4.jpg' },
+  { title: 'Rehabilitation After Stroke - What to Expect', cat: 'Rehabilitation', date: 'April 15, 2024', img: 'https://chivacare.com/assets/images/blog-5.jpg' },
+  { title: 'Sleep Hygiene: A Doctor\'s Guide to Better Sleep', cat: 'Mental Health', date: 'April 1, 2024', img: 'https://chivacare.com/assets/images/blog-6.jpg' },
+  { title: 'Knee Osteoarthritis - Non-surgical Options', cat: 'Physical Therapy', date: 'March 20, 2024', img: 'https://chivacare.com/assets/images/blog-7.jpg' },
+  { title: 'Parkinson\'s Disease - Early Signs & Management', cat: 'Brain & Nervous System', date: 'March 10, 2024', img: 'https://chivacare.com/assets/images/blog-8.jpg' },
+  { title: 'Dementia in Older Adults - Caregiver Tips', cat: 'Geriatric Care', date: 'March 1, 2024', img: 'https://chivacare.com/assets/images/blog-9.jpg' },
+];
+---
+
+<Layout
+  title="Health Articles - Chivacare Chiang Mai"
+  description="Health articles on brain conditions, mental health, physical therapy, rehabilitation, and geriatric care."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Health Articles</h1>
+      <p>Articles from our medical team on conditions, treatments, and self-care.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {posts.map((p) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;height:100%;">
+              <img src={p.img} alt={p.title} class="img-responsive" style="width:100%;height:200px;object-fit:cover;" />
+              <div style="padding:20px;">
+                <p style="color:#30c1b8;margin-bottom:5px;font-size:0.9em;">{p.cat}</p>
+                <h4>{p.title}</h4>
+                <p style="color:#999;font-size:0.85em;">{p.date}</p>
+                <a href="#" class="btn btn-link" style="padding-left:0;">Read more &rarr;</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
