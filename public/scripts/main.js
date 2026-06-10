@@ -14,7 +14,9 @@ $(document).ready(function () {
   });
 
   $('.item-toggle-button').on('click', function () {
-    $(this).next('.secondary-nav').toggleClass('open');
+    $(this).toggleClass('is-open');
+    $(this).next('.secondary-nav').toggleClass('is-open');
+    $(this).closest('li').toggleClass('is-open');
   });
 
   // Tabs - re-init swiper after tab show

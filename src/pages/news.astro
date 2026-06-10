@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 
 const news = [
-  { title: 'Chivacare Launches New TMS Brain Center', date: 'June 5, 2024', img: 'https://chivacare.com/assets/images/news-1.jpg', desc: 'Our new TMS center in Chiang Mai offers cutting-edge treatment for depression and chronic insomnia.' },
-  { title: 'Community Free Brain Health Screening Event', date: 'May 18, 2024', img: 'https://chivacare.com/assets/images/news-2.jpg', desc: 'We hosted a free brain health screening event in collaboration with local community organizations.' },
-  { title: 'New Geriatric Rehabilitation Program Launched', date: 'April 22, 2024', img: 'https://chivacare.com/assets/images/news-3.jpg', desc: 'Chivacare welcomes seniors to our newly designed rehabilitation program tailored for elderly patients.' },
-  { title: 'Medical Conference: Modern Pain Management', date: 'March 30, 2024', img: 'https://chivacare.com/assets/images/news-4.jpg', desc: 'Our physicians presented at the annual conference on advances in pain management therapy.' },
+  { title: 'Chivacare Introduces TMS Brain Treatment in Chiang Mai', date: 'May 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620375204_.jpg', desc: 'Our TMS center in Chiang Mai offers cutting-edge non-invasive treatment for depression, insomnia, and stroke rehabilitation.' },
+  { title: 'PMS Device Now Available: New Technology for Pain & Numbness', date: 'May 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg', desc: 'Chivacare adds the PMS electromagnetic device for treating chronic pain, numbness, and office syndrome without medication.' },
+  { title: 'New Shockwave Programs for Chronic Pain Relief', date: 'June 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg', desc: 'We have launched several new shockwave therapy packages for pain relief, tailored for a variety of musculoskeletal conditions.' },
+  { title: 'Comprehensive Insomnia Treatment Now Available Without Medication', date: 'June 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1720844262_clip.jpg', desc: 'Chivacare\'s new insomnia program uses TMS and non-pharmacological approaches so patients can sleep better without relying on medication.' },
 ];
 ---
 
@@ -26,7 +26,7 @@ const news = [
         {news.map((n) => (
           <div class="col-md-6" style="margin-bottom:30px;">
             <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;display:flex;height:100%;">
-              <img src={n.img} alt={n.title} style="width:200px;height:200px;object-fit:cover;" />
+              <img src={n.img} alt={n.title} style="width:200px;height:200px;object-fit:cover;flex-shrink:0;" />
               <div style="padding:20px;">
                 <p style="color:#999;font-size:0.85em;margin-bottom:5px;">{n.date}</p>
                 <h4 style="color:#30c1b8;">{n.title}</h4>
