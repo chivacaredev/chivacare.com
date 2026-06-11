@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const news = [
+  { title: 'Chivacare Introduces TMS Brain Treatment in Chiang Mai', date: 'May 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620375204_.jpg', desc: 'Our TMS center in Chiang Mai offers cutting-edge non-invasive treatment for depression, insomnia, and stroke rehabilitation.' },
+  { title: 'PMS Device Now Available: New Technology for Pain & Numbness', date: 'May 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg', desc: 'Chivacare adds the PMS electromagnetic device for treating chronic pain, numbness, and office syndrome without medication.' },
+  { title: 'New Shockwave Programs for Chronic Pain Relief', date: 'June 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg', desc: 'We have launched several new shockwave therapy packages for pain relief, tailored for a variety of musculoskeletal conditions.' },
+  { title: 'Comprehensive Insomnia Treatment Now Available Without Medication', date: 'June 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1720844262_clip.jpg', desc: 'Chivacare\'s new insomnia program uses TMS and non-pharmacological approaches so patients can sleep better without relying on medication.' },
+];
+---
+
+<Layout
+  title="News & Events - Chivacare Chiang Mai"
+  description="Latest news, clinic updates, and community events at Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">News & Events</h1>
+      <p>Latest news and updates from Chivacare.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {news.map((n) => (
+          <div class="col-md-6" style="margin-bottom:30px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;display:flex;height:100%;">
+              <img src={n.img} alt={n.title} style="width:200px;height:200px;object-fit:cover;flex-shrink:0;" />
+              <div style="padding:20px;">
+                <p style="color:#999;font-size:0.85em;margin-bottom:5px;">{n.date}</p>
+                <h4 style="color:#30c1b8;">{n.title}</h4>
+                <p>{n.desc}</p>
+                <a href="#" class="btn btn-link" style="padding-left:0;">Read more &rarr;</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

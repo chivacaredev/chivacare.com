@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const doctors = [
+  {
+    name: 'Asst. Prof. Dr. Pakorn Wiwatworawana',
+    title: 'Rehabilitation Medicine Specialist',
+    sub: 'Physical Medicine & Rehabilitation, Geriatric Rehabilitation',
+    img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1618810442_1.jpg',
+  },
+  {
+    name: 'Asst. Prof. Dr. Surat Tanprawate',
+    title: 'Neurologist, Co-founder',
+    sub: 'Specialist in Headache & Migraine, Stroke, Movement Disorders',
+    img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1618810463_1.jpg',
+  },
+  {
+    name: 'Dr. Theradon Pinitchachon',
+    title: 'Neurologist',
+    sub: 'Specialist in Brain & Nervous System Disorders',
+    img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652207_1.jpg',
+  },
+  {
+    name: 'Dr. Wimolrat Tharanop',
+    title: 'Rehabilitation Medicine Specialist',
+    sub: 'Physical Medicine & Rehabilitation',
+    img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652313_1.jpg',
+  },
+  {
+    name: 'Dr. Pichamonchai Suwannachat',
+    title: 'Rehabilitation Medicine Specialist',
+    sub: 'Physical Medicine & Rehabilitation',
+    img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652362_1.jpg',
+  },
+  {
+    name: 'Thanathit Hanphanitna (Jay)',
+    title: 'Licensed Physical Therapist',
+    sub: 'Manual therapy, shockwave, exercise therapy',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646803864_2.jpg',
+  },
+  {
+    name: 'Supakorn Theeradechushakdi (Fai)',
+    title: 'Licensed Physical Therapist',
+    sub: 'Electrotherapy, exercise rehabilitation',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646808555_2.jpg',
+  },
+  {
+    name: 'Supawida Samanasak (Fern)',
+    title: 'Licensed Physical Therapist',
+    sub: 'Manual therapy, post-surgical rehabilitation',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346694_2.jpg',
+  },
+  {
+    name: 'Sukrinrat Boondi (Tangmo)',
+    title: 'Licensed Physical Therapist',
+    sub: 'Neurological rehabilitation, pain management',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346672_2.jpg',
+  },
+  {
+    name: 'Araya Noiysuwan (Min)',
+    title: 'Licensed Physical Therapist',
+    sub: 'Geriatric rehabilitation, balance training',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346636_2.jpg',
+  },
+  {
+    name: 'Kawkalin Radom (Ice)',
+    title: 'Licensed Occupational Therapist',
+    sub: 'Cognitive rehabilitation, daily living skills',
+    img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750339917_2.jpg',
+  },
+];
+---
+
+<Layout
+  title="Medical Team & Specialists - Chivacare Chiang Mai"
+  description="Meet the board-certified neurologists, rehabilitation physicians, physical therapists, and occupational therapists of Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Medical Team & Specialists</h1>
+      <p>Board-certified physicians and licensed therapists with extensive clinical experience.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {doctors.map((d) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;text-align:center;">
+            <img src={d.img} alt={d.name} class="img-responsive" style="border-radius:50%;width:200px;height:200px;object-fit:cover;margin:0 auto 20px;" />
+            <h4 style="color:#30c1b8;margin-bottom:5px;">{d.name}</h4>
+            <p style="font-weight:bold;margin-bottom:5px;">{d.title}</p>
+            <p style="color:#666;">{d.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

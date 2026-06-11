@@ -1,213 +1,155 @@
 ---
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Medical Team', href: '/doctors' },
-  { name: 'Services', href: '#', dropdown: [
-    { name: 'Brain & Neurology Clinic', href: '/services/brain-neurology' },
-    { name: 'Physical & Occupational Therapy', href: '/services/physical-therapy' },
-    { name: 'Geriatric Rehabilitation Center', href: '/services/geriatric-rehab' },
-  ]},
-  { name: 'Service Rates', href: '#', dropdown: [
-    { name: 'Brain Clinic Rates', href: '/rates/brain-clinic' },
-    { name: 'Physical Therapy Rates', href: '/rates/physical-therapy' },
-  ]},
-  { name: 'Promotions', href: '/promotions' },
-  { name: 'Assessments', href: '/assessments' },
-  { name: 'News & Knowledge', href: '#', dropdown: [
-    { name: 'Health Knowledge', href: '/knowledge/health' },
-    { name: 'News & Activities', href: '/knowledge/news' },
-  ]},
-  { name: 'Contact Us', href: '/contact' },
-];
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => pathname === path || pathname.startsWith(path + '/');
 ---
 
-<header class="bg-white sticky top-0 z-[1000] shadow-sm">
-  <div class="max-w-[1200px] mx-auto px-4 lg:px-6 flex justify-between items-center py-4">
-    <!-- Logo -->
-    <a href="/" class="flex-shrink-0">
-      <img src="/images/logo-chivacare.png" alt="ChivaCare Logo" class="h-10 lg:h-12 object-contain" />
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden xl:block">
-      <ul class="flex items-center gap-0">
-        {navItems.map((item) => (
-          <li class="relative group">
-            <a href={item.href} class="px-3 py-2 text-[15px] font-bold text-primary flex items-center gap-1 transition-colors hover:text-secondary whitespace-nowrap">
-              {item.name}
-              {item.dropdown && (
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mt-0.5 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              )}
-            </a>
-            {item.dropdown && (
-              <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                <ul class="bg-white shadow-xl min-w-[280px] py-4 rounded-xl border border-gray-50 overflow-hidden">
-                  {item.dropdown.map((subItem) => (
-                    <li>
-                      <a href={subItem.href} class="block px-6 py-3 text-[14px] font-bold text-gray-700 hover:bg-accent hover:text-primary transition-colors border-b border-gray-50 last:border-0">
-                        {subItem.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <!-- Header Actions -->
-    <div class="flex items-center gap-3">
-      <a href="/contact" class="hidden sm:flex chiva-btn chiva-btn-primary !px-6 !py-2 text-[14px]">
-        Book Now
-      </a>
-      <!-- Mobile Menu Toggle -->
-      <button id="mobile-menu-btn" class="xl:hidden p-2 text-primary" aria-label="Open menu">
-        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+<nav id="slide-nav" class="yamm navbar navbar-default" role="navigation">
+  <div id="topbar">
+    <div class="container"></div>
   </div>
-</header>
-
-<!-- Mobile Menu Drawer -->
-<div id="mobile-menu" class="fixed inset-0 z-[999] hidden">
-  <!-- Backdrop -->
-  <div id="mobile-backdrop" class="absolute inset-0 bg-black/40"></div>
-  <!-- Panel -->
-  <div class="absolute top-0 left-0 right-0 bg-white shadow-2xl max-h-screen overflow-y-auto">
-    <!-- Top bar -->
-    <div class="flex justify-between items-center px-5 py-4 border-b border-gray-100">
-      <a href="/">
-        <img src="/images/logo-chivacare.png" alt="ChivaCare" class="h-10 object-contain" />
-      </a>
-      <button id="mobile-close-btn" class="p-2 text-primary" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Nav items -->
-    <nav class="px-4 py-4">
-      <ul class="space-y-1">
-        <li>
-          <a href="/" class="block px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">Home</a>
-        </li>
-        <li>
-          <a href="/doctors" class="block px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">Medical Team</a>
-        </li>
-        <!-- Services dropdown -->
-        <li>
-          <button class="mobile-dropdown-btn w-full flex justify-between items-center px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">
-            Services
-            <svg class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <ul class="mobile-dropdown-panel hidden pl-4 mt-1 space-y-1">
-            <li><a href="/services/brain-neurology" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Brain & Neurology Clinic</a></li>
-            <li><a href="/services/physical-therapy" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Physical & Occupational Therapy</a></li>
-            <li><a href="/services/geriatric-rehab" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Geriatric Rehabilitation Center</a></li>
-          </ul>
-        </li>
-        <!-- Rates dropdown -->
-        <li>
-          <button class="mobile-dropdown-btn w-full flex justify-between items-center px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">
-            Service Rates
-            <svg class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <ul class="mobile-dropdown-panel hidden pl-4 mt-1 space-y-1">
-            <li><a href="/rates/brain-clinic" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Brain Clinic Rates</a></li>
-            <li><a href="/rates/physical-therapy" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Physical Therapy Rates</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/promotions" class="block px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">Promotions</a>
-        </li>
-        <li>
-          <a href="/assessments" class="block px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">Assessments</a>
-        </li>
-        <!-- Knowledge dropdown -->
-        <li>
-          <button class="mobile-dropdown-btn w-full flex justify-between items-center px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">
-            News & Knowledge
-            <svg class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <ul class="mobile-dropdown-panel hidden pl-4 mt-1 space-y-1">
-            <li><a href="/knowledge/health" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">Health Knowledge</a></li>
-            <li><a href="/knowledge/news" class="block px-4 py-2.5 text-[15px] font-semibold text-gray-700 rounded-xl hover:bg-accent hover:text-primary transition-colors">News & Activities</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/contact" class="block px-4 py-3 text-[16px] font-bold text-primary rounded-xl hover:bg-accent transition-colors">Contact Us</a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Book Now + Social -->
-    <div class="px-4 pb-8 pt-4 border-t border-gray-100 space-y-4">
-      <a href="/contact" class="chiva-btn chiva-btn-primary w-full justify-center !py-3 text-[16px]">
-        Book Appointment
-      </a>
-      <div class="flex justify-center gap-4 pt-2">
-        <a href="https://www.facebook.com/ChivaCareInfo/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <div class="bg-menu">
+    <div class="container-fluid _box-shadow">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img id="logo" class="img-responsive animated slideInDown adl-1"
+               src="https://chivacare.com/assets/layouts/frontend/images/logo-chivacare.png"
+               alt="Chivacare" />
         </a>
-        <a href="tel:+66969800126" class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-        </a>
+        <div class="mobile-menu">
+          <div class="header_bar">
+            <div class="mobile-toggle pull-right">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" focusable="false">
+                <g>
+                  <rect x="10" y="16" width="23" height="2"></rect>
+                  <rect x="10" y="23" width="23" height="2"></rect>
+                  <rect x="10" y="30" width="23" height="2"></rect>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <nav class="primary-nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/teams">Medical Team & Specialists</a></li>
+              <li>
+                <a class="a-toggle" href="javascript:;">Our Services</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav">
+                  <ul>
+                    <li><a href="/services/brain-clinic">Brain & Nervous System Clinic</a></li>
+                    <li><a href="/services/physical-therapy">Physical & Occupational Therapy Clinic</a></li>
+                    <li><a href="/services/geriatric-rehab">Geriatric Rehabilitation Center</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a class="a-toggle" href="javascript:;">Service Rates</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav">
+                  <ul>
+                    <li><a href="/pricing/brain-clinic">Brain Clinic Rates</a></li>
+                    <li><a href="/pricing/physical-therapy">Physical & Occupational Therapy Rates</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="/promotions">Promotions</a></li>
+              <li><a href="/assessment">Self-Assessment</a></li>
+              <li>
+                <a class="a-toggle" href="javascript:;">News & Articles</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav">
+                  <ul>
+                    <li><a href="/blog">Health Articles</a></li>
+                    <li><a href="/news">News & Events</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a class="a-toggle" href="/contactus">Contact Us</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav">
+                  <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <p class="text-center text-[13px] text-text-body">+66 96-980-0126</p>
+
+      <!-- Desktop nav -->
+      <div class="topmenu collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="desktop-menu">
+          <nav class="nav navbar-nav navbar-left primary-nav">
+            <ul>
+              <li class={isActive('/') && pathname === '/' ? 'active' : ''}>
+                <a href="/">Home</a>
+              </li>
+              <li class={isActive('/teams') ? 'active' : ''}>
+                <a href="/teams">Medical Team & Specialists</a>
+              </li>
+              <li class={isActive('/services') ? 'active' : ''}>
+                <a class="a-toggle" href="javascript:;">Our Services</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="/services/brain-clinic">Brain & Nervous System Clinic</a></li>
+                    <li><a href="/services/physical-therapy">Physical & Occupational Therapy Clinic</a></li>
+                    <li><a href="/services/geriatric-rehab">Geriatric Rehabilitation Center</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class={isActive('/pricing') ? 'active' : ''}>
+                <a class="a-toggle" href="javascript:;">Service Rates</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="/pricing/brain-clinic">Brain Clinic Rates</a></li>
+                    <li><a href="/pricing/physical-therapy">Physical & Occupational Therapy Rates</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class={isActive('/promotions') ? 'active' : ''}>
+                <a href="/promotions">Promotions</a>
+              </li>
+              <li class={isActive('/assessment') ? 'active' : ''}>
+                <a href="/assessment">Self-Assessment</a>
+              </li>
+              <li class={isActive('/blog') || isActive('/news') ? 'active' : ''}>
+                <a class="a-toggle" href="javascript:;">News & Articles</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="/blog">Health Articles</a></li>
+                    <li><a href="/news">News & Events</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class={isActive('/contactus') ? 'active' : ''}>
+                <a class="a-toggle" href="/contactus">Contact Us</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          <li class="language-selector pull-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <span class="lang-sm" lang="en"></span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="https://chivacare.com/th"><span class="lang-sm lang-lbl" lang="th"></span></a></li>
+              <li><a href="/"><span class="lang-sm lang-lbl" lang="en"></span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
-
-<script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const closeBtn = document.getElementById('mobile-close-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const backdrop = document.getElementById('mobile-backdrop');
-  const openIcon = document.getElementById('menu-icon-open');
-  const closeIcon = document.getElementById('menu-icon-close');
-
-  function openMenu() {
-    mobileMenu?.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    openIcon?.classList.add('hidden');
-    closeIcon?.classList.remove('hidden');
-  }
-
-  function closeMenu() {
-    mobileMenu?.classList.add('hidden');
-    document.body.style.overflow = '';
-    openIcon?.classList.remove('hidden');
-    closeIcon?.classList.add('hidden');
-  }
-
-  menuBtn?.addEventListener('click', openMenu);
-  closeBtn?.addEventListener('click', closeMenu);
-  backdrop?.addEventListener('click', closeMenu);
-
-  // Dropdown toggles
-  document.querySelectorAll('.mobile-dropdown-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const panel = btn.nextElementSibling as HTMLElement;
-      const arrow = btn.querySelector('svg');
-      const isOpen = !panel.classList.contains('hidden');
-      panel.classList.toggle('hidden', isOpen);
-      arrow?.classList.toggle('rotate-180', !isOpen);
-    });
-  });
-</script>
+</nav>

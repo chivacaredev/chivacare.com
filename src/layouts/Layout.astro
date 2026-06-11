@@ -1,33 +1,81 @@
 ---
-import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
-	title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title = 'Brain Clinic, Physical Therapy Clinic, TMS Brain Center - Chivacare Chiang Mai',
+  description = 'Treatment for brain conditions, migraines, stroke, physical therapy, chronic pain, office syndrome by board-certified neurologists and rehabilitation specialists in Chiang Mai.',
+} = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="ChivaCare Brain and Pain Center - Specialized medical care in Chiang Mai" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | ChivaCare</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
-	</head>
-	<body class="antialiased">
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Chivacare Chiang Mai services" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://chivacare.com/en" />
+    <link rel="shortcut icon" href="https://chivacare.com/assets/images/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title}</title>
+
+    <!-- Original Chivacare stylesheets (preserved exactly) -->
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/bootstrap-social.css" />
+    <link rel="stylesheet" href="/styles/jasny-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/styles/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/styles/swiper-bundle.css" />
+    <link rel="stylesheet" href="/styles/smoothproducts.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/creative.css" />
+    <link rel="stylesheet" href="/styles/yamm.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+    <link rel="stylesheet" href="/styles/chivacare.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/cookiealert.css" />
+    <link rel="stylesheet" href="/styles/prettyPhoto.css" />
+    <link rel="stylesheet" href="/styles/awesomplete.css" />
+    <link rel="stylesheet" href="/styles/languages.min.css" />
+  </head>
+  <body id="page-top">
+    <Header />
+    <slot />
+    <Footer />
+
+    <!-- Cookie banner -->
+    <div class="alert text-justify cookiealert" role="alert">
+      <div class="row">
+        <div class="col-sm-10 col-md-10 text-white py-3">
+          We use cookies to improve your experience. By using this website, you accept our use of cookies and your data per our <a href="/privacy">Privacy Policy</a>.
+        </div>
+        <div class="col-sm-2 col-md-2 py-3 text-center">
+          <button type="button" class="btn btn-primary btn-sm acceptcookies _mrgt-10">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script is:inline src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@6/swiper-bundle.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script is:inline src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script is:inline src="/scripts/main.js"></script>
+  </body>
 </html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+</style>

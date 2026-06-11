@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const rates = [
+  { item: 'New patient physical therapy assessment', price: '1,000 THB' },
+  { item: 'Physical therapy session (60 min)', price: '1,200 THB' },
+  { item: 'Manual therapy session', price: '1,500 THB' },
+  { item: 'Shockwave therapy - single session', price: '1,800 THB' },
+  { item: 'Shockwave therapy - 5-session package', price: '8,000 THB' },
+  { item: 'Dry needling session', price: '1,500 THB' },
+  { item: 'Ultrasound / electrotherapy', price: '800 THB' },
+  { item: 'Hot/cold therapy', price: '500 THB' },
+  { item: 'Occupational therapy session', price: '1,200 THB' },
+  { item: 'Home program & ergonomic assessment', price: '1,500 THB' },
+];
+---
+
+<Layout
+  title="Physical & Occupational Therapy Rates - Chivacare Chiang Mai"
+  description="Service rates for physical therapy and occupational therapy at Chivacare Chiang Mai."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Physical & Occupational Therapy Rates</h1>
+      <p>Transparent pricing for our physical and occupational therapy services.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr style="background:#30c1b8;color:white;">
+            <th>Service</th>
+            <th style="text-align:right;">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rates.map((r) => (
+            <tr>
+              <td>{r.item}</td>
+              <td style="text-align:right;font-weight:bold;color:#30c1b8;">{r.price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p style="color:#999;font-size:0.9em;margin-top:20px;"><em>Rates are subject to change. Please contact us to confirm prices and ask about insurance coverage.</em></p>
+    </div>
+  </section>
+</Layout>

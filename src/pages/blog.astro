@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  { title: "Saying Goodbye to the 'Pain-Massage-Pain' Loop: Why Physical Therapy Is the Only Way Out for Office Syndrome Sufferers", cat: 'Physical Therapy', date: 'May 27, 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378076_.jpg' },
+  { title: 'PMS Device for Pain, Numbness, and Office Syndrome', cat: 'Physical Therapy', date: 'May 25, 2025', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg' },
+  { title: 'Stroke Rehabilitation with TMS Technology', cat: 'Brain & Nervous System', date: 'October 19, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620375204_.jpg' },
+  { title: 'Innovative Migraine Relief with TMS', cat: 'Brain & Nervous System', date: 'October 19, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620374818_.jpg' },
+  { title: 'Treating "Depression and Insomnia" Without Medication', cat: 'Mental Health', date: 'September 6, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1720844790_clip.jpg' },
+  { title: 'TMS: Another Option for Treating Hemiparesis and Paralysis', cat: 'Rehabilitation', date: 'August 29, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620375177_.jpg' },
+  { title: 'Warning! Premature Knee Osteoarthritis — Prevention Is Better Than Cure', cat: 'Physical Therapy', date: 'August 22, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377995_.jpg' },
+  { title: 'Reducing Migraine Pain with Shockwave?', cat: 'Brain & Nervous System', date: 'August 17, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg' },
+  { title: 'Muscle Weakness: Risk of Muscle Atrophy!', cat: 'Physical Therapy', date: 'July 26, 2021', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377943_.jpg' },
+];
+---
+
+<Layout
+  title="Health Articles - Chivacare Chiang Mai"
+  description="Health articles on brain conditions, mental health, physical therapy, rehabilitation, and geriatric care."
+>
+  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
+    <div class="container">
+      <h1 style="color:#30c1b8;">Health Articles</h1>
+      <p>Articles from our medical team on conditions, treatments, and self-care.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        {posts.map((p) => (
+          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:8px;overflow:hidden;height:100%;">
+              <img src={p.img} alt={p.title} class="img-responsive" style="width:100%;height:200px;object-fit:cover;" />
+              <div style="padding:20px;">
+                <p style="color:#30c1b8;margin-bottom:5px;font-size:0.9em;">{p.cat}</p>
+                <h4>{p.title}</h4>
+                <p style="color:#999;font-size:0.85em;">{p.date}</p>
+                <a href="#" class="btn btn-link" style="padding-left:0;">Read more &rarr;</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
