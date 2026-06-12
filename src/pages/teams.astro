@@ -10,7 +10,7 @@ const doctors = [
   },
   {
     name: 'Asst. Prof. Dr. Surat Tanprawate',
-    title: 'Neurologist, Co-founder',
+    title: 'Neurologist — Co-founder',
     sub: 'Specialist in Headache & Migraine, Stroke, Movement Disorders',
     img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1618810463_1.jpg',
   },
@@ -23,49 +23,46 @@ const doctors = [
   {
     name: 'Dr. Wimolrat Tharanop',
     title: 'Rehabilitation Medicine Specialist',
-    sub: 'Physical Medicine & Rehabilitation',
+    sub: 'Physical Medicine & Rehabilitation — Thursdays 17:00–20:00',
     img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652313_1.jpg',
   },
   {
     name: 'Dr. Pichamonchai Suwannachat',
     title: 'Rehabilitation Medicine Specialist',
-    sub: 'Physical Medicine & Rehabilitation',
+    sub: 'Physical Medicine & Rehabilitation — Mondays 17:00–20:00',
     img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652362_1.jpg',
   },
+];
+
+const therapists = [
   {
     name: 'Thanathit Hanphanitna (Jay)',
     title: 'Licensed Physical Therapist',
-    sub: 'Manual therapy, shockwave, exercise therapy',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646803864_2.jpg',
   },
   {
     name: 'Supakorn Theeradechushakdi (Fai)',
     title: 'Licensed Physical Therapist',
-    sub: 'Electrotherapy, exercise rehabilitation',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646808555_2.jpg',
   },
   {
     name: 'Supawida Samanasak (Fern)',
     title: 'Licensed Physical Therapist',
-    sub: 'Manual therapy, post-surgical rehabilitation',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346694_2.jpg',
   },
   {
     name: 'Sukrinrat Boondi (Tangmo)',
     title: 'Licensed Physical Therapist',
-    sub: 'Neurological rehabilitation, pain management',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346672_2.jpg',
   },
   {
     name: 'Araya Noiysuwan (Min)',
     title: 'Licensed Physical Therapist',
-    sub: 'Geriatric rehabilitation, balance training',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346636_2.jpg',
   },
   {
     name: 'Kawkalin Radom (Ice)',
     title: 'Licensed Occupational Therapist',
-    sub: 'Cognitive rehabilitation, daily living skills',
     img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750339917_2.jpg',
   },
 ];
@@ -75,24 +72,67 @@ const doctors = [
   title="Medical Team & Specialists - Chivacare Chiang Mai"
   description="Meet the board-certified neurologists, rehabilitation physicians, physical therapists, and occupational therapists of Chivacare Chiang Mai."
 >
-  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
-    <div class="container">
-      <h1 style="color:#30c1b8;">Medical Team & Specialists</h1>
-      <p>Board-certified physicians and licensed therapists with extensive clinical experience.</p>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:80px;">
+    <ol class="breadcrumb" style="background:transparent;padding-left:0;">
+      <li><a href="/">Home</a></li>
+      <li class="active">Medical Team &amp; Specialists</li>
+    </ol>
+  </div>
+
+  <!-- Title -->
+  <section style="padding:20px 0 20px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h1 class="title -animated-underline -show-line scrollanimation animated fadeInDown" style="font-size:28px;">Medical Team &amp; Specialists</h1>
+        </div>
+        <p style="margin-top:16px;">Board-certified physicians and licensed therapists with extensive clinical experience in brain and nervous system disorders, rehabilitation medicine, and physical therapy.</p>
+      </div>
     </div>
   </section>
 
-  <section style="padding:60px 0;">
-    <div class="container">
-      <div class="row">
-        {doctors.map((d) => (
-          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;text-align:center;">
-            <img src={d.img} alt={d.name} class="img-responsive" style="border-radius:50%;width:200px;height:200px;object-fit:cover;margin:0 auto 20px;" />
-            <h4 style="color:#30c1b8;margin-bottom:5px;">{d.name}</h4>
-            <p style="font-weight:bold;margin-bottom:5px;">{d.title}</p>
-            <p style="color:#666;">{d.sub}</p>
-          </div>
-        ))}
+  <!-- Physicians -->
+  <section style="padding:20px 0 40px;background:#f7fafc;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Specialist Physicians</h2>
+        </div>
+        <div class="row" style="margin-top:32px;">
+          {doctors.map((d) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;text-align:center;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px" style="align-items:center;padding:24px 16px;">
+                <img src={d.img} alt={d.name} class="img-responsive" style="border-radius:50%;width:160px;height:160px;object-fit:cover;margin:0 auto 16px;" />
+                <h4 style="color:#30c1b8;margin-bottom:4px;">{d.name}</h4>
+                <p style="font-weight:bold;margin-bottom:4px;">{d.title}</p>
+                <p style="color:#666;font-size:0.9em;">{d.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Therapists -->
+  <section style="padding:40px 0 48px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Physical &amp; Occupational Therapists</h2>
+        </div>
+        <div class="row" style="margin-top:32px;">
+          {therapists.map((t) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;text-align:center;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px" style="align-items:center;padding:24px 16px;">
+                <img src={t.img} alt={t.name} class="img-responsive" style="border-radius:50%;width:160px;height:160px;object-fit:cover;margin:0 auto 16px;" />
+                <h4 style="color:#30c1b8;margin-bottom:4px;">{t.name}</h4>
+                <p style="font-weight:bold;">{t.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

@@ -1,50 +1,72 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const rates = [
-  { item: 'New patient physical therapy assessment', price: '1,000 THB' },
-  { item: 'Physical therapy session (60 min)', price: '1,200 THB' },
-  { item: 'Manual therapy session', price: '1,500 THB' },
-  { item: 'Shockwave therapy - single session', price: '1,800 THB' },
-  { item: 'Shockwave therapy - 5-session package', price: '8,000 THB' },
-  { item: 'Dry needling session', price: '1,500 THB' },
-  { item: 'Ultrasound / electrotherapy', price: '800 THB' },
-  { item: 'Hot/cold therapy', price: '500 THB' },
-  { item: 'Occupational therapy session', price: '1,200 THB' },
-  { item: 'Home program & ergonomic assessment', price: '1,500 THB' },
+const packages = [
+  {
+    title: 'Pain Relief Program',
+    img: 'https://chivacare.com/assets/files/images/Pain%20Relief%20%E0%B8%A1%E0%B8%B4%E0%B8%96%E0%B8%B8%E0%B8%99%E0%B8%B2.jpeg',
+    desc: 'Comprehensive pain management targeting root causes — combining electrotherapy, manual therapy, and exercise for lasting relief.',
+  },
+  {
+    title: 'Shockwave Program',
+    img: 'https://chivacare.com/assets/files/images/Shockwave%20%E0%B8%A1%E0%B8%B4%E0%B8%96%E0%B8%B8%E0%B8%99%E0%B8%B2resize.jpg',
+    desc: 'Shock wave therapy to break down calcifications, stimulate tissue repair, and provide deep, targeted pain relief.',
+  },
+  {
+    title: 'Intensive Pain Treatment Program',
+    img: 'https://chivacare.com/assets/files/images/Intensive%20%E0%B8%A1%E0%B8%B4%E0%B8%96%E0%B8%B8%E0%B8%99%E0%B8%B2.jpeg',
+    desc: 'Intensive multi-modal treatment program combining several therapies for patients with severe or chronic pain conditions.',
+  },
 ];
 ---
 
 <Layout
   title="Physical & Occupational Therapy Rates - Chivacare Chiang Mai"
-  description="Service rates for physical therapy and occupational therapy at Chivacare Chiang Mai."
+  description="Service rates and treatment packages for physical therapy and occupational therapy at Chivacare Chiang Mai."
 >
-  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
-    <div class="container">
-      <h1 style="color:#30c1b8;">Physical & Occupational Therapy Rates</h1>
-      <p>Transparent pricing for our physical and occupational therapy services.</p>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:80px;">
+    <ol class="breadcrumb" style="background:transparent;padding-left:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="javascript:;">Service Rates</a></li>
+      <li class="active">Physical &amp; Occupational Therapy Rates</li>
+    </ol>
+  </div>
+
+  <!-- Title -->
+  <section style="padding:20px 0 40px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h1 class="title -animated-underline -show-line scrollanimation animated fadeInDown" style="font-size:28px;">Physical &amp; Occupational Therapy Service Rates</h1>
+        </div>
+        <p style="margin-top:20px;">Treatment packages and service rates for the Physical &amp; Occupational Therapy Clinic. Pricing details are shown in each package image. Contact us for the latest pricing and to book an appointment.</p>
+      </div>
     </div>
   </section>
 
-  <section style="padding:60px 0;">
-    <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr style="background:#30c1b8;color:white;">
-            <th>Service</th>
-            <th style="text-align:right;">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rates.map((r) => (
-            <tr>
-              <td>{r.item}</td>
-              <td style="text-align:right;font-weight:bold;color:#30c1b8;">{r.price}</td>
-            </tr>
+  <!-- Package Cards -->
+  <section style="padding:20px 0 48px;background:#f7fafc;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="row">
+          {packages.map((pkg) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                <img class="img-responsive" src={pkg.img} alt={pkg.title} style="width:100%;object-fit:contain;border-radius:4px 4px 0 0;" />
+                <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+                  <h4 style="color:#30c1b8;">{pkg.title}</h4>
+                  <p>{pkg.desc}</p>
+                  <div style="margin-top:auto;padding-top:16px;">
+                    <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="btn btn-primary btn-sm">Book via LINE</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
-      <p style="color:#999;font-size:0.9em;margin-top:20px;"><em>Rates are subject to change. Please contact us to confirm prices and ask about insurance coverage.</em></p>
+        </div>
+        <p style="color:#999;font-size:0.88em;margin-top:10px;"><em>Rates are subject to change. Please contact us to confirm current prices and ask about 0% installment options.</em></p>
+      </div>
     </div>
   </section>
 </Layout>

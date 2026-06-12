@@ -2,13 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 
 const conditions = [
-  { title: 'Tennis Elbow (Lateral Epicondylitis)', desc: 'Manual therapy, shockwave, and exercise prescription to relieve lateral elbow pain.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg' },
-  { title: 'Carpal Tunnel Syndrome', desc: 'Conservative treatment for median nerve compression at the wrist.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg' },
-  { title: 'Frozen Shoulder', desc: 'Restoration of shoulder range of motion through targeted therapy.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446506_.jpg' },
-  { title: 'Hip Osteoarthritis', desc: 'Pain management and joint preservation for hip OA.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377943_.jpg' },
-  { title: 'Knee Osteoarthritis', desc: 'Comprehensive non-surgical management of knee OA.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377995_.jpg' },
-  { title: 'Degenerative Spine Disease', desc: 'Treatment for degenerative disc disease and chronic back pain.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378034_.jpg' },
-  { title: 'Office Syndrome', desc: 'Postural correction, manual therapy, and ergonomic coaching for desk workers.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378076_.jpg' },
+  { title: 'Tennis Elbow (Lateral Epicondylitis)', desc: 'Common in people who use their wrists and elbows frequently — caused by repetitive gripping motions.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg' },
+  { title: 'Carpal Tunnel Syndrome', desc: 'Nerve compression at the wrist caused by thickening of connective tissue around the joint.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg' },
+  { title: 'Frozen Shoulder', desc: 'Adhesive capsulitis causing limited shoulder joint movement and persistent pain.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446506_.jpg' },
+  { title: 'Hip Osteoarthritis', desc: 'Arthritis caused by cartilage wearing away from the hip joint surface.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377943_.jpg' },
+  { title: 'Knee Osteoarthritis', desc: 'Cartilage of the knee joint slowly wears down — commonly found in the elderly.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620377995_.jpg' },
+  { title: 'Degenerative Spine Disease', desc: 'Degeneration of spinal joints and intervertebral discs in the cervical, thoracic, and lumbar regions.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378034_.jpg' },
+  { title: 'Office Syndrome', desc: 'A group of conditions caused by unsuitable work habits, such as sitting at a desk for many consecutive hours.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378076_.jpg' },
+  { title: 'Dry Needling Program', desc: 'Needle insertion into contracted muscles to achieve relaxation and pain reduction at the source.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg' },
+  { title: 'PMS Electromagnetic Wave Program', desc: 'Technology that sends electromagnetic waves to stimulate the nervous system and restore normal function.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620446506_.jpg' },
+  { title: 'Post-Surgery Rehabilitation Program', desc: 'Recovery plans designed by physical therapists following surgical procedures for joints and muscles.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378034_.jpg' },
+  { title: 'Shockwave Program', desc: 'Shock wave therapy targeting pain areas to stimulate tissue healing and break down calcifications.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg' },
+  { title: 'Pain Relief Program', desc: 'Direct pain management addressing root causes — not just symptoms — for lasting relief.', img: 'https://chivacare.com/assets/uploads/img_services/main/1620378076_.jpg' },
 ];
 ---
 
@@ -16,33 +21,59 @@ const conditions = [
   title="Physical & Occupational Therapy Clinic - Chivacare Chiang Mai"
   description="Treatment for office syndrome, chronic pain, joint conditions, and rehabilitation by licensed physical & occupational therapists."
 >
-  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
-    <div class="container">
-      <h1 style="color:#30c1b8;">Physical & Occupational Therapy Clinic</h1>
-      <p>Personalized rehabilitation programs for pain relief and functional recovery.</p>
-    </div>
-  </section>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:80px;">
+    <ol class="breadcrumb" style="background:transparent;padding-left:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="javascript:;">Our Services</a></li>
+      <li class="active">Physical &amp; Occupational Therapy Clinic</li>
+    </ol>
+  </div>
 
-  <section style="padding:60px 0;">
-    <div class="container">
-      <h2 style="color:#30c1b8;margin-bottom:30px;">Conditions We Treat</h2>
-      <div class="row">
-        {conditions.map((c) => (
-          <div class="col-md-4 col-sm-6" style="margin-bottom:30px;">
-            <img src={c.img} alt={c.title} class="img-responsive" style="border-radius:8px;margin-bottom:15px;" />
-            <h4 style="color:#30c1b8;">{c.title}</h4>
-            <p>{c.desc}</p>
-          </div>
-        ))}
+  <!-- Intro -->
+  <section style="padding:20px 0 40px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h1 class="title -animated-underline -show-line scrollanimation animated fadeInDown" style="font-size:28px;">Physical &amp; Occupational Therapy Clinic</h1>
+        </div>
+        <p style="margin-top:20px;">Our Physical and Occupational Therapy clinic is staffed by specialized physical and occupational therapists with expertise in geriatric medicine. The clinic provides assessment, evaluation, and treatment for muscle and bone problems — such as office syndrome, knee osteoarthritis, and back pain — as well as post-surgical rehabilitation, and neurological pain rehabilitation (stroke recovery, hemiparesis) so patients can live to their fullest potential.</p>
       </div>
     </div>
   </section>
 
-  <section style="padding:60px 0;background:#f7fafc;">
+  <!-- Conditions & Programs -->
+  <section style="padding:20px 0 40px;background:#f7fafc;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">Conditions &amp; Treatment Programs</h2>
+        </div>
+        <div class="row" style="margin-top:32px;">
+          {conditions.map((c) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                <img class="img-responsive" src={c.img} alt={c.title} style="width:100%;height:200px;object-fit:cover;border-radius:4px 4px 0 0;" />
+                <div style="padding:16px;flex:1;">
+                  <h4 style="color:#30c1b8;">{c.title}</h4>
+                  <p>{c.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:48px 0;">
     <div class="container text-center">
-      <h3>Book a Consultation</h3>
-      <p>Get a personalized assessment from our licensed therapists.</p>
-      <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="btn btn-primary btn-lg">Contact on Line</a>
+      <a href="https://line.me/R/ti/p/@sam6768c" target="_blank">
+        <button type="button" class="primary-btn -solid">
+          <span class="-text _fs18 _fw500">Free Consultation via LINE</span>
+        </button>
+      </a>
     </div>
   </section>
 </Layout>

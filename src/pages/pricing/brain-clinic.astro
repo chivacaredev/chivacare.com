@@ -1,50 +1,102 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const rates = [
-  { item: 'New patient consultation (Neurologist)', price: '1,500 THB' },
-  { item: 'Follow-up consultation', price: '1,000 THB' },
-  { item: 'TMS therapy - single session', price: '2,500 THB' },
-  { item: 'TMS therapy - 20-session depression package', price: '40,000 THB' },
-  { item: 'TMS therapy - 10-session insomnia package', price: '22,000 THB' },
-  { item: 'EEG (Electroencephalogram)', price: '3,500 THB' },
-  { item: 'MMSE cognitive screening', price: '800 THB' },
-  { item: 'PHQ-9 / GAD-7 mental health assessment', price: '500 THB' },
-  { item: 'Sleep study consultation', price: '1,500 THB' },
-  { item: 'Migraine consultation & treatment plan', price: '1,800 THB' },
+const packages = [
+  {
+    title: 'Dry Needling Package',
+    desc: 'Treatment using needle insertion into contracted muscles to relieve chronic pain at the source. Performed by specialist rehabilitation medicine physicians.',
+    conditions: [
+      'Neck pain, shoulder tension, and stiffness',
+      'General discomfort that disrupts sleep',
+      'Pain recurring after massage therapy',
+      'Pain inadequately controlled by medication',
+      'Insufficient response to mechanical pain devices',
+    ],
+    price: 'Starting at 600 THB',
+    installment: '0% interest installment — up to 6 months',
+    img: 'https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg',
+  },
+  {
+    title: 'TMS Depression Treatment Package',
+    desc: 'Transcranial Magnetic Stimulation (TMS) therapy for treatment-resistant depression. Non-invasive, no side effects from medication, and clinically validated.',
+    conditions: [
+      'Persistent low mood and loss of interest',
+      'Depression unresponsive to antidepressants',
+      'Treatment-resistant depression',
+      'Patients preferring non-medication therapy',
+    ],
+    price: 'Contact clinic for package pricing',
+    installment: '0% interest installment — up to 6 months',
+    img: 'https://chivacare.com/assets/uploads/img_services/main/1720844790_clip.jpg',
+  },
+  {
+    title: 'TMS Insomnia Treatment Package',
+    desc: 'TMS therapy that stimulates the brain to restore natural sleep cycles — an effective, medication-free solution for chronic insomnia.',
+    conditions: [
+      'Difficulty falling asleep or staying asleep',
+      'Poor sleep quality affecting daily function',
+      'Chronic insomnia unresponsive to sleep hygiene',
+      'Patients wishing to avoid sleep medication',
+    ],
+    price: 'Contact clinic for package pricing',
+    installment: '0% interest installment — up to 6 months',
+    img: 'https://chivacare.com/assets/uploads/img_services/main/1720844262_clip.jpg',
+  },
 ];
 ---
 
 <Layout
-  title="Brain Clinic Rates - Chivacare Chiang Mai"
-  description="Service rates for the Brain & Nervous System Clinic at Chivacare Chiang Mai."
+  title="Brain Clinic Service Rates - Chivacare Chiang Mai"
+  description="Service rates and treatment packages for the Brain & Nervous System Clinic at Chivacare Chiang Mai."
 >
-  <section class="page-banner" style="padding:120px 0 60px;background:#f7fafc;text-align:center;">
-    <div class="container">
-      <h1 style="color:#30c1b8;">Brain Clinic Rates</h1>
-      <p>Transparent pricing for our brain & nervous system services.</p>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:80px;">
+    <ol class="breadcrumb" style="background:transparent;padding-left:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="javascript:;">Service Rates</a></li>
+      <li class="active">Brain Clinic Rates</li>
+    </ol>
+  </div>
+
+  <!-- Title -->
+  <section style="padding:20px 0 40px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h1 class="title -animated-underline -show-line scrollanimation animated fadeInDown" style="font-size:28px;">Brain Clinic Service Rates</h1>
+        </div>
+        <p style="margin-top:20px;">Treatment packages available at the Chivacare Brain &amp; Nervous System Clinic. Installment options available at 0% interest. Contact us for a full price list.</p>
+      </div>
     </div>
   </section>
 
-  <section style="padding:60px 0;">
-    <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr style="background:#30c1b8;color:white;">
-            <th>Service</th>
-            <th style="text-align:right;">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rates.map((r) => (
-            <tr>
-              <td>{r.item}</td>
-              <td style="text-align:right;font-weight:bold;color:#30c1b8;">{r.price}</td>
-            </tr>
+  <!-- Package Cards -->
+  <section style="padding:20px 0 48px;background:#f7fafc;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="row">
+          {packages.map((pkg) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                <img class="img-responsive" src={pkg.img} alt={pkg.title} style="width:100%;height:220px;object-fit:cover;border-radius:4px 4px 0 0;" />
+                <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+                  <h4 style="color:#30c1b8;">{pkg.title}</h4>
+                  <p>{pkg.desc}</p>
+                  <ul style="padding-left:18px;color:#555;font-size:0.92em;">
+                    {pkg.conditions.map((c) => <li>{c}</li>)}
+                  </ul>
+                  <div style="margin-top:auto;padding-top:16px;border-top:1px solid #eee;">
+                    <p style="color:#30c1b8;font-weight:bold;font-size:1.1em;margin-bottom:4px;">{pkg.price}</p>
+                    <p style="color:#888;font-size:0.85em;">{pkg.installment}</p>
+                    <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="btn btn-primary btn-sm" style="margin-top:8px;">Book via LINE</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
-      <p style="color:#999;font-size:0.9em;margin-top:20px;"><em>Rates are subject to change. Please contact us to confirm prices and ask about insurance coverage.</em></p>
+        </div>
+        <p style="color:#999;font-size:0.88em;margin-top:10px;"><em>Rates are subject to change. Please contact us to confirm current prices.</em></p>
+      </div>
     </div>
   </section>
 </Layout>
