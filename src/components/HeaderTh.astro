@@ -1,0 +1,99 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => pathname === path || pathname.startsWith(path + '/');
+
+// Build the EN equivalent: strip leading /th
+const enPath = pathname.replace(/^\/th/, '') || '/';
+---
+
+<nav id="slide-nav" class="yamm navbar navbar-default" role="navigation">
+  <div id="topbar"><div class="container"></div></div>
+  <div class="bg-menu">
+    <div class="container-fluid _box-shadow">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/th">
+          <img id="logo" class="img-responsive animated slideInDown adl-1"
+               src="https://chivacare.com/assets/layouts/frontend/images/logo-chivacare.png"
+               alt="Chivacare" />
+        </a>
+        <div class="mobile-menu">
+          <div class="header_bar">
+            <div class="mobile-toggle pull-right">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" focusable="false">
+                <g><rect x="10" y="16" width="23" height="2"></rect><rect x="10" y="23" width="23" height="2"></rect><rect x="10" y="30" width="23" height="2"></rect></g>
+              </svg>
+            </div>
+          </div>
+          <nav class="primary-nav">
+            <ul>
+              <li><a href="/th">หน้าหลัก</a></li>
+              <li><a href="/th/teams">ทีมแพทย์และผู้เชี่ยวชาญ</a></li>
+              <li>
+                <a class="a-toggle" href="javascript:;">บริการของเรา</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav">
+                  <ul>
+                    <li><a href="https://chivacare.com/th/services/brain-clinic">คลินิกสมองและระบบประสาท</a></li>
+                    <li><a href="https://chivacare.com/th/services/physical-therapy">คลินิกกายภาพและกิจกรรมบำบัด</a></li>
+                    <li><a href="https://chivacare.com/th/services/geriatric-rehab">ศูนย์ฟื้นฟูผู้สูงอายุ</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="/th/blog">สาระน่ารู้</a></li>
+              <li><a href="https://chivacare.com/th/contactus">ติดต่อเรา</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="topmenu collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="desktop-menu">
+          <nav class="nav navbar-nav navbar-left primary-nav">
+            <ul>
+              <li class={pathname === '/th' || pathname === '/th/' ? 'active' : ''}>
+                <a href="/th">หน้าหลัก</a>
+              </li>
+              <li class={isActive('/th/teams') ? 'active' : ''}>
+                <a href="/th/teams">ทีมแพทย์และผู้เชี่ยวชาญ</a>
+              </li>
+              <li>
+                <a class="a-toggle" href="javascript:;">บริการของเรา</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="https://chivacare.com/th/services/brain-clinic">คลินิกสมองและระบบประสาท</a></li>
+                    <li><a href="https://chivacare.com/th/services/physical-therapy">คลินิกกายภาพและกิจกรรมบำบัด</a></li>
+                    <li><a href="https://chivacare.com/th/services/geriatric-rehab">ศูนย์ฟื้นฟูผู้สูงอายุ</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class={isActive('/th/blog') ? 'active' : ''}>
+                <a href="/th/blog">สาระน่ารู้</a>
+              </li>
+              <li>
+                <a class="a-toggle" href="https://chivacare.com/th/contactus">ติดต่อเรา</a>
+                <span class="item-toggle-button">Toggle</span>
+                <div class="secondary-nav submenu-box">
+                  <ul>
+                    <li><a href="/privacy">นโยบายความเป็นส่วนตัว</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          <li class="language-selector pull-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <span class="lang-sm" lang="th"></span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href={enPath}><span class="lang-sm lang-lbl" lang="en"></span></a></li>
+              <li><a href={pathname}><span class="lang-sm lang-lbl" lang="th"></span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

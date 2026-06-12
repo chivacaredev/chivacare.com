@@ -1,6 +1,9 @@
 ---
 const pathname = Astro.url.pathname;
 const isActive = (path: string) => pathname === path || pathname.startsWith(path + '/');
+
+// Build TH equivalent: prepend /th (e.g. /blog/43 → /th/blog/43)
+const thPath = '/th' + (pathname === '/' ? '' : pathname);
 ---
 
 <nav id="slide-nav" class="yamm navbar navbar-default" role="navigation">
@@ -141,11 +144,11 @@ const isActive = (path: string) => pathname === path || pathname.startsWith(path
         <ul class="nav navbar-nav navbar-right hidden-xs">
           <li class="language-selector pull-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              <span class="lang-sm" lang="en"></span> <span class="caret"></span>
+              <span class="lang-sm lang-lbl" lang="en"></span> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="https://chivacare.com/th"><span class="lang-sm lang-lbl" lang="th"></span></a></li>
-              <li><a href="/"><span class="lang-sm lang-lbl" lang="en"></span></a></li>
+              <li><a href={thPath}><span class="lang-sm lang-lbl" lang="th"></span></a></li>
+              <li><a href={pathname}><span class="lang-sm lang-lbl" lang="en"></span></a></li>
             </ul>
           </li>
         </ul>

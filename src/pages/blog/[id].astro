@@ -1,123 +1,76 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { blogPosts, getPostById } from '../../data/blogPosts';
+import { getCollection, render } from 'astro:content';
 
-export function getStaticPaths() {
-  return blogPosts.map((post) => ({
-    params: { id: String(post.id) },
-  }));
+export async function getStaticPaths() {
+  const posts = await getCollection('blog-en');
+  return posts.map((post) => ({ params: { id: String(post.data.id) }, props: { post } }));
 }
 
-const { id } = Astro.params;
-const post = getPostById(Number(id));
-if (!post) return Astro.redirect('/blog');
+const { post } = Astro.props;
+const { Content } = await render(post);
 
-const allPosts = blogPosts;
-const currentIndex = allPosts.findIndex((p) => p.id === post.id);
-const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-
-const related = allPosts
-  .filter((p) => p.id !== post.id && p.category === post.category)
-  .slice(0, 3);
+const allPosts = (await getCollection('blog-en')).sort((a, b) => b.data.id - a.data.id);
+const idx = allPosts.findIndex((p) => p.data.id === post.data.id);
+const prevPost = idx < allPosts.length - 1 ? allPosts[idx + 1] : null;
+const nextPost = idx > 0 ? allPosts[idx - 1] : null;
+const related = allPosts.filter((p) => p.data.id !== post.data.id && p.data.category === post.data.category).slice(0, 3);
 ---
 
-<Layout
-  title={`${post.title} - Chivacare Health Articles`}
-  description={post.description}
->
-  <!-- Breadcrumb -->
+<Layout title={`${post.data.title} - Chivacare Health Articles`} description={post.data.description}>
   <div class="container" style="padding-top:80px;">
     <ol class="breadcrumb" style="background:transparent;padding-left:0;">
       <li><a href="/">Home</a></li>
       <li><a href="/blog">Health Articles</a></li>
-      <li class="active">{post.category}</li>
+      <li class="active">{post.data.category}</li>
     </ol>
   </div>
 
-  <!-- Article -->
   <section style="padding:20px 0 48px;">
     <div class="container _pdvrm-15px">
       <div class="row">
-        <!-- Main content -->
         <div class="col-md-8 col-sm-12">
-          <p style="color:#30c1b8;font-size:0.85em;font-weight:500;margin-bottom:8px;">{post.category}</p>
-          <h1 style="font-size:24px;line-height:1.4;margin-bottom:16px;">{post.title}</h1>
+          <p style="color:#30c1b8;font-size:0.85em;font-weight:500;margin-bottom:8px;">{post.data.category}</p>
+          <h1 style="font-size:24px;line-height:1.4;margin-bottom:16px;">{post.data.title}</h1>
+          <img src={post.data.img} alt={post.data.title} class="img-responsive"
+            style="width:100%;max-height:380px;object-fit:cover;border-radius:6px;margin-bottom:24px;" />
+          <div class="article-body"><Content /></div>
 
-          <!-- Featured image -->
-          <img
-            src={post.img}
-            alt={post.title}
-            class="img-responsive"
-            style="width:100%;max-height:380px;object-fit:cover;border-radius:6px;margin-bottom:24px;"
-          />
-
-          <!-- Article body -->
-          <div class="article-body" set:html={post.content} />
-
-          <!-- Navigation -->
           <div style="margin-top:40px;padding-top:24px;border-top:1px solid #e8edf2;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-            {prevPost && (
-              <a href={`/blog/${prevPost.id}`} style="color:#30c1b8;font-size:0.9em;max-width:48%;">
-                &larr; {prevPost.title}
-              </a>
-            )}
-            {nextPost && (
-              <a href={`/blog/${nextPost.id}`} style="color:#30c1b8;font-size:0.9em;max-width:48%;text-align:right;margin-left:auto;">
-                {nextPost.title} &rarr;
-              </a>
-            )}
+            {prevPost && <a href={`/blog/${prevPost.data.id}`} style="color:#30c1b8;font-size:0.9em;max-width:48%;">&larr; {prevPost.data.title}</a>}
+            {nextPost && <a href={`/blog/${nextPost.data.id}`} style="color:#30c1b8;font-size:0.9em;max-width:48%;text-align:right;margin-left:auto;">{nextPost.data.title} &rarr;</a>}
           </div>
-
-          <div style="margin-top:24px;">
-            <a href="/blog" style="color:#30c1b8;">&larr; Back to all articles</a>
-          </div>
+          <div style="margin-top:24px;"><a href="/blog" style="color:#30c1b8;">&larr; Back to all articles</a></div>
         </div>
 
-        <!-- Sidebar -->
         <div class="col-md-4 col-sm-12">
-          <!-- Related articles -->
           {related.length > 0 && (
             <div style="background:#f7fafc;border-radius:6px;padding:20px;margin-bottom:24px;">
-              <h3 style="font-size:16px;color:#30c1b8;margin-bottom:16px;border-bottom:2px solid #30c1b8;padding-bottom:8px;">
-                Related Articles
-              </h3>
+              <h3 style="font-size:16px;color:#30c1b8;margin-bottom:16px;border-bottom:2px solid #30c1b8;padding-bottom:8px;">Related Articles</h3>
               {related.map((r) => (
                 <div style="margin-bottom:16px;display:flex;gap:12px;align-items:flex-start;">
-                  <a href={`/blog/${r.id}`}>
-                    <img src={r.img} alt={r.title} style="width:72px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0;" />
-                  </a>
-                  <a href={`/blog/${r.id}`} style="color:#333;font-size:0.85em;line-height:1.4;text-decoration:none;">
-                    {r.title}
-                  </a>
+                  <a href={`/blog/${r.data.id}`}><img src={r.data.img} alt={r.data.title} style="width:72px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0;" /></a>
+                  <a href={`/blog/${r.data.id}`} style="color:#333;font-size:0.85em;line-height:1.4;text-decoration:none;">{r.data.title}</a>
                 </div>
               ))}
             </div>
           )}
 
-          <!-- Browse by category -->
           <div style="background:#f7fafc;border-radius:6px;padding:20px;margin-bottom:24px;">
-            <h3 style="font-size:16px;color:#30c1b8;margin-bottom:16px;border-bottom:2px solid #30c1b8;padding-bottom:8px;">
-              Browse by Category
-            </h3>
-            {['Brain & Nervous System', 'Physical Therapy', 'Mental Health', 'Rehabilitation', 'Occupational Therapy'].map((cat) => (
-              <a
-                href={`/blog?cat=${encodeURIComponent(cat)}`}
-                style={`display:block;padding:6px 0;border-bottom:1px solid #e8edf2;color:${cat === post.category ? '#30c1b8' : '#555'};font-size:0.88em;font-weight:${cat === post.category ? '600' : 'normal'};text-decoration:none;`}
-              >
+            <h3 style="font-size:16px;color:#30c1b8;margin-bottom:16px;border-bottom:2px solid #30c1b8;padding-bottom:8px;">Browse by Category</h3>
+            {['Brain & Nervous System','Physical Therapy','Mental Health','Rehabilitation','Occupational Therapy'].map((cat) => (
+              <a href={`/blog?cat=${encodeURIComponent(cat)}`}
+                style={`display:block;padding:6px 0;border-bottom:1px solid #e8edf2;color:${cat===post.data.category?'#30c1b8':'#555'};font-size:0.88em;font-weight:${cat===post.data.category?'600':'normal'};text-decoration:none;`}>
                 {cat}
               </a>
             ))}
           </div>
 
-          <!-- CTA box -->
           <div style="background:#30c1b8;border-radius:6px;padding:24px;text-align:center;">
             <h4 style="color:white;margin-bottom:8px;">Book a Consultation</h4>
             <p style="color:rgba(255,255,255,0.9);font-size:0.88em;margin-bottom:16px;">Talk to our specialists about your condition.</p>
             <a href="https://line.me/R/ti/p/@sam6768c" target="_blank">
-              <button type="button" class="primary-btn -solid" style="background:white;color:#30c1b8;border:none;padding:10px 20px;border-radius:4px;font-weight:500;cursor:pointer;">
-                Free Consultation via LINE
-              </button>
+              <button type="button" style="background:white;color:#30c1b8;border:none;padding:10px 20px;border-radius:4px;font-weight:500;cursor:pointer;">Free Consultation via LINE</button>
             </a>
           </div>
         </div>
@@ -127,56 +80,15 @@ const related = allPosts
 </Layout>
 
 <style is:global>
-  .article-body h3 {
-    font-size: 18px;
-    color: #30c1b8;
-    margin-top: 28px;
-    margin-bottom: 12px;
-  }
-  .article-body h4 {
-    font-size: 16px;
-    color: #444;
-    margin-top: 20px;
-    margin-bottom: 8px;
-  }
-  .article-body p {
-    line-height: 1.7;
-    margin-bottom: 14px;
-    color: #444;
-  }
-  .article-body ul,
-  .article-body ol {
-    padding-left: 20px;
-    margin-bottom: 16px;
-  }
-  .article-body li {
-    margin-bottom: 6px;
-    line-height: 1.6;
-    color: #444;
-  }
-  .article-body blockquote {
-    border-left: 4px solid #30c1b8;
-    padding: 12px 20px;
-    margin: 20px 0;
-    background: #f0fafa;
-    border-radius: 0 4px 4px 0;
-  }
-  .article-body blockquote p {
-    color: #2a9e97;
-    font-style: italic;
-    margin: 0;
-  }
-  .article-body strong {
-    color: #333;
-  }
+  .article-body h2,.article-body h3{color:#30c1b8;margin-top:28px;margin-bottom:12px;}
+  .article-body h2{font-size:20px;} .article-body h3{font-size:18px;}
+  .article-body p{line-height:1.7;margin-bottom:14px;color:#444;}
+  .article-body ul,.article-body ol{padding-left:20px;margin-bottom:16px;}
+  .article-body li{margin-bottom:6px;line-height:1.6;color:#444;}
+  .article-body blockquote{border-left:4px solid #30c1b8;padding:12px 20px;margin:20px 0;background:#f0fafa;border-radius:0 4px 4px 0;}
+  .article-body blockquote p{color:#2a9e97;font-style:italic;margin:0;}
+  .article-body strong{color:#333;}
+  .article-body table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+  .article-body th,.article-body td{border:1px solid #dde;padding:8px 12px;font-size:0.9em;}
+  .article-body th{background:#f0fafa;color:#30c1b8;}
 </style>
-
-<script is:inline>
-  (function () {
-    var params = new URLSearchParams(window.location.search);
-    var cat = params.get('cat');
-    if (cat) {
-      sessionStorage.setItem('blogCatFilter', cat);
-    }
-  })();
-</script>

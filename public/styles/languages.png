@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="th" />
+<meta name="description" content="รักษาโรคทางสมอง ไมเกรน หลอดเลือดสมองตีบ กายภาพบำบัด ปวดเรื้อรัง ออฟฟิศซินโดรม โดยอาจารย์แพทย์เฉพาะทางด้านสมองและแพทย์เวชศาสตร์ฟื้นฟู ในเชียงใหม่ " />
+<meta name="keywords" content="บริการของชีวาแคร์ เชียงใหม่" />
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="canonical" href="https://chivacare.com/assets/layouts/frontend/styles/languages.png" /><link rel="shortcut icon" href="https://chivacare.com/assets/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<title>คลินิกสมอง คลินิกกายภาพบำบัด  ศูนย์สมองTMS - ชีวาแคร์ เชียงใหม่</title>
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/bootstrap-datepicker.min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/bootstrap-languages/languages.min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/bootstrap-datetimepicker.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/jquery.timepicker.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/lib/bootstrap-select/dist/css/bootstrap-select.min.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/lib/bootstrap-fileinput/css/fileinput.min.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/prettyPhoto.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/awesomplete-gh-pages/awesomplete.css" media="screen" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.11/swiper-bundle.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js" charset="UTF-8"></script>
+<!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.11/swiper-bundle.min.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js" integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/i18n/datepicker.th-TH.min.js" integrity="sha512-ydYs2GpfqsrZXTCpPxD9I2wlTHNVz3ybfJS8BKuwW/fpKoKg/8QvJXYeV07wAdTkIdQs8ud8RhPDUp8SRyJMLw==" crossorigin="anonymous"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/bootstrap.min.css" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/bootstrap-social.css" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/jasny-bootstrap/css/jasny-bootstrap.min.css" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/font-awesome/css/font-awesome.min.css" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/smoothproducts.css" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/layout.css?v=1781245218" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/creative.css?v=1781245218" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/yamm.css?v=1781245218" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/icons.css?v=1781245218" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/chivacare.css?v=1781245218" media="" />
+<link type="text/css" rel="stylesheet" href="https://chivacare.com/assets/layouts/frontend/css/menu/style.css?v=1781245218" media="" />
+<script src="https://kit.fontawesome.com/0455c59af9.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=602a88b5ed86720012bd3d5b&product=sop' async='async'></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181213126-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-181213126-1'); 
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMQPKFV');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMQPKFV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</head>
+<body id="page-top">
+<!-- <div id="bfloading" style="display: block;">
+    <div class="bfloadingbox">
+        <div class="lds-ripple"><div></div><div></div></div>
+        <div class="bf_message">chivacare</div>
+    </div>
+</div> -->
+<div id="notificator" class="alert"></div>
+
+<nav id="slide-nav" class="yamm navbar navbar-default" role="navigation">
+    <div id="topbar">
+      <div class="container">
+        
+      </div>
+    </div>
+    <div class="bg-menu">
+
+        <div class="container-fluid _box-shadow">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                
+                
+
+                <a class="navbar-brand" href="https://chivacare.com/"><img id="logo" class="img-responsive animated slideInDown adl-1" src="https://chivacare.com/assets/layouts/frontend/images/logo-chivacare.png"></a>
+                                <div class="mobile-menu ">
+                  <div class="header_bar">
+                      <div class="mobile-toggle pull-right">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" focusable="false">
+                              <g>
+                                  <rect x="10" y="16" width="23" height="2"></rect>
+                                  <rect x="10" y="23" width="23" height="2"></rect>
+                                  <rect x="10" y="30" width="23" height="2"></rect>
+                              </g>
+                          </svg>
+                      </div>
+                  </div>
+                  <nav class="primary-nav">
+                      <ul>
+                                                    	                          <li>
+                              <a  href="https://chivacare.com/">หน้าแรก</a>                                                        </li>
+                                                    	                          <li>
+                              <a  href="https://chivacare.com/th/teams">ทีมแพทย์และผู้เชี่ยวชาญ</a>                                                        </li>
+                                                    	                          <li>
+                              <a class="a-toggle" href="javascript:;">การบริการของเรา</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/services/all/1/คลินิกสมอง-และระบบประสาท">คลินิกสมอง และระบบประสาท</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/2/คลินิกกายภาพ-และกิจกรรมบำบัด">คลินิกกายภาพ และกิจกรรมบำบัด</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/8/ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ">ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all"></a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                    	                          <li>
+                              <a class="a-toggle" href="javascript:;">อัตราค่าบริการ</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/services/all/51/ค่าบริการคลินิกสมอง">ค่าบริการคลินิกสมอง</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/52/ค่าบริการคลินิกกายภาพและกิจกรรมบำบัด">ค่าบริการคลินิกกายภาพและกิจกรรมบำบัด</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                    	                          <li>
+                              <a  href="https://chivacare.com/th/promotions">โปรโมชั่น</a>                                                        </li>
+                                                    	                          <li>
+                              <a  href="https://chivacare.com/th/assessment">แบบประเมิน</a>                                                        </li>
+                                                    	                          <li>
+                              <a class="a-toggle" href="javascript:;">ข่าวสารและสาระน่ารู้</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/services/all/47/สาระน่ารู้">สาระน่ารู้</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/48/ข่าวสารและกิจกรรม">ข่าวสารและกิจกรรม</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                    	                          <li>
+                              <a class="a-toggle" href="https://chivacare.com/th/contactus">ติดต่อเรา</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/services/all/56/นโยบายความเป็นส่วนตัว">นโยบายความเป็นส่วนตัว</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                </ul>
+                  </nav>
+              </div>
+                
+            </div>
+            
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="topmenu collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="desktop-menu">
+                  <nav class="nav navbar-nav navbar-left primary-nav">
+                      <ul>
+                                                	                          <li>
+                              <a  href="https://chivacare.com/">หน้าแรก</a>                                                        </li>
+                                                  	                          <li>
+                              <a  href="https://chivacare.com/th/teams">ทีมแพทย์และผู้เชี่ยวชาญ</a>                                                        </li>
+                                                  	                          <li>
+                              <a class="a-toggle" href="javascript:;">การบริการของเรา</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav submenu-box">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/services/all/1/คลินิกสมอง-และระบบประสาท">คลินิกสมอง และระบบประสาท</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/2/คลินิกกายภาพ-และกิจกรรมบำบัด">คลินิกกายภาพ และกิจกรรมบำบัด</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/8/ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ">ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all"></a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                  	                          <li>
+                              <a class="a-toggle" href="javascript:;">อัตราค่าบริการ</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav submenu-box">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/page/17">ค่าบริการคลินิกสมอง</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/page/18">ค่าบริการคลินิกกายภาพและกิจกรรมบำบัด</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                  	                          <li>
+                              <a  href="https://chivacare.com/th/promotions">โปรโมชั่น</a>                                                        </li>
+                                                  	                          <li>
+                              <a  href="https://chivacare.com/th/assessment">แบบประเมิน</a>                                                        </li>
+                                                  	                          <li>
+                              <a class="a-toggle" href="javascript:;">ข่าวสารและสาระน่ารู้</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav submenu-box">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="/th/blog">สาระน่ารู้</a>                                                                                </li>
+                                                                            <li>
+                                          <a  href="https://chivacare.com/th/services/all/48/ข่าวสารและกิจกรรม">ข่าวสารและกิจกรรม</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                  	                          <li>
+                              <a class="a-toggle" href="https://chivacare.com/th/contactus">ติดต่อเรา</a><span class="item-toggle-button">Toggle</span>                                                            <div class="secondary-nav submenu-box">
+                                  <ul>
+                                                                          <li>
+                                          <a  href="https://chivacare.com/th/page/19">นโยบายความเป็นส่วนตัว</a>                                                                                </li>
+                                                                        </ul>
+                              </div>
+                                                        </li>
+                                                </ul>
+                  </nav>
+              </div>
+                 <ul class="nav navbar-nav navbar-right hidden-xs">
+                  	<li class="language-selector pull-right"> 
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="lang-sm" lang="th"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li ><a href="javascript:" onclick="langOption('th');return false"><span class="lang-sm lang-lbl" lang="th"></span></a></li>
+                                                        <li><a href="/en"><span class="lang-sm lang-lbl" lang="en"></span></a></li>
+                        </ul>
+                    </li>
+                  </ul>
+                
+                 
+            </div>
+            
+
+
+            <!-- /.navbar-collapse -->
+            
+            
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+        
+    </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script>
+  $(function() {
+    window.prettyPrint && prettyPrint()
+    $(document).on('click', '.yamm .dropdown-menu', function(e) {
+      e.stopPropagation()
+    })
+  })
+</script>
+ 
+
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+    	
+<section class="main-clinic" data-parallax="scroll" data-image-src="https://chivacare.com/assets/uploads/img_advertiser/21/1360x765/1769295574_21.txt">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <div class="about" id="aboutus">
+        <div class="visible-xs">
+          <figure class="thumb">
+            <img src="https://chivacare.com/assets/uploads/img_advertiser/21/1360x765/1769295574_21.txt" alt="">
+          </figure>
+        </div>
+        <div class="col-md-12 col-sm-12 box-icon-wrapper">
+          <div class=" chiva-icon text-center _pdt-15px ">
+              <a href="https://chivacare.com/th/appointment/step1?is_services=คลินิกกายภาพและกิจกรรมบำบัด" target="_blank"title="ทำนัด" class="_text_bluegreen _text_bluegreen-d">
+                <span class="icon_calendar _bgc-blue _bgc-blue-d" ></span>
+                <h4>ทำนัด</h4>
+              </a>
+              <a href="https://line.me/R/ti/p/@sam6768c" target="_blank"title="สั่งยา" class="_text_black _text_bluegreen-d">
+                <span class="icon_pill _bgc-black _bgc-blue-d" ></span>
+                <h4>สั่งยา</h4>
+              </a>
+              <a href="https://chivacare.com/th/contactus" target="_blank"title="ติดต่อเรา" class="_text_yellow _text_bluegreen-d">
+                <span class="icon_contactus _bgc-yellow _bgc-blue-d" ></span>
+                <h4>ติดต่อเรา</h4>
+              </a>
+          </div>
+          <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-12 col-sm-12 _pdlr25px text-justify " >
+          <h1 class="scrollanimation animated fadeIn adl-1 _title-h _fw-700" style="text-align: center;">ชีวาแคร์ ศูนย์สมอง และระงับปวด</h1>
+
+<p class="scrollanimation animated fadeIn adl-2">ชีวาแคร์ มุ่งเน้นการให้บริการโดยทีมแพทย์เฉพาะทาง เชี่ยวชาญด้านระบบประสาทและสมอง เวชศาสตร์ผู้สูงอายุ ดูแลโดยนักกายภาพบำบัดและกิจกรรมบำบัดที่มีประสบการณ์ เพื่อให้บริการการรักษา การฟื้นฟู การทำกายภาพบำบัด การทำกิจกรรมบำบัด การนวดเชิงการแพทย์ โรคที่เกี่ยวข้องกับระบบประสาท และการฟื้นฟูโรคกระดูกและข้อ</p>
+
+<h3 class="scrollanimation animated fadeIn adl-3 _title-1 _fw-700-m" style="text-align: center;">ทุกขั้นตอนการรักษา ควบคุมดูแลโดยแพทย์</h3>
+
+<div class="text-center _pdv-15px"><button class="primary-btn -solid _bdrd-16px _pdtb-10px _bgb_blue" type="button"><span class="-text _fs18 _fw500">&quot;ปวดไม่หาย ปรึกษาเรา&quot;</span></button></div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+          </div>
+        
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <div class="video scrollanimation animated fadeInRight adl-1">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" allow="autoplay; encrypted-media" src="https://www.youtube.com/embed/KYDIsqfVw-M?autoplay=1" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="main-promotion mbg-48px">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 highlight-wrapper">
+        	<div class="head-title">
+  	         <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">โปรโมชั่น</h2>
+  	      </div>
+                  	<div class="swiper-container mtg-48px mbg-38px">
+        		<div class="swiper-wrapper ">
+              	                  <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/36/โปรแกรม-Pain-Relief" target="_blank">
+                        <img class="img-responsive" alt="" title="โปรแกรม Pain Relief" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671434_.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/36/โปรแกรม-Pain-Relief" target="_blank">
+      	                  <h4>โปรแกรม Pain Relief</h4>
+      	                </a>
+    	                  <p></p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/35/โปรแกรม-Shockwave" target="_blank">
+                        <img class="img-responsive" alt="" title="โปรแกรม Shockwave" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671343_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/35/โปรแกรม-Shockwave" target="_blank">
+      	                  <h4>โปรแกรม Shockwave</h4>
+      	                </a>
+    	                  <p></p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/34/โปรแกรม-Intensive-Pain-Treatment" target="_blank">
+                        <img class="img-responsive" alt="" title="โปรแกรม Intensive Pain Treatment" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671303_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/34/โปรแกรม-Intensive-Pain-Treatment" target="_blank">
+      	                  <h4>โปรแกรม Intensive Pain Treatment</h4>
+      	                </a>
+    	                  <p></p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/33/ปวดลึก-ตึงกล้ามเนื้อ-มาคลาย-สลายปวด-x-2" target="_blank">
+                        <img class="img-responsive" alt="" title="ปวดลึก ตึงกล้ามเนื้อ มาคลาย สลายปวด x 2" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671270_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/33/ปวดลึก-ตึงกล้ามเนื้อ-มาคลาย-สลายปวด-x-2" target="_blank">
+      	                  <h4>ปวดลึก ตึงกล้ามเนื้อ มาคลาย สลายปวด x 2</h4>
+      	                </a>
+    	                  <p></p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/32/Dry-Needling-ฝังเข็มแบบตะวันตก" target="_blank">
+                        <img class="img-responsive" alt="" title="Dry Needling ฝังเข็มแบบตะวันตก" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671229_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/32/Dry-Needling-ฝังเข็มแบบตะวันตก" target="_blank">
+      	                  <h4>Dry Needling ฝังเข็มแบบตะวันตก</h4>
+      	                </a>
+    	                  <p>รักษาอาการปวดได้อย่างลงลึกตรงจุด</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/31/Package-รักษาซึมเศร้า" target="_blank">
+                        <img class="img-responsive" alt="" title="Package รักษาซึมเศร้า" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671180_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/31/Package-รักษาซึมเศร้า" target="_blank">
+      	                  <h4>Package รักษาซึมเศร้า</h4>
+      	                </a>
+    	                  <p>รักษาภาวะซึมเศร้า ด้วยเทคโนโลยีคลื่นแม่เหล็กไฟฟ้า</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/30/โปรแกรม-TMS-รักษาโรคนอนไม่หลับ" target="_blank">
+                        <img class="img-responsive" alt="" title="โปรแกรม TMS รักษาโรคนอนไม่หลับ" src="https://chivacare.com/assets/uploads/img_promotions/main/1750671106_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/30/โปรแกรม-TMS-รักษาโรคนอนไม่หลับ" target="_blank">
+      	                  <h4>โปรแกรม TMS รักษาโรคนอนไม่หลับ</h4>
+      	                </a>
+    	                  <p>เทคโนโลยี TMS กระตุ้นสมองด้วยคลื่นแม่เหล็กไฟฟ้า</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/25/นอนไม่หลับ-ไม่ต้องใช้ยา" target="_blank">
+                        <img class="img-responsive" alt="" title="นอนไม่หลับ ไม่ต้องใช้ยา" src="https://chivacare.com/assets/uploads/img_promotions/main/1750649404_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/25/นอนไม่หลับ-ไม่ต้องใช้ยา" target="_blank">
+      	                  <h4>นอนไม่หลับ ไม่ต้องใช้ยา</h4>
+      	                </a>
+    	                  <p></p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                  	  <a href="https://chivacare.com/th/promotions/23/IV-Therapy-วิตามินบำบัด" target="_blank">
+                        <img class="img-responsive" alt="" title="IV Therapy วิตามินบำบัด" src="https://chivacare.com/assets/uploads/img_promotions/main/1750648234_clip.jpg">
+                      </a>
+                      <div class="col-md-12 col-sm-12 no-padding">
+                        <div class="box-btn-booking text-center">
+                        	<a href="https://chivacare.com/th/appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด">
+                           <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">จองคิวนัดรักษา</span></button> 
+                          </a>
+
+                      	</div>
+      	                <a href="https://chivacare.com/th/promotions/23/IV-Therapy-วิตามินบำบัด" target="_blank">
+      	                  <h4>IV Therapy วิตามินบำบัด</h4>
+      	                </a>
+    	                  <p>เสริมวิตามินให้ร่างกายแข็งแรง</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                          </div>
+              <!-- Add Pagination -->
+    	      <div class="swiper-pagination"></div>
+    	      <!-- Add Arrows -->
+    	      <div class="swiper-button-next swiper-button-black"></div>
+    	      <div class="swiper-button-prev swiper-button-black"></div>
+        	</div>
+          <div class="col-md-12 col-sm-12 _pdb-15px">
+            <a href="https://chivacare.com/th/promotions" class="btn-wrapper has-text-blue-primary pull-right">
+              <span class="-text">ดูโปรโมชั่นอื่น ๆ <i class="ion-chevron-right"></i></span> 
+            </a>
+          </div>
+                    </div>
+      </div>
+    </div>
+</section>
+<section class="main-why mbg-48px" id="main-why">
+  <div class="container _pdvrm-15px">
+  	<div class="col-md-12 col-sm-12">
+      <div class="head-title" >
+        <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">ทำไมต้องชีวาแคร์</h2>
+      </div>
+  		<div class="mtg-48px">
+  			<div class="pre-icons _pdlr20px">
+  			        <div class="pre-icons-list">
+  			            
+  			            <div class="pre-icons-item col-md-4 col-sm-4">
+  				            <a href="#">
+  				            	<div class="pre-icons-img-wrapper"><i class="fa fa-users" aria-hidden="true"></i></div>
+  				            	<div class="pre-icons-title">บริการอบอุ่น</div>
+  				        	</a>
+  			            </div>
+  			            <div class="pre-icons-item col-md-4 col-sm-4 ">
+  			              	<a href="#">
+  				            	<div class="pre-icons-img-wrapper"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+  				            	<div class="pre-icons-title">มาตรฐานที่ดี มีเอกสารรับรอง</div>
+  				            </a>
+  			            </div>
+  			            <div class="pre-icons-item col-md-4 col-sm-4 ">
+  			              	<a href="#">
+  			            		<div class="pre-icons-img-wrapper"><i class="fa fa-money"></i></div>
+  			            		<div class="pre-icons-title">ราคาเข้าได้ ไม่แพง</div>
+  			          		</a>
+  			            </div>
+  			        </div>
+                <div class="clearfix"></div>
+                <div class="text-justify">
+                <p>&bull; โปรแกรมกายภาพของชีวาร์แคร์ออกแบบโดยอาจารย์แพทย์ระดับประเทศเฉพาะทางโรคสมองและระบบประสาท ร่วมกับอาจารย์แพทย์สาขาฟื้นฟูและทีมงานกายภาพบำบัดที่มีประสบการณ์สูง ทำให้เรารักษาได้อย่างถูกจุด นักกายภาพบำบัดของชีวาร์แคร์ผ่านการฝึกอบรม แบบ Swiss Doloclast เชี่ยวชาญเรื่องการใช้คลื่นกระแทกลดปวด</p>
+
+<p>&bull; ชีวาแคร์ ดำเนินงานโดย ทีมแพทย์เชี่ยวชาญด้านสมองและระบบประสาท และทีมแพทย์เวชศาสตร์ฟื้นฟู เชี่ยวชาญเวชศาสตร์ผู้สูงอายุ และการรักษาฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง ฟื้นฟูอัมพฤกษ์ ฟื้นฟูอัมพาต และโรคทางสมองต่างๆ&nbsp;</p>
+
+<p>&bull; ชีวาแคร์ ประกอบการรักษาด้วยเครื่องมือการรักษาที่ทันสมัยและได้รับรองมาตรฐานทางการแพทย์ อาทิ เครื่องรักษาโรคสมองด้วยคลื่นแม่เหล็กไฟฟ้า TMS, คลื่นกระแทกรักษากล้ามเนื้อ Shockwave รวมไปถึงเครื่องตรวจเส้นประสาทและกล้ามเนื้อ NCV-EMG เป็นต้น</p>
+
+<p>&bull; ชีวาแคร์ คลินิกสมอง และคลินิกกายภาพบำบัดเชียงใหม่ ตั้งอยู่ใจกลางเมืองเชียงใหม่ (ถนนศิริมังคลาจารย์) ซึ่งเป็นบริเวณแหล่งท่องเที่ยวและใกล้เคียงกับแหล่งรวมศูนย์การแพทย์ต่างๆของเชียงใหม่ เดินทางสะดวก ปลอดภัย ใกล้แพทย์</p>
+              </div>
+  			    
+  			</div>
+  			
+  		</div>
+  	</div>
+	</div>
+</section>
+<div class="clearfix"></div>
+<section class="main-doctor" data-image-src="https://chivacare.com/assets/uploads/img_advertiser/21/1360x765/1769295574_21.txt">
+  <div class="_pdvrm-15px">
+    <div class="container">
+        <div class="single_banner _bg_g">
+            <img src="https://chivacare.com/assets/layouts/frontend/images/bg-teams.jpg">
+            <div class="single_banner_info _single_banner_info _pdl-55px text-center">
+                <h4 class="single_bn_title1 text-center _color_white">ทีมแพทย์ผู้เชี่ยวชาญ</h4>
+                <a href="https://chivacare.com/th/teams" class="text-center">
+                  <button type="button" class="primary-btn -solid _bgb_blue">
+                    <span class="-text _fs18 _fw500">ดูทีมแพทย์ของเรา</span>
+                  </button>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</section>
+<div class="clearfix"></div>
+<section class="main-cert">
+  <div class="container _pdvrm-15px">
+    <div class="col-md-12 col-sm-12 text-center mbg-48px">
+      <div class="head-title">
+        <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">CERTIFICATE จากสถาบันชั้นนำ</h2>
+      </div>
+      <div class="col-md-12 col-sm-12">
+        <div class="owl-cert owl-carousel">
+        <div class="col-md-12 col-sm-12"><img alt="" class="img-responsive" src="/assets/files/images/%E0%B8%94(1).jpg" /></div>
+
+<div class="col-md-12 col-sm-12"><img alt="" class="img-responsive" src="/assets/files/images/%E0%B9%83%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%203(1).jpg" /></div>
+
+<div class="col-md-12 col-sm-12"><img alt="" class="img-responsive center-block" src="/assets/files/images/%E0%B8%94(1)(1).jpg" /></div>
+
+<div class="col-md-12 col-sm-12"><img alt="" class="img-responsive" src="/assets/files/images/%E0%B8%94(1)(2).jpg" /></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</section>
+<div class="clearfix"></div>
+<section class="main-services mtg-48px">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 highlight-wrapper no-padding">
+        <div class="head-title mbg-38px _pdlr24">
+           <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">บริการของเรา</h2>
+        </div>
+          <div class="tabbable-panel">
+          <div class="tabbable-line">
+            <ul class="nav nav-tabs _pdlr24">
+                            <li class="active">
+                <a href="#tab_default_0" data-c-0 class="primary-btn -solid _fs18 _fw500 text-center" data-toggle="tab">คลินิกสมอง และระบบประสาท </a>
+
+              </li>
+                            <li >
+                <a href="#tab_default_1" data-c-1 class="primary-btn -solid _fs18 _fw500 text-center" data-toggle="tab">คลินิกกายภาพ และกิจกรรมบำบัด </a>
+
+              </li>
+                          </ul>
+            
+        <div class="tab-content">
+                    <div class="tab-pane animated fadeIn active" id="tab_default_0">
+          <div class="">
+          <div class="col-md-3 col-sm-3 no-padding visible-xs">
+            <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="" src="https://chivacare.com/assets/uploads/img_category/1623824442_category.jpg">
+          </div>
+          <div class="col-md-3 col-sm-3 hidden-xs _pdlr24">
+            <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="" src="https://chivacare.com/assets/uploads/img_category/1623824442_category.jpg">
+          </div>
+          <div class="col-md-9 col-sm-9 _pdlr24">
+            <h3>คลินิกสมอง และระบบประสาท</h3> 
+            <div class="mbg-38px"><p>The Brain Clinic สาขาหนึ่งของ ชีวาร์แคร์ ก่อตั้งขึ้นในปี 2559 โดย ผศ.นพ.สุรัตน์ ตันประเวช คลินิกให้บริการอย่างมืออาชีพ ในการวินิจฉัยการสอบสวน และการรักษา ครอบคลุมโรคทางสมองและระบบประสาท อาทิ สมองเสื่อม, โรคอัลไซเมอร์, ปวดหัวไมเกรน,โรคพาร์กินสัน, โรคหลอดเลือดสมอง, ฟื้นฟูอัมพฤกษ์ ฟื้นฟูอัมพาต และอาการที่เกี่ยวข้อง</p>
+
+<p>&nbsp;</p>
+</div>
+            <div class="col-md-12 col-sm-12 _pdb24">
+              <a href="https://chivacare.com/th/services/all/1/คลินิกสมอง-และระบบประสาท" class="btn-wrapper has-text-blue-primary pull-right">
+                <span class="-text ellipsis">อ่านต่อ >>></span> 
+              </a>
+            </div>
+          </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-12 col-sm-12 _pdlr24">
+            <div class="head-title _mgt-0px ">
+              <h4>โรคทางสมอง และระบบประสาทที่เรารักษา</h4>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+          <div class="_pdlr24 _mgt-16px">
+                      <div class="swiper-container mbg-38px">
+              <div class="swiper-wrapper ">
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/64/โรคซึมเศร้า" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคซึมเศร้า" src="https://chivacare.com/assets/uploads/img_services/main/1720844790_clip.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/64/โรคซึมเศร้า" target="_blank">
+  	                  <h4>โรคซึมเศร้า</h4>
+  	                  <p>โรคซึมเศร้า เป็นอาการผิดปกติภาวะอารมณ์เศร้าหมองที่เกิดขึ้นอย่าง ทั้งด้านความคิด ความรู้สึก และพฤติกรรม </p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/63/โรคนอนไม่หลับ" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคนอนไม่หลับ" src="https://chivacare.com/assets/uploads/img_services/main/1720844262_clip.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/63/โรคนอนไม่หลับ" target="_blank">
+  	                  <h4>โรคนอนไม่หลับ</h4>
+  	                  <p>ภาวะที่ผู้ป่วยมีอาการนอนไม่หลับ หรือหลับไม่สนิท นอนหลับยาก ใช้เวลานอนนานกว่า 20 นาทีถึงจะหลับได้ </p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/20/โรคหลอดเลือดสมอง" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคหลอดเลือดสมอง" src="https://chivacare.com/assets/uploads/img_services/main/1620375204_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/20/โรคหลอดเลือดสมอง" target="_blank">
+  	                  <h4>โรคหลอดเลือดสมอง</h4>
+  	                  <p>เป็นภาวะที่สมองขาดเลือดไปเลี้ยงเนื่องจากหลอดเลือดตีบ หลอดเลือดอุดตัน หรือ หลอดเลือดแตก ส่งผลให้เนื้อเยื่อในสมองถูกทําลาย การทํางานของสมองหยุดชะงัก</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/19/โรคสมองเสื่อม" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคสมองเสื่อม" src="https://chivacare.com/assets/uploads/img_services/main/1620375189_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/19/โรคสมองเสื่อม" target="_blank">
+  	                  <h4>โรคสมองเสื่อม</h4>
+  	                  <p>กลุ่มอาการที่เกิดจากความผิดปกติต่างๆ ที่ส่งผลกระทบต่อสมอง ส่งผลกระทบต่อความคิด พฤติกรรม และความสามารถในการใช้ชีวิตประจำวัน</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/18/โรคพาร์กินสัน" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคพาร์กินสัน" src="https://chivacare.com/assets/uploads/img_services/main/1620375177_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/18/โรคพาร์กินสัน" target="_blank">
+  	                  <h4>โรคพาร์กินสัน</h4>
+  	                  <p>เป็นโรคความเสื่อมทางสมองที่เกิดจากเซลล์ประสาท ในบางตําแหน่งเกิดการตายทําให้สารสื่อประสาทใน สมอง ชื่อว่า โดปามีน (Dopamine) มีปริมาณลดลง</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/17/โรคไมเกรน" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคไมเกรน" src="https://chivacare.com/assets/uploads/img_services/main/1620374818_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/17/โรคไมเกรน" target="_blank">
+  	                  <h4>โรคไมเกรน</h4>
+  	                  <p>ไมเกรนเกิดจากการบีบตัว และคลายตัวของหลอดเลือดแดงในสมองมากกว่าปกติทำให้เกิดอาการปวด ศีรษะขึ้นอย่างรุนแรงและรวดเร็ว พร้อมกับมีอาการคลื่นไส้อาเจียน</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                        </div>
+                <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next swiper-button-black"></div>
+              <div class="swiper-button-prev swiper-button-black"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 _pdb24">
+              <a href="https://chivacare.com/th/services/all/1/คลินิกสมอง-และระบบประสาท" class="btn-wrapper has-text-blue-primary pull-right">
+                <span class="-text ellipsis">ดูคลินิกสมอง และระบบประสาทอื่น ๆ <i class="ion-chevron-right"></i></span> 
+              </a>
+            </div>
+                        </div>
+            </div>
+                      <div class="tab-pane animated fadeIn " id="tab_default_1">
+          <div class="">
+          <div class="col-md-3 col-sm-3 no-padding visible-xs">
+            <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="" src="https://chivacare.com/assets/uploads/img_category/1623824430_category.jpg">
+          </div>
+          <div class="col-md-3 col-sm-3 hidden-xs _pdlr24">
+            <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="" src="https://chivacare.com/assets/uploads/img_category/1623824430_category.jpg">
+          </div>
+          <div class="col-md-9 col-sm-9 _pdlr24">
+            <h3>คลินิกกายภาพ และกิจกรรมบำบัด</h3> 
+            <div class="mbg-38px"><p>กายภาพบำบัดและกิจกรรมบำบัด ดำเนินงานโดยทีมนักกายภาพและนักกิจกรรมบำบัดเฉพาะทาง เชี่ยวชาญด้านเวชศาสตร์ผู้สูงอายุ คลินิกให้บริการตรวจ ประเมิน รักษา ผู้มีปัญหากล้ามเนื้อและกระดูก เช่น ออฟฟิศซินโดรม โรคข้อเข่าเสื่อม และอาการปวดหลังหรือปวดตามส่วนต่างๆของร่างกาย กายภาพบำบัดฟื้นฟูข้อต่อและกล้ามเนื้อหลังการผ่าตัด อาการปวดที่เกี่ยวข้องกับระบบประสาทและสมอง&nbsp; เช่น การฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง ฟื้นฟูอัมพฤกษ์ อัมพาต ฯลฯ เพื่อให้ผู้ป่วยดำเนินชีวิตได้ตามศักยภาพ</p>
+
+<p>&nbsp;</p>
+</div>
+            <div class="col-md-12 col-sm-12 _pdb24">
+              <a href="https://chivacare.com/th/services/all/2/คลินิกกายภาพ-และกิจกรรมบำบัด" class="btn-wrapper has-text-blue-primary pull-right">
+                <span class="-text ellipsis">อ่านต่อ >>></span> 
+              </a>
+            </div>
+          </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-12 col-sm-12 _pdlr24">
+            <div class="head-title _mgt-0px ">
+              <h4>โรคทางกายภาพที่เรารักษา</h4>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+          <div class="_pdlr24 _mgt-16px">
+                      <div class="swiper-container mbg-38px">
+              <div class="swiper-wrapper ">
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/61/โรคเอ็นข้อศอกอักเสบ" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคเอ็นข้อศอกอักเสบ" src="https://chivacare.com/assets/uploads/img_services/main/1620973383_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/61/โรคเอ็นข้อศอกอักเสบ" target="_blank">
+  	                  <h4>โรคเอ็นข้อศอกอักเสบ</h4>
+  	                  <p>เป็นโรคที่พบได้บ่อยในคนที่ใช้ข้อมือและข้อศอกมาก หรือในการทำงานไม่ว่าจะเป็นงานหนักหรืองาน เบาแต่มีการใช้มือเกร็ง ในท่าซ้ำๆ</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/60/โรคการกดทับเส้นประสาทบริเวณข้อมือ" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคการกดทับเส้นประสาทบริเวณข้อมือ" src="https://chivacare.com/assets/uploads/img_services/main/1620446495_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/60/โรคการกดทับเส้นประสาทบริเวณข้อมือ" target="_blank">
+  	                  <h4>โรคการกดทับเส้นประสาทบริเวณข้อมือ</h4>
+  	                  <p>เป็นโรคในกลุ่มการกดทับเส้นประสาทบริเวณข้อมือที่เกิดขึ้นเนื่องจากเกิดพังผืดที่หนาตัวขึ้นบริเวณข้อ</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/49/โรคข้อไหล่ยึดติด" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคข้อไหล่ยึดติด" src="https://chivacare.com/assets/uploads/img_services/main/1620446506_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/49/โรคข้อไหล่ยึดติด" target="_blank">
+  	                  <h4>โรคข้อไหล่ยึดติด</h4>
+  	                  <p>โรคข้อไหล่ยึดติด (Adhesive Capsulitis/Frozen Shoulder) คือ ภาวะที่มีการขยับข้อไหล่ได้น้อย</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/48/โรคข้อสะโพกเสื่อม" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคข้อสะโพกเสื่อม" src="https://chivacare.com/assets/uploads/img_services/main/1620377943_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/48/โรคข้อสะโพกเสื่อม" target="_blank">
+  	                  <h4>โรคข้อสะโพกเสื่อม</h4>
+  	                  <p>เป็นรูปแบบหนึ่งของข้ออักเสบที่เกิดจากกระดูกอ่อนที่คลุมพื้นผิวของข้อเสื่อมสลายไปจากสาเหตุต่างๆ</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/47/โรคข้อเข่าเสื่อม" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคข้อเข่าเสื่อม" src="https://chivacare.com/assets/uploads/img_services/main/1620377995_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/47/โรคข้อเข่าเสื่อม" target="_blank">
+  	                  <h4>โรคข้อเข่าเสื่อม</h4>
+  	                  <p>เป็นภาวะที่กระดูกอ่อนผิวข้อเข่ามีการสึกหรอและเสื่อมอย่างช้าๆและจะเป็นมากขึ้นตามเวลาที่ผ่านไปพบได้บ่อยในผู้สูงอายุ</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/46/โรคข้อกระดูกสันหลังเสื่อม" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคข้อกระดูกสันหลังเสื่อม" src="https://chivacare.com/assets/uploads/img_services/main/1620378034_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/46/โรคข้อกระดูกสันหลังเสื่อม" target="_blank">
+  	                  <h4>โรคข้อกระดูกสันหลังเสื่อม</h4>
+  	                  <p>เกิดจากการเสื่อมสภาพของข้อต่อของกระดูกสันหลังรวมถึงหมอนรองกระดูกสันหลังทั้งส่วนคออกและเอว</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                            <div class="swiper-slide">
+                  <div class="content-wrapper">
+                	  <a class="link" href="https://chivacare.com/th/services/22/โรคออฟฟิศซินโดรม" target="_blank">
+                    <img style="margin: 0px 0px 15px;" class="img-responsive" alt="" title="โรคออฟฟิศซินโดรม" src="https://chivacare.com/assets/uploads/img_services/main/1620378076_.jpg">
+                    </a>
+                    <div class="col-md-12 col-sm-12">
+  	                  <a class="link" href="https://chivacare.com/th/services/22/โรคออฟฟิศซินโดรม" target="_blank">
+  	                  <h4>โรคออฟฟิศซินโดรม</h4>
+  	                  <p>เป็นกลุ่มของโรคที่เกิดจากลักษณะการทำงานที่ไม่เหมาะสมเช่นการนั่งโต๊ะทำงานต่อเนื่องหลายชั่วโมง</p>
+  	                  </a>
+  	                  <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                        </div>
+                <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next swiper-button-black"></div>
+              <div class="swiper-button-prev swiper-button-black"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 _pdb24">
+              <a href="https://chivacare.com/th/services/all/2/คลินิกกายภาพ-และกิจกรรมบำบัด" class="btn-wrapper has-text-blue-primary pull-right">
+                <span class="-text ellipsis">ดูคลินิกกายภาพ และกิจกรรมบำบัดอื่น ๆ <i class="ion-chevron-right"></i></span> 
+              </a>
+            </div>
+                        </div>
+            </div>
+                        </div>
+              </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center mtg-48px mbg-48px">
+      <a href="https://chivacare.com/th/appointment/step1?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด" class="text-center">
+        <button type="button" class="primary-btn -solid">
+          <span class="-text _fs18 _fw500">จองคิวนัดรักษา</span>
+        </button>
+      </a>
+    </div>
+</section>
+<section class="main-videoclip mbg-48px">
+  <div class="container _pdvrm-15px">
+    <div class="col-md-12 col-sm-12 container-overflow">
+      <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">คลิปวิดีโอ ชีวาแคร์</h2>
+      </div>
+      <div class="clearfix"></div>
+    	<div class="mtg-48px">
+  			<div class="swiper-container custom-overflow">
+          <div class="swiper-wrapper">
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vPHTu15GneQ" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>ChivaCare : Shock Wave therapy เครื่องให้การรักษาด้วยคลื่นกระแทก</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cJkqFgvlVd0" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>สมองเสื่อมและขี้ลืมมันเป็นยังไง ?? [ผศ.นพ.สุรัตน์ ตันประเวช] - ChivaCare</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lsw_6dvB568" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>สมองเสื่อมและขี้ลืมมันเป็นยังไง [ผศ.นพ.สุรัตน์ ตันประเวช]</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/McTHxn94ArQ" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>Plantar fasciitis การรักษาพังผืดฝ่าเท้าอักเสบด้วย Shockwave</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3xBQ1eSXyGI" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>การดูแลตนเองในช่วง COVID</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				    				<div class="swiper-slide _pdv-32px">
+    					<div class="box-video content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default">
+    					<div class="embed-responsive embed-responsive-16by9">
+    					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KYDIsqfVw-M" allowfullscreen></iframe>
+    					</div>
+    					<div class="col-md-12 col-sm-12 _pdtb-10px">
+    						<h4>โปรแกรมการฟื้นฟูไหล่ และข้อต่อหลังการผ่าตัด</h4>
+    					</div>
+    					</div>
+
+    				</div>
+    				  			   </div>
+                  <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next swiper-button-black"></div>
+        <div class="swiper-button-prev swiper-button-black"></div>
+        </div>
+        <div class="col-md-12 col-sm-12 ">
+          <a href="https://chivacare.com/th/video" class="btn-wrapper has-text-blue-primary pull-right">
+            <span class="-text">ดูคลิปวิดีโออื่น ๆ <i class="ion-chevron-right"></i></span> 
+          </a>
+        </div>
+    	</div>
+    </div>
+  </div>
+</section>
+<section class="main-blog mbg-48px">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12 container-overflow">
+        <div class=" head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">สาระน่ารู้ ข้อมูลสุขภาพ</h2>
+        </div>
+                  <div class="swiper-container custom-overflow mtg-48px">
+      		  <div class="swiper-wrapper">
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/43/กายภาพบำบัด-ไม่ป่วยก็ทำได้-ดูแลสุขภาพระยะยาวก่อนที่จะสาย" target="_blank">
+                    <img class="img-responsive" alt="" title="กายภาพบำบัด ไม่ป่วยก็ทำได้ ดูแลสุขภาพระยะยาวก่อนที่จะสาย" src="https://chivacare.com/assets/uploads/img_blog/main/1781234285_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/43/กายภาพบำบัด-ไม่ป่วยก็ทำได้-ดูแลสุขภาพระยะยาวก่อนที่จะสาย" target="_blank">
+                      <h4 class="title ellipsis">กายภาพบำบัด ไม่ป่วยก็ทำได้ ดูแลสุขภาพระยะยาวก่อนที่จะสาย</h4>
+                      </a>
+                      <p>กายภาพบำบัดไม่ต้องรอให้ป่วยแต่ช่วยลดความเสี่ยงอาการปวดเรื้อรัง เพิ่มการเคลื่อนไหว ป้องกันปัญหาสุขภาพในอนาคต</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/42/อาการเกร็งลิ้นแข็ง-พูดลำบาก-กลืนลำบาก-สัญญาณเตือนที่ไม่ควรมองข้าม-และบทบาทนักกิจกรรมบำบัดในการฟื้นฟู" target="_blank">
+                    <img class="img-responsive" alt="" title="อาการเกร็งลิ้นแข็ง พูดลำบาก กลืนลำบาก สัญญาณเตือนที่ไม่ควรมองข้าม และบทบาทนักกิจกรรมบำบัดในการฟื้นฟู" src="https://chivacare.com/assets/uploads/img_blog/main/1777097794_.txt">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/42/อาการเกร็งลิ้นแข็ง-พูดลำบาก-กลืนลำบาก-สัญญาณเตือนที่ไม่ควรมองข้าม-และบทบาทนักกิจกรรมบำบัดในการฟื้นฟู" target="_blank">
+                      <h4 class="title ellipsis">อาการเกร็งลิ้นแข็ง พูดลำบาก กลืนลำบาก สัญญาณเตือนที่ไม่ควรมองข้าม และบทบาทนักกิจกรรมบำบัดในการฟื้นฟู</h4>
+                      </a>
+                      <p>ลิ้นแข็ง เกร็ง พูดไม่ชัด กลืนลำบาก อันตรายไหม? รู้สาเหตุ อาการ และแนวทางฟื้นฟูโดยนักกิจกรรมบำบัดแบบละเอียด ช่วยพูดชัด</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/41/บอกลาลูป-ปวด-นวด-ปวด-ทำไมการทำ-กายภาพบำบัด-ถึงเป็นทางรอดเดียวของคนเป็น-ออฟฟิศซินโดรม" target="_blank">
+                    <img class="img-responsive" alt="" title="บอกลาลูป 'ปวด-นวด-ปวด': ทำไมการทำ "กายภาพบำบัด" ถึงเป็นทางรอดเดียวของคนเป็น ออฟฟิศซินโดรม" src="https://chivacare.com/assets/uploads/img_blog/main/1769481720_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/41/บอกลาลูป-ปวด-นวด-ปวด-ทำไมการทำ-กายภาพบำบัด-ถึงเป็นทางรอดเดียวของคนเป็น-ออฟฟิศซินโดรม" target="_blank">
+                      <h4 class="title ellipsis">บอกลาลูป 'ปวด-นวด-ปวด': ทำไมการทำ "กายภาพบำบัด" ถึงเป็นทางรอดเดียวของคนเป็น ออฟฟิศซินโดรม</h4>
+                      </a>
+                      <p>เบื่อไหมกับการ นวด แล้วไม่หาย? เจาะลึกสาเหตุ ออฟฟิศซินโดรม และวิธีรักษาด้วย กายภาพบำบัด ที่ช่วยแก้ปัญหา Office Syndrome</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/40/เครื่องมือ-PMS-รักษาอาการปวดชา-และออฟฟิศซินโดรม" target="_blank">
+                    <img class="img-responsive" alt="" title="เครื่องมือ PMS รักษาอาการปวดชา และออฟฟิศซินโดรม" src="https://chivacare.com/assets/uploads/img_blog/main/1769295467_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/40/เครื่องมือ-PMS-รักษาอาการปวดชา-และออฟฟิศซินโดรม" target="_blank">
+                      <h4 class="title ellipsis">เครื่องมือ PMS รักษาอาการปวดชา และออฟฟิศซินโดรม</h4>
+                      </a>
+                      <p>เทคโนโลยีใหม่ที่ใช้การส่งคลื่นแม่เหล็กไฟฟ้าไปกระตุ้นส่วนต่าง ๆ ในร่างกายเพื่อบำบัดอาการปวดและชา</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/37/ฟื้นฟูผู้ป่วยหลอดเลือดสมอง-ด้วยเทคโนโลยี-TMS" target="_blank">
+                    <img class="img-responsive" alt="" title="ฟื้นฟูผู้ป่วยหลอดเลือดสมอง ด้วยเทคโนโลยี TMS" src="https://chivacare.com/assets/uploads/img_blog/main/1634630572_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/37/ฟื้นฟูผู้ป่วยหลอดเลือดสมอง-ด้วยเทคโนโลยี-TMS" target="_blank">
+                      <h4 class="title ellipsis">ฟื้นฟูผู้ป่วยหลอดเลือดสมอง ด้วยเทคโนโลยี TMS</h4>
+                      </a>
+                      <p>ปัจจุบันมีการรักษาผู้ป่วยโรคหลอดเลือดสมองหลากหลายวิธี รวมถึง TMS</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/36/นวัตกรรมลดปวดไมเกรนด้วย-TMS" target="_blank">
+                    <img class="img-responsive" alt="" title="นวัตกรรมลดปวดไมเกรนด้วย TMS" src="https://chivacare.com/assets/uploads/img_blog/main/1634630351_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/36/นวัตกรรมลดปวดไมเกรนด้วย-TMS" target="_blank">
+                      <h4 class="title ellipsis">นวัตกรรมลดปวดไมเกรนด้วย TMS</h4>
+                      </a>
+                      <p>ปวดหัวไมเกรน จนเป็นปัญหาในชีวิตประจำวัน จนต้องคอยทานยาอยู่ตลอดๆ?
+มาบอกลาไมเกรนด้วยนวัตกรรมใหม่ TMS ลดปวดไมเกรนกันดีกว่า!</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/35/รักษาอาการ-��ซึมเศร้า-นอนไม่หลับ-��-แบบไม่ใช้ยา" target="_blank">
+                    <img class="img-responsive" alt="" title="รักษาอาการ “ซึมเศร้า นอนไม่หลับ” แบบไม่ใช้ยา" src="https://chivacare.com/assets/uploads/img_blog/main/1630908030_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/35/รักษาอาการ-��ซึมเศร้า-นอนไม่หลับ-��-แบบไม่ใช้ยา" target="_blank">
+                      <h4 class="title ellipsis">รักษาอาการ “ซึมเศร้า นอนไม่หลับ” แบบไม่ใช้ยา</h4>
+                      </a>
+                      <p>หากคุณเป็นคนที่กำลังประสบกับภาวะเครียด ซึมเศร้า กินไม่ได้ นอนไม่หลับ กระสับกระส่าย</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/34/TMS-อีกหนึ่งทางเลือกรักษาอาการอัมพฤกษ์-อัมพาต" target="_blank">
+                    <img class="img-responsive" alt="" title="TMS อีกหนึ่งทางเลือกรักษาอาการอัมพฤกษ์-อัมพาต" src="https://chivacare.com/assets/uploads/img_blog/main/1630219036_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/34/TMS-อีกหนึ่งทางเลือกรักษาอาการอัมพฤกษ์-อัมพาต" target="_blank">
+                      <h4 class="title ellipsis">TMS อีกหนึ่งทางเลือกรักษาอาการอัมพฤกษ์-อัมพาต</h4>
+                      </a>
+                      <p>ในผู้ป่วยโรคหลอดเลือดสมอง การรักษาด้วย TMS สามารถรักษาอาการอ่อนแรง ที่ส่งผลต่อชีวิตประจำวันของผู้ป่วยให้ดีขึ้นได้</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/33/ระวัง-ข้อเข่าเสื่อมก่อนวัย-ป้องกันไว้จะดีกว่า" target="_blank">
+                    <img class="img-responsive" alt="" title="ระวัง!! ข้อเข่าเสื่อมก่อนวัย ป้องกันไว้จะดีกว่า" src="https://chivacare.com/assets/uploads/img_blog/main/1629654445_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/33/ระวัง-ข้อเข่าเสื่อมก่อนวัย-ป้องกันไว้จะดีกว่า" target="_blank">
+                      <h4 class="title ellipsis">ระวัง!! ข้อเข่าเสื่อมก่อนวัย ป้องกันไว้จะดีกว่า</h4>
+                      </a>
+                      <p>โรคข้อเข่าเสื่อม เป็นปัญหาที่พบบ่อยโดยเฉพาะในวัยสูงอายุ อีกทั้งยังส่งผลกระทบต่อการใช้ชีวิตประจำวันอีกด้วย</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/32/ลดปวดไมเกรนด้วย-Shockwave-" target="_blank">
+                    <img class="img-responsive" alt="" title="ลดปวดไมเกรนด้วย Shockwave?" src="https://chivacare.com/assets/uploads/img_blog/main/1629195092_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/32/ลดปวดไมเกรนด้วย-Shockwave-" target="_blank">
+                      <h4 class="title ellipsis">ลดปวดไมเกรนด้วย Shockwave?</h4>
+                      </a>
+                      <p>จริงๆแล้วไมเกรน อาจเกิดได้จากหลายสาเหตุ ซึ่งกว่า 50 % ของผู้เป็นไมเกรน มักจะมีอาการออฟฟิศซินโดรมร่วมด้วย</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/31/กล้ามเนื้ออ่อนแรง-เสี่ยงเป็น-กล้ามเนื้อลีบ-" target="_blank">
+                    <img class="img-responsive" alt="" title="กล้ามเนื้ออ่อนแรง เสี่ยงเป็น กล้ามเนื้อลีบ!" src="https://chivacare.com/assets/uploads/img_blog/main/1627354180_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/31/กล้ามเนื้ออ่อนแรง-เสี่ยงเป็น-กล้ามเนื้อลีบ-" target="_blank">
+                      <h4 class="title ellipsis">กล้ามเนื้ออ่อนแรง เสี่ยงเป็น กล้ามเนื้อลีบ!</h4>
+                      </a>
+                      <p>อาการกล้ามเนื้ออ่อนแรงเล็กน้อย หรือ รุนแรงถึงขั้นที่ไม่สามารถขยับร่างกายได้ สามารถเกิดขึ้นได้กับกล้ามเนื้อทั่วร่างกาย</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/30/TMS-ช่วยรักษาโรคซึมเศร้าอย่างไร-" target="_blank">
+                    <img class="img-responsive" alt="" title="TMS ช่วยรักษาโรคซึมเศร้าอย่างไร?" src="https://chivacare.com/assets/uploads/img_blog/main/1626604573_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/30/TMS-ช่วยรักษาโรคซึมเศร้าอย่างไร-" target="_blank">
+                      <h4 class="title ellipsis">TMS ช่วยรักษาโรคซึมเศร้าอย่างไร?</h4>
+                      </a>
+                      <p>เครื่องกระตุ้นแม่เหล็กไฟฟ้า TMS นอกจากจะช่วยรักษาโรคทางสมองและระบบประสาท เช่น อัมพฤกษ์ อัมพาต พาร์กินสัน ฯลฯ</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/29/พังผืดทับเส้นประสาทที่ข้อมือ-เกิดจากอะไร-" target="_blank">
+                    <img class="img-responsive" alt="" title="พังผืดทับเส้นประสาทที่ข้อมือ เกิดจากอะไร?" src="https://chivacare.com/assets/uploads/img_blog/main/1625990074_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/29/พังผืดทับเส้นประสาทที่ข้อมือ-เกิดจากอะไร-" target="_blank">
+                      <h4 class="title ellipsis">พังผืดทับเส้นประสาทที่ข้อมือ เกิดจากอะไร?</h4>
+                      </a>
+                      <p>พังผืดทับเส้นประสาทที่ข้อมือ อาการปวดชาบริเวณข้อมือที่กลุ่มคนทำงานอาจต้องระวัง! </p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/27/นวด-กับ-กายภาพบำบัดต่างกันอย่างไร-" target="_blank">
+                    <img class="img-responsive" alt="" title="นวด กับ กายภาพบำบัดต่างกันอย่างไร?" src="https://chivacare.com/assets/uploads/img_blog/main/1625646024_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/27/นวด-กับ-กายภาพบำบัดต่างกันอย่างไร-" target="_blank">
+                      <h4 class="title ellipsis">นวด กับ กายภาพบำบัดต่างกันอย่างไร?</h4>
+                      </a>
+                      <p>นวดกับกายภาพบำบัดแตกต่างกันหรือไม่ และต่างกันอย่างไร ต้องอาการแบบไหนถึงควรจะทำกายภาพบำบัด?</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/24/ปวดเข่า-อาจไม่ใช่แค่โรคข้อเข่าเสื่อม" target="_blank">
+                    <img class="img-responsive" alt="" title="ปวดเข่า อาจไม่ใช่แค่โรคข้อเข่าเสื่อม" src="https://chivacare.com/assets/uploads/img_blog/main/1625281193_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/24/ปวดเข่า-อาจไม่ใช่แค่โรคข้อเข่าเสื่อม" target="_blank">
+                      <h4 class="title ellipsis">ปวดเข่า อาจไม่ใช่แค่โรคข้อเข่าเสื่อม</h4>
+                      </a>
+                      <p>“ข้อเข่า” ทำหน้าที่ในการรับน้ำหนักตัวเกือบตลอดเวลา ไม่ว่าจะเป็นการเดิน ยืน นั่ง หรือทำกิจกรรมต่างๆ ในชีวิตประจำวัน</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/23/ทำไมต้อง-��Stretching-��-กล้ามเนื้อก่อน-หลังออกกำลังกาย-" target="_blank">
+                    <img class="img-responsive" alt="" title="ทำไมต้อง “Stretching” กล้ามเนื้อก่อน-หลังออกกำลังกาย?" src="https://chivacare.com/assets/uploads/img_blog/main/1624183998_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/23/ทำไมต้อง-��Stretching-��-กล้ามเนื้อก่อน-หลังออกกำลังกาย-" target="_blank">
+                      <h4 class="title ellipsis">ทำไมต้อง “Stretching” กล้ามเนื้อก่อน-หลังออกกำลังกาย?</h4>
+                      </a>
+                      <p>การยืดกล้ามเนื้อก่อนการออกกำลังกายทุกครั้งนั้น มีประโยชน์อย่างมาก</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/22/การกระตุ้นสมองด้วยสนามแม่เหล็ก-TMS-สามารถรักษาโรคซึมเศร้าได้" target="_blank">
+                    <img class="img-responsive" alt="" title="การกระตุ้นสมองด้วยสนามแม่เหล็ก TMS สามารถรักษาโรคซึมเศร้าได้" src="https://chivacare.com/assets/uploads/img_blog/main/1621239651_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/22/การกระตุ้นสมองด้วยสนามแม่เหล็ก-TMS-สามารถรักษาโรคซึมเศร้าได้" target="_blank">
+                      <h4 class="title ellipsis">การกระตุ้นสมองด้วยสนามแม่เหล็ก TMS สามารถรักษาโรคซึมเศร้าได้</h4>
+                      </a>
+                      <p>TMS Therapy คือ การกระตุ้นสมองด้วยคลื่นแม่เหล็กไฟฟ้า (Transcranial Magnetic Stimulation-TMS) </p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/21/การดูแลเมื่อรู้ว่าเป็นโรคไมเกรน" target="_blank">
+                    <img class="img-responsive" alt="" title="การดูแลเมื่อรู้ว่าเป็นโรคไมเกรน" src="https://chivacare.com/assets/uploads/img_blog/main/1621239469_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/21/การดูแลเมื่อรู้ว่าเป็นโรคไมเกรน" target="_blank">
+                      <h4 class="title ellipsis">การดูแลเมื่อรู้ว่าเป็นโรคไมเกรน</h4>
+                      </a>
+                      <p>โรคไมเกรน (Migraine) เกิดจากการบีบตัว และคลายตัวของหลอดเลือดแดงในสมองมากกว่าปกติ</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/20/โรคข้อไหล่ยึดติด-หากปล่อยไว้นานจะต้องรับการรักษาโดย-��การผ่าตัด-��" target="_blank">
+                    <img class="img-responsive" alt="" title="โรคข้อไหล่ยึดติด หากปล่อยไว้นานจะต้องรับการรักษาโดย“การผ่าตัด”" src="https://chivacare.com/assets/uploads/img_blog/main/1621236492_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/20/โรคข้อไหล่ยึดติด-หากปล่อยไว้นานจะต้องรับการรักษาโดย-��การผ่าตัด-��" target="_blank">
+                      <h4 class="title ellipsis">โรคข้อไหล่ยึดติด หากปล่อยไว้นานจะต้องรับการรักษาโดย“การผ่าตัด”</h4>
+                      </a>
+                      <p>โรคข้อไหล่ยึดติด หากปล่อยไว้นานจะต้องรับการรักษาโดย“การผ่าตัด”
+
+จากหลายงานวิจัยพบว่าผู้ป่วยโรคข้อไหล่ยึดติด</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/19/อาการปวดหลังจากการยืนเป็นเวลานาน-อันตรายกว่าที่คุณคิด" target="_blank">
+                    <img class="img-responsive" alt="" title="อาการปวดหลังจากการยืนเป็นเวลานาน อันตรายกว่าที่คุณคิด" src="https://chivacare.com/assets/uploads/img_blog/main/1621239166_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/19/อาการปวดหลังจากการยืนเป็นเวลานาน-อันตรายกว่าที่คุณคิด" target="_blank">
+                      <h4 class="title ellipsis">อาการปวดหลังจากการยืนเป็นเวลานาน อันตรายกว่าที่คุณคิด</h4>
+                      </a>
+                      <p>อาการปวดหลังจากการยืนเป็นเวลานานอันตรายกว่าที่คุณคิด</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/18/ชีวาแคร์แนะนำแอพพลิเคชั่น-บริหารสมอง-ป้องกันอัลไซเมอร์" target="_blank">
+                    <img class="img-responsive" alt="" title="ชีวาแคร์แนะนำแอพพลิเคชั่น บริหารสมอง ป้องกันอัลไซเมอร์" src="https://chivacare.com/assets/uploads/img_blog/main/1617103503_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/18/ชีวาแคร์แนะนำแอพพลิเคชั่น-บริหารสมอง-ป้องกันอัลไซเมอร์" target="_blank">
+                      <h4 class="title ellipsis">ชีวาแคร์แนะนำแอพพลิเคชั่น บริหารสมอง ป้องกันอัลไซเมอร์</h4>
+                      </a>
+                      <p>ชีวาแคร์ขอแนะนำ 5 แอพพลิเคชั่นบริหารสมองป้องกันอัลไซเมอร์ ที่สามารถใช้งานได้ฟรีบนสมาร์ทโฟนของคุณ ยิ่งเล่นยิ่งพัฒนาสมอง</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/17/Text-Neck-Syndrome-��-ภัยจากสังคมก้มหน้า" target="_blank">
+                    <img class="img-responsive" alt="" title="Text Neck Syndrome… ภัยจากสังคมก้มหน้า" src="https://chivacare.com/assets/uploads/img_blog/main/1617098364_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/17/Text-Neck-Syndrome-��-ภัยจากสังคมก้มหน้า" target="_blank">
+                      <h4 class="title ellipsis">Text Neck Syndrome… ภัยจากสังคมก้มหน้า</h4>
+                      </a>
+                      <p>หากท่านมีอาการปวดคอเรื้อรัง อย่านิ่งนอนใจไป ให้รีบรักษาก่อนจะสายเกินแก้!</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/14/ปวดไม่หาย-ลองใช้-การฝังเข็ม-ควบคู่" target="_blank">
+                    <img class="img-responsive" alt="" title="ปวดไม่หาย ลองใช้ 'การฝังเข็ม' ควบคู่" src="https://chivacare.com/assets/uploads/img_blog/main/1621239257_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/14/ปวดไม่หาย-ลองใช้-การฝังเข็ม-ควบคู่" target="_blank">
+                      <h4 class="title ellipsis">ปวดไม่หาย ลองใช้ 'การฝังเข็ม' ควบคู่</h4>
+                      </a>
+                      <p>Dry Needling หรือ การฝังเข็มแบบตะวันตก เป็นการฝังลงไปที่จุดที่ปวด รักษาความเจ็บปวดอย่างตรงจุด </p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/13/โรคข้อไหล่ติด-Frozen-Shoulder-เกิดจากอะไร-" target="_blank">
+                    <img class="img-responsive" alt="" title="โรคข้อไหล่ติด (Frozen Shoulder) เกิดจากอะไร ?" src="https://chivacare.com/assets/uploads/img_blog/main/1617096854_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/13/โรคข้อไหล่ติด-Frozen-Shoulder-เกิดจากอะไร-" target="_blank">
+                      <h4 class="title ellipsis">โรคข้อไหล่ติด (Frozen Shoulder) เกิดจากอะไร ?</h4>
+                      </a>
+                      <p>“ห่างแค่เพียงเอื้อมมือ แต่มันคือแสนไกล ยิ่งเอื้อมมือไปเท่าไร ยิ่งปวดไหล่มากเท่านั้น”</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/12/TMS-Therapy-การรักษาที่จะช่วยเปลี่ยนชีวิตคุณ" target="_blank">
+                    <img class="img-responsive" alt="" title="TMS Therapy การรักษาที่จะช่วยเปลี่ยนชีวิตคุณ" src="https://chivacare.com/assets/uploads/img_blog/main/1621239319_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/12/TMS-Therapy-การรักษาที่จะช่วยเปลี่ยนชีวิตคุณ" target="_blank">
+                      <h4 class="title ellipsis">TMS Therapy การรักษาที่จะช่วยเปลี่ยนชีวิตคุณ</h4>
+                      </a>
+                      <p></p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/11/สมองเสื่อมเริ่มมาจากสมองส่วนไหน-" target="_blank">
+                    <img class="img-responsive" alt="" title="สมองเสื่อมเริ่มมาจากสมองส่วนไหน ?" src="https://chivacare.com/assets/uploads/img_blog/main/1621310755_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/11/สมองเสื่อมเริ่มมาจากสมองส่วนไหน-" target="_blank">
+                      <h4 class="title ellipsis">สมองเสื่อมเริ่มมาจากสมองส่วนไหน ?</h4>
+                      </a>
+                      <p>ภาวะสมองเสื่อมจะมีอาการจะแตกต่างกันไปตามตำแหน่งของสมองที่เกิดความผิดปกติ</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/10/ทำไม-Shockwave-ถึงเป็นโปรแกรมยอดระงับปวดยอดนิยม" target="_blank">
+                    <img class="img-responsive" alt="" title="ทำไม Shockwave ถึงเป็นโปรแกรมยอดระงับปวดยอดนิยม" src="https://chivacare.com/assets/uploads/img_blog/main">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/10/ทำไม-Shockwave-ถึงเป็นโปรแกรมยอดระงับปวดยอดนิยม" target="_blank">
+                      <h4 class="title ellipsis">ทำไม Shockwave ถึงเป็นโปรแกรมยอดระงับปวดยอดนิยม</h4>
+                      </a>
+                      <p>Shockwave เทคโนโลยีที่จะมาช่วยให้คุณมีชีวิตที่ดีขึ้น</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/9/Piriformis-Syndrome-โรคที่วัยทำงานควรรู้จัก" target="_blank">
+                    <img class="img-responsive" alt="" title="Piriformis Syndrome โรคที่วัยทำงานควรรู้จัก" src="https://chivacare.com/assets/uploads/img_blog/main/1616815873_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/9/Piriformis-Syndrome-โรคที่วัยทำงานควรรู้จัก" target="_blank">
+                      <h4 class="title ellipsis">Piriformis Syndrome โรคที่วัยทำงานควรรู้จัก</h4>
+                      </a>
+                      <p>Piriformis Syndrome คือ กลุ่มอาการกล้ามเนื้อสะโพกหนีบเส้นประสาท ซึ่งเกิดจากการที่กล้ามเนื้อพิริฟอร์มิสบริเวณก้น</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/8/การฟื้นฟูร่างกายหลังการผ่าตัด" target="_blank">
+                    <img class="img-responsive" alt="" title="การฟื้นฟูร่างกายหลังการผ่าตัด" src="https://chivacare.com/assets/uploads/img_blog/main/1616652234_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/8/การฟื้นฟูร่างกายหลังการผ่าตัด" target="_blank">
+                      <h4 class="title ellipsis">การฟื้นฟูร่างกายหลังการผ่าตัด</h4>
+                      </a>
+                      <p>โดย ผศ.นพ. สุรัตน์ ตันประเวช แพทย์ผู้เชี่ยวชาญ</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/7/คุณทุกข์ทรมานกับอาการปวดบริเวณหน้าแข้งหรือไม่-" target="_blank">
+                    <img class="img-responsive" alt="" title="คุณทุกข์ทรมานกับอาการปวดบริเวณหน้าแข้งหรือไม่ ?" src="https://chivacare.com/assets/uploads/img_blog/main/1613795428_clip.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/7/คุณทุกข์ทรมานกับอาการปวดบริเวณหน้าแข้งหรือไม่-" target="_blank">
+                      <h4 class="title ellipsis">คุณทุกข์ทรมานกับอาการปวดบริเวณหน้าแข้งหรือไม่ ?</h4>
+                      </a>
+                      <p>ชิน สปลิ้นท์ หรือ โรคสันหน้าแข้งอักเสบ เป็นกลุ่มอาการปวดหน้าแข้งบริเวณด้านในและสันกระดูกหน้าแข้ง ซึ่งพบบ่อยในนักกีฬา</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/6/7-สัญญาณอันตรายที่เตือนว่าคุณอาจกำลังมีปัญหาเกี่ยวกับกระดูกและข้อต่อ" target="_blank">
+                    <img class="img-responsive" alt="" title="7 สัญญาณอันตรายที่เตือนว่าคุณอาจกำลังมีปัญหาเกี่ยวกับกระดูกและข้อต่อ" src="https://chivacare.com/assets/uploads/img_blog/main/1616648350_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/6/7-สัญญาณอันตรายที่เตือนว่าคุณอาจกำลังมีปัญหาเกี่ยวกับกระดูกและข้อต่อ" target="_blank">
+                      <h4 class="title ellipsis">7 สัญญาณอันตรายที่เตือนว่าคุณอาจกำลังมีปัญหาเกี่ยวกับกระดูกและข้อต่อ</h4>
+                      </a>
+                      <p>คงเป็นเรื่องน่ากังวลใช่ไหม หากคุณรู้สึกปวดขัดตามร่างกาย ทำให้เคลื่อนไหวได้ไม่สะดวกเหมือนเดิม</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                            <div class="swiper-slide _pdv-32px">
+                	<div class="_h-100pct">
+                	<div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px">
+                    <a href="https://chivacare.com/th/blog/5/อาการปวดแทรกซ้อนที่ควรรู้-หลังจากการเกิดโรคหลอดเลือดสมอง-" target="_blank">
+                    <img class="img-responsive" alt="" title="อาการปวดแทรกซ้อนที่ควรรู้ หลังจากการเกิดโรคหลอดเลือดสมอง ?" src="https://chivacare.com/assets/uploads/img_blog/main/1702491092_.jpg">
+                    </a>
+                    
+                    <div class="col-md-12 col-sm-12">
+                      <a class="link" href="https://chivacare.com/th/blog/5/อาการปวดแทรกซ้อนที่ควรรู้-หลังจากการเกิดโรคหลอดเลือดสมอง-" target="_blank">
+                      <h4 class="title ellipsis">อาการปวดแทรกซ้อนที่ควรรู้ หลังจากการเกิดโรคหลอดเลือดสมอง ?</h4>
+                      </a>
+                      <p>หลังจากภาวะโรคหลอดเลือดสมอง กลุ่มผู้ป่วยโรคหลอดเลือดสมองบางคนมักจะมีปัญหาเรื่องอาการเจ็บปวดร่วมด้วยเสมอ</p>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            	  </div>
+                </div>
+                        </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+          </div>
+          <div class="col-md-12 col-sm-12 ">
+            <a href="https://chivacare.com/th/blog" class="btn-wrapper has-text-blue-primary pull-right">
+              <span class="-text">ดูสาระน่ารู้อื่น ๆ <i class="ion-chevron-right"></i></span> 
+            </a>
+          </div>
+              </div>
+  </div>
+</section>
+<section class="main-reviews mbg-48px">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12 container-overflow">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">รีวิวผู้รับการรักษากับชีวาแคร์</h2>
+        </div>
+        <div class="_pst-rlt _w-100pct ">
+                  <div class="swiper-container custom-overflow mtg-48px ">
+            <div class="swiper-wrapper ">
+                      <div class="swiper-slide _pdv-32px">
+              <div class="">
+                <a href="https://chivacare.com/th/reviews/4/คุณมด">
+                <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default ">
+                  <div>
+                    <img class="img-responsive" alt="" title="คุณมด" src="https://chivacare.com/assets/uploads/img_reviews/main/1617955025_.jpg">
+                  </div>
+                  <div class="col-md-12 col-sm-12 ">
+                    <h4>คุณมด</h4>
+                    <p>ฟื้นฟูได้อย่างตรงจุด จากที่เคยปวดทรมาน นอนไม่ได้ ต้องลาออกจากงาน</p>
+                      
+                  </div>
+                </div>
+                </a>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+                      <div class="swiper-slide _pdv-32px">
+              <div class="">
+                <a href="https://chivacare.com/th/reviews/3/คุณศศิกาญจน์-">
+                <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bdrd-4px _bsd-default ">
+                  <div>
+                    <img class="img-responsive" alt="" title="คุณศศิกาญจน์ " src="https://chivacare.com/assets/uploads/img_reviews/main/1619754235_.jpg">
+                  </div>
+                  <div class="col-md-12 col-sm-12 ">
+                    <h4>คุณศศิกาญจน์ </h4>
+                    <p>ดูแล ให้คำปรึกษา ดีมาก ๆ อาการปวดดีขึ้นมาก ๆ ใส่ใจ คนไข้ ดีที่สุดเลยค่ะ</p>
+                      
+                  </div>
+                </div>
+                </a>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+                      </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+          </div>
+          <div class="col-md-12 col-sm-12 ">
+            <a href="https://chivacare.com/th/reviews" class="btn-wrapper has-text-blue-primary pull-right">
+              <span class="-text">ดูรีวิวผู้รับการรักษาอื่น ๆ <i class="ion-chevron-right"></i></span> 
+            </a>
+          </div>
+                  </div>
+      </div>
+    </div>
+</section>
+<section class="main-aboutus ">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12 head-title">
+        <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown ">เกี่ยวกับเรา</h2>
+      </div>
+      <div class="clearfix"></div>
+      <div class="mtg-48px">
+          <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+            <div class="chiva-icon2 text-center">
+              <a href="#aboutus" class="page-scroll" target="_blank"title="ข้อมูลชีวาแคร์">
+                <span class="icon_buildingclinic" ></span>
+                <h4>ข้อมูลชีวาแคร์</h4>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+            <div class="chiva-icon2 text-center">
+              <a href="#main-why" class="page-scroll" target="_blank"title="ทำไมต้องชีวาแคร์">
+                <span class="icon_hartdoctor" ></span>
+                <h4>ทำไมต้องชีวาแคร์</h4>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+            <div class="chiva-icon2 text-center">
+              <a href="https://chivacare.com/th/teams" target="_blank"title="แพทย์ผู้เชี่ยวชาญ">
+                <span class="icon_doctor" ></span>
+                <h4>แพทย์ผู้เชี่ยวชาญ</h4>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6 scrollanimation animated bounceIn">
+            <div class="chiva-icon2 text-center">
+              <a href="https://www.google.com/maps/place/ChivaCare+Medical+%26+Physical+Therapy+Clinic+(%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B2%E0%B9%81%E0%B8%84%E0%B8%A3%E0%B9%8C+%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B8%81%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%9E%E0%B8%97%E0%B8%A2%E0%B9%8C%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9A%E0%B8%B3%E0%B8%9A%E0%B8%B1%E0%B8%94)/@18.793752,98.971779,17z/data=!4m5!3m4!1s0x0:0x94595eee9c3683b4!8m2!3d18.793752!4d98.9717786?hl=en" target="_blank"title="แผนที่">
+                <span class="icon_location" ></span>
+                <h4>แผนที่</h4>
+              </a>
+            </div>
+          </div>
+          
+      </div>
+      
+    </div>
+</section>
+<section>
+<div class="container _pdvrm-15px text-center _pdv-32px">
+  <!-- <marquee>โปรแกรมกายภาพของชีวาร์แคร์ออกแบบโดยอาจารย์แพทย์ระดับประเทศเฉพาะทางโรคสมองและระบบประสาท</marquee> -->
+  <div class="box-consult">
+    <a href="https://line.me/R/ti/p/@sam6768c" target="_blank">
+     <button type="button" class="primary-btn -solid"><span class="-text _fs18 _fw500">ปรึกษาโดยไม่มีค่าใช้จ่าย <i class="md-chat _fs30"></i></span></button> 
+    </a>
+  </div>
+</div>
+</section>
+<script type="text/javascript">
+	$(document).ready(function(){
+  //     $(function() {
+  //   $( "#tabs" ).tabs({
+  //       activate: function( event, ui ) {
+  //           ui.newPanel.hide().fadeIn(500);
+  //       }
+  //   });
+  // });
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        e.target // newly activated tab
+        e.relatedTarget // previous active tab
+        //$(".owl-carousel").trigger('refresh.owl.carousel');
+          var swiper = new Swiper('.main-services .swiper-container', {
+          slidesPerView: 1.3,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }
+        });
+
+      });
+
+      var swiper = new Swiper('.main-services .swiper-container', {
+        slidesPerView: 1.3,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }
+      });
+
+
+        var swiper = new Swiper('.main-promotion .swiper-container', {
+	      slidesPerView: 1,
+	      spaceBetween: 10,
+	      autoplay: {
+	        delay: 2500,
+	        disableOnInteraction: false,
+	      },
+	      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+	      breakpoints: {
+	        640: {
+	          slidesPerView: 2,
+	          spaceBetween: 20,
+	        },
+	        768: {
+	          slidesPerView: 2,
+	          spaceBetween: 20,
+	        },
+	        1024: {
+	          slidesPerView: 3,
+	          spaceBetween: 20,
+	        },
+	      }
+	    });
+
+      
+
+	    var swiper = new Swiper('.main-blog .swiper-container', {
+	      slidesPerView: 1.3,
+	      spaceBetween: 10,
+        watchSlidesVisibility: true,
+        grabCursor: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+	      breakpoints: {
+	        640: {
+	          slidesPerView: 2,
+	          spaceBetween: 20,
+	        },
+	        768: {
+	          slidesPerView: 2,
+	          spaceBetween: 20,
+	        },
+	        1024: {
+	          slidesPerView: 4,
+	          spaceBetween: 20,
+	        },
+	      }
+	    });
+
+      var swiper = new Swiper('.main-videoclip .swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchSlidesVisibility: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }
+      });
+
+      var swiper = new Swiper('.main-reviews .swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        watchSlidesVisibility: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }
+      });
+
+
+      $('.owl-cert').owlCarousel({
+          loop:true,
+          autoplay:false,
+          smartSpeed:700,
+          margin:10,
+          nav:true,
+          navText:["<font size=\"+3\" color=\"#30c1b8\"><i class=\"ion-chevron-left\"></i></font>","<font size=\"+3\" color=\"#30c1b8\"><i class=\"ion-chevron-right\"></i></font>"],
+          dots:true,
+          autoplayHoverPause:false,
+          responsive:{
+              0:{
+                  items: 1
+              },
+              480 : {
+                  items : 1
+              },
+              768 : {
+                  items : 1
+              },
+              1000 : {
+                  items : 4
+              }
+          }
+      });
+
+      
+
+    });
+</script>
+
+
+
+		</div>
+</div>
+
+
+<div id="footer">
+    <div class="pre-footer">
+        <div class="container-fluid">
+            <div class="col-md-3 col-sm-3">
+                <img id="logo1" class="img-responsive" src="https://chivacare.com/assets/layouts/frontend/images/chivacare-logo-without-tagline3-03-300x171.png">
+            </div>
+            <div class="col-md-4 col-sm-4">
+
+                <div class="clearfix"></div>
+                                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">หน้าแรก</h4>
+                                    </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">ทีมแพทย์และผู้เชี่ยวชาญ</h4>
+                                    </div> -->
+                                <!-- <div class="clearfix"></div> -->
+                                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">การบริการของเรา</h4>
+                                        <ul class="menu">
+                                                                        <li><a href="https://chivacare.com/th/services/all/1/คลินิกสมอง-และระบบประสาท" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">คลินิกสมอง และระบบประสาท</span>
+                                                            
+                            </a></li>
+                                                                        <li><a href="https://chivacare.com/th/services/all/2/คลินิกกายภาพ-และกิจกรรมบำบัด" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">คลินิกกายภาพ และกิจกรรมบำบัด</span>
+                                                            
+                            </a></li>
+                                                                        <li><a href="https://chivacare.com/th/services/all/8/ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">ศูนย์เวชศาสตร์ฟื้นฟูผู้สูงอายุ</span>
+                                                            
+                            </a></li>
+                                                                        <li><a href="https://chivacare.com/" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;"></span>
+                                                            
+                            </a></li>
+                                            </ul>
+                                     </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">อัตราค่าบริการ</h4>
+                                        <ul class="menu">
+                                                                        <li><a href="https://chivacare.com/th/page/17" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">ค่าบริการคลินิกสมอง</span>
+                                                            
+                            </a></li>
+                                                                        <li><a href="https://chivacare.com/th/page/18" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">ค่าบริการคลินิกกายภาพและกิจกรรมบำบัด</span>
+                                                            
+                            </a></li>
+                                            </ul>
+                                     </div> -->
+                                <!-- <div class="clearfix"></div> -->
+                                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">โปรโมชั่น</h4>
+                                    </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">แบบประเมิน</h4>
+                                    </div> -->
+                                <!-- <div class="clearfix"></div> -->
+                                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">ข่าวสารและสาระน่ารู้</h4>
+                                        <ul class="menu">
+                                                                        <li><a href="/th/blog" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">สาระน่ารู้</span>
+                                                            
+                            </a></li>
+                                                                        <li><a href="https://chivacare.com/th/activities" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">ข่าวสารและกิจกรรม</span>
+                                                            
+                            </a></li>
+                                            </ul>
+                                     </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="footer-title" style="text-transform: capitalize;">ติดต่อเรา</h4>
+                                        <ul class="menu">
+                                                                        <li><a href="https://chivacare.com/th/page/19" target="_self" >
+                                                            <span class="text" style="text-transform: capitalize;">นโยบายความเป็นส่วนตัว</span>
+                                                            
+                            </a></li>
+                                            </ul>
+                                     </div> -->
+                                <!-- <div class="clearfix"></div> -->
+                            </div>
+            <div class="col-md-5 col-sm-5">
+                ชีวาแคร์คลินิก ศูนย์สมองและระงับปวด <br>8 ซอย 11 ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง จังหวัดเชียงใหม่ 50200
+                <br>
+                +66(0) 96-980-0126
+                <br>
+                +66(0) 52-005-457
+                <div class="clearfix"></div>
+                <div class="social-bottom text-center">
+                                        <a href="https://www.facebook.com/ChivaCareInfo/" target="_blank" class="icon_fb" title="Facebook"></a>
+                                                            <a href="https://line.me/R/ti/p/@sam6768c" target="_blank" class="icon_line" title="Line"></a>
+                                                                                                    <a href="https://www.instagram.com/chivacare/" target="_blank" class="icon_ig" title="Instagram"></a>
+                                                            <a href="https://www.instagram.com/chivacare/" target="_blank" class="icon_yt" title="Youtube"></a>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="copy-right-footer">
+            <div class="container-fluid"><p>&copy;Copyright 2021  ChivaCare  All Rights Reserved </p></div>
+        </div>
+    </div>
+</div>
+<!-- START Bootstrap-Cookie-Alert -->
+<div class="alert text-justify cookiealert" role="alert">
+    <div class="row">
+        <div class="col-sm-10 col-md-10 text-white py-3">
+            เราใช้คุกกี้เพื่อเพิ่มประสบการณ์การใช้งานที่ดี การเข้าใช้งานเว็บไซต์นี้ ถือว่าท่านยอมรับวิธีที่เราใช้คุกกี้และข้อมูลของท่าน ตาม <a href="#">นโยบายการรักษาข้อมูลส่วนบุคคล</a> ของเรา
+        </div>
+        <div class="col-sm-2 col-md-2 py-3 text-center">
+            <button type="button" class="btn btn-primary btn-sm acceptcookies _mrgt-10">ตกลง</button>
+        </div>
+    </div> 
+</div>
+<!-- END Bootstrap-Cookie-Alert -->
+
+
+<!-- <div id="fb-root"></div>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '297722774266856',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.12'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+
+
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<script>
+  window.___gcfg = {
+    lang: 'en-US',
+    parsetags: 'onload'
+  };
+</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/bootstrap.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/jasny-bootstrap/js/jasny-bootstrap.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/lib/bootstrap-select/dist/js/bootstrap-select.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/lib/bootstrap-fileinput/js/fileinput.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/jquery.easing.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/smoothproducts.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/lib/plugins/ckeditor/ckeditor.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/lib/plugins/ckeditor/build-config.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/wow.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/creative.js?v=1781245218" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/svgxuse.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/validator.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/jquery.countdown.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/jquery.prettyPhoto.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/awesomplete-gh-pages/awesomplete.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/system.js?v=1781245218" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/lazyload.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/parallax.min.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/menue.js?v=1781245218" charset="UTF-8"></script>
+<script type="text/javascript"  src="https://chivacare.com/assets/layouts/frontend/js/custom.js?v=1781245218" charset="UTF-8"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
+<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+<script>
+  window.lazyLoadOptions = {
+    threshold: 0
+  };
+  window.addEventListener('LazyLoad::Initialized', function (e) {
+    console.log(e.detail.instance);
+  }, false);
+</script>
+<script>
+    jQuery(document).ready(function($) {
+        jQuery("#bfloading").fadeOut(300);
+    });
+</script>
+<script>
+        var menueOptions = {
+            desktopStickyOffset: 10,
+            desktopHasSecondaryToggleButton:true,
+            desktopHasTertiaryToggleButton:true,
+            mobileHasSecondaryToggleButton: true,
+            mobileHasTertiaryToggleButton: true,
+            onDesktopStickyChange: function(instance){
+                console.log('Sticky Change Callback');
+            },
+            onMobileToggleClick: function(toggle, instance){
+                console.log('Mobile Toggle Click');
+            },
+            onDesktopPrimaryToggleClick: function(toggle, instance){
+                console.log('Desktop Primary Toggle Click');
+            },
+            onDesktopSecondaryToggleClick: function(toggle, instance){
+                console.log('Desktop Secondary Toggle Click');
+            },
+            onMobilePrimaryToggleClick: function(toggle, instance){
+                console.log('Mobile Primary Toggle Click');
+            },
+            onMobileSecondaryToggleClick: function(toggle, instance){
+                console.log('Mobile Secondary Toggle Click');
+            },
+            onMobilePrimaryAnchorClick: function(anchor, instance){
+                console.log('Mobile Primary Anchor Click');
+            },
+            onMobileSecondaryAnchorClick: function(anchor, instance){
+                console.log('Mobile Secondary Anchor Click');
+            }
+        };
+    var menue = new Menue(menueOptions);
+    </script>
+
+<script>
+var variable = {
+    clearShoppingCartUrl: "https://chivacare.com/th/shoppingcart/clear",
+    manageShoppingCartUrl: "https://chivacare.com/th/shoppingcart/manage",
+    manageOrderItemUrl: "https://chivacare.com/th/order/manage",
+    manageOrderDel: "https://chivacare.com/th/order/del",
+    manageOrderChangeQty: "https://chivacare.com/th/order/changeqty",
+    shoppingCartUrl: "https://chivacare.com/th/shopping-cart",
+    manageShoppingCartChangeQtyUrl : "https://chivacare.com/th/shoppingcart/changeqty",
+    manageShoppingCartRemoveItemUrl : "https://chivacare.com/th/shoppingcart/removeitem"
+};
+function langOption(c) {
+    var d = c;
+    value = d;
+    seg = "assets";
+    if (seg != "") {
+        window.location = window.location.href.replace("/th", "/" + value)
+    } else {
+        window.location = "https://chivacare.com/" + value
+    }
+}
+</script>
+<script type="text/javascript">
+   
+
+    $(window).ready(function() {
+
+     
+      $(".owl-ads").owlCarousel({
+          //autoPlay: 3000, //Set AutoPlay to 3 seconds
+          navigation:false,
+          pagination: false,
+          transitionStyle : "fade",
+          items : 1,
+          itemsDesktop : [1199,1],
+          itemsDesktopSmall : [979,1]
+     
+      });
+
+
+        $( 'ul.nav.nav-tabs  a' ).click( function ( e ) {
+            e.preventDefault();
+            $( this ).tab( 'show' );
+
+          } );
+
+         $("area[rel^='prettyPhoto']").prettyPhoto();
+        $(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+     
+    });
+
+     //$('#photo-lists').flexImages({ rowHeight: 320, truncate: false });
+     
+
+    $(document).scroll(function(e){
+        var scrollTop = $(document).scrollTop();
+        if(scrollTop > 0){
+            console.log(scrollTop);
+            $('.navbar').removeClass('navbar-static-top').addClass('navbar-fixed-top');
+        } else {
+            $('.navbar').removeClass('navbar-fixed-top').addClass('navbar-static-top');
+        }
+    });
+
+    /* Open the sidenav */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    /* Close/hide the sidenav */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+</script>
+
+
+<!-- End Facebook Pixel Code -->
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '3098567696839349',
+        xfbml            : true,
+        version          : 'v4.0'
+      });
+    };
+
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- Load Facebook SDK for JavaScript -->
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3098567696839349');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3098567696839349&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<div id="fb-root"></div>
+<!-- Your customer chat code -->
+<!-- <div class="fb-customerchat" attribution=setup_tool page_id="349053221840583" theme_color="#c18e33" logged_in_greeting="สวัสดีค่ะ ท่านสามารถสอบถามข้อมูลเกี่ยวกับสินค้าได้ที่นี่ค่ะ" logged_out_greeting="สวัสดีค่ะ ท่านสามารถสอบถามข้อมูลเกี่ยวกับสินค้าได้ที่นี่ค่ะ">
+</div>        <iframe id="ifm" name="ifm" class="hidden" title="ifmsubmit"></iframe> -->
+<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df20d0b706494cb"></script> 
+<script type="text/javascript" src="https://gateway.autodigi.net/bundle.js?wid=601f71b74daddc00127e602c&v=1.1"></script>
+</body>
+</html>
