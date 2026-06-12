@@ -1,0 +1,116 @@
+---
+import HeaderTh from '../components/HeaderTh.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'คลินิกสมอง คลินิกกายภาพบำบัด ศูนย์สมอง TMS - ชีวาแคร์ เชียงใหม่',
+  description = 'รักษาโรคสมอง ไมเกรน หลอดเลือดสมอง กายภาพบำบัด ปวดเรื้อรัง ออฟฟิศซินโดรม โดยแพทย์เชี่ยวชาญและนักกายภาพบำบัดที่เชียงใหม่',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="th" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://chivacare.com/assets/images/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/bootstrap-social.css" />
+    <link rel="stylesheet" href="/styles/jasny-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/styles/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/styles/swiper-bundle.css" />
+    <link rel="stylesheet" href="/styles/smoothproducts.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/creative.css" />
+    <link rel="stylesheet" href="/styles/yamm.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+    <link rel="stylesheet" href="/styles/chivacare.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/cookiealert.css" />
+    <link rel="stylesheet" href="/styles/prettyPhoto.css" />
+    <link rel="stylesheet" href="/styles/awesomplete.css" />
+    <link rel="stylesheet" href="/styles/languages.min.css" />
+  </head>
+  <body id="page-top">
+    <HeaderTh />
+    <slot />
+    <Footer />
+
+    <div class="alert text-justify cookiealert" role="alert">
+      <div class="row">
+        <div class="col-sm-10 col-md-10 text-white py-3">
+          เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ โดยการใช้เว็บไซต์นี้ถือว่าคุณยอมรับ <a href="/privacy">นโยบายความเป็นส่วนตัว</a> ของเรา
+        </div>
+        <div class="col-sm-2 col-md-2 py-3 text-center">
+          <button type="button" class="btn btn-primary btn-sm acceptcookies _mrgt-10">ยอมรับ</button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@6/swiper-bundle.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script is:inline src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script is:inline src="/scripts/main.js"></script>
+  </body>
+</html>
+
+<style is:global>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  /* ── Language switcher: absolute-centered in bg-menu ── */
+  .lang-switcher {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Language pill toggle ── */
+  .lang-pill-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #555;
+    text-decoration: none !important;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .lang-pill span { font-size: 11px; }
+  .lang-pill:hover { color: #30c1b8; background: #e8e8e8; text-decoration: none !important; }
+  .lang-pill--active {
+    background: #30c1b8;
+    color: #fff !important;
+    box-shadow: 0 1px 4px rgba(48,193,184,0.35);
+  }
+  .lang-pill--active:hover { background: #27aaa2; color: #fff !important; }
+</style>

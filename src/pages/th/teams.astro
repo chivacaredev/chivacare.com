@@ -1,0 +1,92 @@
+---
+import LayoutTh from '../../layouts/LayoutTh.astro';
+
+const doctors = [
+  { name: 'ผศ. นพ. ปกรณ์ วิวัฒน์วงศ์วนา', title: 'แพทย์เชี่ยวชาญเวชศาสตร์ฟื้นฟู', sub: 'ผู้ร่วมก่อตั้ง — เชี่ยวชาญด้านโรคหลอดเลือดสมอง ความผิดปกติทางระบบประสาท และการฟื้นฟูกระดูกและข้อ', img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1618810442_1.jpg' },
+  { name: 'ผศ.นพ.สุรัตน์ ตันประเวช', title: 'แพทย์เชี่ยวชาญด้านสมองและระบบประสาท — ผู้ร่วมก่อตั้ง', sub: 'เชี่ยวชาญด้านไมเกรนและปวดศีรษะ โรคหลอดเลือดสมอง ความผิดปกติของการเคลื่อนไหว', img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1618810463_1.jpg' },
+  { name: 'นพ.ธีรดนย์ พินิชกชกร', title: 'แพทย์เชี่ยวชาญด้านสมองและระบบประสาท', sub: 'เชี่ยวชาญด้านโรคสมองและระบบประสาท ปวดศีรษะ โรคหลอดเลือดสมอง และนอนไม่หลับ', img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652207_1.jpg' },
+  { name: 'พญ.วิมลรัฐ ธารนพ', title: 'แพทย์เชี่ยวชาญเฉพาะทางด้านเวชกรรมฟื้นฟู', sub: 'เชี่ยวชาญโรคกล้ามเนื้อและกระดูก การฟื้นฟูโรคหลอดเลือดสมองและกระดูกสันหลัง — วันพฤหัสบดี 17:00–20:00', img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652313_1.jpg' },
+  { name: 'พญ.พิชามญชุ์ สุวรรณฉัตร', title: 'แพทย์เชี่ยวชาญเฉพาะทางด้านเวชกรรมฟื้นฟู', sub: 'เชี่ยวชาญโรคระบบกล้ามเนื้อและกระดูก ออฟฟิศซินโดรม — วันจันทร์ 17:00–20:00', img: 'https://chivacare.com/assets/uploads/img_teams/1/main/1750652362_1.jpg' },
+];
+
+const therapists = [
+  { name: 'ธนนิจ หาญพานิชนา (เจ)', title: 'นักกายภาพบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646803864_2.jpg' },
+  { name: 'ศุภากร ธีระเดชชูศักดิ์ (ฝ้าย)', title: 'นักกายภาพบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1646808555_2.jpg' },
+  { name: 'สุภาวิดา สมณาสัก (เฟิร์น)', title: 'นักกายภาพบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346694_2.jpg' },
+  { name: 'สุขรินรัตน์ บุญดี (แตงโม)', title: 'นักกายภาพบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346672_2.jpg' },
+  { name: 'อารยา น้อยสงวน (มิ้น)', title: 'นักกายภาพบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750346636_2.jpg' },
+  { name: 'เกวลิน ระดม (ไอซ์)', title: 'นักกิจกรรมบำบัด', img: 'https://chivacare.com/assets/uploads/img_teams/2/main/1750339917_2.jpg' },
+];
+---
+
+<LayoutTh
+  title="ทีมแพทย์และผู้เชี่ยวชาญ - ชีวาแคร์ เชียงใหม่"
+  description="พบทีมแพทย์เชี่ยวชาญด้านระบบประสาท แพทย์เวชศาสตร์ฟื้นฟู นักกายภาพบำบัด และนักกิจกรรมบำบัดของชีวาแคร์ เชียงใหม่"
+>
+  <!-- Hero Banner -->
+  <div style="background:url('https://chivacare.com/assets/layouts/frontend/images/bg-teams.jpg') center/cover no-repeat;padding-top:80px;min-height:240px;display:flex;align-items:flex-end;">
+    <div style="width:100%;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 100%);padding:32px 0 24px;">
+      <div class="container _pdvrm-15px">
+        <ol class="breadcrumb" style="background:transparent;padding-left:0;margin-bottom:8px;">
+          <li><a href="/th" style="color:rgba(255,255,255,0.8);">หน้าหลัก</a></li>
+          <li class="active" style="color:white;">ทีมแพทย์และผู้เชี่ยวชาญ</li>
+        </ol>
+        <h1 style="color:white;font-size:30px;margin:0;text-shadow:0 1px 4px rgba(0,0,0,0.4);">ทีมแพทย์และผู้เชี่ยวชาญ</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section style="padding:28px 0 20px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <p style="margin-top:0;font-size:1.02em;line-height:1.7;">แพทย์ผู้เชี่ยวชาญและนักกายภาพบำบัดที่ผ่านการรับรอง มีประสบการณ์ทางคลินิกอย่างกว้างขวางด้านโรคสมองและระบบประสาท เวชศาสตร์ฟื้นฟู และกายภาพบำบัด</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physicians -->
+  <section style="padding:20px 0 40px;background:#f7fafc;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">แพทย์ผู้เชี่ยวชาญ</h2>
+        </div>
+        <div class="row" style="margin-top:32px;">
+          {doctors.map((d) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;text-align:center;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px" style="align-items:center;padding:24px 16px;">
+                <img src={d.img} alt={d.name} class="img-responsive" style="border-radius:50%;width:160px;height:160px;object-fit:cover;margin:0 auto 16px;" />
+                <h4 style="color:#30c1b8;margin-bottom:4px;">{d.name}</h4>
+                <p style="font-weight:bold;margin-bottom:4px;">{d.title}</p>
+                <p style="color:#666;font-size:0.9em;">{d.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Therapists -->
+  <section style="padding:40px 0 48px;">
+    <div class="container _pdvrm-15px">
+      <div class="col-md-12 col-sm-12">
+        <div class="head-title">
+          <h2 class="title -animated-underline -show-line scrollanimation animated fadeInDown">นักกายภาพบำบัด และนักกิจกรรมบำบัด</h2>
+        </div>
+        <div class="row" style="margin-top:32px;">
+          {therapists.map((t) => (
+            <div class="col-md-4 col-sm-6" style="margin-bottom:24px;text-align:center;">
+              <div class="content-wrapper _h-100pct _dp-f _fdrt-cl has-background-white _bsd-default _bdrd-4px" style="align-items:center;padding:24px 16px;">
+                <img src={t.img} alt={t.name} class="img-responsive" style="border-radius:50%;width:160px;height:160px;object-fit:cover;margin:0 auto 16px;" />
+                <h4 style="color:#30c1b8;margin-bottom:4px;">{t.name}</h4>
+                <p style="font-weight:bold;">{t.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</LayoutTh>
