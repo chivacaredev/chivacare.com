@@ -68,4 +68,49 @@ const {
 <style is:global>
   html { scroll-behavior: smooth; }
   body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  /* ── Language switcher: absolute-centered in bg-menu ── */
+  .lang-switcher {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Language pill toggle ── */
+  .lang-pill-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #555;
+    text-decoration: none !important;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .lang-pill span { font-size: 11px; }
+  .lang-pill:hover { color: #30c1b8; background: #e8e8e8; text-decoration: none !important; }
+  .lang-pill--active {
+    background: #30c1b8;
+    color: #fff !important;
+    box-shadow: 0 1px 4px rgba(48,193,184,0.35);
+  }
+  .lang-pill--active:hover { background: #27aaa2; color: #fff !important; }
 </style>

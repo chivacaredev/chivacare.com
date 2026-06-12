@@ -8,7 +8,13 @@ const enPath = pathname.replace(/^\/th/, '') || '/';
 
 <nav id="slide-nav" class="yamm navbar navbar-default" role="navigation">
   <div id="topbar"><div class="container"></div></div>
-  <div class="bg-menu">
+  <div class="bg-menu" style="position:relative;">
+    <div class="lang-switcher hidden-xs">
+      <div class="lang-pill-wrapper">
+        <a href={enPath} class="lang-pill" aria-label="English">🇬🇧 <span>EN</span></a>
+        <a href={pathname} class="lang-pill lang-pill--active" aria-label="ภาษาไทย">🇹🇭 <span>TH</span></a>
+      </div>
+    </div>
     <div class="container-fluid _box-shadow">
       <div class="navbar-header">
         <a class="navbar-brand" href="/th">
@@ -82,17 +88,6 @@ const enPath = pathname.replace(/^\/th/, '') || '/';
             </ul>
           </nav>
         </div>
-        <ul class="nav navbar-nav navbar-right hidden-xs">
-          <li class="language-selector pull-right">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              <span class="lang-sm" lang="th"></span> <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href={enPath}><span class="lang-sm lang-lbl" lang="en"></span></a></li>
-              <li><a href={pathname}><span class="lang-sm lang-lbl" lang="th"></span></a></li>
-            </ul>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
