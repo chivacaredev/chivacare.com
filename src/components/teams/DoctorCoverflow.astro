@@ -1,0 +1,123 @@
+---
+/**
+ * Legacy .main-doctor block: coverflow slider of large doctor photos; the centred
+ * doctor's name, specialty, booking button and detail HTML appear below it.
+ */
+import { pick, type Lang } from '../../lib/i18n';
+import type { Row } from '../../lib/db';
+import { appointmentUrl, teamPhoto, tt } from './teams';
+
+interface Props {
+  lang: Lang;
+  items: Row[];
+}
+
+const { lang, items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <div class="doctor-coverflow" data-doctor-coverflow>
+      <div class="swiper relative">
+        <div class="swiper-wrapper">
+          {items.map((team) => (
+            <div class="swiper-slide rounded shadow-soft">
+              <img
+                class="block h-auto w-full"
+                src={teamPhoto(team)}
+                alt={team.photomain}
+                title={pick(team, 'title', lang)}
+              />
+            </div>
+          ))}
+        </div>
+        <div class="swiper-button-next" />
+        <div class="swiper-button-prev" />
+      </div>
+
+      {items.map((team) => (
+        <template data-doctor-desc>
+          <div class="box-doctor py-4">
+            <h4 class="text-center text-xl">{pick(team, 'title', lang)}</h4>
+            <p class="mt-2 text-center">{pick(team, 'proficient', lang)}</p>
+            <div class="py-4 text-center">
+              <a href={appointmentUrl(lang, team)} class="btn-primary is-teal rounded-2xl">
+                {tt(lang, 'book')}
+              </a>
+            </div>
+            <div class="prose-legacy" set:html={pick(team, 'detail', lang)} />
+          </div>
+        </template>
+      ))}
+      <div class="desc" data-doctor-target />
+      <noscript>
+        {/* Without JS show every doctor's details in order. */}
+        {items.map((team) => (
+          <div class="box-doctor py-4">
+            <h4 class="text-center text-xl">{pick(team, 'title', lang)}</h4>
+            <p class="mt-2 text-center">{pick(team, 'proficient', lang)}</p>
+            <div class="prose-legacy" set:html={pick(team, 'detail', lang)} />
+          </div>
+        ))}
+      </noscript>
+    </div>
+  )
+}
+
+<style>
+  .box-doctor :global(ul li::marker) {
+    color: #e7a108;
+  }
+  .desc :global(.box-doctor) {
+    animation: doctor-fade 0.6s ease both;
+  }
+  @keyframes doctor-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { EffectCoverflow, Navigation } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/effect-coverflow';
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-doctor-coverflow]')) {
+    const el = root.querySelector<HTMLElement>('.swiper');
+    const templates = [...root.querySelectorAll<HTMLTemplateElement>('template[data-doctor-desc]')];
+    const target = root.querySelector<HTMLElement>('[data-doctor-target]');
+    if (!el || !target) continue;
+
+    const show = (index: number) => {
+      const tpl = templates[index];
+      if (!tpl) return;
+      target.replaceChildren(tpl.content.cloneNode(true));
+    };
+
+    const swiper = new Swiper(el, {
+      modules: [EffectCoverflow, Navigation],
+      effect: 'coverflow',
+      loop: templates.length > 3,
+      centeredSlides: true,
+      slidesPerView: Math.min(3, templates.length),
+      watchSlidesProgress: true,
+      grabCursor: true,
+      initialSlide: templates.length > 1 ? 1 : 0,
+      navigation: {
+        nextEl: el.querySelector<HTMLElement>('.swiper-button-next'),
+        prevEl: el.querySelector<HTMLElement>('.swiper-button-prev'),
+      },
+      coverflowEffect: { rotate: 0, stretch: 0, depth: 450, modifier: 1.8, slideShadows: false },
+      on: {
+        slideChange: (s) => show(s.realIndex),
+      },
+    });
+    show(swiper.realIndex);
+  }
+</script>

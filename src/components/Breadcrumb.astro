@@ -1,0 +1,29 @@
+---
+import { t, url, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  /** Trail after "Home"; the last item is the current page (no href). */
+  items: { label: string; href?: string }[];
+}
+
+const { lang, items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="container-site py-4 text-sm">
+  <ol class="flex flex-wrap items-center gap-1 text-grey">
+    <li><a href={url(lang)} class="hover:text-teal">{t(lang, 'home')}</a></li>
+    {
+      items.map((item) => (
+        <li class="flex items-center gap-1">
+          <span aria-hidden="true">/</span>
+          {item.href ? (
+            <a href={item.href} class="hover:text-teal">{item.label}</a>
+          ) : (
+            <span class="text-ink" aria-current="page">{item.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

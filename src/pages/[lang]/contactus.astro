@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ClinicContacts from '../../components/pages/ClinicContacts.astro';
+import { getBanner, site } from '../../lib/db';
+import { langPaths, pick, t, type Lang } from '../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+const banner = getBanner('2042706408');
+const title = t(lang, 'contactUs');
+const MAP_EMBED =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.0987509076767!2d98.96958991489684!3d18.79375198725042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3bd7ad3b9ca1%3A0x94595eee9c3683b4!2zQ2hpdmFDYXJlIE1lZGljYWwgJiBQaHlzaWNhbCBUaGVyYXB5IENsaW5pYyAo4LiK4Li14Lin4Liy4LmB4LiE4Lij4LmMIOC4hOC4peC4tOC4meC4tOC4geC4muC4o-C4tOC4geC4suC4o-C4l-C4suC4h-C5geC4nuC4l-C4ouC5jOC5geC4peC4sOC4geC4suC4ouC4oOC4suC4nuC4muC4s-C4muC4seC4lCk!5e0!3m2!1sen!2sth!4v1613291958089!5m2!1sen!2sth';
+---
+
+<Layout lang={lang} title={title} image={banner?.src}>
+  <section class="main-contactus">
+    <Breadcrumb lang={lang} items={[{ label: title }]} />
+
+    <div class="container-site py-8">
+      <h2 class="section-title !mb-6">{title}</h2>
+    </div>
+
+    <div
+      class="bg-cover bg-center md:bg-fixed"
+      style={banner ? `background-image:url('${banner.src}')` : undefined}
+    >
+      <div class="container-site py-12">
+        <div class="rounded-2xl bg-white p-6 shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]">
+          <div class="prose-legacy" set:html={pick(site, 'contact_description', lang)} />
+          <div class="mx-auto mb-9 md:w-7/12 md:translate-x-[10%]">
+            <ClinicContacts />
+          </div>
+        </div>
+      </div>
+
+      <div class="aspect-video w-full">
+        <iframe
+          class="block size-full border-0"
+          src={MAP_EMBED}
+          title="ChivaCare Medical & Physical Therapy Clinic - Google Maps"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>

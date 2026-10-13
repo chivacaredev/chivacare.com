@@ -1,0 +1,255 @@
+---
+/** Step 4 — patient details and final submit (legacy appointment/views/step4 + validate?key=step4). */
+import Wizard from './Wizard.astro';
+import NavButtons from './NavButtons.astro';
+import FieldError from './FieldError.astro';
+import { getTeams, site } from '../../lib/db';
+import { pick, type Lang } from '../../lib/i18n';
+import { CLINIC_PHONES, SERVICES, W } from './strings';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = W[lang];
+
+const required = (label: string) => (lang === 'th' ? `${s.pleaseEnter}${label}` : `${s.pleaseEnter} ${label.toLowerCase()}`);
+const inputCls =
+  'block h-[3.3em] w-full rounded border border-[#c3d0f7] bg-white px-[calc(.625em-1px)] text-blue/80 outline-none focus:border-[#c3d0f7] disabled:border-ink disabled:bg-[#ccc] group-[.has-error]:border-[#f56d6d]';
+
+const fields = [
+  { name: 'firstname', type: 'text', label: s.firstname, autocomplete: 'given-name', profile: false },
+  { name: 'lastname', type: 'text', label: s.lastname, autocomplete: 'family-name', profile: false },
+  { name: 'phone', type: 'tel', label: s.phone, autocomplete: 'tel', profile: false, inputmode: 'numeric', kind: 'number' },
+];
+const profileFields = [
+  { name: 'passport', type: 'text', label: s.passport, autocomplete: 'off', profile: true, maxlength: 30, kind: 'id' },
+  { name: 'nation', type: 'text', label: s.nation, autocomplete: 'country-name', profile: false, optional: true },
+  { name: 'birthday', type: 'date', label: s.birthday, autocomplete: 'bday', profile: true },
+  { name: 'email', type: 'email', label: s.email, autocomplete: 'email', profile: true, kind: 'email' },
+];
+const kindMsg: Record<string, string> = { number: s.invalidNumber, id: s.invalidId, email: s.invalidEmail };
+
+// For the booking summary shown when online submission is unavailable.
+const names = Object.fromEntries(getTeams().map((t) => [String(t.id), pick(t, 'title', lang)]));
+const services = Object.fromEntries(SERVICES.map((o) => [o.value, o[lang]]));
+const config = JSON.stringify({
+  names,
+  services,
+  pickForMe: s.recommendedDoctor,
+  submitting: s.submitting,
+  labels: { service: s.steps[0], physician: s.steps[1], date: s.steps[2] },
+});
+---
+
+<Wizard lang={lang} step={4}>
+  <form id="appt-step4" novalidate data-config={config}>
+    <h5 class="text-lg">{s.patient}</h5>
+    <div class="mt-4 grid grid-cols-1 items-end gap-x-8 gap-y-4 sm:grid-cols-2">
+      {
+        fields.map((f) => (
+          <div class="group" data-field={f.name}>
+            <label for={`f-${f.name}`} class="mb-1 block text-xs text-[#8baaff]">{f.label}</label>
+            <input id={`f-${f.name}`} name={f.name} type={f.type} autocomplete={f.autocomplete} inputmode={f.inputmode as any} placeholder={f.label} class={inputCls} />
+            <FieldError>{required(f.label)}</FieldError>
+            {f.kind && <FieldError kind={f.kind}>{kindMsg[f.kind]}</FieldError>}
+          </div>
+        ))
+      }
+      <label class="flex cursor-pointer items-center gap-3 py-[7px] font-semibold">
+        <input type="checkbox" name="is_profile" value="1" class="size-5 accent-blue" />
+        {s.hasProfile}
+      </label>
+      {
+        profileFields.map((f) => (
+          <div class="group" data-field={f.name}>
+            <label for={`f-${f.name}`} class="mb-1 block text-xs text-[#8baaff]">{f.label}</label>
+            <input
+              id={`f-${f.name}`}
+              name={f.name}
+              type={f.type}
+              autocomplete={f.autocomplete}
+              maxlength={f.maxlength}
+              placeholder={f.label}
+              data-profile={f.profile ? '' : undefined}
+              class={inputCls}
+            />
+            {!f.optional && <FieldError>{required(f.label)}</FieldError>}
+            {f.kind && <FieldError kind={f.kind}>{kindMsg[f.kind]}</FieldError>}
+          </div>
+        ))
+      }
+      <div class="group sm:col-span-2" data-field="disease">
+        <label for="f-disease" class="mb-1 block text-xs text-[#8baaff]">{s.disease}</label>
+        <textarea
+          id="f-disease"
+          name="disease"
+          maxlength="600"
+          rows="3"
+          placeholder={s.disease}
+          data-profile
+          class="block w-full resize-y rounded border border-[#c3d0f7] bg-white p-[.625em] text-blue/80 outline-none disabled:border-ink disabled:bg-[#ccc] group-[.has-error]:border-[#f56d6d]"
+        ></textarea>
+        <FieldError>{required(s.disease)}</FieldError>
+      </div>
+    </div>
+
+    <div id="appt-notice" hidden class="mt-8 rounded bg-white p-6 text-center shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]" role="status" tabindex="-1">
+      <h3 class="text-xl font-medium text-navy" data-notice="offline">{s.offlineTitle}</h3>
+      <h3 class="text-xl font-medium text-[#a94442]" data-notice="error">{s.errorTitle}</h3>
+      <p class="mt-2" data-notice="offline">{s.offlineText}</p>
+      <p class="mt-2" data-notice="error">{s.errorText}</p>
+      <dl id="appt-summary" class="mx-auto mt-4 grid max-w-md grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-left text-sm"></dl>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+        {
+          CLINIC_PHONES.map((p) => (
+            <a href={`tel:${p.replace(/[^\d+]/g, '').replace('+660', '+66')}`} class="btn-primary is-teal rounded-[10px] text-base">
+              {s.call} {p}
+            </a>
+          ))
+        }
+        {site.link_lineid && (
+          <a href={site.link_lineid} target="_blank" rel="noopener" class="btn-primary rounded-[10px] border-[#06c755]! bg-[#06c755]! text-base">
+            {s.line}
+          </a>
+        )}
+      </div>
+    </div>
+
+    <NavButtons lang={lang} back="appointment/step3" />
+  </form>
+</Wizard>
+
+<script>
+  import { clear, load, setError, langPrefix } from './state';
+
+  const saved = load();
+  // Legacy step4 redirected to step3 when there was no wizard state.
+  if (!saved.step3 || !saved.step2) location.replace(`${langPrefix()}/appointment/step3`);
+
+  // Inlined at build time; unset means online booking is unavailable.
+  const endpoint = String(import.meta.env.PUBLIC_APPOINTMENT_ENDPOINT ?? '').trim();
+
+  const form = document.getElementById('appt-step4') as HTMLFormElement;
+  const cfg = JSON.parse(form.dataset.config ?? '{}') as {
+    names: Record<string, string>;
+    services: Record<string, string>;
+    pickForMe: string;
+    submitting: string;
+    labels: Record<string, string>;
+  };
+  const labels = cfg.labels;
+  const notice = document.getElementById('appt-notice') as HTMLElement;
+  const submitBtn = form.querySelector<HTMLButtonElement>('[data-next]')!;
+  const profile = form.querySelector<HTMLInputElement>('input[name="is_profile"]')!;
+  const profileInputs = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-profile]')];
+
+  // Birthday picker range from the legacy datepicker: 1921-10-25 .. one year from today.
+  const bday = form.querySelector<HTMLInputElement>('input[name="birthday"]')!;
+  const max = new Date();
+  max.setFullYear(max.getFullYear() + 1);
+  bday.min = '1921-10-25';
+  bday.max = max.toISOString().slice(0, 10);
+
+  // "Existing patient" disables ID, birthday, email and conditions (and drops their validation).
+  profile.addEventListener('change', () => {
+    profileInputs.forEach((i) => {
+      i.disabled = profile.checked;
+      if (profile.checked) setError(form, i.name, null);
+    });
+  });
+  form.addEventListener('input', (e) => setError(form, (e.target as HTMLInputElement).name, null));
+
+  const val = (name: string) =>
+    (form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | null)?.value.trim() ?? '';
+
+  function validate() {
+    const errors: Record<string, string> = {};
+    const req = (name: string) => {
+      if (!val(name)) errors[name] = 'required';
+    };
+    req('firstname');
+    req('lastname');
+    req('phone');
+    if (!errors.phone && !/^\d+$/.test(val('phone').replace(/[\s-]/g, ''))) errors.phone = 'number';
+    if (!profile.checked) {
+      ['passport', 'birthday', 'email', 'disease'].forEach(req);
+      if (!errors.passport && !/^[A-Za-z0-9]+$/.test(val('passport'))) errors.passport = 'id';
+      if (!errors.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) errors.email = 'email';
+    }
+    for (const name of ['firstname', 'lastname', 'phone', 'passport', 'birthday', 'email', 'disease']) {
+      setError(form, name, errors[name] ?? null);
+    }
+    const first = Object.keys(errors)[0];
+    if (first) (form.elements.namedItem(first) as HTMLElement | null)?.focus();
+    return !first;
+  }
+
+  function showNotice(kind: 'offline' | 'error') {
+    notice.querySelectorAll<HTMLElement>('[data-notice]').forEach((n) => (n.hidden = n.dataset.notice !== kind));
+    const dl = document.getElementById('appt-summary')!;
+    const rows: [string, string][] = [
+      [labels.service ?? '', cfg.services[saved.step1?.is_services ?? ''] ?? saved.step1?.is_services ?? ''],
+      [labels.physician ?? '', saved.step2?.physician ? (cfg.names[saved.step2.physician] ?? '') : cfg.pickForMe],
+      [labels.date ?? '', `${saved.step3?.is_date ?? ''} ${saved.step3?.is_time ?? ''}`],
+    ];
+    dl.replaceChildren(
+      ...rows.flatMap(([k, v]) => {
+        const dt = document.createElement('dt');
+        dt.className = 'font-medium';
+        dt.textContent = k;
+        const dd = document.createElement('dd');
+        dd.textContent = v;
+        return [dt, dd];
+      }),
+    );
+    notice.hidden = false;
+    notice.focus();
+    notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    if (!endpoint) return showNotice('offline');
+
+    // Same fields as the legacy `appointments` row (ip/datetime are the receiver's job).
+    const payload = {
+      is_services: saved.step1?.is_services ?? '',
+      is_physician: saved.step2?.is_physician ?? '',
+      physician: saved.step2?.physician ?? '',
+      physician_name: saved.step2?.physician ? (cfg.names[saved.step2.physician] ?? '') : '',
+      is_date: saved.step3?.is_date ?? '',
+      is_time: saved.step3?.is_time ?? '',
+      is_remark: saved.step3?.is_remark ?? '',
+      firstname: val('firstname'),
+      lastname: val('lastname'),
+      phone: val('phone'),
+      is_profile: profile.checked ? '1' : '',
+      passport: profile.checked ? '' : val('passport'),
+      nation: val('nation'),
+      birthday: profile.checked ? '' : val('birthday'),
+      email: profile.checked ? '' : val('email'),
+      disease: profile.checked ? '' : val('disease'),
+      lang: document.documentElement.lang,
+    };
+
+    const label = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = cfg.submitting;
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      clear();
+      location.href = `${langPrefix()}/appointment/success`;
+    } catch {
+      showNotice('error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = label;
+    }
+  });
+</script>

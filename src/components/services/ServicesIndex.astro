@@ -1,0 +1,57 @@
+---
+/** Legacy services/index view: every active category with up to LIMIT_PAGE services. */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import GridCarousel from './GridCarousel.astro';
+import ServiceSlide from './ServiceSlide.astro';
+import { pick, t, type Lang } from '../../lib/i18n';
+import { LIMIT_PAGE, categories, categoryUrl, s, servicesOf } from './data';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const str = s(lang);
+const groups = categories().map((c) => ({ c, items: servicesOf({ categoryId: c.id, limit: LIMIT_PAGE }) }));
+---
+
+<Layout lang={lang} title={str.ourServices}>
+  <section class="pb-12">
+    <Breadcrumb lang={lang} items={[{ label: str.ourServices }]} />
+    <div class="container-site py-8">
+      <h2 class="section-title !mb-6">{str.ourServices}</h2>
+    </div>
+    {
+      groups.map(({ c, items }) => {
+        const name = pick(c, 'name', lang);
+        return (
+          <div class="container-site mb-[68px]">
+            <div class="bg-white p-6 shadow-soft">
+              <h3 class="mt-2 text-center text-[22px] md:text-left md:text-2xl">{name}</h3>
+              <div class="overflow-hidden py-8">
+                {items.length > 0 ? (
+                  <>
+                    <GridCarousel gap={10}>
+                      {items.map((row) => (
+                        <ServiceSlide lang={lang} row={row} newTab categoryId={c.id} />
+                      ))}
+                    </GridCarousel>
+                    <div class="mt-12">
+                      <a href={categoryUrl(lang, c)} class="more-link">
+                        <span>{str.moreOf(name)}</span>
+                        <span aria-hidden="true">&rsaquo;</span>
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <p class="w-full rounded border border-amber/30 bg-amber/10 px-4 py-3 md:w-2/3">{t(lang, 'notFound')}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </section>
+</Layout>

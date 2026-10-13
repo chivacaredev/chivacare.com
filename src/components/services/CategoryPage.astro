@@ -1,0 +1,83 @@
+---
+/**
+ * Legacy services/all view: a category (or subcategory) with all its services,
+ * then the "program" (6 for category 1, else 5) and "assessment" (7 for category 1, else 5) sections.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import GridCarousel from './GridCarousel.astro';
+import ServiceSlide from './ServiceSlide.astro';
+import { img, type Row } from '../../lib/db';
+import { pick, url, type Lang } from '../../lib/i18n';
+import { accent, activeCategory, categoryUrl, s, servicesOf, subcategoryUrl } from './data';
+
+interface Props {
+  lang: Lang;
+  category: Row;
+  subcategory?: Row;
+}
+
+const { lang, category, subcategory } = Astro.props;
+const str = s(lang);
+const head = subcategory ?? category; // $services in the controller
+const name = pick(head, 'name', lang);
+const items = servicesOf({ categoryId: category.id, subcategoryId: subcategory?.id });
+
+const programId = category.id === 1 ? 6 : 5;
+const assessmentId = category.id === 1 ? 7 : 5;
+const sections = [
+  { title: head.icon || name, items },
+  { title: pick(activeCategory(programId), 'name', lang), items: servicesOf({ categoryId: programId }) },
+  { title: pick(activeCategory(assessmentId), 'name', lang), items: servicesOf({ categoryId: assessmentId }) },
+];
+
+const crumbs = [
+  { label: str.ourServices, href: url(lang, 'services') },
+  { label: pick(category, 'name', lang), href: subcategory ? categoryUrl(lang, category) : undefined },
+  ...(subcategory ? [{ label: name }] : []),
+];
+const bg = head.img_category ? img.category(head.img_category) : undefined;
+const detail = pick(head, 'detail', lang);
+const color = accent(category.id);
+const sameIn = (l: Lang) => (subcategory ? subcategoryUrl(l, category, subcategory) : categoryUrl(l, category));
+---
+
+<Layout lang={lang} title={name} description={pick(head, 'description', lang) || undefined} image={bg} alternates={{ th: sameIn('th'), en: sameIn('en') }}>
+  <section class="pb-4">
+    <div class="hidden sm:block">
+      <Breadcrumb lang={lang} items={crumbs} />
+    </div>
+
+    <!-- Mobile header (visible-xs parallax) -->
+    <div class="bg-cover bg-fixed bg-center sm:hidden" style={bg ? `background-image:url('${bg}')` : undefined}>
+      <div class="bg-black/70 px-4 pt-6">
+        <h2 class:list={['section-title !mx-0 !mb-0 !text-left !text-[25px]', color.heading]}>{name}</h2>
+        {detail && <div class="prose-legacy mt-9 pb-[38px] text-white" set:html={detail} />}
+        {!detail && <div class="pb-[38px]" />}
+      </div>
+    </div>
+
+    {
+      sections.map((sec) => (
+        <>
+          <div class="container-site py-8">
+            {sec.title && <h2 class="section-title !mb-6">{sec.title}</h2>}
+          </div>
+          <div class="container-site mb-[68px] overflow-hidden">
+            <div class="py-8">
+              {sec.items.length > 0 ? (
+                <GridCarousel gap={20}>
+                  {sec.items.map((row) => (
+                    <ServiceSlide lang={lang} row={row} />
+                  ))}
+                </GridCarousel>
+              ) : (
+                <p class="text-center">{str.noItems}</p>
+              )}
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </section>
+</Layout>

@@ -1,0 +1,226 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import AssessmentResult from '../../../../components/assessment/AssessmentResult.astro';
+import {
+  getAssessmentAnswers,
+  getAssessmentCases,
+  getAssessmentQuestions,
+  getAssessments,
+  getServices,
+  img,
+} from '../../../../lib/db';
+import { LANGS, pick, type Lang } from '../../../../lib/i18n';
+import { A, DEFAULT_ANSWERS } from '../../../../components/assessment/strings';
+
+export function getStaticPaths() {
+  // Only active assessments are reachable from the list (status N is shown disabled).
+  return LANGS.flatMap((lang) =>
+    getAssessments()
+      .filter((a) => a.status === 'A')
+      .map((a) => ({ params: { lang, id: String(a.id) }, props: { assessment: a } })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { assessment } = Astro.props;
+const s = A[lang];
+const id = Number(assessment.id);
+
+// Legacy Assessment::form(): questions (id ASC), each with its answers (score ASC) or the default set.
+const questions = getAssessmentQuestions(id).map((q) => {
+  const own = getAssessmentAnswers(Number(q.id));
+  const answers = (own.length > 0 ? own : DEFAULT_ANSWERS).map((a) => ({
+    title: pick(a, 'title', lang),
+    score: Number(a.score),
+  }));
+  return { id: Number(q.id), title: pick(q, 'title', lang), answers };
+});
+
+// Legacy Assessment::result(): max score of a single choice across all questions.
+const maxChoiceScore = Math.max(0, ...questions.flatMap((q) => q.answers.map((a) => a.score)));
+
+// Cases keyed by is_case, plus the recommended services for each case
+// (category_id IN category_service_id, is_case_assessment LIKE %case%, status A, id DESC).
+const categoryIds = String(assessment.category_service_id ?? '')
+  .split(',')
+  .map((c) => c.trim())
+  .filter(Boolean);
+const services = getServices().filter((sv) => categoryIds.includes(String(sv.category_id)));
+const cases = getAssessmentCases(id)
+  .sort((a, b) => Number(a.is_case) - Number(b.is_case))
+  .map((c) => ({
+    row: c,
+    n: Number(c.is_case),
+    services: services.filter((sv) => String(sv.is_case_assessment ?? '').includes(String(c.is_case))),
+  }));
+
+const config = JSON.stringify({ maxChoiceScore, cases: cases.map((c) => c.n) });
+
+// Radio sizes/colours per answer position (chivacare.css .question .radio-inline:nth-child(n)).
+const radioStyle = [
+  '--c:#007b80;--o:20px;--i:10px',
+  '--c:#f8ab1f;--o:25px;--i:15px',
+  '--c:#008e8a;--o:28px;--i:18px',
+  '--c:#357581;--o:31px;--i:21px',
+  '--c:#203466;--o:34px;--i:24px',
+];
+---
+
+<Layout lang={lang} title={pick(assessment, 'name', lang)} description={pick(assessment, 'description', lang)}>
+  <div id="assessment-root" data-config={config}>
+    <section data-view="form">
+      <div class="mb-[50px] bg-teal">
+        <div class="container-site grid grid-cols-1 items-center gap-4 py-4 sm:grid-cols-[1fr_3fr]">
+          <img
+            src={img.assessment(assessment.img_assessment)}
+            alt=""
+            class="w-5/6 object-contain sm:w-full"
+          />
+          <div class="py-[15px] text-[25px] text-white">
+            {s.test}<br />
+            <span class="font-medium">{pick(assessment, 'name', lang)}</span>
+          </div>
+        </div>
+      </div>
+      <div class="mb-[25px] bg-[#e5e5e5]">
+        <div class="container-site prose-legacy py-[15px] text-xl text-[#cf7b01] [&_p]:mb-0" set:html={pick(assessment, 'detail', lang)} />
+      </div>
+
+      <div class="container-site pb-[30px]">
+        <form
+          id="assessment-form"
+          class="rounded-xl bg-white p-6 shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]"
+          novalidate
+        >
+          {
+            questions.map((q, index) => (
+              <fieldset class="group/q mb-5 rounded-[10px] p-2.5 odd:bg-[#d4f2f3] even:bg-white" data-question={q.id}>
+                <legend class="sr-only">{`${index + 1}. ${q.title}`}</legend>
+                <div class="flex gap-5 py-[15px]" aria-hidden="true">
+                  <span class="relative inline-block size-[25px] shrink-0 rounded-[15%] bg-[#00aabb] text-center leading-[25px] text-white after:absolute after:-bottom-2.5 after:left-1/2 after:-translate-x-1/2 after:border-[5px] after:border-transparent after:border-t-[#00aabb] after:content-['']">
+                    {index + 1}
+                  </span>
+                  <div class="group-[.has-error]/q:text-[#a94442]">{q.title}</div>
+                </div>
+                <div class="flex flex-wrap">
+                  {q.answers.map((a, k) => (
+                    <div class="inline-flex flex-col items-center pl-2.5 text-center" style={radioStyle[Math.min(k, radioStyle.length - 1)]}>
+                      <input
+                        type="radio"
+                        class="peer sr-only"
+                        name={`choice[${q.id}]`}
+                        id={`choice_${q.id}_${k}`}
+                        value={a.score}
+                        required
+                      />
+                      <label
+                        for={`choice_${q.id}_${k}`}
+                        class="relative cursor-pointer pt-10 text-base before:absolute before:top-0 before:left-1/2 before:size-(--o) before:-translate-x-1/2 before:rounded-full before:border-2 before:border-(--c) before:bg-white before:content-[''] peer-checked:after:absolute peer-checked:after:top-[5px] peer-checked:after:left-1/2 peer-checked:after:size-(--i) peer-checked:after:-translate-x-1/2 peer-checked:after:rounded-full peer-checked:after:bg-(--c) peer-checked:after:content-[''] peer-focus-visible:before:outline-2 peer-focus-visible:before:outline-offset-2 peer-focus-visible:before:outline-navy"
+                      >
+                        {a.title}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                <p class="mt-2 hidden text-sm text-[#a94442] group-[.has-error]/q:block" role="alert">{s.required}</p>
+              </fieldset>
+            ))
+          }
+          <div class="mt-9 py-[15px] text-center">
+            <button type="submit" class="btn-primary rounded-[10px]">
+              {s.submit}
+              <svg aria-hidden="true" viewBox="0 0 512 512" class="size-4 fill-current"><path d="M498 6a24 24 0 0 1 10 23l-64 416a24 24 0 0 1-33 18l-120-50-69 74a24 24 0 0 1-41-16v-82l213-232-246 211L18 316a24 24 0 0 1-3-43L474 5a24 24 0 0 1 24 1z" /></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    {cases.map((c) => <AssessmentResult lang={lang} caseRow={c.row} caseNo={c.n} services={c.services} />)}
+  </div>
+</Layout>
+
+<script>
+  /**
+   * Client-side port of Assessment::validate() + Assessment::result().
+   * Nothing is sent anywhere: the score is computed and shown in the page.
+   */
+  const thresholds: [number, number][] = [
+    [1, 0],
+    [2, 20],
+    [3, 40],
+    [4, 60],
+    [5, 80],
+  ];
+
+  const root = document.getElementById('assessment-root');
+  const form = document.getElementById('assessment-form') as HTMLFormElement | null;
+
+  if (root && form) {
+    const { maxChoiceScore, cases } = JSON.parse(root.dataset.config ?? '{}') as {
+      maxChoiceScore: number;
+      cases: number[];
+    };
+    const formView = root.querySelector<HTMLElement>('[data-view="form"]')!;
+    const groups = [...form.querySelectorAll<HTMLFieldSetElement>('[data-question]')];
+
+    const showForm = () => {
+      root.querySelectorAll<HTMLElement>('[data-view="result"]').forEach((el) => (el.hidden = true));
+      formView.hidden = false;
+    };
+
+    const showResult = (caseNo: number, score: number, percent: number) => {
+      formView.hidden = true;
+      root.querySelectorAll<HTMLElement>('[data-view="result"]').forEach((el) => {
+        const match = Number(el.dataset.case) === caseNo;
+        el.hidden = !match;
+        if (!match) return;
+        el.querySelectorAll('[data-score]').forEach((n) => (n.textContent = String(score)));
+        el.querySelectorAll<HTMLElement>('[data-arrow]').forEach((n) => n.style.setProperty('--pct', String(percent)));
+        // Carousels initialised while hidden need a re-measure.
+        el.querySelectorAll<HTMLElement & { swiper?: { update(): void } }>('.swiper').forEach((sw) => sw.swiper?.update());
+      });
+      window.scrollTo({ top: 0 });
+    };
+
+    // Clear a question's error as soon as it is answered.
+    groups.forEach((g) => g.addEventListener('change', () => g.classList.remove('has-error')));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Every question is required (legacy validate(): choice[id] => required).
+      let firstMissing: HTMLElement | null = null;
+      const values: number[] = [];
+      for (const g of groups) {
+        const checked = g.querySelector<HTMLInputElement>('input[type="radio"]:checked');
+        g.classList.toggle('has-error', !checked);
+        if (!checked) firstMissing ??= g;
+        else values.push(Number(checked.value));
+      }
+      if (firstMissing) {
+        firstMissing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // percent = sum / (answers x max single-choice score) x 100; highest threshold reached wins.
+      const score = values.reduce((a, b) => a + b, 0);
+      const maxScore = values.length * maxChoiceScore;
+      const percent = score > 0 && maxScore > 0 ? (score / maxScore) * 100 : 0;
+      let selected = 1;
+      for (const [caseNo, min] of thresholds) if (percent >= min) selected = caseNo;
+      // Fall back to the nearest lower case if the admin did not configure this one.
+      const available = cases.filter((c) => c <= selected);
+      const caseNo = available.length ? Math.max(...available) : cases[0];
+      if (caseNo === undefined) return;
+
+      history.pushState({ assessmentResult: true }, '', '#result');
+      showResult(caseNo, score, percent);
+    });
+
+    // Browser back from the result returns to the (still filled-in) questionnaire.
+    window.addEventListener('popstate', () => {
+      if (location.hash !== '#result') showForm();
+    });
+    if (location.hash === '#result') history.replaceState(null, '', location.pathname + location.search);
+  }
+</script>

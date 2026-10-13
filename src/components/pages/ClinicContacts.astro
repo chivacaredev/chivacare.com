@@ -1,0 +1,39 @@
+---
+/** Social/phone icon links from the legacy contactus view (.social-icon spans). */
+import { site, theme } from '../../lib/db';
+
+interface Props {
+  /** Which links to show; defaults to all four, as on the contact page. */
+  only?: ('fb' | 'yt' | 'line' | 'tel')[];
+  class?: string;
+}
+
+const CLINIC_PHONE = '+66(0) 96-980-0126';
+const CLINIC_TEL = 'tel:+66969800126';
+
+const { only, class: className } = Astro.props;
+const links = [
+  { key: 'fb', icon: 'icon-fb.png', href: site.link_facebook, label: 'ChivaCare ชีวาแคร์', external: true },
+  { key: 'yt', icon: 'icon-yt.png', href: site.link_youtube, label: 'ChivaCare Channel', external: true },
+  { key: 'line', icon: 'icon-line.png', href: site.link_lineid, label: '@chivacare', external: true },
+  { key: 'tel', icon: 'icon-call.png', href: CLINIC_TEL, label: CLINIC_PHONE, external: false },
+].filter((l) => l.href && (!only || only.includes(l.key as any)));
+---
+
+<ul class:list={['grid gap-x-6 gap-y-2.5 sm:grid-cols-2', className]}>
+  {
+    links.map((l) => (
+      <li>
+        <a
+          href={l.href}
+          target={l.external ? '_blank' : undefined}
+          rel={l.external ? 'noopener' : undefined}
+          class:list={['group flex items-center gap-4 text-ink hover:text-teal-dark', !l.external && 'font-medium']}
+        >
+          <img src={theme(`chiva-icon/${l.icon}`)} alt="" width="32" height="32" class="size-8 shrink-0" />
+          <span>{l.label}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

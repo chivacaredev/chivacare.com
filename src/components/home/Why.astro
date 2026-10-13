@@ -1,0 +1,58 @@
+---
+import { site } from '../../lib/db';
+import type { Lang } from '../../lib/i18n';
+import { ht, pickHtml } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+
+// Inline replacements for the legacy FontAwesome icons (fa-users, fa-address-book-o, fa-money).
+const items = [
+  {
+    label: s.whyWarm,
+    icon: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  },
+  {
+    label: s.whyStandard,
+    icon: '<rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18a5 5 0 0 1 10 0"/><path d="M2 6h2M2 12h2M2 18h2"/>',
+  },
+  {
+    label: s.whyPrice,
+    icon: '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/>',
+  },
+];
+---
+
+<section id="main-why" class="mb-12 scroll-mt-24">
+  <div class="container-site">
+    <h2 class="section-title">{s.why}</h2>
+    <div class="mt-12 px-[25px]">
+      <ul class="grid grid-cols-1 text-center sm:grid-cols-3">
+        {
+          items.map((item) => (
+            <li class="pt-[31px] pb-2.5">
+              <div class="mb-4 flex h-[59px] items-center justify-center text-teal">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="size-[50px]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  set:html={item.icon}
+                />
+              </div>
+              <div class="mb-[9px] text-lg font-bold text-ink uppercase">{item.label}</div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="prose-legacy text-justify" set:html={pickHtml(site, 'why_description', lang)} />
+    </div>
+  </div>
+</section>

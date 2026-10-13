@@ -1,0 +1,56 @@
+---
+import { site, theme } from '../../lib/db';
+import { t, url, type Lang } from '../../lib/i18n';
+import { ht, MAP_URL } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+
+const items = [
+  { href: '#aboutus', label: s.aboutInfo, icon: 'chiva-icon/building-clinic300x300_icon.png', external: false },
+  { href: '#main-why', label: s.aboutWhy, icon: 'chiva-icon/hartdoctor300x300_icon.png', external: false },
+  { href: url(lang, 'teams'), label: s.aboutDoctors, icon: 'chiva-icon/doctor300x300_icon.png', external: true },
+  { href: MAP_URL, label: s.aboutMap, icon: 'chiva-icon/location300x300_icon.png', external: true },
+];
+---
+
+<section>
+  <div class="container-site">
+    <h2 class="section-title">{s.about}</h2>
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-4">
+      {
+        items.map((item) => (
+          <div class="px-[5px] pb-5 text-center">
+            <a
+              href={item.href}
+              title={item.label}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener' : undefined}
+              class="inline-block transition duration-300 hover:scale-[1.07] hover:text-teal"
+            >
+              <span
+                class="mx-auto my-[5px] block size-[100px] rounded-lg bg-cover bg-center shadow-blue md:size-[150px]"
+                style={`background-image:url('${theme(item.icon)}')`}
+              />
+              <h4 class="mt-2.5 text-base font-light md:text-lg md:font-normal">{item.label}</h4>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-site py-8 text-center">
+    <a href={site.link_lineid} target="_blank" rel="noopener" class="btn-primary">
+      {t(lang, 'freeConsult')}
+      <svg viewBox="0 0 24 24" class="size-[30px]" fill="currentColor" aria-hidden="true">
+        <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-3 11H7v-2h10v2Zm0-3H7V8h10v2Z" />
+      </svg>
+    </a>
+  </div>
+</section>

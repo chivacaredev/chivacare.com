@@ -1,0 +1,186 @@
+---
+/**
+ * Contact form from the legacy content/index view (contents.is_form_contact = 'A').
+ * The site is static, so the form posts JSON to PUBLIC_CONTACT_ENDPOINT.
+ * Without an endpoint the form is hidden and the clinic's phone/LINE are shown instead.
+ */
+import ClinicContacts from './ClinicContacts.astro';
+import { pick, type Lang } from '../../lib/i18n';
+import { site } from '../../lib/db';
+
+interface Props {
+  lang: Lang;
+  /** Sent along so the receiver knows which page the message came from. */
+  page?: string;
+}
+
+const { lang, page } = Astro.props;
+const endpoint = (import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '').trim();
+
+const S = {
+  th: {
+    fullname: 'ชื่อ - นามสกุล',
+    email: 'อีเมล์',
+    mobile: 'เบอร์ติดต่อ',
+    subject: 'หัวข้อ',
+    detail: 'รายละเอียดอื่นๆ',
+    submit: 'ส่งข้อความ',
+    sending: 'กำลังส่ง...',
+    success: '<strong>ส่งสำเร็จ!</strong> ขอขอบคุณสำหรับการติดต่อ ทางเราจะรีบดำเนินการให้โดยเร็วที่สุด',
+    error: 'ไม่สามารถส่งข้อความได้ กรุณาลองใหม่อีกครั้ง หรือติดต่อเราทางโทรศัพท์ / LINE',
+    required: 'กรุณากรอก',
+    mobileInvalid: 'กรุณากรอกเบอร์ติดต่อเป็นตัวเลข 10 หลัก',
+    emailInvalid: 'กรุณากรอกอีเมล์ให้ถูกต้อง',
+    fallback: 'ติดต่อสอบถามได้ที่',
+  },
+  en: {
+    fullname: 'Full Name',
+    email: 'Email',
+    mobile: 'Mobile',
+    subject: 'Subject',
+    detail: 'Detail',
+    submit: 'Send',
+    sending: 'Sending...',
+    success: '<strong>Success!</strong> Thank you for contacting us. We will get back to you as soon as possible.',
+    error: 'Your message could not be sent. Please try again or contact us by phone / LINE.',
+    required: 'Please enter',
+    mobileInvalid: 'Please enter a 10-digit mobile number',
+    emailInvalid: 'Please enter a valid email',
+    fallback: 'Contact us',
+  },
+}[lang];
+
+const fields = [
+  { name: 'fullname', type: 'text', label: S.fullname, autocomplete: 'name' },
+  { name: 'email', type: 'email', label: S.email, autocomplete: 'email' },
+  { name: 'mobile', type: 'tel', label: S.mobile, autocomplete: 'tel', pattern: '[0-9]{10}', inputmode: 'numeric' },
+  { name: 'subject', type: 'text', label: S.subject },
+] as const;
+const contactText = pick(site, 'contact_text', lang);
+const messages = JSON.stringify({ sending: S.sending, success: S.success, error: S.error, mobileInvalid: S.mobileInvalid, emailInvalid: S.emailInvalid, required: S.required });
+const inputClass =
+  'block w-full rounded border border-gray-300 px-3 py-2 text-ink shadow-inner outline-none focus:border-teal focus:ring-2 focus:ring-teal/30 [&.is-invalid]:border-red-500';
+---
+
+<div class="mt-8 grid gap-8 md:grid-cols-12">
+  {
+    endpoint ? (
+      <div class="md:col-span-7">
+        <div data-contact-alert role="status" aria-live="polite" class="hidden" />
+        <form data-contact-form data-endpoint={endpoint} data-messages={messages} data-page={page} novalidate class="space-y-4">
+          {fields.map((f) => (
+            <div>
+              <label for={`contact-${f.name}`} class="mb-1 block font-normal">
+                {f.label}
+              </label>
+              <input
+                id={`contact-${f.name}`}
+                name={f.name}
+                type={f.type}
+                placeholder={f.label}
+                required
+                autocomplete={'autocomplete' in f ? f.autocomplete : undefined}
+                pattern={'pattern' in f ? f.pattern : undefined}
+                inputmode={'inputmode' in f ? f.inputmode : undefined}
+                class={inputClass}
+              />
+              <p data-error-for={f.name} class="mt-1 hidden text-sm text-red-600" />
+            </div>
+          ))}
+          <div>
+            <label for="contact-detail" class="mb-1 block font-normal">
+              {S.detail}
+            </label>
+            <textarea id="contact-detail" name="detail" rows="8" required placeholder={S.detail} class={inputClass} />
+            <p data-error-for="detail" class="mt-1 hidden text-sm text-red-600" />
+          </div>
+          {/* Honeypot: real visitors never see or fill this. */}
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+          <div class="flex justify-end">
+            <button type="submit" class="btn-primary !min-w-0 rounded text-base disabled:opacity-60">
+              {S.submit}
+            </button>
+          </div>
+        </form>
+      </div>
+    ) : (
+      <div class="md:col-span-7">
+        <p class="mb-4 font-normal">{S.fallback}</p>
+        <ClinicContacts only={['tel', 'line']} />
+      </div>
+    )
+  }
+  {contactText && <div class="prose-legacy md:col-span-5" set:html={contactText} />}
+</div>
+
+<script>
+  type Messages = Record<'sending' | 'success' | 'error' | 'mobileInvalid' | 'emailInvalid' | 'required', string>;
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-contact-form]')) {
+    const msg: Messages = JSON.parse(form.dataset.messages ?? '{}');
+    const alert = form.parentElement?.querySelector<HTMLElement>('[data-contact-alert]');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    const showAlert = (kind: 'success' | 'error', html: string) => {
+      if (!alert) return;
+      alert.className =
+        'mb-4 rounded border px-4 py-3 ' +
+        (kind === 'success' ? 'border-green-300 bg-green-50 text-green-800' : 'border-red-300 bg-red-50 text-red-800');
+      alert.innerHTML = html;
+    };
+
+    const validate = () => {
+      let ok = true;
+      for (const el of form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[name]:not([name="website"]), textarea[name]')) {
+        const err = form.querySelector<HTMLElement>(`[data-error-for="${el.name}"]`);
+        const value = el.value.trim();
+        const label = form.querySelector(`label[for="${el.id}"]`)?.textContent?.trim() ?? el.name;
+        let message = '';
+        if (!value) message = `${msg.required} ${label}`;
+        else if (el.name === 'mobile' && !/^[0-9]{10}$/.test(value)) message = msg.mobileInvalid;
+        else if (el.name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) message = msg.emailInvalid;
+        el.classList.toggle('is-invalid', !!message);
+        el.setAttribute('aria-invalid', message ? 'true' : 'false');
+        if (err) {
+          err.textContent = message;
+          err.classList.toggle('hidden', !message);
+        }
+        if (message) ok = false;
+      }
+      return ok;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!validate()) return;
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      if (data.website) return; // honeypot
+      delete data.website;
+      const payload = { ...data, page: form.dataset.page ?? location.pathname, lang: document.documentElement.lang };
+
+      const label = button?.textContent ?? '';
+      if (button) {
+        button.disabled = true;
+        button.textContent = msg.sending;
+      }
+      try {
+        const res = await fetch(form.dataset.endpoint!, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        showAlert('success', msg.success);
+        form.reset();
+      } catch {
+        showAlert('error', msg.error);
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = label;
+        }
+        alert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+</script>

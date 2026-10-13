@@ -1,0 +1,37 @@
+---
+/** Legacy owl-cert: the stored cert_description HTML is a list of <div><img></div>; each image becomes a slide. */
+import Carousel from '../Carousel.astro';
+import { site } from '../../lib/db';
+import type { Lang } from '../../lib/i18n';
+import { hasImage, ht, pickHtml } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+
+const certs = [...pickHtml(site, 'cert_description', lang).matchAll(/<img\b[^>]*>/gi)]
+  .map((m) => ({
+    src: /\bsrc="([^"]+)"/i.exec(m[0])?.[1] ?? '',
+    alt: /\balt="([^"]*)"/i.exec(m[0])?.[1] ?? '',
+  }))
+  .filter((c) => hasImage(c.src));
+---
+
+{
+  certs.length > 0 && (
+    <section>
+      <div class="container-site mb-12 text-center">
+        <h2 class="section-title">{s.certificates}</h2>
+        <Carousel perView={[1, 1, 1, 4]}>
+          {certs.map((c) => (
+            <div class="swiper-slide">
+              <img src={c.src} alt={c.alt || s.certificates} loading="lazy" class="mx-auto block h-auto max-w-full" />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+    </section>
+  )
+}

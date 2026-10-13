@@ -1,0 +1,27 @@
+---
+import CategoryPage from '../../../../../../components/services/CategoryPage.astro';
+import { categories, subcategoriesOf } from '../../../../../../components/services/data';
+import { LANGS, pick, type Lang } from '../../../../../../lib/i18n';
+import { slug } from '../../../../../../lib/text';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    categories().flatMap((category) =>
+      subcategoriesOf(category).map((subcategory) => ({
+        params: {
+          lang,
+          catId: String(category.id),
+          subId: String(subcategory.id),
+          slug: slug(pick(subcategory, 'name', lang)),
+        },
+        props: { category, subcategory },
+      })),
+    ),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { category, subcategory } = Astro.props;
+---
+
+<CategoryPage lang={lang} category={category} subcategory={subcategory} />

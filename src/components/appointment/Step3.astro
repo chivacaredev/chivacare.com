@@ -1,0 +1,234 @@
+---
+/** Step 3 — date, time slot and symptoms (legacy appointment/views/step3). */
+import Wizard from './Wizard.astro';
+import NavButtons from './NavButtons.astro';
+import FieldError from './FieldError.astro';
+import { getTeams, getTimes } from '../../lib/db';
+import { pick, type Lang } from '../../lib/i18n';
+import { DAY_NAMES, MONTH_NAMES, W } from './strings';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = W[lang];
+
+// Legacy fetchTimesAll(): status A, id ASC.
+const times = getTimes().filter((t) => t.status === 'A');
+// Only what the slot rules need: each active physician's allowed time ids.
+const physicians = Object.fromEntries(
+  getTeams().map((t) => [String(t.id), { name: pick(t, 'title', lang), times: String(t.time_id ?? '').split(',').map((x) => x.trim()).filter(Boolean) }]),
+);
+const config = JSON.stringify({ physicians, days: DAY_NAMES[lang], months: MONTH_NAMES[lang], labels: { prev: s.prevMonth, next: s.nextMonth, month: s.month, year: s.year } });
+---
+
+<Wizard lang={lang} step={3}>
+  <form id="appt-step3" novalidate data-config={config}>
+    <h5 class="text-lg">{s.dateTime}</h5>
+    <div class="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-[1fr_2fr]">
+      <div class="group" data-field="is_date">
+        <input type="hidden" name="is_date" />
+        <div id="calendar" class="rounded bg-white px-2 py-6 text-grey shadow-blue group-[.has-error]:ring-1 group-[.has-error]:ring-[#f56d6d]"></div>
+        <FieldError>{s.errDate}</FieldError>
+      </div>
+
+      <div>
+        <fieldset class="group" data-field="is_time">
+          <legend><h5 class="text-sm text-navy uppercase">{s.time}</h5></legend>
+          <div class="mt-3 grid grid-cols-3 gap-4 md:grid-cols-4">
+            {
+              times.map((t) => (
+                <label
+                  data-time-id={t.id}
+                  class="flex cursor-pointer items-center justify-center rounded border border-[#dbdbdb] bg-white px-3 py-[calc(.775em-1px)] text-center text-ink shadow-blue transition has-checked:border-transparent has-checked:bg-teal has-checked:text-white has-disabled:pointer-events-none has-disabled:cursor-default has-disabled:opacity-35 has-focus-visible:outline-2 has-focus-visible:outline-navy"
+                >
+                  <input type="radio" class="sr-only" name="is_time" value={t.time} disabled />
+                  <span>{t.time}</span>
+                </label>
+              ))
+            }
+          </div>
+          <p id="no-times" hidden class="mt-3 text-sm text-[#a94442]">{s.noTimes}</p>
+          <FieldError>{s.errTime}</FieldError>
+        </fieldset>
+
+        <div class="group mt-6" data-field="is_remark">
+          <label for="is_remark"><h5 class="text-sm text-navy uppercase">{s.symptoms}</h5></label>
+          <textarea
+            id="is_remark"
+            name="is_remark"
+            maxlength="600"
+            rows="3"
+            placeholder={s.symptomsPlaceholder}
+            class="mt-3 block w-full resize-y rounded border border-[#c3d0f7] bg-white p-[.625em] text-blue/80 outline-none focus:border-[#c3d0f7] group-[.has-error]:border-[#f56d6d]"
+          ></textarea>
+          <FieldError>{s.errRemark}</FieldError>
+        </div>
+      </div>
+    </div>
+    <NavButtons lang={lang} back="appointment/step2" />
+  </form>
+</Wizard>
+
+<script>
+  import { load, save, setError, langPrefix } from './state';
+
+  const saved = load();
+  // Legacy step3 redirected to step2 when there was no wizard state yet.
+  if (!saved.step2) location.replace(`${langPrefix()}/appointment/step2`);
+
+  const form = document.getElementById('appt-step3') as HTMLFormElement;
+  const cfg = JSON.parse(form.dataset.config ?? '{}') as {
+    physicians: Record<string, { name: string; times: string[] }>;
+    days: string[];
+    months: string[];
+    labels: Record<string, string>;
+  };
+
+  // ---- Time slots: enabled only when listed in the chosen physician's time_id CSV.
+  const physician = saved.step2?.physician ? cfg.physicians[saved.step2.physician] : undefined;
+  let anyEnabled = false;
+  form.querySelectorAll<HTMLLabelElement>('label[data-time-id]').forEach((label) => {
+    const input = label.querySelector('input')!;
+    // "Choose a physician for me" has no physician: every slot is offered (legacy disabled them all).
+    const enabled = physician ? physician.times.includes(label.dataset.timeId!) : true;
+    input.disabled = !enabled;
+    anyEnabled ||= enabled;
+  });
+  (document.getElementById('no-times') as HTMLElement).hidden = anyEnabled;
+
+  // ---- Inline calendar (replaces the jQuery UI datepicker): from today + 2 days to today + 5 months.
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const iso = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const minDate = new Date(today);
+  minDate.setDate(minDate.getDate() + 2);
+  const maxDate = new Date(today);
+  maxDate.setMonth(maxDate.getMonth() + 5);
+
+  const dateInput = form.querySelector<HTMLInputElement>('input[name="is_date"]')!;
+  const cal = document.getElementById('calendar') as HTMLElement;
+  const initial = saved.step3?.is_date && saved.step3.is_date >= iso(minDate) && saved.step3.is_date <= iso(maxDate) ? saved.step3.is_date : '';
+  dateInput.value = initial;
+  const start = initial ? new Date(`${initial}T00:00:00`) : minDate;
+  let viewYear = start.getFullYear();
+  let viewMonth = start.getMonth();
+
+  const monthIndex = (y: number, m: number) => y * 12 + m;
+  const minIdx = monthIndex(minDate.getFullYear(), minDate.getMonth());
+  const maxIdx = monthIndex(maxDate.getFullYear(), maxDate.getMonth());
+
+  function render() {
+    const cur = monthIndex(viewYear, viewMonth);
+    const navBtn = (dir: 'prev' | 'next', enabled: boolean) =>
+      `<button type="button" data-nav="${dir}" aria-label="${cfg.labels[dir]}" class="flex size-9 items-center justify-center rounded text-navy hover:bg-black/5 disabled:invisible" ${enabled ? '' : 'disabled'}>
+        <svg aria-hidden="true" viewBox="0 0 320 512" class="size-3 fill-current ${dir === 'next' ? 'rotate-180' : ''}"><path d="M34.5 239 228.9 44.7a24 24 0 0 1 33.9 0l22.7 22.7a24 24 0 0 1 0 33.9L131.5 256l154 154.8a24 24 0 0 1 0 33.9l-22.7 22.7a24 24 0 0 1-33.9 0L34.5 273a24 24 0 0 1 0-34z"/></svg></button>`;
+    const monthOpts = cfg.months
+      .map((name, m) => {
+        const idx = monthIndex(viewYear, m);
+        return idx < minIdx || idx > maxIdx ? '' : `<option value="${m}" ${m === viewMonth ? 'selected' : ''}>${name}</option>`;
+      })
+      .join('');
+    let yearOpts = '';
+    for (let y = minDate.getFullYear(); y <= maxDate.getFullYear(); y++) yearOpts += `<option value="${y}" ${y === viewYear ? 'selected' : ''}>${y}</option>`;
+    const selectCls = 'h-9 rounded border border-[rgba(231,237,255,.6)] bg-white px-2 text-sm font-bold text-blue/80';
+
+    const first = new Date(viewYear, viewMonth, 1);
+    const gridStart = new Date(first);
+    gridStart.setDate(1 - first.getDay()); // weeks start on Sunday, as jQuery UI
+    const weeks = Math.ceil((first.getDay() + new Date(viewYear, viewMonth + 1, 0).getDate()) / 7);
+    let cells = '';
+    for (let i = 0; i < weeks * 7; i++) {
+      const d = new Date(gridStart);
+      d.setDate(gridStart.getDate() + i);
+      const v = iso(d);
+      const inMonth = d.getMonth() === viewMonth;
+      const selectable = inMonth && d >= minDate && d <= maxDate;
+      const selected = v === dateInput.value;
+      const isToday = v === iso(today);
+      const cls = [
+        'w-full rounded py-2.5 text-center text-sm',
+        selected ? 'bg-blue text-white' : selectable ? 'hover:text-navy hover:bg-black/5' : 'opacity-35',
+        isToday ? 'font-bold text-black bg-black/[.02]' : '',
+        inMonth ? '' : 'opacity-35',
+      ].join(' ');
+      cells += `<td class="p-0.5">${
+        selectable
+          ? `<button type="button" data-date="${v}" class="${cls}" aria-pressed="${selected}" aria-label="${d.getDate()} ${cfg.months[d.getMonth()]} ${d.getFullYear()}">${d.getDate()}</button>`
+          : `<span class="${cls} block" aria-hidden="true">${d.getDate()}</span>`
+      }</td>`;
+      if (i % 7 === 6) cells += '</tr><tr>';
+    }
+
+    cal.innerHTML = `
+      <div class="mb-3 flex items-center justify-between gap-1 px-1">
+        ${navBtn('prev', cur > minIdx)}
+        <div class="flex gap-1">
+          <select data-sel="month" aria-label="${cfg.labels.month}" class="${selectCls}">${monthOpts}</select>
+          <select data-sel="year" aria-label="${cfg.labels.year}" class="${selectCls}">${yearOpts}</select>
+        </div>
+        ${navBtn('next', cur < maxIdx)}
+      </div>
+      <table class="w-full table-fixed border-collapse">
+        <thead><tr>${cfg.days.map((d) => `<th class="pb-2 text-sm font-bold text-ink">${d}</th>`).join('')}</tr></thead>
+        <tbody><tr>${cells}</tr></tbody>
+      </table>`;
+  }
+
+  const clampView = () => {
+    const idx = Math.min(Math.max(monthIndex(viewYear, viewMonth), minIdx), maxIdx);
+    viewYear = Math.floor(idx / 12);
+    viewMonth = idx % 12;
+  };
+
+  cal.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest<HTMLElement>('[data-nav],[data-date]');
+    if (!target) return;
+    if (target.dataset.nav) {
+      viewMonth += target.dataset.nav === 'next' ? 1 : -1;
+      if (viewMonth < 0) (viewMonth = 11), viewYear--;
+      if (viewMonth > 11) (viewMonth = 0), viewYear++;
+    } else if (target.dataset.date) {
+      dateInput.value = target.dataset.date;
+      setError(form, 'is_date', null);
+    }
+    render();
+    cal.querySelector<HTMLElement>(target.dataset.nav ? `[data-nav="${target.dataset.nav}"]` : `[data-date="${target.dataset.date}"]`)?.focus();
+  });
+  cal.addEventListener('change', (e) => {
+    const sel = e.target as HTMLSelectElement;
+    if (sel.dataset.sel === 'month') viewMonth = Number(sel.value);
+    if (sel.dataset.sel === 'year') viewYear = Number(sel.value);
+    clampView();
+    render();
+  });
+  render();
+
+  // ---- Restore and validate.
+  const remark = form.querySelector<HTMLTextAreaElement>('textarea[name="is_remark"]')!;
+  if (saved.step3) {
+    remark.value = saved.step3.is_remark ?? '';
+    const t = [...form.querySelectorAll<HTMLInputElement>('input[name="is_time"]')].find(
+      (i) => i.value === saved.step3!.is_time && !i.disabled,
+    );
+    if (t) t.checked = true;
+  }
+  form.addEventListener('change', (e) => {
+    if ((e.target as HTMLInputElement).name === 'is_time') setError(form, 'is_time', null);
+  });
+  remark.addEventListener('input', () => setError(form, 'is_remark', null));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const is_date = dateInput.value;
+    const is_time = form.querySelector<HTMLInputElement>('input[name="is_time"]:checked')?.value ?? '';
+    const is_remark = remark.value.trim();
+    setError(form, 'is_date', is_date ? null : 'required');
+    setError(form, 'is_time', is_time ? null : 'required');
+    setError(form, 'is_remark', is_remark ? null : 'required');
+    if (!is_date || !is_time || !is_remark) return;
+    save({ step3: { is_date, is_time, is_remark } });
+    location.href = `${langPrefix()}/appointment/step4`;
+  });
+</script>

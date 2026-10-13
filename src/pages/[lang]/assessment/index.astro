@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { getAssessments, img } from '../../../lib/db';
+import { langPaths, pick, url, type Lang } from '../../../lib/i18n';
+import { A } from '../../../components/assessment/strings';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+const s = A[lang];
+
+// Legacy fetchAssessmentAll(): status A or N, newest first.
+const assessments = [...getAssessments()].reverse();
+---
+
+<Layout lang={lang} title={s.listCrumb}>
+  <Breadcrumb lang={lang} items={[{ label: s.listCrumb }]} />
+  <section class="pb-10">
+    <div class="container-site pb-8">
+      <h2 class="section-title">{s.listTitle}</h2>
+    </div>
+    <div class="container-site">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2 md:grid-cols-3">
+        {
+          assessments.map((a) => {
+            const enabled = a.status === 'A';
+            return (
+              <div class:list={['py-4', !enabled && 'pointer-events-none']}>
+                <a
+                  href={enabled ? url(lang, `assessment/form/${a.id}`) : undefined}
+                  aria-disabled={enabled ? undefined : 'true'}
+                  class="flex items-center rounded-[10px] shadow-soft"
+                >
+                  <img
+                    src={img.assessment(a.img_assessment)}
+                    alt=""
+                    width="80"
+                    height="80"
+                    loading="lazy"
+                    class:list={['mr-[15px] w-20 max-w-20 shrink-0 rounded-[10px]', !enabled && 'opacity-50 grayscale']}
+                  />
+                  <div
+                    class:list={[
+                      'flex h-20 grow items-center justify-center rounded-r-[10px] p-[15px] text-center leading-snug text-white',
+                      enabled ? 'bg-[#4db6ac]' : 'bg-gray-500 opacity-50',
+                    ]}
+                  >
+                    {pick(a, 'name', lang)}
+                  </div>
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

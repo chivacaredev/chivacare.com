@@ -1,0 +1,1332 @@
+[
+  {
+    "id": 2,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:08:20",
+    "updated_date": "2022-08-21 10:25:50",
+    "status": "A",
+    "question_id": 2
+  },
+  {
+    "id": 3,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:08:40",
+    "updated_date": "2022-08-21 10:26:11",
+    "status": "A",
+    "question_id": 2
+  },
+  {
+    "id": 4,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:08:56",
+    "updated_date": "2022-08-21 10:26:37",
+    "status": "A",
+    "question_id": 2
+  },
+  {
+    "id": 5,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:09:22",
+    "updated_date": "2022-08-21 10:26:47",
+    "status": "A",
+    "question_id": 2
+  },
+  {
+    "id": 6,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:37:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 3
+  },
+  {
+    "id": 7,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:37:46",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 3
+  },
+  {
+    "id": 8,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:37:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 3
+  },
+  {
+    "id": 9,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:38:09",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 3
+  },
+  {
+    "id": 10,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:38:40",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 4
+  },
+  {
+    "id": 11,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:38:57",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 4
+  },
+  {
+    "id": 12,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:39:12",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 4
+  },
+  {
+    "id": 13,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:39:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 4
+  },
+  {
+    "id": 14,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:39:54",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 5
+  },
+  {
+    "id": 15,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:40:06",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 5
+  },
+  {
+    "id": 16,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:40:16",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 5
+  },
+  {
+    "id": 17,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:40:26",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 5
+  },
+  {
+    "id": 18,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:40:51",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 6
+  },
+  {
+    "id": 19,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:41:03",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 6
+  },
+  {
+    "id": 20,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:41:15",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 6
+  },
+  {
+    "id": 21,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:41:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 6
+  },
+  {
+    "id": 22,
+    "title_th": "ไม่มีเลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-21 10:42:20",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 7
+  },
+  {
+    "id": 23,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-21 10:42:30",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 7
+  },
+  {
+    "id": 24,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-21 10:42:40",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 7
+  },
+  {
+    "id": 25,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-21 10:42:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 7
+  },
+  {
+    "id": 26,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:50:40",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 8
+  },
+  {
+    "id": 27,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:50:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 8
+  },
+  {
+    "id": 28,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:51:07",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 8
+  },
+  {
+    "id": 29,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:51:18",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 8
+  },
+  {
+    "id": 30,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:51:30",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 8
+  },
+  {
+    "id": 31,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:51:52",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 9
+  },
+  {
+    "id": 32,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:52:03",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 9
+  },
+  {
+    "id": 33,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:52:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 9
+  },
+  {
+    "id": 34,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:52:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 9
+  },
+  {
+    "id": 35,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:52:38",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 9
+  },
+  {
+    "id": 36,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:53:03",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 10
+  },
+  {
+    "id": 37,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:53:15",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 10
+  },
+  {
+    "id": 38,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:53:25",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 10
+  },
+  {
+    "id": 39,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:53:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 10
+  },
+  {
+    "id": 40,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:53:49",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 10
+  },
+  {
+    "id": 42,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:55:02",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 11
+  },
+  {
+    "id": 43,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:55:13",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 11
+  },
+  {
+    "id": 44,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:55:23",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 11
+  },
+  {
+    "id": 45,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:55:34",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 11
+  },
+  {
+    "id": 46,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:55:44",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 11
+  },
+  {
+    "id": 47,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:56:06",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 12
+  },
+  {
+    "id": 48,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:56:18",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 12
+  },
+  {
+    "id": 49,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:56:30",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 12
+  },
+  {
+    "id": 50,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:56:40",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 12
+  },
+  {
+    "id": 51,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:56:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 12
+  },
+  {
+    "id": 52,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:57:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 13
+  },
+  {
+    "id": 53,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:57:28",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 13
+  },
+  {
+    "id": 54,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:57:38",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 13
+  },
+  {
+    "id": 55,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:57:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 13
+  },
+  {
+    "id": 56,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:57:59",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 13
+  },
+  {
+    "id": 57,
+    "title_th": "ไม่นะ",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 09:58:23",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 14
+  },
+  {
+    "id": 58,
+    "title_th": "นิดหน่อย",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 09:58:33",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 14
+  },
+  {
+    "id": 59,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2022-08-25 09:58:46",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 14
+  },
+  {
+    "id": 60,
+    "title_th": "มาก",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2022-08-25 09:58:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 14
+  },
+  {
+    "id": 61,
+    "title_th": "มากที่สุด",
+    "title_en": null,
+    "score": "4",
+    "created_date": "2022-08-25 09:59:07",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 14
+  },
+  {
+    "id": 62,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:04:29",
+    "updated_date": "2025-01-07 15:58:12",
+    "status": "A",
+    "question_id": 15
+  },
+  {
+    "id": 63,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:04:44",
+    "updated_date": "2025-01-07 15:58:07",
+    "status": "A",
+    "question_id": 15
+  },
+  {
+    "id": 64,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:05:04",
+    "updated_date": "2025-01-07 15:58:29",
+    "status": "A",
+    "question_id": 16
+  },
+  {
+    "id": 65,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:05:14",
+    "updated_date": "2025-01-07 15:58:26",
+    "status": "A",
+    "question_id": 16
+  },
+  {
+    "id": 66,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:05:44",
+    "updated_date": "2025-01-07 15:58:35",
+    "status": "A",
+    "question_id": 17
+  },
+  {
+    "id": 67,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:05:57",
+    "updated_date": "2025-01-07 15:58:40",
+    "status": "A",
+    "question_id": 17
+  },
+  {
+    "id": 68,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:06:37",
+    "updated_date": "2025-01-07 15:58:49",
+    "status": "A",
+    "question_id": 18
+  },
+  {
+    "id": 69,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:06:48",
+    "updated_date": "2025-01-07 15:58:45",
+    "status": "A",
+    "question_id": 18
+  },
+  {
+    "id": 70,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:07:07",
+    "updated_date": "2025-01-07 15:59:00",
+    "status": "A",
+    "question_id": 19
+  },
+  {
+    "id": 71,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:07:17",
+    "updated_date": "2025-01-07 15:58:55",
+    "status": "A",
+    "question_id": 19
+  },
+  {
+    "id": 72,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:07:42",
+    "updated_date": "2025-01-07 15:59:15",
+    "status": "A",
+    "question_id": 20
+  },
+  {
+    "id": 73,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:07:52",
+    "updated_date": "2025-01-07 15:59:10",
+    "status": "A",
+    "question_id": 20
+  },
+  {
+    "id": 74,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:08:11",
+    "updated_date": "2025-01-07 15:59:29",
+    "status": "A",
+    "question_id": 21
+  },
+  {
+    "id": 75,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:08:26",
+    "updated_date": "2025-01-07 15:59:25",
+    "status": "A",
+    "question_id": 21
+  },
+  {
+    "id": 76,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:08:49",
+    "updated_date": "2025-01-07 16:00:10",
+    "status": "A",
+    "question_id": 22
+  },
+  {
+    "id": 77,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:08:58",
+    "updated_date": "2025-01-07 16:00:03",
+    "status": "A",
+    "question_id": 22
+  },
+  {
+    "id": 78,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:09:20",
+    "updated_date": "2025-01-07 16:00:21",
+    "status": "A",
+    "question_id": 23
+  },
+  {
+    "id": 79,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:09:29",
+    "updated_date": "2025-01-07 16:00:17",
+    "status": "A",
+    "question_id": 23
+  },
+  {
+    "id": 80,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:10:13",
+    "updated_date": "2025-01-07 16:00:34",
+    "status": "A",
+    "question_id": 24
+  },
+  {
+    "id": 81,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:10:19",
+    "updated_date": "2025-01-07 16:00:30",
+    "status": "A",
+    "question_id": 24
+  },
+  {
+    "id": 82,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:10:37",
+    "updated_date": "2025-01-07 16:00:45",
+    "status": "A",
+    "question_id": 25
+  },
+  {
+    "id": 83,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:10:44",
+    "updated_date": "2025-01-07 16:00:41",
+    "status": "A",
+    "question_id": 25
+  },
+  {
+    "id": 84,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:10:59",
+    "updated_date": "2025-01-07 16:00:58",
+    "status": "A",
+    "question_id": 26
+  },
+  {
+    "id": 85,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:11:07",
+    "updated_date": "2025-01-07 16:00:54",
+    "status": "A",
+    "question_id": 26
+  },
+  {
+    "id": 86,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:11:55",
+    "updated_date": "2025-01-07 16:01:09",
+    "status": "A",
+    "question_id": 27
+  },
+  {
+    "id": 87,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:12:02",
+    "updated_date": "2025-01-07 16:01:06",
+    "status": "A",
+    "question_id": 27
+  },
+  {
+    "id": 88,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:12:26",
+    "updated_date": "2025-01-07 16:01:21",
+    "status": "A",
+    "question_id": 28
+  },
+  {
+    "id": 89,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:12:37",
+    "updated_date": "2025-01-07 16:01:17",
+    "status": "A",
+    "question_id": 28
+  },
+  {
+    "id": 90,
+    "title_th": "ไม่มีปัญหา",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:13:02",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 29
+  },
+  {
+    "id": 91,
+    "title_th": "เล็กน้อย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:13:14",
+    "updated_date": "2024-12-28 16:13:13",
+    "status": "A",
+    "question_id": 29
+  },
+  {
+    "id": 92,
+    "title_th": "ปานกลาง",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:13:24",
+    "updated_date": "2024-12-28 16:13:02",
+    "status": "A",
+    "question_id": 29
+  },
+  {
+    "id": 93,
+    "title_th": "มีปัญหามาก",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:13:37",
+    "updated_date": "2024-12-28 16:13:07",
+    "status": "A",
+    "question_id": 29
+  },
+  {
+    "id": 94,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 10:14:03",
+    "updated_date": "2025-01-07 16:01:50",
+    "status": "A",
+    "question_id": 30
+  },
+  {
+    "id": 95,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 10:14:16",
+    "updated_date": "2025-01-07 16:01:46",
+    "status": "A",
+    "question_id": 30
+  },
+  {
+    "id": 96,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 12:08:26",
+    "updated_date": "2025-01-07 15:54:35",
+    "status": "A",
+    "question_id": 31
+  },
+  {
+    "id": 97,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 12:08:36",
+    "updated_date": "2025-01-07 15:54:30",
+    "status": "A",
+    "question_id": 31
+  },
+  {
+    "id": 210,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:34:00",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 53
+  },
+  {
+    "id": 211,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:34:07",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 53
+  },
+  {
+    "id": 212,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:34:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 54
+  },
+  {
+    "id": 213,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:34:34",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 54
+  },
+  {
+    "id": 214,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:34:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 55
+  },
+  {
+    "id": 215,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:35:01",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 55
+  },
+  {
+    "id": 216,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:35:19",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 56
+  },
+  {
+    "id": 217,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:35:25",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 56
+  },
+  {
+    "id": 218,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:35:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 57
+  },
+  {
+    "id": 219,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:36:02",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 57
+  },
+  {
+    "id": 220,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:36:21",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 58
+  },
+  {
+    "id": 221,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:36:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 58
+  },
+  {
+    "id": 222,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:36:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 59
+  },
+  {
+    "id": 223,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:36:57",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 59
+  },
+  {
+    "id": 224,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:37:15",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 60
+  },
+  {
+    "id": 225,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:37:22",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 60
+  },
+  {
+    "id": 226,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:37:49",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 61
+  },
+  {
+    "id": 227,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:37:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 61
+  },
+  {
+    "id": 228,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:38:21",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 62
+  },
+  {
+    "id": 229,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:38:26",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 62
+  },
+  {
+    "id": 230,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:38:43",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 63
+  },
+  {
+    "id": 231,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:38:48",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 63
+  },
+  {
+    "id": 232,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:39:10",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 64
+  },
+  {
+    "id": 233,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:39:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 64
+  },
+  {
+    "id": 234,
+    "title_th": "ใช่",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2022-08-25 20:39:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 65
+  },
+  {
+    "id": 235,
+    "title_th": "ไม่ใช่",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2022-08-25 20:39:42",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 65
+  },
+  {
+    "id": 236,
+    "title_th": "ไม่เลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2024-07-04 15:16:18",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 66
+  },
+  {
+    "id": 237,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2024-07-04 15:16:31",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 66
+  },
+  {
+    "id": 238,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2024-07-04 15:16:44",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 66
+  },
+  {
+    "id": 239,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2024-07-04 15:16:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 66
+  },
+  {
+    "id": 240,
+    "title_th": "ไม่เลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2024-07-04 15:17:26",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 67
+  },
+  {
+    "id": 241,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2024-07-04 15:17:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 67
+  },
+  {
+    "id": 242,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2024-07-04 15:17:46",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 67
+  },
+  {
+    "id": 243,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2024-07-04 15:17:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 67
+  },
+  {
+    "id": 244,
+    "title_th": "ไม่เลย",
+    "title_en": null,
+    "score": "0",
+    "created_date": "2024-07-04 15:18:20",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 68
+  },
+  {
+    "id": 245,
+    "title_th": "บางวัน",
+    "title_en": null,
+    "score": "1",
+    "created_date": "2024-07-04 15:18:33",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 68
+  },
+  {
+    "id": 246,
+    "title_th": "เป็นบ่อย",
+    "title_en": null,
+    "score": "2",
+    "created_date": "2024-07-04 15:18:44",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 68
+  },
+  {
+    "id": 247,
+    "title_th": "ทุกวัน",
+    "title_en": null,
+    "score": "3",
+    "created_date": "2024-07-04 15:18:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "question_id": 68
+  }
+]

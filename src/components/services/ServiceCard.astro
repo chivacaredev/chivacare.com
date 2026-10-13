@@ -1,0 +1,25 @@
+---
+/** Card slide used by the detail view's "programs" and "other programs" carousels. */
+import { pick, type Lang } from '../../lib/i18n';
+import { img, type Row } from '../../lib/db';
+import { truncate } from '../../lib/text';
+import { serviceUrl } from './data';
+
+interface Props {
+  lang: Lang;
+  row: Row;
+}
+
+const { lang, row } = Astro.props;
+const title = pick(row, 'title', lang);
+---
+
+<div class="swiper-slide py-8">
+  <a href={serviceUrl(lang, row)} class="card">
+    <img class="block h-auto w-full" src={img.services(row.photomain)} alt={title} title={title} loading="lazy" />
+    <div class="px-[15px] pt-4 pb-2">
+      <h4>{truncate(title, 41)}</h4>
+      <p>{truncate(pick(row, 'description', lang), 85)}</p>
+    </div>
+  </a>
+</div>

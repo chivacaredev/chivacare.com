@@ -1,0 +1,160 @@
+---
+/**
+ * List page for promotions / blog / activities / reviews / video,
+ * ported from application/modules/<mod>/views/index.php. Each module keeps its legacy card layout.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import Carousel from '../Carousel.astro';
+import Paginated from '../Paginated.astro';
+import { site } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { truncate, youtubeEmbed } from '../../lib/text';
+import ArticleCard from './ArticleCard.astro';
+import ArticleImage from './ArticleImage.astro';
+import ShareButtons from './ShareButtons.astro';
+import { detailUrl, MODULES, type ModuleKey } from './modules';
+
+interface Props {
+  lang: Lang;
+  mod: ModuleKey;
+}
+
+const { lang, mod } = Astro.props;
+const cfg = MODULES[mod];
+const rows = cfg.rows();
+const label = cfg.label[lang];
+const PER_PAGE = 12;
+const pages = Math.max(1, Math.ceil(rows.length / PER_PAGE));
+const gridCols = {
+  promotions: 'sm:grid-cols-3',
+  blog: 'sm:grid-cols-3',
+  activities: 'sm:grid-cols-4',
+  reviews: 'sm:grid-cols-3',
+  video: 'sm:grid-cols-3',
+}[mod];
+// Legacy promotions list: every card had the same physio booking button.
+const bookingHref = url(lang, 'appointment/step2?group=2&physician=2&is_services=คลินิกกายภาพและกิจกรรมบำบัด');
+---
+
+<Layout lang={lang} title={`${label} | ${pick(site, 'title', lang)}`}>
+  <section class:list={[`main-${mod}`, 'pb-12']}>
+    <Breadcrumb lang={lang} items={[{ label }]} />
+
+    <div class="container-site py-8">
+      <h1 class="section-title">{label}</h1>
+    </div>
+
+    {
+      rows.length === 0 ? (
+        <div class="container-site">
+          <div class="rounded border border-amber-light bg-amber-light/10 p-4 md:w-2/3" role="alert">
+            {t(lang, 'notFound')}
+          </div>
+        </div>
+      ) : (
+        <>
+          {mod === 'blog' && (
+            /* Featured slider: the current page's articles, one per view (legacy .main-blog-all). */
+            <div class="container-site mb-12 overflow-hidden" id="blog-featured" data-pages={pages} data-per-page={PER_PAGE}>
+              <Carousel perView={[1.2, 1, 1, 1]}>
+                {rows.map((row, i) => (
+                  <div class="swiper-slide pb-2" data-feature-page={Math.floor(i / PER_PAGE) + 1}>
+                    <a href={detailUrl(mod, row, lang)} class="grid h-full overflow-hidden bg-white text-ink shadow-soft sm:grid-cols-2">
+                      <ArticleImage mod={mod} row={row} lang={lang} class="h-full object-cover" />
+                      <div class="p-6 lg:p-[42px]">
+                        <h4 class="mb-3 text-lg text-teal">{pick(row, 'title', lang)}</h4>
+                        <p>{truncate(pick(row, 'description', lang), 285)}</p>
+                      </div>
+                    </a>
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+            <script is:inline>
+              // Keep only the current ?pg page's slides before Swiper initialises (scripts above are deferred modules).
+              (function () {
+                var root = document.getElementById('blog-featured');
+                if (!root) return;
+                var pages = Number(root.dataset.pages) || 1;
+                var pg = Math.min(Math.max(1, Number(new URLSearchParams(location.search).get('pg')) || 1), pages);
+                root.querySelectorAll('[data-feature-page]').forEach(function (el) {
+                  if (el.getAttribute('data-feature-page') !== String(pg)) el.remove();
+                });
+              })();
+            </script>
+          )}
+
+          <div class="container-site">
+            <Paginated lang={lang} total={rows.length} perPage={PER_PAGE} class={`grid gap-[30px] ${gridCols}`}>
+              {rows.map((row) => {
+                const href = detailUrl(mod, row, lang);
+                const title = pick(row, 'title', lang);
+
+                if (mod === 'promotions')
+                  return (
+                    <div data-page-item class="flex flex-col">
+                      <a href={href} class="block overflow-hidden rounded shadow-soft">
+                        <ArticleImage mod={mod} row={row} lang={lang} />
+                      </a>
+                      <div class="py-[15px] text-center">
+                        <a href={bookingHref} class="btn-primary is-teal !rounded-2xl !py-2.5">
+                          {t(lang, 'bookAppointment')}
+                        </a>
+                        <a href={href} class="mt-4 block text-ink">
+                          <h4 class="mb-2 text-lg text-teal">{title}</h4>
+                          <p>{pick(row, 'description', lang)}</p>
+                        </a>
+                      </div>
+                      <ShareButtons lang={lang} href={href} title={title} class="mt-auto" />
+                    </div>
+                  );
+
+                if (mod === 'reviews')
+                  return (
+                    <div data-page-item>
+                      <ArticleCard mod={mod} row={row} lang={lang} descLength={85} />
+                    </div>
+                  );
+
+                if (mod === 'video')
+                  return (
+                    <div data-page-item class="card">
+                      <div class="aspect-video w-full bg-black">
+                        <iframe
+                          src={youtubeEmbed(row.url_youtube)}
+                          title={title}
+                          class="size-full"
+                          loading="lazy"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        />
+                      </div>
+                      <div class="flex-1 px-4 pt-3 pb-2">
+                        <h4 class="font-bold">{title}</h4>
+                      </div>
+                    </div>
+                  );
+
+                // blog (3 per row, 120 chars) and activities (4 per row, 180 chars, title opens a new tab)
+                return (
+                  <div data-page-item class="card">
+                    <a href={href} class="block">
+                      <ArticleImage mod={mod} row={row} lang={lang} />
+                    </a>
+                    <div class="flex-1 px-4 pt-3 pb-2">
+                      <a href={href} target={mod === 'activities' ? '_blank' : undefined} class="text-ink hover:text-teal">
+                        <h4 class="!text-lg font-bold">{title}</h4>
+                      </a>
+                      <p>{truncate(pick(row, 'description', lang), mod === 'activities' ? 180 : 120)}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </Paginated>
+          </div>
+        </>
+      )
+    }
+  </section>
+</Layout>

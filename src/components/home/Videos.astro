@@ -1,0 +1,53 @@
+---
+import Carousel from '../Carousel.astro';
+import MoreLink from './MoreLink.astro';
+import { getVideos } from '../../lib/db';
+import { pick, url, type Lang } from '../../lib/i18n';
+import { youtubeEmbed } from '../../lib/text';
+import { ht, OVERFLOW_CAROUSEL } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+const videos = getVideos().filter((v) => /youtu/.test(v.url_youtube ?? ''));
+---
+
+{
+  videos.length > 0 && (
+    <section class="mb-12">
+      <div class="container-site">
+        <div class="overflow-hidden">
+          <h2 class="section-title">{s.videos}</h2>
+          <div class="mt-12">
+            <Carousel perView={[1, 2, 2, 3]} class={OVERFLOW_CAROUSEL}>
+              {videos.map((v) => {
+                const title = pick(v, 'title', lang);
+                return (
+                  <div class="swiper-slide py-8">
+                    <div class="card">
+                      <div class="relative aspect-video">
+                        <iframe
+                          class="absolute inset-0 size-full"
+                          src={youtubeEmbed(v.url_youtube)}
+                          title={title}
+                          loading="lazy"
+                          allowfullscreen
+                        />
+                      </div>
+                      <div class="px-[15px] py-2.5">
+                        <h4>{title}</h4>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </Carousel>
+            <MoreLink href={url(lang, 'video')}>{s.moreVideos}</MoreLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

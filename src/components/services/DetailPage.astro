@@ -1,0 +1,156 @@
+---
+/** Legacy services/detail view. */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import Carousel from '../Carousel.astro';
+import ServiceCard from './ServiceCard.astro';
+import { getCategory, img, site, type Row } from '../../lib/db';
+import { pick, url, type Lang } from '../../lib/i18n';
+import { youtubeEmbed } from '../../lib/text';
+import {
+  serviceUrl,
+  accent,
+  activeCategory,
+  categoryUrl,
+  downloadHref,
+  hasServiceImage,
+  programsFor,
+  s,
+  servicesOf,
+} from './data';
+
+interface Props {
+  lang: Lang;
+  service: Row;
+}
+
+const { lang, service } = Astro.props;
+const str = s(lang);
+const categoryId = Number(service.category_id);
+const title = pick(service, 'title', lang);
+const others = servicesOf({ categoryId, notId: Number(service.id), limit: 10 });
+const programs = programsFor(service, lang);
+
+const category = getCategory(categoryId);
+const categoryName = pick(category, 'name', lang);
+const crumbs = [
+  { label: str.ourServices, href: url(lang, 'services') },
+  ...(category
+    ? [{ label: categoryName, href: activeCategory(categoryId) ? categoryUrl(lang, category) : url(lang, 'services') }]
+    : []),
+  { label: title },
+];
+
+const image = hasServiceImage(service) ? img.services(service.photomain) : undefined;
+const youtube = service.url_youtube ? youtubeEmbed(service.url_youtube) : '';
+const color = accent(categoryId);
+const detail = pick(service, 'detail', lang);
+const treatment = pick(service, 'treatmentprocess', lang).trim();
+const suitable = pick(service, 'whoissuitable', lang).trim();
+const download = downloadHref(service, lang);
+const perView: [number, number, number, number] = [1, 2, 2, 3];
+---
+
+<Layout lang={lang} title={title} keywords={title} description={pick(service, 'description', lang)} image={image} alternates={{ th: serviceUrl('th', service), en: serviceUrl('en', service) }}>
+  <section>
+    <Breadcrumb lang={lang} items={crumbs} />
+
+    <!-- Title band (_bg-blue-w40 + _title-d) and media -->
+    <div class="relative mb-[38px] w-full" style={`background:linear-gradient(90deg, ${color.band} 40%, #fff 40%)`}>
+      <div
+        class:list={[
+          'absolute top-[70px] left-0 z-[100] w-[39.5vw] p-[15px] text-white opacity-80 shadow-soft md:top-[140px]',
+          color.title,
+        ]}
+      >
+        <h2 class="text-right text-lg md:text-[30px] md:leading-tight">{title}</h2>
+      </div>
+      <div class="relative -bottom-[30px] z-10 px-[15px] pr-0 md:ml-[16.6667%] md:w-5/6">
+        {
+          youtube ? (
+            <div class="aspect-video w-full">
+              <iframe class="h-full w-full" src={youtube} title={title} allowfullscreen loading="lazy" />
+            </div>
+          ) : (
+            image && <img class="block h-auto max-w-full shadow-soft" src={image} alt={title} />
+          )
+        }
+      </div>
+    </div>
+
+    <div class="container-site my-[68px]">
+      <div class="bg-white p-6 shadow-[0_50px_50px_rgba(0,4,12,0.05),0_4px_15px_rgba(0,0,0,0.05),0_0_5px_rgba(0,4,12,0.05)]">
+        <div class="prose-legacy" set:html={detail} />
+
+        {
+          treatment && (
+            <div class="mt-8">
+              <h3 class="mb-3 text-xl font-normal">{str.treatmentProcess}</h3>
+              <div class="prose-legacy" set:html={treatment} />
+            </div>
+          )
+        }
+        {
+          suitable && (
+            <div class="mt-8">
+              <h3 class="mb-3 text-xl font-normal">{str.whoIsSuitable}</h3>
+              <div class="prose-legacy" set:html={suitable} />
+            </div>
+          )
+        }
+        {
+          download && (
+            <p class="mt-6">
+              <a href={download} class="font-medium text-teal-dark underline" download>
+                {str.download}
+              </a>
+            </p>
+          )
+        }
+
+        <div class="pb-[15px]">
+          {
+            programs.length > 0 && (
+              <div class="overflow-hidden px-[15px] pt-8">
+                <h2 class="section-title !mx-0 !mb-6 !text-left">{str.treatmentOf(title)}</h2>
+                <Carousel perView={perView}>
+                  {programs.map((row) => (
+                    <ServiceCard lang={lang} row={row} />
+                  ))}
+                </Carousel>
+              </div>
+            )
+          }
+          <div class="flex flex-wrap justify-center gap-2 py-8">
+            <a href={site.link_lineid} class="btn-primary !rounded-2xl !border-[green] !bg-[green] !py-2.5 !text-lg !font-medium">
+              {str.consult}
+            </a>
+            <a href={url(lang, 'appointment')} class="btn-primary !rounded-2xl !py-2.5 !text-lg !font-medium">
+              {str.book}
+            </a>
+            <a href={url(lang, 'promotions')} class="btn-primary is-teal !rounded-2xl !py-2.5 !text-lg !font-medium">
+              {str.promotions}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-[15px]">
+    <div class="container-site overflow-hidden">
+      <h2 class="section-title !mx-0 !mb-6 !text-left">{str.otherPrograms}</h2>
+      {
+        others.length > 0 ? (
+          <Carousel perView={perView}>
+            {others.map((row) => (
+              <ServiceCard lang={lang} row={row} />
+            ))}
+          </Carousel>
+        ) : (
+          <div class="py-8 text-center">Data not found</div>
+        )
+      }
+    </div>
+  </section>
+</Layout>

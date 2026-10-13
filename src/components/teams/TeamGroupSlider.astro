@@ -1,0 +1,37 @@
+---
+/** Legacy .main-physical.doctor-wrapper section: group heading + slider of circular team cards. */
+import Carousel from '../Carousel.astro';
+import TeamCard from './TeamCard.astro';
+import { pick, type Lang } from '../../lib/i18n';
+import type { Row } from '../../lib/db';
+
+interface Props {
+  lang: Lang;
+  group: Row & { items: Row[] };
+  /** Fixed subtitle for every card (teams/detail printed "นักกายภาพบำบัด"). */
+  subtitle?: string;
+}
+
+const { lang, group, subtitle } = Astro.props;
+---
+
+<div class="doctor-wrapper py-8">
+  <div class="container-site overflow-hidden">
+    <h4 class="mb-2 text-xl md:text-2xl">{pick(group, 'name', lang)}</h4>
+    <Carousel perView={[1.3, 2, 2, 4]} class="!overflow-visible">
+      {group.items.map((team) => <TeamCard lang={lang} team={team} subtitle={subtitle} />)}
+    </Carousel>
+  </div>
+</div>
+
+<style>
+  .doctor-wrapper {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 45, 115, 0.05),
+      rgba(0, 45, 115, 0) 23.88%,
+      rgba(0, 45, 115, 0) 80.73%,
+      rgba(0, 45, 115, 0.08)
+    );
+  }
+</style>

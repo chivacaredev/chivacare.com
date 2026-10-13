@@ -1,0 +1,13 @@
+---
+import ContentPage from '../../components/pages/ContentPage.astro';
+import { contentById } from '../../components/pages/contents';
+import { langPaths, type Lang } from '../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+// Legacy privacypolicy module: contents id 19.
+const content = contentById(19);
+if (!content) return Astro.redirect(`/${lang}`);
+---
+
+<ContentPage lang={lang} content={content} />

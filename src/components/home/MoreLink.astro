@@ -1,0 +1,15 @@
+---
+/** "See more >" link (legacy .btn-wrapper.has-text-blue-primary.pull-right). */
+interface Props {
+  href: string;
+  class?: string;
+}
+const { href, class: className } = Astro.props;
+---
+
+<a href={href} class:list={['more-link', className]}>
+  <slot />
+  <svg viewBox="0 0 24 24" class="size-3.5" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <path d="m9 5 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+</a>

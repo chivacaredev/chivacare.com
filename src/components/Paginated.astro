@@ -1,0 +1,55 @@
+---
+/**
+ * Client-side pagination that keeps the legacy `?pg=N` URLs working on a static site.
+ * Every item is rendered; children must be direct elements carrying [data-page-item].
+ */
+import { t, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  perPage?: number;
+  total: number;
+  class?: string;
+}
+
+const { lang, perPage = 12, total, class: className } = Astro.props;
+const pages = Math.max(1, Math.ceil(total / perPage));
+---
+
+<div data-paginated data-per-page={perPage}>
+  <div class={className}>
+    <slot />
+  </div>
+  {
+    pages > 1 && (
+      <nav class="mt-8 flex justify-center" aria-label="Pagination">
+        <ul class="flex flex-wrap items-center gap-1" data-pager>
+          <li><a data-pg="prev" href="?pg=1" class="block rounded border border-gray-300 px-3 py-1.5 hover:bg-teal hover:text-white">{t(lang, 'prev')}</a></li>
+          {Array.from({ length: pages }, (_, i) => (
+            <li><a data-pg={i + 1} href={`?pg=${i + 1}`} class="block rounded border border-gray-300 px-3 py-1.5 hover:bg-teal hover:text-white">{i + 1}</a></li>
+          ))}
+          <li><a data-pg="next" href={`?pg=${Math.min(2, pages)}`} class="block rounded border border-gray-300 px-3 py-1.5 hover:bg-teal hover:text-white">{t(lang, 'next')}</a></li>
+        </ul>
+      </nav>
+    )
+  }
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-paginated]')) {
+    const perPage = Number(root.dataset.perPage) || 12;
+    const items = [...root.querySelectorAll<HTMLElement>('[data-page-item]')];
+    const pages = Math.max(1, Math.ceil(items.length / perPage));
+    const raw = Number(new URLSearchParams(location.search).get('pg')) || 1;
+    const page = Math.min(Math.max(1, raw), pages);
+    items.forEach((el, i) => (el.hidden = Math.floor(i / perPage) + 1 !== page));
+    for (const a of root.querySelectorAll<HTMLAnchorElement>('[data-pg]')) {
+      const target = a.dataset.pg === 'prev' ? Math.max(1, page - 1) : a.dataset.pg === 'next' ? Math.min(pages, page + 1) : Number(a.dataset.pg);
+      a.href = `?pg=${target}`;
+      const current = a.dataset.pg === String(page);
+      a.classList.toggle('bg-teal', current);
+      a.classList.toggle('text-white', current);
+      if (current) a.setAttribute('aria-current', 'page');
+    }
+  }
+</script>

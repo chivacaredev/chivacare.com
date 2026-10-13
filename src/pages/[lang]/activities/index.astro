@@ -1,0 +1,9 @@
+---
+import ArticleList from '../../../components/article/ArticleList.astro';
+import { langPaths, type Lang } from '../../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<ArticleList lang={lang} mod="activities" />

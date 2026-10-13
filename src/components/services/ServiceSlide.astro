@@ -1,0 +1,48 @@
+---
+/** One service slide of the legacy services index/all views. */
+import { pick, type Lang } from '../../lib/i18n';
+import { img, type Row } from '../../lib/db';
+import { truncate } from '../../lib/text';
+import { s, serviceUrl } from './data';
+
+interface Props {
+  lang: Lang;
+  row: Row;
+  /** index.php opens the text link in a new tab */
+  newTab?: boolean;
+  /** _bgb_blue[data-c-5] turns the button grey */
+  categoryId?: number;
+}
+
+const { lang, row, newTab = false, categoryId } = Astro.props;
+const href = serviceUrl(lang, row);
+const title = pick(row, 'title', lang);
+---
+
+<div class="swiper-slide">
+  <div class="h-full">
+    <a href={href}>
+      <img
+        class="block h-auto w-full shadow-soft"
+        src={img.services(row.photomain)}
+        alt={title}
+        title={title}
+        loading="lazy"
+      />
+    </a>
+    <div class="p-[15px] text-center">
+      <a href={href} target={newTab ? '_blank' : undefined} class="block">
+        <h4 class="mb-2.5 text-base font-bold">{title}</h4>
+        <p class="mb-2.5">{truncate(pick(row, 'description', lang), 90)}</p>
+        <span
+          class:list={[
+            'btn-primary !rounded-2xl !py-2.5',
+            categoryId === 5 ? '!border-ink !bg-ink' : 'is-teal',
+          ]}
+        >
+          {s(lang).details}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

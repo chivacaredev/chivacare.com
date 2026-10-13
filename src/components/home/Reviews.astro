@@ -1,0 +1,48 @@
+---
+import Carousel from '../Carousel.astro';
+import MoreLink from './MoreLink.astro';
+import { getReviews, img } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { slug, truncate } from '../../lib/text';
+import { hasImage, ht, OVERFLOW_CAROUSEL } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+const reviews = getReviews().filter((r) => hasImage(img.reviews(r.photomain)));
+---
+
+<section class="mb-12">
+  <div class="container-site">
+    <div class="overflow-hidden">
+      <h2 class="section-title">{s.reviews}</h2>
+      {
+        reviews.length > 0 ? (
+          <>
+            <Carousel perView={[1, 2, 2, 3]} class={`mt-12 ${OVERFLOW_CAROUSEL}`}>
+              {reviews.map((r) => {
+                const title = pick(r, 'title', lang);
+                return (
+                  <div class="swiper-slide py-8">
+                    <a href={url(lang, `reviews/${r.id}/${slug(title)}`)} class="card hover:text-teal">
+                      <img src={img.reviews(r.photomain)} alt={title} title={title} loading="lazy" class="block h-auto w-full" />
+                      <div class="px-[15px] pt-2.5">
+                        <h4>{title}</h4>
+                        <p class="text-ink">{truncate(pick(r, 'description', lang), 85)}</p>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })}
+            </Carousel>
+            <MoreLink href={url(lang, 'reviews')}>{s.moreReviews}</MoreLink>
+          </>
+        ) : (
+          <div class="text-center">{t(lang, 'notFound')}</div>
+        )
+      }
+    </div>
+  </div>
+</section>

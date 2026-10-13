@@ -1,0 +1,57 @@
+---
+/** Step 1 — choose a service (legacy appointment/views/step1). */
+import Wizard from './Wizard.astro';
+import RadioCard from './RadioCard.astro';
+import NavButtons from './NavButtons.astro';
+import FieldError from './FieldError.astro';
+import type { Lang } from '../../lib/i18n';
+import { SERVICES, W } from './strings';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = W[lang];
+---
+
+<Wizard lang={lang} step={1}>
+  <form id="appt-step1" novalidate>
+    <fieldset class="group" data-field="is_services">
+      <legend><h5 class="text-lg">{s.chooseService}</h5></legend>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {SERVICES.map((o) => <RadioCard name="is_services" value={o.value} label={o[lang]} />)}
+      </div>
+      <FieldError>{s.errService}</FieldError>
+    </fieldset>
+    <NavButtons lang={lang} />
+  </form>
+</Wizard>
+
+<script>
+  import { load, save, setError, langPrefix } from './state';
+
+  const form = document.getElementById('appt-step1') as HTMLFormElement;
+  const params = new URLSearchParams(location.search);
+  // Links elsewhere pass ?is_services=<Thai name>; otherwise restore this visitor's earlier choice.
+  const preset = params.get('is_services') ?? load().step1?.is_services;
+  if (preset) {
+    const input = [...form.querySelectorAll<HTMLInputElement>('input[name="is_services"]')].find((i) => i.value === preset);
+    if (input) input.checked = true;
+  }
+  form.addEventListener('change', () => setError(form, 'is_services', null));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = form.querySelector<HTMLInputElement>('input[name="is_services"]:checked')?.value;
+    if (!value) return setError(form, 'is_services', 'required');
+    save({ step1: { is_services: value } });
+    // Carry group/physician/id from links such as step1?group=2&physician=2 on to step 2.
+    const carry = new URLSearchParams();
+    for (const k of ['group', 'physician', 'id']) {
+      const v = params.get(k);
+      if (v) carry.set(k, v);
+    }
+    const qs = carry.toString();
+    location.href = `${langPrefix()}/appointment/step2${qs ? `?${qs}` : ''}`;
+  });
+</script>

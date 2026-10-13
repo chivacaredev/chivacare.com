@@ -1,0 +1,32 @@
+---
+/** Back (outline) + Next (solid) buttons used at the bottom of each step. */
+import { url, type Lang } from '../../lib/i18n';
+import { W } from './strings';
+
+interface Props {
+  lang: Lang;
+  /** Path of the previous step, e.g. "appointment/step1"; omitted on step 1. */
+  back?: string;
+}
+const { lang, back } = Astro.props;
+const s = W[lang];
+---
+
+<div class="mt-9 flex items-center justify-between gap-4 py-[15px]">
+  {
+    back ? (
+      <a
+        href={url(lang, back)}
+        class="inline-flex min-w-[25vw] items-center justify-center gap-2 rounded-[10px] border border-grey px-3 py-[7px] text-lg font-medium text-grey transition hover:scale-[1.01] hover:bg-grey/10 lg:min-w-[180px] lg:px-7 lg:py-2.5"
+      >
+        <svg aria-hidden="true" viewBox="0 0 320 512" class="size-3.5 fill-current"><path d="M34.5 239 228.9 44.7a24 24 0 0 1 33.9 0l22.7 22.7a24 24 0 0 1 0 33.9L131.5 256l154 154.8a24 24 0 0 1 0 33.9l-22.7 22.7a24 24 0 0 1-33.9 0L34.5 273a24 24 0 0 1 0-34z" /></svg>
+        {s.back}
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  <button type="submit" class="btn-primary is-teal rounded-[10px]" data-next>
+    {s.next}
+  </button>
+</div>

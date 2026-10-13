@@ -1,0 +1,20 @@
+---
+// Legacy Appointment::success() (views/step5): thank-you text from the site settings.
+import Wizard from '../../../components/appointment/Wizard.astro';
+import { site } from '../../../lib/db';
+import { langPaths, pick, type Lang } from '../../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<Wizard lang={lang} step={5}>
+  <div class="mx-auto mb-12 bg-white p-6 shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)] sm:w-1/2">
+    <div class="prose-legacy" set:html={pick(site, 'thankyou_description', lang)} />
+  </div>
+</Wizard>
+
+<script>
+  import { clear } from '../../../components/appointment/state';
+  clear();
+</script>

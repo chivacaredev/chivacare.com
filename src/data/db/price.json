@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "ต่ำกว่า 1500",
+    "value": "ต่ำกว่า 1500",
+    "status": "Active",
+    "created_date": "2017-06-14 15:10:38",
+    "updated_date": "2017-06-14 16:29:04"
+  },
+  {
+    "id": 2,
+    "title": "1500 - 2500",
+    "value": "1500 - 2500",
+    "status": "Active",
+    "created_date": "2017-06-14 15:11:00",
+    "updated_date": "2017-06-14 16:29:16"
+  },
+  {
+    "id": 3,
+    "title": "2500 - 3500",
+    "value": "2500 - 3500",
+    "status": "Active",
+    "created_date": "2017-06-14 15:11:15",
+    "updated_date": "2017-06-14 16:29:26"
+  },
+  {
+    "id": 4,
+    "title": "3500 - 5500",
+    "value": "3500 - 5500",
+    "status": "Active",
+    "created_date": "2017-06-14 15:11:34",
+    "updated_date": "2017-06-14 16:29:37"
+  },
+  {
+    "id": 5,
+    "title": "5500 ขึ้นไป",
+    "value": "5500 ขึ้นไป",
+    "status": "Active",
+    "created_date": "2017-06-14 15:11:56",
+    "updated_date": "2017-06-14 16:30:38"
+  }
+]

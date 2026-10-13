@@ -1,0 +1,28 @@
+---
+/** Article image, or a neutral logo placeholder when the row has no usable image file. */
+import { theme, type Row } from '../../lib/db';
+import { pick, type Lang } from '../../lib/i18n';
+import { imageSrc, type ModuleKey } from './modules';
+
+interface Props {
+  mod: ModuleKey;
+  row: Row;
+  lang: Lang;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { mod, row, lang, class: className, loading = 'lazy' } = Astro.props;
+const src = imageSrc(mod, row);
+const title = pick(row, 'title', lang);
+---
+
+{
+  src ? (
+    <img src={src} alt={title} title={title} loading={loading} decoding="async" class:list={['block h-auto w-full', className]} />
+  ) : (
+    <div class:list={['flex aspect-[4/3] w-full items-center justify-center bg-gray-100', className]} role="img" aria-label={title}>
+      <img src={theme('logo-chivacare.png')} alt="" class="w-1/2 max-w-[200px] opacity-30" loading="lazy" />
+    </div>
+  )
+}

@@ -1,0 +1,171 @@
+---
+/** Legacy section.main-services: first two categories (id ASC) as tabs, each with its services carousel. */
+import Carousel from '../Carousel.astro';
+import MoreLink from './MoreLink.astro';
+import { getCategories, getServicesByCategory, img } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { slug, truncate } from '../../lib/text';
+import { hasImage, ht, pickHtml, PHYSIO } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+
+const categories = getCategories()
+  .slice(0, 2)
+  .map((c) => ({
+    ...c,
+    name: pick(c, 'name', lang),
+    items: getServicesByCategory(c.id).filter((r) => hasImage(img.services(r.photomain))),
+  }));
+
+// Tab colours: [data-c-0] teal, [data-c-1] amber (legacy layout.css .tabbable-line rules).
+const tabStyles = [
+  'border-teal hover:bg-teal aria-selected:bg-teal',
+  'border-amber hover:border-amber-light hover:bg-amber-light aria-selected:border-amber-light aria-selected:bg-amber-light',
+];
+---
+
+<section class="mt-12">
+  <div class="container-site">
+    <div class="bg-white shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]" data-home-tabs>
+      <div class="mb-[38px] px-6 pt-6">
+        <h2 class="section-title mb-0">{s.services}</h2>
+      </div>
+      <div class="mb-[15px] flex flex-row flex-wrap px-6" role="tablist">
+        {
+          categories.map((c, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`home-tab-${i}`}
+              aria-controls={`home-panel-${i}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              data-tab={i}
+              class:list={[
+                'm-0.5 min-w-[25vw] cursor-pointer rounded-[14px] border bg-white p-2.5 text-center text-lg font-medium text-black transition-colors duration-200 hover:text-white aria-selected:text-white lg:min-w-[180px]',
+                tabStyles[i] ?? tabStyles[1],
+              ]}
+            >
+              {c.name}
+            </button>
+          ))
+        }
+      </div>
+      <div class="py-[15px]">
+        {
+          categories.map((c, i) => {
+            const allHref = url(lang, `services/all/${c.id}/${slug(c.name)}`);
+            const catImg = c.img_category ? img.category(c.img_category) : '';
+            return (
+              <div
+                id={`home-panel-${i}`}
+                role="tabpanel"
+                aria-labelledby={`home-tab-${i}`}
+                data-panel={i}
+                class:list={['animate-[home-fade_.5s_ease]', i !== 0 && 'hidden']}
+              >
+                <div class="md:flex">
+                  {hasImage(catImg) && (
+                    <div class="md:w-1/4 md:px-6">
+                      <img src={catImg} alt={c.name} title={c.name} loading="lazy" class="mb-[15px] block h-auto w-full max-w-full" />
+                    </div>
+                  )}
+                  <div class="px-6 md:flex-1">
+                    <h3 class="mt-5 mb-2.5 text-2xl">{c.name}</h3>
+                    <div class="prose-legacy mb-[38px]" set:html={pickHtml(c, 'detail', lang)} />
+                    <div class="pb-6">
+                      <a href={allHref} class="more-link">
+                        {t(lang, 'readMore')}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {c.icon && (
+                  <div class="px-6">
+                    <h4 class="mb-2.5 text-lg">{c.icon}</h4>
+                  </div>
+                )}
+                <div class="mt-4 px-6">
+                  {c.items.length > 0 ? (
+                    <>
+                      <Carousel perView={[1.3, 2, 2, 3]} class="mb-[38px]">
+                        {c.items.map((r) => {
+                          const title = pick(r, 'title', lang);
+                          const href = url(lang, `services/${r.id}/${slug(title)}`);
+                          return (
+                            <div class="swiper-slide">
+                              <div class="transition-transform duration-200 hover:scale-[1.02]">
+                                <a href={href} target="_blank">
+                                  <img
+                                    src={img.services(r.photomain)}
+                                    alt={title}
+                                    title={title}
+                                    loading="lazy"
+                                    class="mb-[15px] block h-auto w-full"
+                                  />
+                                </a>
+                                <a href={href} target="_blank" class="block px-[15px] hover:text-teal">
+                                  <h4 class="mb-3 text-lg leading-[22px]">{title}</h4>
+                                  <p>{truncate(pick(r, 'description', lang), 150)}</p>
+                                </a>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </Carousel>
+                      <div class="pb-6">
+                        <MoreLink href={allHref}>{s.moreOf(c.name)}</MoreLink>
+                      </div>
+                    </>
+                  ) : (
+                    <div class="text-center">{t(lang, 'notFound')}</div>
+                  )}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+  <div class="container-site my-12 text-center">
+    <a href={url(lang, `appointment/step1?group=2&physician=2&is_services=${PHYSIO}`)} class="btn-primary">
+      {t(lang, 'bookAppointment')}
+    </a>
+  </div>
+</section>
+
+<style is:global>
+  @keyframes home-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-home-tabs]')) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => {
+        const idx = tab.dataset.tab;
+        tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        for (const panel of panels) {
+          const show = panel.dataset.panel === idx;
+          panel.classList.toggle('hidden', !show);
+          if (show) {
+            // Swiper measured 0 width while hidden; recompute now that the panel is visible.
+            panel.querySelectorAll<HTMLElement & { swiper?: { update(): void } }>('.swiper').forEach((el) => el.swiper?.update());
+          }
+        }
+      });
+    }
+  }
+</script>

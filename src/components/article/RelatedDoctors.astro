@@ -1,0 +1,79 @@
+---
+/**
+ * Blog detail "related doctors and specialists" slider (legacy blog/views/detail.php .main-physical).
+ * Matches teams whose proficient_{lang} LIKE '%tag%' for any comma-separated tag_{lang},
+ * as teams_model::fetchTeamsAll($filter['tag']). An empty tag field matched every team in the legacy SQL.
+ */
+import Carousel from '../Carousel.astro';
+import { getTeams, img, type Row } from '../../lib/db';
+import { pick, url, type Lang } from '../../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  blog: Row;
+}
+
+const { lang, blog } = Astro.props;
+// Tags are trimmed (legacy kept the space after each comma, so only the first tag ever matched).
+const tags = pick(blog, 'tag', lang)
+  .split(',')
+  .map((tag) => tag.trim().toLowerCase())
+  .filter(Boolean);
+const teams = getTeams().filter((team) => {
+  if (tags.length === 0) return true; // LIKE '%%'
+  const proficient = pick(team, 'proficient', lang).toLowerCase();
+  return tags.some((tag) => proficient.includes(tag));
+});
+const detailHref = (team: Row) => (Number(team.category_id) === 1 ? url(lang, 'teams') : url(lang, `teams/detail/${team.id}`));
+const bookHref = (team: Row) =>
+  url(lang, `appointment/step2?group=${team.category_id}&physician=2&id=${team.id}&is_services=ปรึกษาแพทย์`);
+const L = {
+  th: { title: 'แพทย์และผู้เชี่ยวชาญที่เกี่ยวข้อง', book: 'นัดหมาย', detail: 'รายละเอียด', more: 'แพทย์และผู้เชี่ยวชาญท่านอื่น ๆ' },
+  en: { title: 'Related doctors and specialists', book: 'Appointment', detail: 'Details', more: 'Other doctors and specialists' },
+}[lang];
+---
+
+{
+  teams.length > 0 && (
+    <section class="main-physical">
+      <div class="bg-[linear-gradient(180deg,rgba(0,45,115,.05),rgba(0,45,115,0)_23.88%,rgba(0,45,115,0)_80.73%,rgba(0,45,115,.08))] py-8">
+        <div class="container-site overflow-hidden">
+          <h2 class="mb-6 text-xl">{L.title}</h2>
+          <Carousel perView={[1.3, 2, 2, 4]}>
+            {teams.map((team) => (
+              <div class="swiper-slide py-[15px]">
+                <div class="flex h-full flex-col">
+                  <a href={detailHref(team)} class="block flex-1 rounded-t-2xl bg-white px-4 py-[15px] text-ink shadow-soft">
+                    <div class="px-8 text-center">
+                      {team.photomain2 ? (
+                        <img
+                          src={img.teamSquare(team)}
+                          alt={pick(team, 'title', lang)}
+                          title={pick(team, 'title', lang)}
+                          loading="lazy"
+                          class="mx-auto aspect-square w-full rounded-full border-[10px] border-white object-cover shadow-soft"
+                        />
+                      ) : null}
+                    </div>
+                    <h5 class="mt-3 text-center font-bold">{pick(team, 'title', lang)}</h5>
+                    <p class="text-center">{pick(team, 'proficient', lang)}</p>
+                  </a>
+                  <div class="grid grid-cols-2 rounded-b-2xl bg-[#f2f2f2] py-[15px] text-center font-bold shadow-soft">
+                    <a href={bookHref(team)} class="hover:text-teal">{L.book}</a>
+                    <a href={detailHref(team)} class="hover:text-teal">{L.detail}</a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Carousel>
+          <div class="py-8">
+            <a href={url(lang, 'teams')} class="more-link">
+              {L.more}
+              <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

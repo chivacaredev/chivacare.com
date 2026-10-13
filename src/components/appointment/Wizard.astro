@@ -1,0 +1,60 @@
+---
+/** Page frame shared by every appointment step (legacy appointment/views/stepN). */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import type { Lang } from '../../lib/i18n';
+import { W } from './strings';
+
+interface Props {
+  lang: Lang;
+  /** 1-5 */
+  step: number;
+}
+
+const { lang, step } = Astro.props;
+const s = W[lang];
+---
+
+<Layout lang={lang} title={`${s.title} - ${s.steps[step - 1]}`}>
+  <Breadcrumb lang={lang} items={[{ label: s.title }]} />
+  <section class="pb-12">
+    <div class="container-site py-8">
+      <h2 class="section-title">{s.title}</h2>
+    </div>
+    <div class="container-site text-base">
+      <ol class="my-[30px] flex text-center" aria-label={s.title}>
+        {
+          s.steps.map((label, i) => {
+            const n = i + 1;
+            const reached = n <= step;
+            const done = n < step;
+            const half = 'absolute top-[15px] h-[5px] w-1/2 -translate-y-1/2 border-y';
+            return (
+              <li class="relative min-w-0 flex-1" aria-current={n === step ? 'step' : undefined}>
+                {/* Connector: left half leads into this step, right half leads out of it. */}
+                {i > 0 && (
+                  <span aria-hidden="true" class:list={[half, 'left-0', reached ? 'border-teal bg-teal' : 'border-[#ddd] bg-[#f3f3f3]']} />
+                )}
+                {i < s.steps.length - 1 && (
+                  <span aria-hidden="true" class:list={[half, 'right-0', done ? 'border-teal bg-teal' : 'border-[#ddd] bg-[#f3f3f3]']} />
+                )}
+                <span
+                  class:list={[
+                    'relative z-10 inline-block size-[30px] rounded-full text-center leading-[30px]',
+                    reached ? 'bg-teal text-white' : 'bg-[#ddd]',
+                  ]}
+                >
+                  {n}
+                </span>
+                <h5 class="mt-2 px-0.5 text-xs leading-tight break-words sm:text-sm md:text-base">
+                  <span class="sr-only">{s.stepLabel} {n}: </span>{label}
+                </h5>
+              </li>
+            );
+          })
+        }
+      </ol>
+      <slot />
+    </div>
+  </section>
+</Layout>

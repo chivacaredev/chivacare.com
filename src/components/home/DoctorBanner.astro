@@ -1,0 +1,28 @@
+---
+import { theme } from '../../lib/db';
+import { url, type Lang } from '../../lib/i18n';
+import { ht } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+---
+
+<section>
+  <div class="container-site max-md:px-0">
+    <div class="group relative mb-[30px] overflow-hidden bg-linear-to-t from-black from-40% to-transparent to-90%">
+      <img
+        src={theme('bg-teams.jpg')}
+        alt={s.teamTitle}
+        loading="lazy"
+        class="block h-auto w-full transition-transform duration-300 ease-in-out group-hover:scale-[1.06]"
+      />
+      <div class="absolute top-[77%] right-0 w-full -translate-y-1/2 p-5 text-center md:top-[80%]">
+        <h4 class="mb-2.5 text-lg text-white md:text-2xl">{s.teamTitle}</h4>
+        <a href={url(lang, 'teams')} class="btn-primary">{s.teamButton}</a>
+      </div>
+    </div>
+  </div>
+</section>

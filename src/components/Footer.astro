@@ -1,0 +1,53 @@
+---
+import { site, theme } from '../lib/db';
+import type { Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const address = {
+  th: ['ชีวาแคร์คลินิก ศูนย์สมองและระงับปวด', '8 ซอย 11 ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง จังหวัดเชียงใหม่ 50200'],
+  en: ['ChivaCare Clinic, Brain and Pain Center', '8 Soi 11, Sirimangkalajarn Rd., Suthep, Mueang, Chiang Mai 50200'],
+}[lang];
+const social = [
+  { href: site.link_facebook, icon: 'social/facebook_icon.png', title: 'Facebook' },
+  { href: site.link_lineid, icon: 'social/line_icon.png', title: 'Line' },
+  { href: site.link_googleplus, icon: 'social/googleplus_icon.png', title: 'Googleplus' },
+  { href: site.link_twitter, icon: 'social/twitter_icon.png', title: 'Twitter' },
+  { href: site.link_instagram, icon: 'social/Instagram_icon.png', title: 'Instagram' },
+  // The legacy footer linked this icon to the Instagram URL by mistake.
+  { href: site.link_youtube, icon: 'social/youtube_icon.png', title: 'Youtube' },
+].filter((s) => s.href);
+---
+
+<footer
+  id="footer"
+  class="bg-teal bg-size-[100%] bg-bottom bg-no-repeat pt-8 text-white"
+  style={`background-image:url(${theme('footer-bg-img.png')})`}
+>
+  <div class="grid gap-6 px-4 pb-12 md:grid-cols-12 lg:px-6">
+    <div class="md:col-span-3">
+      <img src={theme('chivacare-logo-without-tagline3-03-300x171.png')} alt="ChivaCare" class="max-w-[120px] py-4" loading="lazy" />
+    </div>
+    <div class="md:col-span-4"></div>
+    <div class="leading-relaxed md:col-span-5">
+      {address[0]}<br />{address[1]}<br />
+      <a href="tel:+66969800126" class="hover:underline">+66(0) 96-980-0126</a><br />
+      <a href="tel:+6652005457" class="hover:underline">+66(0) 52-005-457</a>
+      <div class="mt-3 flex justify-center gap-1 md:justify-start">
+        {
+          social.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener" title={s.title} class="inline-block size-7 rounded-full bg-cover bg-center transition hover:scale-110" style={`background-image:url(${theme(s.icon)})`}>
+              <span class="sr-only">{s.title}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 px-4 pt-5 pb-3 text-base lg:px-6">
+    <p>&copy;{site.copyright}</p>
+  </div>
+</footer>

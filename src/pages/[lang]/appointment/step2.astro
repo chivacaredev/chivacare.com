@@ -1,0 +1,9 @@
+---
+import Step2 from '../../../components/appointment/Step2.astro';
+import { langPaths, type Lang } from '../../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<Step2 lang={lang} />

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name_th": "แพทย์ผู้เชี่ยวชาญ",
+    "name_en": "",
+    "parent": null,
+    "provider": null,
+    "search": null,
+    "link": null,
+    "slug": null,
+    "description_th": "แพทย์ผู้เชี่ยวชาญ",
+    "description_en": null,
+    "detail_th": "",
+    "detail_en": null,
+    "status": "A",
+    "icon": "",
+    "created_date": "2021-02-15 10:54:35",
+    "updated_date": null
+  },
+  {
+    "id": 2,
+    "name_th": "นักกายภาพบำบัด และนักกิจกรรมบำบัด",
+    "name_en": "",
+    "parent": null,
+    "provider": null,
+    "search": null,
+    "link": null,
+    "slug": null,
+    "description_th": "นักกายภาพบำบัด และนักกิจกรรมบำบัด",
+    "description_en": null,
+    "detail_th": "",
+    "detail_en": null,
+    "status": "A",
+    "icon": "",
+    "created_date": "2021-02-15 12:32:00",
+    "updated_date": null
+  }
+]

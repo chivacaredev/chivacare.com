@@ -1,0 +1,20 @@
+---
+import DetailPage from '../../../../components/services/DetailPage.astro';
+import { getServices } from '../../../../lib/db';
+import { LANGS, pick, type Lang } from '../../../../lib/i18n';
+import { slug } from '../../../../lib/text';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    getServices().map((service) => ({
+      params: { lang, id: String(service.id), slug: slug(pick(service, 'title', lang)) },
+      props: { service },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { service } = Astro.props;
+---
+
+<DetailPage lang={lang} service={service} />

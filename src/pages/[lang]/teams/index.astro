@@ -1,0 +1,37 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import DoctorCoverflow from '../../../components/teams/DoctorCoverflow.astro';
+import TeamGroupSlider from '../../../components/teams/TeamGroupSlider.astro';
+import { teamGroupsWithItems, tt } from '../../../components/teams/teams';
+import { langPaths, pick, type Lang } from '../../../lib/i18n';
+
+export const getStaticPaths = langPaths;
+const lang = Astro.params.lang as Lang;
+const groups = teamGroupsWithItems();
+---
+
+<Layout lang={lang} title={tt(lang, 'title')}>
+  <section class="main-teams">
+    <Breadcrumb lang={lang} items={[{ label: tt(lang, 'breadcrumb') }]} />
+
+    <div class="container-site py-8">
+      <h2 class="section-title !mb-6">{tt(lang, 'title')}</h2>
+    </div>
+
+    {
+      groups.map((group) =>
+        group.id === 1 ? (
+          <div class="main-doctor">
+            <div class="container-site">
+              <h4 class="mb-4 text-xl md:text-2xl">{pick(group, 'name', lang)}</h4>
+              <DoctorCoverflow lang={lang} items={group.items} />
+            </div>
+          </div>
+        ) : (
+          <TeamGroupSlider lang={lang} group={group} />
+        ),
+      )
+    }
+  </section>
+</Layout>

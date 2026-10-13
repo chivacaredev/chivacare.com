@@ -1,0 +1,17 @@
+---
+import ContentPage from '../../../components/pages/ContentPage.astro';
+import { activeContents } from '../../../components/pages/contents';
+import { LANGS, type Lang } from '../../../lib/i18n';
+
+// `contents` has no language columns: th and en render the same row.
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    activeContents().map((content) => ({ params: { lang, id: String(content.id) }, props: { content } })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { content } = Astro.props;
+---
+
+<ContentPage lang={lang} content={content} />

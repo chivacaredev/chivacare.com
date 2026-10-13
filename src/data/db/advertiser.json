@@ -1,0 +1,38 @@
+[
+  {
+    "id": 17,
+    "title": "3",
+    "external_url": "3",
+    "created_date": "2021-01-10 10:40:06",
+    "updated_date": "2026-07-26 11:32:45",
+    "photomain": "1769295574_21.txt",
+    "status": "A",
+    "positionads_id": 21,
+    "startdate": "0000-00-00 00:00:00",
+    "enddate": "0000-00-00 00:00:00"
+  },
+  {
+    "id": 18,
+    "title": "BG Banner Contact US",
+    "external_url": "",
+    "created_date": "2021-04-11 14:15:56",
+    "updated_date": "2021-04-17 12:25:38",
+    "photomain": "1618637136_22.jpg",
+    "status": "A",
+    "positionads_id": 22,
+    "startdate": "0000-00-00 00:00:00",
+    "enddate": "0000-00-00 00:00:00"
+  },
+  {
+    "id": 19,
+    "title": "BG Banner Contact US",
+    "external_url": "",
+    "created_date": "2021-04-11 14:15:57",
+    "updated_date": null,
+    "photomain": "",
+    "status": "",
+    "positionads_id": 22,
+    "startdate": "0000-00-00 00:00:00",
+    "enddate": "0000-00-00 00:00:00"
+  }
+]

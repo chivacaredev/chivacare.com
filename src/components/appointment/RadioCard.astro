@@ -1,0 +1,23 @@
+---
+/** Boxed radio option (legacy .radio-btn .b-radio.radio with a .check circle). */
+interface Props {
+  name: string;
+  value: string;
+  label: string;
+}
+const { name, value, label } = Astro.props;
+---
+
+<label
+  class="relative flex h-full w-full cursor-pointer items-center rounded border-2 border-transparent bg-white px-5 py-7 shadow-[0_8px_20px_rgba(0,102,255,.12),0_2px_20px_rgba(121,153,201,.2)] transition-all duration-200 has-checked:border-[rgba(24,117,255,.1)] has-checked:bg-[#e7edff] has-checked:text-blue"
+>
+  <input type="radio" class="peer sr-only" name={name} value={value} />
+  <span
+    aria-hidden="true"
+    class="relative flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-[#7a7a7a] transition peer-checked:border-blue peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-navy hover:border-blue"
+  >
+    <span class="size-full scale-0 rounded-full bg-blue transition-transform duration-150 [:checked+span>&]:scale-50"></span>
+  </span>
+  <span class="px-8 font-semibold">{label}</span>
+  <slot />
+</label>

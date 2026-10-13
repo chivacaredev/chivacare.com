@@ -1,0 +1,121 @@
+---
+/**
+ * Detail page for promotions / blog / activities / reviews,
+ * ported from application/modules/<mod>/views/detail.php with each module's differences:
+ *  - promotions: no heading, breadcrumb includes the category, "other promotions" slider
+ *  - blog: left teal heading, share + "consult now" button, related doctors (no other-items slider)
+ *  - activities: centred heading, share, "other activities" slider + more link
+ *  - reviews: no heading, slider of all other reviews
+ */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import Carousel from '../Carousel.astro';
+import { getCategory, site, type Row } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { slug, youtubeEmbed } from '../../lib/text';
+import ArticleCard from './ArticleCard.astro';
+import ArticleImage from './ArticleImage.astro';
+import RelatedDoctors from './RelatedDoctors.astro';
+import ShareButtons from './ShareButtons.astro';
+import { detailUrl, imageSrc, MODULES, otherRows, type ModuleKey } from './modules';
+
+interface Props {
+  lang: Lang;
+  mod: ModuleKey;
+  row: Row;
+}
+
+const { lang, mod, row } = Astro.props;
+const cfg = MODULES[mod];
+const title = pick(row, 'title', lang);
+const href = detailUrl(mod, row, lang);
+// Slug differs per language, so the switcher/hreflang need explicit alternates.
+const alternates = { th: detailUrl(mod, row, 'th'), en: detailUrl(mod, row, 'en') };
+const youtube = String(row.url_youtube ?? '').trim();
+
+const crumbs: { label: string; href?: string }[] = [{ label: cfg.label[lang], href: url(lang, mod) }];
+if (mod === 'promotions') {
+  const category = getCategory(Number(row.category_id));
+  // Legacy linked to promotions/<category name>, which had no route; link the service category page instead.
+  if (category)
+    crumbs.push({ label: pick(category, 'name', lang), href: url(lang, `services/all/${category.id}/${slug(pick(category, 'name', lang))}`) });
+}
+crumbs.push({ label: title });
+
+const others = cfg.otherLabel ? otherRows(mod, row) : [];
+const showShare = true; // legacy: blog + activities had ShareThis; added to promotions/reviews as requested
+const consultLabel = lang === 'th' ? 'ปรึกษาเราตอนนี้' : 'Consult us now';
+---
+
+<Layout lang={lang} alternates={alternates} title={title} keywords={title} description={pick(row, 'description', lang)} image={imageSrc(mod, row)}>
+  <section class:list={[`main-${mod}`]}>
+    <Breadcrumb lang={lang} items={crumbs} />
+
+    <div class="container-site mb-[38px]">
+      {mod === 'blog' && <h1 class="mb-[38px] text-2xl text-teal">{title}</h1>}
+      {mod === 'activities' && <h1 class="mb-[38px] text-center text-3xl text-teal">{title}</h1>}
+      {(mod === 'promotions' || mod === 'reviews') && <h1 class="sr-only">{title}</h1>}
+      {
+        youtube ? (
+          <div class="aspect-video w-full">
+            <iframe
+              src={youtubeEmbed(youtube)}
+              title={title}
+              class="size-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        ) : imageSrc(mod, row) ? (
+          <ArticleImage mod={mod} row={row} lang={lang} loading="eager" class={mod === 'activities' ? 'mx-auto !w-auto max-w-full shadow-soft' : 'shadow-soft'} />
+        ) : null
+      }
+    </div>
+
+    <div class="container-site">
+      <div class="prose-legacy" set:html={pick(row, 'detail', lang)} />
+      {showShare && <ShareButtons lang={lang} href={href} title={title} class="py-8" />}
+      {
+        mod === 'blog' && (
+          <div class="mb-[38px] text-center">
+            <a href={site.link_lineid || url(lang, 'contactus')} target={site.link_lineid ? '_blank' : undefined} rel="noopener" class="btn-primary is-teal !rounded-2xl !py-2.5">
+              {consultLabel}
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {mod === 'blog' && <RelatedDoctors lang={lang} blog={row} />}
+
+  {
+    cfg.otherLabel && (
+      <section class:list={['pb-[15px]', mod === 'reviews' && 'mt-9']}>
+        <div class="container-site overflow-hidden">
+          <h2 class="section-title !mx-0">{cfg.otherLabel[lang]}</h2>
+          {others.length > 0 ? (
+            <Carousel perView={cfg.otherPerView}>
+              {others.map((other) => (
+                <div class="swiper-slide py-8">
+                  <ArticleCard mod={mod} row={other} lang={lang} titleLength={41} descLength={85} />
+                </div>
+              ))}
+            </Carousel>
+          ) : (
+            <div class="text-center">{t(lang, 'notFound')}</div>
+          )}
+          {cfg.moreLabel && (
+            <div class="py-8">
+              <a href={url(lang, mod)} class="more-link">
+                {cfg.moreLabel[lang]}
+                <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+    )
+  }
+</Layout>

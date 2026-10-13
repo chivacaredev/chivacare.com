@@ -1,0 +1,9 @@
+---
+/** A pre-rendered validation message, revealed by setError() in state.ts. */
+interface Props {
+  kind?: string;
+}
+const { kind = 'required' } = Astro.props;
+---
+
+<p data-msg={kind} hidden class="mt-1 text-sm text-[#f56d6d]" role="alert"><slot /></p>

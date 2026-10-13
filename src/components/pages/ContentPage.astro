@@ -1,0 +1,25 @@
+---
+/** Legacy content/index + privacypolicy/index views: title, rule, CMS HTML (+ optional contact form). */
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../Breadcrumb.astro';
+import ContactForm from './ContactForm.astro';
+import type { Row } from '../../lib/db';
+import type { Lang } from '../../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  content: Row;
+}
+
+const { lang, content } = Astro.props;
+---
+
+<Layout lang={lang} title={content.title} description={content.description} keywords={content.title}>
+  <Breadcrumb lang={lang} items={[{ label: content.title }]} />
+  <section class="container-site pb-12">
+    <h3 class="text-2xl font-normal capitalize">{content.title}</h3>
+    <hr class="my-5 border-gray-200" />
+    <div class="prose-legacy text-justify" set:html={content.detail} />
+    {content.is_form_contact === 'A' && <ContactForm lang={lang} page={`content/${content.id}`} />}
+  </section>
+</Layout>

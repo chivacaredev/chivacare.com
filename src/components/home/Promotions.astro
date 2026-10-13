@@ -1,0 +1,65 @@
+---
+import Carousel from '../Carousel.astro';
+import MoreLink from './MoreLink.astro';
+import { getPromotions, img } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { slug, truncate } from '../../lib/text';
+import { hasImage, ht, PHYSIO } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = ht(lang);
+const promotions = getPromotions().filter((p) => hasImage(img.promotions(p.photomain)));
+const booking = url(lang, `appointment/step2?group=2&physician=2&is_services=${PHYSIO}`);
+---
+
+<section class="mb-12">
+  <div class="container-site">
+    <div class="bg-white p-6 shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]">
+      <h2 class="section-title">{s.promotions}</h2>
+      {
+        promotions.length > 0 ? (
+          <>
+            <Carousel perView={[1, 2, 2, 3]} autoplay={2500} class="mt-12 mb-[38px]">
+              {promotions.map((p) => {
+                const title = pick(p, 'title', lang);
+                const href = url(lang, `promotions/${p.id}/${slug(title)}`);
+                return (
+                  <div class="swiper-slide">
+                    <div class="transition-transform duration-200 hover:scale-[1.02]">
+                      <a href={href} target="_blank">
+                        <img
+                          src={img.promotions(p.photomain)}
+                          alt={title}
+                          title={title}
+                          loading="lazy"
+                          class="block h-auto w-full"
+                        />
+                      </a>
+                      <div class="relative bottom-[15px] flex h-[30px] items-center justify-center">
+                        <a href={booking} class="btn-primary">
+                          {t(lang, 'bookAppointment')}
+                        </a>
+                      </div>
+                      <a href={href} target="_blank" class="hover:text-teal">
+                        <h4 class="mb-3 text-lg leading-[22px]">{title}</h4>
+                      </a>
+                      <p>{truncate(pick(p, 'description', lang), 55)}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </Carousel>
+            <div class="pb-[15px]">
+              <MoreLink href={url(lang, 'promotions')}>{s.morePromotions}</MoreLink>
+            </div>
+          </>
+        ) : (
+          <div class="text-center">{t(lang, 'notFound')}</div>
+        )
+      }
+    </div>
+  </div>
+</section>

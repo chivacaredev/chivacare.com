@@ -1,0 +1,11 @@
+---
+import ArticleDetail from '../../../../components/article/ArticleDetail.astro';
+import { detailPaths } from '../../../../components/article/modules';
+import type { Lang } from '../../../../lib/i18n';
+
+export const getStaticPaths = () => detailPaths('blog');
+const lang = Astro.params.lang as Lang;
+const { row } = Astro.props;
+---
+
+<ArticleDetail lang={lang} mod="blog" row={row} />

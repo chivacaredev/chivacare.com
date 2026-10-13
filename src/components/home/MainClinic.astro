@@ -1,0 +1,88 @@
+---
+/** Legacy section.main-clinic: banner background, CTA icons, about text and header video. */
+import { getBanner, site, theme } from '../../lib/db';
+import { t, url, type Lang } from '../../lib/i18n';
+import { youtubeEmbed } from '../../lib/text';
+import { hasImage, pickHtml, PHYSIO } from './helpers';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const banner = getBanner('29709');
+const bannerSrc = banner && hasImage(banner.src) ? banner.src : undefined;
+const video = site.link_youtube_header ? `${youtubeEmbed(site.link_youtube_header)}?autoplay=1&mute=1` : '';
+
+const ctas = [
+  {
+    href: url(lang, `appointment/step1?is_services=${PHYSIO}`),
+    label: t(lang, 'makeAppointment'),
+    icon: 'chiva-icon/calendar-01.png',
+    text: 'text-teal',
+    bg: 'bg-teal',
+  },
+  { href: site.link_lineid, label: t(lang, 'orderMedicine'), icon: 'chiva-icon/phrama-01.png', text: 'text-ink', bg: 'bg-ink' },
+  { href: url(lang, 'contactus'), label: t(lang, 'contactUs'), icon: 'chiva-icon/user-01.png', text: 'text-amber', bg: 'bg-amber' },
+];
+---
+
+<section
+  class="flex items-center md:bg-cover md:bg-fixed md:bg-center md:py-[70px] md:bg-(image:--banner)"
+  style={bannerSrc ? `--banner:url('${bannerSrc}')` : undefined}
+>
+  <div class="grid w-full grid-cols-1 md:grid-cols-2">
+    <div
+      id="aboutus"
+      class="scroll-mt-24 max-md:bg-white max-md:text-black md:bg-linear-to-r md:from-[rgba(245,190,68,0.85)] md:from-1% md:to-[rgba(252,189,48,0.85)] md:px-20 md:pt-8 md:pr-40 md:pb-20 md:text-white"
+    >
+      {
+        bannerSrc && (
+          <figure class="md:hidden">
+            <img src={bannerSrc} alt="" class="h-auto w-full" />
+          </figure>
+        )
+      }
+      <div class="bg-[#e9ebee] px-1 pt-[15px] pb-10 shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)] md:bg-transparent md:shadow-none">
+        <div class="flex justify-center gap-1">
+          {
+            ctas.map((c) => (
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener"
+                title={c.label}
+                class:list={['inline-block w-20 text-center transition-transform duration-300 hover:scale-[1.07] md:text-teal', c.text]}
+              >
+                <span
+                  class:list={['mx-auto my-[5px] block size-[58px] rounded-lg bg-cover bg-center shadow-blue md:bg-teal', c.bg]}
+                  style={`background-image:url('${theme(c.icon)}')`}
+                />
+                <h4 class="text-lg leading-8">{c.label}</h4>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="prose-legacy px-[33px] text-justify max-md:[&_h1]:text-2xl max-md:[&_h2]:text-[22px] max-md:[&_h3]:text-xl [&_h1]:text-center md:[&_a]:text-white"
+        set:html={pickHtml(site, 'about_description', lang)}
+      />
+    </div>
+    {
+      video && (
+        <div class="flex items-center">
+          <div class="relative aspect-video w-full border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.2)] md:mt-16 md:-ml-20">
+            <iframe
+              class="absolute inset-0 size-full"
+              src={video}
+              title="ChivaCare"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            />
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

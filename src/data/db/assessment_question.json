@@ -1,0 +1,749 @@
+[
+  {
+    "id": 1,
+    "title_th": "dddd",
+    "title_en": null,
+    "created_date": "2022-08-20 22:21:33",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 2,
+    "title_th": "เบื่อ ทำอะไรๆ ก็ไม่เพลิดเพลิน",
+    "title_en": null,
+    "created_date": "2022-08-20 22:39:55",
+    "updated_date": "2024-07-04 15:13:26",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 3,
+    "title_th": "ไม่สบายใจ ซึมเศร้า หรือท้อแท้",
+    "title_en": null,
+    "created_date": "2022-08-20 22:41:14",
+    "updated_date": "2024-07-04 15:13:45",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 4,
+    "title_th": "หลับยากหรือหลับๆ ตื่นๆ หรือหลับมากไป",
+    "title_en": null,
+    "created_date": "2022-08-21 00:36:41",
+    "updated_date": "2024-07-04 15:13:59",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 5,
+    "title_th": "เหนื่อยง่าย หรือไม่ค่อยมีแรง",
+    "title_en": null,
+    "created_date": "2022-08-21 00:37:10",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 6,
+    "title_th": "เบื่ออาหารหรือกินมากเกินไป",
+    "title_en": null,
+    "created_date": "2022-08-21 00:37:21",
+    "updated_date": "2024-07-04 15:14:37",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 7,
+    "title_th": "รู้สึกไม่ดีกับตัวเอง คิดว่าตัวเองล้มเหลวหรือทำให้คนรอบข้างผิดหวัง",
+    "title_en": null,
+    "created_date": "2022-08-21 00:37:53",
+    "updated_date": "2024-07-31 12:53:33",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 8,
+    "title_th": "ตอนเข้านอน คุณมีอาการหลับยาก",
+    "title_en": null,
+    "created_date": "2022-08-25 09:49:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 9,
+    "title_th": "หลับๆตื่นๆอยู่ตลอด",
+    "title_en": null,
+    "created_date": "2022-08-25 09:49:31",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 10,
+    "title_th": "มีปัญหาตื่นเช้ามากกว่าที่ต้องการ",
+    "title_en": null,
+    "created_date": "2022-08-25 09:49:41",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 11,
+    "title_th": "คุณพอใจกับการนอนของคุณมากแค่ไหน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:49:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 12,
+    "title_th": "คิดว่าคนอื่นๆสังเกตเห็นไหมว่าคุณมีปัญหากับการนอน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:50:01",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 13,
+    "title_th": "คุณมีความกังวลเกี่ยวกับการนอนมากแค่ไหน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:50:11",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 14,
+    "title_th": "คุณคิดว่าปัญหาการนอนหลับกำลังกระทบกับชีวิตประจำวัน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:50:21",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 3
+  },
+  {
+    "id": 15,
+    "title_th": "ท่านรู้สึกดีสุดๆ และคึกคักจนคนอื่นคิดว่าท่านเปลี่ยนไปหรือท่านคึกคักเสียจนทำให้ตัวเองเดือดร้อน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:59:39",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 16,
+    "title_th": "ท่านหงุดหงิดมากจนตะคอกใส่คนอื่น หรือมีเรื่องทะเลาะวิวาทหรือลงไม้ลงมือกัน",
+    "title_en": null,
+    "created_date": "2022-08-25 09:59:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 17,
+    "title_th": "ท่านรู้สึกมั่นใจในตัวเองมากกว่าปกติมาก",
+    "title_en": null,
+    "created_date": "2022-08-25 10:00:02",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 18,
+    "title_th": "ท่านนอนน้อยกว่าปกติมาก และก็ไม่รู้สึกว่าอยากจะนอนสักเท่าไหร่",
+    "title_en": null,
+    "created_date": "2022-08-25 10:00:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 19,
+    "title_th": "ท่านช่างพูดช่างคุยกว่าเดิม หรือพูดเร็วกว่าปกติมาก",
+    "title_en": null,
+    "created_date": "2022-08-25 10:00:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 20,
+    "title_th": "ท่านมีความคิดแล่นเร็วมาก และไม่สามารถทำให้ตัวเองคิดช้าลงได้",
+    "title_en": null,
+    "created_date": "2022-08-25 10:00:39",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 21,
+    "title_th": "ท่านวอกแวกกับสิ่งต่างๆ รอบตัวง่ายมากจนไม่มีสมาธิ หรือไม่สามารถจดจ่อกับอะไรได้",
+    "title_en": null,
+    "created_date": "2022-08-25 10:00:50",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 22,
+    "title_th": "ท่านมีพลังมากกว่าปกติมาก",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:04",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 23,
+    "title_th": "ท่านกระตืนรือร้นหรือทำอะไรต่อมิอะไรเยอะแยะกว่าเดิมมาก",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:16",
+    "updated_date": "2024-12-27 09:30:58",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 24,
+    "title_th": "ท่านเข้าสังคมหรือพบปะผู้คนมากกว่าปกติมาก เช่น โทรหาเพื่อนกลางดึก",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:28",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 25,
+    "title_th": "ท่านสนใจเรื่องเพศเยอะกว่าปกติ",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:37",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 26,
+    "title_th": "ท่านทำอะไรที่ปกติท่านจะไม่ทำ หรือทำสิ่งที่คนอื่นอาจจะคิดว่ามากเกินไป ไม่ฉลาด หรือเสี่ยงเกินไป",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:47",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 27,
+    "title_th": "ท่านใช้จ่ายเงินจนทำให้ตัวเอง หรือครอบครัวต้องเดือดร้อน",
+    "title_en": null,
+    "created_date": "2022-08-25 10:01:57",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 28,
+    "title_th": "( จากข้อ 1- 13 ) หากท่านตอบข้อความข้างต้นว่า “ใช่” ลักษณะเหล่านี้เคยเกิดขึ้นพร้อมๆ กันในช่วงเวลาเดียวกันบ้างหรือไม่",
+    "title_en": null,
+    "created_date": "2022-08-25 10:02:07",
+    "updated_date": "2024-12-27 09:34:23",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 29,
+    "title_th": "ลักษณะดังกล่าวสร้างปัญหาเช่นต่อไปนี้ให้ท่านมากน้อยแค่ไหน เช่น ทำงานไม่ได้, มีปัญหาครอบครัว การเงินหรือคดีความ, มีการทะเลาะวิวาท หรือชกต่อยตบตีกัน",
+    "title_en": null,
+    "created_date": "2022-08-25 10:02:31",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 30,
+    "title_th": "ญาติสายตรงของท่านมีใครป่วยเป็นโรคอารมณ์แปรปรวนหรือโรคอารมณ์สองขั้นหรือไม่",
+    "title_en": null,
+    "created_date": "2022-08-25 10:03:42",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 31,
+    "title_th": "เคยมีเจ้าหน้าที่ทางการแพทย์บอกท่านหรือไม่ว่าท่านป่วยเป็นโรคอารมณ์แปรปรวนหรือโรคอารมณ์สองขั้ว",
+    "title_en": null,
+    "created_date": "2022-08-25 10:03:53",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 4
+  },
+  {
+    "id": 32,
+    "title_th": "กลัวทำงานผิดพลาด",
+    "title_en": null,
+    "created_date": "2022-08-25 12:09:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 33,
+    "title_th": "ไปไม่ถึงเป้าหมายที่วางไว้ ",
+    "title_en": null,
+    "created_date": "2022-08-25 12:09:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 34,
+    "title_th": "ครอบครัวมีความขัดแย้งกันในเรื่องเงินหรือเรื่องงานในบ้าน",
+    "title_en": null,
+    "created_date": "2022-08-25 12:09:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 35,
+    "title_th": "เป็นกังวลกับเรื่องสารพิษหรือมลภาวะในอากาศ น้ำ เสียง และดิน",
+    "title_en": null,
+    "created_date": "2022-08-25 12:09:46",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 36,
+    "title_th": "รู้สึกว่าต้องแข่งขันหรือเปรียบเทียบ",
+    "title_en": null,
+    "created_date": "2022-08-25 12:09:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 37,
+    "title_th": "เงินไม่พอใช้จ่าย",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:04",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 38,
+    "title_th": "กล้ามเนื้อตึงหรือปวด",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:18",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 39,
+    "title_th": "ปวดหัวจากความตึงเครียด",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:27",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 40,
+    "title_th": "ปวดหลัง",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:36",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 41,
+    "title_th": "ความอยากอาหารเปลี่ยนแปลง",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:47",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 42,
+    "title_th": "ปวดศีรษะข้างเดียว",
+    "title_en": null,
+    "created_date": "2022-08-25 12:10:56",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 43,
+    "title_th": "รู้สึกวิตกกังวล",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:05",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 44,
+    "title_th": "รู้สึกคับข้องใจ",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:17",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 45,
+    "title_th": "รู้สึกโกรธ หรือหงุดหงิด",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:26",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 46,
+    "title_th": "รู้สึกเศร้า",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:37",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 47,
+    "title_th": "ความจำไม่ดี",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:45",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 48,
+    "title_th": "รู้สึกสับสน",
+    "title_en": null,
+    "created_date": "2022-08-25 12:11:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 49,
+    "title_th": "ตั้งสมาธิลำบาก",
+    "title_en": null,
+    "created_date": "2022-08-25 12:12:05",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 50,
+    "title_th": "รู้สึกเหนื่อยง่าย",
+    "title_en": null,
+    "created_date": "2022-08-25 12:12:14",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 51,
+    "title_th": "เป็นหวัดบ่อย ๆ",
+    "title_en": null,
+    "created_date": "2022-08-25 12:12:23",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 5
+  },
+  {
+    "id": 52,
+    "title_th": "ใจเต้นเร็วและรัว",
+    "title_en": null,
+    "created_date": "2022-08-25 20:29:54",
+    "updated_date": "2024-12-26 13:54:18",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 53,
+    "title_th": "เหงื่อแตก",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:09",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 54,
+    "title_th": "ตัวสั่น",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:20",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 55,
+    "title_th": "อึดอัดหายใจไม่ออก หายใจได้แบบสั้นๆ",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:30",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 56,
+    "title_th": "หายใจติดขัดไม่สะดวก",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:40",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 57,
+    "title_th": "คลื่นไส้ หรือ ปั่นป่วนในท้อง",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:49",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 58,
+    "title_th": "รู้สึกมึนงง โคลงเคลง วิงเวียนศรีษะ เป็นลม",
+    "title_en": null,
+    "created_date": "2022-08-25 20:30:57",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 59,
+    "title_th": "รู้สึกหนาวๆ ร้อนๆ",
+    "title_en": null,
+    "created_date": "2022-08-25 20:31:07",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 60,
+    "title_th": "ตัวชา หรือ เป็นเหน็บ",
+    "title_en": null,
+    "created_date": "2022-08-25 20:31:16",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 61,
+    "title_th": "รู้สึกเหมือนตกอยู่ในความฝัน เหมือนไม่เป็นตัวของตัวเอง",
+    "title_en": null,
+    "created_date": "2022-08-25 20:31:26",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 62,
+    "title_th": "กลัวท่ีจะเสียการควบคุม หรือเสียสติ",
+    "title_en": null,
+    "created_date": "2022-08-25 20:31:41",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 63,
+    "title_th": "กลัวว่าอาจตายได้",
+    "title_en": null,
+    "created_date": "2022-08-25 20:32:07",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 64,
+    "title_th": "ยังคงรู้สึกวิตกกังวลเกี่ยวกับอาการแพนิคที่เกิดขึ้นไปแล้วหรือกังวลถึงผลที่เกิดขึ้นตามมา เช่น การเสียการควบคุมตนเอง อาการเสียสติ อาการหัวใจวาย",
+    "title_en": null,
+    "created_date": "2022-08-25 20:32:23",
+    "updated_date": "2024-12-26 13:53:09",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 65,
+    "title_th": "มีพฤติกรรมที่เปลี่ยนไปอย่างเห็นได้ชัด เช่น หลีกเลี่ยงสถานการณ์ที่จะทำให้เกิดอาการแพนิค ไม่ออกกำลังกาย เลี่ยงสถานการณ์ที่ไม่คุ้นเคย เป็นต้น",
+    "title_en": null,
+    "created_date": "2022-08-25 20:32:39",
+    "updated_date": "2024-12-26 13:53:06",
+    "status": "D",
+    "category_id": 6
+  },
+  {
+    "id": 66,
+    "title_th": "ไม่มีสมาธิกับกิจกรรมที่ทำอยู่ เช่น ดูโทรทัศน์ ทำงานที่ต้องใช้ความตั้งใจ",
+    "title_en": null,
+    "created_date": "2024-07-04 15:12:43",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 67,
+    "title_th": "พูดช้า ทำอะไรช้าลงจนคนอื่นสังเกตเห็นได้ หรือมีอาการกระสับกระส่ายไม่สามารถอยู่นิ่งได้เหมือนที่เคยเป็น",
+    "title_en": null,
+    "created_date": "2024-07-04 15:12:55",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 68,
+    "title_th": "คิดทำร้ายตัวเอง หรือคิดว่าถ้าตายไปคงจะดีกว่า",
+    "title_en": null,
+    "created_date": "2024-07-04 15:13:06",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 2
+  },
+  {
+    "id": 69,
+    "title_th": "รู้สึกตึงเครียด วิตกกังวล หรือ กระวนกระวาย",
+    "title_en": null,
+    "created_date": "2024-12-26 13:56:53",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 70,
+    "title_th": "ไม่สามารถหยุดหรือควบคุมความกังวลได้",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:01",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 71,
+    "title_th": "กังวลมากเกินไปในเรื่องต่างๆ",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:06",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 72,
+    "title_th": "ทำตัวให้ผ่อนคลายได้ยาก",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:11",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 73,
+    "title_th": "รู้สึกกระสับกระส่ายจนไม่สามารถนั่งนิ่ง ๆ ได้",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:16",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 74,
+    "title_th": "กลายเป็นคนขี้รำคาญ หรือ หงุดหงิดง่าย",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:22",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 75,
+    "title_th": "รู้สึกกลัวเหมือนว่าจะมีอะไรร้าย ๆ เกิดขึ้น",
+    "title_en": null,
+    "created_date": "2024-12-26 13:57:28",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 6
+  },
+  {
+    "id": 76,
+    "title_th": "หลับยาก (เวลาตั้งแต่เริ่มนอนหลับได้จริงนานกว่าปกติ)",
+    "title_en": null,
+    "created_date": "2024-12-27 15:38:53",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 77,
+    "title_th": "ตื่นกลางดึก",
+    "title_en": null,
+    "created_date": "2024-12-27 15:39:14",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 78,
+    "title_th": "ตื่นเร็วกว่าปกติ",
+    "title_en": null,
+    "created_date": "2024-12-27 15:39:24",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 79,
+    "title_th": "ระยะเวลานอนไม่เพียงพอ",
+    "title_en": null,
+    "created_date": "2024-12-27 15:39:35",
+    "updated_date": "2024-12-27 15:40:14",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 80,
+    "title_th": "คุณภาพการนอนโดยรวมไม่ดี",
+    "title_en": null,
+    "created_date": "2024-12-27 15:41:05",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 81,
+    "title_th": "รู้สึกไม่สดชื่นระหว่างวัน",
+    "title_en": null,
+    "created_date": "2024-12-27 15:41:25",
+    "updated_date": "2024-12-27 15:41:30",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 82,
+    "title_th": "สภาพร่างการและจิตใจไม่ดีระหว่างวัน",
+    "title_en": null,
+    "created_date": "2024-12-27 15:42:05",
+    "updated_date": "2024-12-27 15:43:04",
+    "status": "A",
+    "category_id": 3
+  },
+  {
+    "id": 83,
+    "title_th": "รู้สึกง่วงระหว่างวัน",
+    "title_en": null,
+    "created_date": "2024-12-27 15:42:18",
+    "updated_date": "0000-00-00 00:00:00",
+    "status": "A",
+    "category_id": 3
+  }
+]

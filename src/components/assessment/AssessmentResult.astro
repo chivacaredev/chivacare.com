@@ -1,0 +1,108 @@
+---
+/**
+ * One pre-rendered result (legacy assessment/views/result.php) for a single case.
+ * Hidden until the client-side scoring in assessment/form/[id] selects it;
+ * the score and arrow position are filled in by that script.
+ */
+import Carousel from '../Carousel.astro';
+import { img, type Row } from '../../lib/db';
+import { pick, t, url, type Lang } from '../../lib/i18n';
+import { slug, truncate } from '../../lib/text';
+import { A, CASE_COLORS } from './strings';
+
+interface Props {
+  lang: Lang;
+  caseRow: Row;
+  caseNo: number;
+  services: Row[];
+}
+
+const { lang, caseRow, caseNo, services } = Astro.props;
+const s = A[lang];
+const colors = CASE_COLORS[caseNo] ?? CASE_COLORS[1];
+const style = `--case-bg:${colors.bg};--case:${colors.accent}`;
+---
+
+<div data-view="result" data-case={caseNo} hidden style={style}>
+  <section class="bg-(--case-bg) pt-10">
+    <div class="container-site pb-[30px]">
+      <h2 class="section-title">{s.resultTitle}</h2>
+    </div>
+    <div class="container-site pb-[30px]">
+      <div class="rounded-xl bg-white text-center shadow-[0_50px_50px_rgba(0,4,12,.05),0_4px_15px_rgba(0,0,0,.05),0_0_5px_rgba(0,4,12,.05)]">
+        <div class="relative mb-[100px] h-[220px] rounded-t-xl bg-(--case) p-5 text-white">
+          <div class="text-lg font-medium">{pick(caseRow, 'name', lang)}</div>
+          <img
+            src={img.assessmentCase(caseRow.img_assessment)}
+            alt=""
+            width="275"
+            class="relative top-2.5 inline-block max-h-[275px] object-contain object-center"
+          />
+        </div>
+        <div class="my-5 text-[25px] font-medium text-(--case)">{s.totalScore}</div>
+        <div class="mt-2.5 inline-block h-[45px] w-[100px] rounded-[30px] bg-(--case) text-[25px] leading-[45px] text-white" data-score>0</div>
+        <div class="my-5 bg-(--case) p-5 text-lg font-medium text-white">{pick(caseRow, 'description', lang)}</div>
+        <div class="relative mx-0 my-5 p-5">
+          <div class="h-[30px] overflow-hidden rounded-[15px] bg-[linear-gradient(to_right,#79cfda,#2dac8f,#f8b71b,#e8955f,#da4950)]"></div>
+          <div
+            data-arrow
+            aria-hidden="true"
+            class="absolute top-[55px] left-[calc(20px_+_(100%_-_40px)_*_var(--pct,0)_/_100)] -translate-x-1/2 after:absolute after:-top-[15px] after:left-1/2 after:-translate-x-1/2 after:border-[15px] after:border-transparent after:border-b-(--case) after:content-['']"
+          >
+          </div>
+        </div>
+        <div class="flex justify-between px-5 pb-[30px]">
+          <span>{s.none}</span>
+          <span>{s.severe}</span>
+        </div>
+        <div class="mb-2.5 text-[25px] font-bold underline">{s.advice}</div>
+        <div class="prose-legacy mb-5 px-4 text-base" set:html={pick(caseRow, 'detail', lang)} />
+        <div class="mt-9 py-[15px] text-center">
+          <a href="https://lin.ee/Zgu0S1t" target="_blank" rel="noopener" class="btn-primary rounded-[10px] border-(--case)! bg-(--case)!">
+            {s.consult}
+            <svg aria-hidden="true" viewBox="0 0 512 512" class="size-4 fill-current"><path d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5A8 8 0 0 0 8 480c66.3 0 116-31.8 140.6-51.4A305 305 0 0 0 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32z" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <div class="container-site pb-[30px]">
+      <h2 class="section-title">{s.recommended}</h2>
+    </div>
+    <div class="container-site pb-[30px]">
+      {
+        services.length > 0 ? (
+          <Carousel perView={[1.3, 2, 2, 3]}>
+            {services.map((sv) => {
+              const href = url(lang, `services/${sv.id}/${slug(pick(sv, 'title', lang))}`);
+              return (
+                <div class="swiper-slide pb-2">
+                  <div class="card">
+                    <a href={href} target="_blank" rel="noopener">
+                      <img
+                        class="mb-[15px] block h-auto w-full"
+                        src={img.services(sv.photomain)}
+                        alt={pick(sv, 'title', lang)}
+                        loading="lazy"
+                      />
+                    </a>
+                    <div class="px-4 pb-4">
+                      <a href={href} target="_blank" rel="noopener" class="hover:text-teal-dark">
+                        <h4>{pick(sv, 'title', lang)}</h4>
+                        <p>{truncate(pick(sv, 'description', lang), 150)}</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </Carousel>
+        ) : (
+          <div class="text-center">{t(lang, 'notFound')}</div>
+        )
+      }
+    </div>
+  </section>
+</div>
