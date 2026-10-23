@@ -121,7 +121,8 @@
 
   /* Rich text from the legacy CKEditor fields */
   .prose-legacy {
-    @apply leading-relaxed;
+    /* wrap-anywhere: long pasted URLs would otherwise widen the page on phones */
+    @apply leading-relaxed wrap-anywhere;
   }
   .prose-legacy img {
     @apply mx-auto h-auto max-w-full;
