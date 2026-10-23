@@ -1,0 +1,11 @@
+services:
+  web:
+    image: chivacare-web:${SITE_VERSION:-latest}
+    build:
+      context: .
+      args:
+        PUBLIC_APPOINTMENT_ENDPOINT: ${PUBLIC_APPOINTMENT_ENDPOINT:-}
+        PUBLIC_CONTACT_ENDPOINT: ${PUBLIC_CONTACT_ENDPOINT:-}
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
