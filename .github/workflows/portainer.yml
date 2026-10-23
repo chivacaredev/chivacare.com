@@ -1,0 +1,35 @@
+name: Deploy to Portainer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency: portainer-deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ secrets.PORTAINER_URL }}
+      KEY: ${{ secrets.PORTAINER_TOKEN }}
+      ENDPOINT: ${{ vars.PORTAINER_ENDPOINT_ID || '1' }}
+      STACK: chivacare-com
+    steps:
+      - name: Create or redeploy stack
+        run: |
+          set -euo pipefail
+          api() { curl -fsS -H "X-API-Key: $KEY" -H "Content-Type: application/json" "$@"; }
+          # A new image tag per commit makes compose rebuild instead of reusing the old image.
+          ENV='[{"name":"SITE_VERSION","value":"${{ github.sha }}"}]'
+          ID=$(api "$URL/api/stacks" | jq -r --arg n "$STACK" '.[] | select(.Name == $n) | .Id' | head -1)
+          if [ -z "$ID" ]; then
+            api -X POST "$URL/api/stacks/create/standalone/repository?endpointId=$ENDPOINT" -d "$(jq -n \
+              --arg n "$STACK" --arg repo "${{ github.server_url }}/${{ github.repository }}" --argjson env "$ENV" \
+              '{name: $n, repositoryURL: $repo, repositoryReferenceName: "refs/heads/main", composeFile: "docker-compose.yml", env: $env}')" > /dev/null
+            echo "Created stack $STACK"
+          else
+            api -X PUT "$URL/api/stacks/$ID/git/redeploy?endpointId=$ENDPOINT" -d "$(jq -n --argjson env "$ENV" \
+              '{repositoryReferenceName: "refs/heads/main", pullImage: false, prune: true, env: $env}')" > /dev/null
+            echo "Redeployed stack $STACK ($ID)"
+          fi
