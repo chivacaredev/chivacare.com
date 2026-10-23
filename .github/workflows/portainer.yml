@@ -19,7 +19,13 @@ jobs:
       - name: Create or redeploy stack
         run: |
           set -euo pipefail
-          api() { curl -sS --fail-with-body -H "X-API-Key: $KEY" -H "Content-Type: application/json" "$@"; }
+          api() {
+            local code
+            code=$(curl -sS -o res.json -w '%{http_code}' -H "X-API-Key: $KEY" -H "Content-Type: application/json" "$@")
+            # Print only Portainer's error message, not the full response (logs are public).
+            if [ "$code" -ge 400 ]; then echo "HTTP $code: $(jq -r '[.message, .details] | map(select(.)) | join(": ")' res.json 2>/dev/null || cat res.json)" >&2; return 1; fi
+            cat res.json
+          }
           # Accept the secret with or without a trailing "/" or "/api".
           URL="${URL%/}"; URL="${URL%/api}"
           if [ -z "$ENDPOINT" ]; then
