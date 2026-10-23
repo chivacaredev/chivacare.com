@@ -6,6 +6,17 @@ services:
       args:
         PUBLIC_APPOINTMENT_ENDPOINT: ${PUBLIC_APPOINTMENT_ENDPOINT:-}
         PUBLIC_CONTACT_ENDPOINT: ${PUBLIC_CONTACT_ENDPOINT:-}
-    ports:
-      - "${PORT:-8080}:80"
+    # Routed by caddy-docker-proxy; apex redirects to www (the canonical site URL).
+    labels:
+      caddy: www.chivacare.com
+      caddy.reverse_proxy: "{{upstreams 80}}"
+      caddy_1: chivacare.com
+      caddy_1.redir: "https://www.chivacare.com{uri} permanent"
+    networks:
+      - caddy
     restart: unless-stopped
+
+networks:
+  caddy:
+    external: true
+    name: ${CADDY_NETWORK:-caddy}
