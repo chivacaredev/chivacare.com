@@ -13,10 +13,9 @@ services:
       caddy_1: chivacare.com
       caddy_1.redir: "https://www.chivacare.com{uri} permanent"
     networks:
-      - caddy
+      - caddy_net
     restart: unless-stopped
 
 networks:
-  caddy:
+  caddy_net:
     external: true
-    name: ${CADDY_NETWORK:-caddy}
