@@ -13,13 +13,19 @@ jobs:
     env:
       URL: ${{ secrets.PORTAINER_URL }}
       KEY: ${{ secrets.PORTAINER_TOKEN }}
-      ENDPOINT: ${{ vars.PORTAINER_ENDPOINT_ID || '1' }}
+      ENDPOINT: ${{ vars.PORTAINER_ENDPOINT_ID }}
       STACK: chivacare-com
     steps:
       - name: Create or redeploy stack
         run: |
           set -euo pipefail
-          api() { curl -fsS -H "X-API-Key: $KEY" -H "Content-Type: application/json" "$@"; }
+          api() { curl -sS --fail-with-body -H "X-API-Key: $KEY" -H "Content-Type: application/json" "$@"; }
+          # Accept the secret with or without a trailing "/" or "/api".
+          URL="${URL%/}"; URL="${URL%/api}"
+          if [ -z "$ENDPOINT" ]; then
+            ENDPOINT=$(api "$URL/api/endpoints" | jq -r '.[0].Id')
+            echo "Using Portainer environment $ENDPOINT"
+          fi
           # A new image tag per commit makes compose rebuild instead of reusing the old image.
           ENV='[{"name":"SITE_VERSION","value":"${{ github.sha }}"}]'
           ID=$(api "$URL/api/stacks" | jq -r --arg n "$STACK" '.[] | select(.Name == $n) | .Id' | head -1)
