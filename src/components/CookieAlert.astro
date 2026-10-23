@@ -8,7 +8,7 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<div id="cookie-alert" class="fixed inset-x-0 bottom-0 z-[10001] hidden bg-white p-4 text-center shadow-[0_-2px_10px_rgba(0,0,0,0.1)]" role="dialog" aria-live="polite">
+<div id="cookie-alert" class="fixed inset-x-0 bottom-0 z-[10001] hidden bg-white p-4 text-center shadow-[0_-2px_10px_rgba(0,0,0,0.1)]" role="dialog" aria-label={lang === 'th' ? 'การใช้คุกกี้' : 'Cookie notice'} aria-live="polite">
   <span class="mr-2">🍪</span>{t(lang, 'cookieText')}
   <a href={url(lang, 'privacy-policy')} class="mx-1 text-teal-dark underline">{lang === 'th' ? 'นโยบายความเป็นส่วนตัว' : 'Privacy policy'}</a>
   <button type="button" id="cookie-accept" class="btn-primary is-teal ml-2 !min-w-0 !px-4 !py-1 !text-sm">{t(lang, 'cookieAccept')}</button>

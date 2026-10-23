@@ -28,6 +28,7 @@ const pageDescription = stripHtml(description || pick(site, 'description', lang)
 const pageKeywords = keywords || title || pick(site, 'keyword', lang);
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const ogImage = image ? new URL(image, Astro.site ?? Astro.url).href : undefined;
+const FONTS = 'https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap';
 ---
 
 <!doctype html>
@@ -54,21 +55,25 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url).href : undefined
     <meta property="fb:app_id" content="734543687132120" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600&family=Sarabun:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Google Tag Manager (legacy container) -->
+    <!-- Loaded without blocking first paint (text shows in the fallback font, then swaps) -->
+    <link rel="preload" as="style" href={FONTS} />
+    <link rel="stylesheet" href={FONTS} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={FONTS} /></noscript>
+    <!-- Google Tag Manager (legacy container), started after page load so its tags don't delay first paint -->
     <script is:inline>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
+        function load() {
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        if (d.readyState === 'complete') load();
+        else w.addEventListener('load', load);
       })(window, document, 'script', 'dataLayer', 'GTM-MMQPKFV');
     </script>
     <slot name="head" />

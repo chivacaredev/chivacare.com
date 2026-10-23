@@ -1,0 +1,45 @@
+---
+/**
+ * YouTube video as a thumbnail that loads the real player on click.
+ * An embedded player costs ~1.5 MB and seconds of main-thread time per video
+ * (PageSpeed "third-party facades"), so nothing from YouTube loads until asked.
+ */
+import { youtubeEmbed } from '../lib/text';
+
+interface Props {
+  url: string;
+  title: string;
+  class?: string;
+}
+
+const { url, title, class: className = 'size-full' } = Astro.props;
+const id = new URL(youtubeEmbed(url), 'https://www.youtube.com').pathname.split('/').pop()!.split('&')[0];
+---
+
+<button
+  type="button"
+  data-youtube={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1`}
+  data-title={title}
+  aria-label={`▶ ${title}`}
+  class:list={['group relative block cursor-pointer overflow-hidden bg-black', className]}
+>
+  <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" class="size-full object-cover" />
+  <svg class="absolute top-1/2 left-1/2 h-12 w-[68px] -translate-1/2 opacity-90 transition group-hover:opacity-100" viewBox="0 0 68 48" aria-hidden="true">
+    <path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00" />
+    <path d="M45 24 27 14v20z" fill="#fff" />
+  </svg>
+</button>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as Element).closest<HTMLButtonElement>('[data-youtube]');
+    if (!btn) return;
+    const frame = document.createElement('iframe');
+    frame.src = btn.dataset.youtube!;
+    frame.title = btn.dataset.title ?? '';
+    frame.className = btn.className;
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    frame.allowFullscreen = true;
+    btn.replaceWith(frame);
+  });
+</script>

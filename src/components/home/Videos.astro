@@ -3,7 +3,7 @@ import Carousel from '../Carousel.astro';
 import MoreLink from './MoreLink.astro';
 import { getVideos } from '../../lib/db';
 import { pick, url, type Lang } from '../../lib/i18n';
-import { youtubeEmbed } from '../../lib/text';
+import YouTube from '../YouTube.astro';
 import { ht, OVERFLOW_CAROUSEL } from './helpers';
 
 interface Props {
@@ -28,13 +28,7 @@ const videos = getVideos().filter((v) => /youtu/.test(v.url_youtube ?? ''));
                   <div class="swiper-slide py-8">
                     <div class="card">
                       <div class="relative aspect-video">
-                        <iframe
-                          class="absolute inset-0 size-full"
-                          src={youtubeEmbed(v.url_youtube)}
-                          title={title}
-                          loading="lazy"
-                          allowfullscreen
-                        />
+                        <YouTube url={v.url_youtube} title={title} class="absolute inset-0 size-full" />
                       </div>
                       <div class="px-[15px] py-2.5">
                         <h4>{title}</h4>
