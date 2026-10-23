@@ -175,6 +175,8 @@
 .swiper .swiper-button-next,
 .swiper .swiper-button-prev {
   top: 45%;
+  /* Legacy sizes assume content-box; under Tailwind's border-box the arrow SVG shrinks to 0. */
+  box-sizing: content-box;
   width: 17px;
   height: 29px;
   padding: 25px;

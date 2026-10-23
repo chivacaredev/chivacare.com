@@ -5,7 +5,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { getActivities, getBlogs, getPromotions, getReviews, getVideos, img, type Row } from '../../lib/db';
+import { getActivities, getBlogs, getPromotions, getReviews, getVideos, img, theme, type Row } from '../../lib/db';
 import { pick, url, type Lang } from '../../lib/i18n';
 import { slug } from '../../lib/text';
 
@@ -17,6 +17,8 @@ export interface ModuleConfig {
   key: ModuleKey;
   rows: () => Row[];
   image: (file: string) => string;
+  /** Image used when a row has no usable image file */
+  defaultImage?: string;
   /** Page heading + breadcrumb label */
   label: L10n;
   /** Heading of the "other items" carousel on detail pages (null = none) */
@@ -43,6 +45,7 @@ export const MODULES: Record<ModuleKey, ModuleConfig> = {
     key: 'blog',
     rows: getBlogs,
     image: img.blog,
+    defaultImage: theme('chivacare_clinic.jpg'),
     label: { th: 'สาระน่ารู้', en: 'Health Articles' },
     otherLabel: null,
     otherPerView: [1, 2, 2, 3],
@@ -86,9 +89,8 @@ const publicDir = path.join(process.cwd(), 'public');
 /** Image URL only when the row has a real image file that exists under public/. */
 export function imageSrc(mod: ModuleKey, row: Row): string | undefined {
   const file = String(row.photomain ?? '');
-  if (!/\.(jpe?g|png|gif|webp)$/i.test(file)) return undefined;
-  const src = MODULES[mod].image(file);
-  return fs.existsSync(path.join(publicDir, src)) ? src : undefined;
+  const src = /\.(jpe?g|png|gif|webp)$/i.test(file) ? MODULES[mod].image(file) : '';
+  return src && fs.existsSync(path.join(publicDir, src)) ? src : MODULES[mod].defaultImage;
 }
 
 /** getStaticPaths for detail routes: every active row in both languages. */
