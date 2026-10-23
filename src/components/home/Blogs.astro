@@ -1,17 +1,18 @@
 ---
 import Carousel from '../Carousel.astro';
 import MoreLink from './MoreLink.astro';
-import { getBlogs, img } from '../../lib/db';
+import { getBlogs } from '../../lib/db';
+import { imageSrc } from '../article/modules';
 import { pick, t, url, type Lang } from '../../lib/i18n';
 import { slug, truncate } from '../../lib/text';
-import { hasImage, ht, OVERFLOW_CAROUSEL } from './helpers';
+import { ht, OVERFLOW_CAROUSEL } from './helpers';
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const s = ht(lang);
-const blogs = getBlogs().filter((b) => hasImage(img.blog(b.photomain)));
+const blogs = getBlogs();
 ---
 
 <section class="mb-12">
@@ -29,7 +30,7 @@ const blogs = getBlogs().filter((b) => hasImage(img.blog(b.photomain)));
                   <div class="swiper-slide py-8">
                     <div class="card">
                       <a href={href} target="_blank">
-                        <img src={img.blog(b.photomain)} alt={title} title={title} loading="lazy" class="block h-auto w-full" />
+                        <img src={imageSrc('blog', b)} alt={title} title={title} loading="lazy" class="block h-auto w-full" />
                       </a>
                       <div class="px-[15px] pt-2.5">
                         <a href={href} target="_blank" class="hover:text-teal">

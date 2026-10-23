@@ -25,7 +25,7 @@ const langLabel = { th: 'ไทย', en: 'English' } as const;
     <nav class="hidden items-center lg:flex" aria-label="Main">
       <ul class="flex items-center">
         {
-          menu.map((item) => (
+          menu.map((item, i) => (
             <li class="group relative">
               {item.href ? (
                 <a href={item.href} class="block px-3 py-7 text-[15px] font-normal text-ink hover:text-teal xl:px-4">
@@ -40,14 +40,17 @@ const langLabel = { th: 'ไทย', en: 'English' } as const;
                 </button>
               )}
               {item.children.length > 0 && (
-                <ul class="invisible absolute top-full left-0 min-w-64 bg-white opacity-0 shadow-blue transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <ul class:list={['invisible absolute top-full min-w-64 bg-white opacity-0 shadow-blue transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
+                  // Items in the right half open leftwards so the dropdown stays on screen.
+                  i < menu.length / 2 ? 'left-0' : 'right-0',
+                ]}>
                   {item.children.map((sub) => (
                     <li class="group/sub relative border-b border-[#e7edff] last:border-0">
                       <a href={sub.href ?? '#'} class="block px-5 py-3 text-sm text-ink hover:bg-teal/10 hover:text-teal">
                         {pick(sub.row, 'name', lang)}
                       </a>
                       {sub.children.length > 0 && (
-                        <ul class="invisible absolute top-0 left-full min-w-56 bg-white opacity-0 shadow-blue transition group-hover/sub:visible group-hover/sub:opacity-100">
+                        <ul class:list={['invisible absolute top-0 min-w-56 bg-white opacity-0 shadow-blue transition group-hover/sub:visible group-hover/sub:opacity-100', i < menu.length / 2 ? 'left-full' : 'right-full']}>
                           {sub.children.map((leaf) => (
                             <li>
                               <a href={leaf.href ?? '#'} class="block px-5 py-3 text-sm text-ink hover:bg-teal/10 hover:text-teal">

@@ -28,3 +28,7 @@ The site is static, so the forms post JSON to an external endpoint set at build 
 | `PUBLIC_CONTACT_ENDPOINT`     | Contact form on `/th/page/{id}` pages     |
 
 When a variable is unset, that form shows the clinic phone numbers and LINE link instead.
+
+## Deploy
+
+Pushes to `main` deploy to Portainer (`.github/workflows/portainer.yml`). The Docker image runs `server.ts`, which serves `dist/` and handles `POST /api/appointment` (the image's default `PUBLIC_APPOINTMENT_ENDPOINT`) by posting the booking to the Discord webhook in `APPOINTMENT_WEBHOOK`. Set that as a GitHub secret or as a Portainer stack env var. Test with `bun test`.
