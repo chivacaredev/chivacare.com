@@ -42,6 +42,11 @@ test('rejects invalid input', async () => {
   expect((await fetch(base + '/api/appointment')).status).toBe(405);
 });
 
+test('advertises discovery links on HTML pages', async () => {
+  expect((await fetch(base + '/')).headers.get('link')).toContain('</llms.txt>; rel="describedby"');
+  expect((await fetch(base + '/llms.txt')).headers.get('link')).toBeNull();
+});
+
 test('does not serve files outside dist', async () => {
   expect((await fetch(base + '/..%2fpackage.json')).status).toBe(404);
   expect((await fetch(base + '/%2e%2e/server.ts')).status).toBe(404);

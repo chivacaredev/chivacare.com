@@ -1,0 +1,31 @@
+# ChivaCare Chiang Mai (ชีวาแคร์ เชียงใหม่)
+
+> Brain clinic, physical therapy clinic and TMS brain center in Chiang Mai, Thailand. Treats brain conditions, migraine, stroke, chronic pain and office syndrome, led by specialist neurologists and rehabilitation physicians.
+
+The site is in Thai under `/th/` and English under `/en/` (some English pages fall back to Thai text). A full list of pages is in the [sitemap](https://www.chivacare.com/sitemap.xml).
+
+## Main pages
+
+- [Services](https://www.chivacare.com/th/services): treatments and service categories
+- [Promotions](https://www.chivacare.com/th/promotions): current packages and offers
+- [Our team](https://www.chivacare.com/th/teams): doctors and physical therapists
+- [Book an appointment](https://www.chivacare.com/th/appointment): online booking form
+- [Self-assessment](https://www.chivacare.com/th/assessment): symptom questionnaires
+- [Contact us](https://www.chivacare.com/th/contactus): phone, location and contact form
+
+## Articles
+
+- [Blog](https://www.chivacare.com/th/blog): health articles
+- [Patient reviews](https://www.chivacare.com/th/reviews)
+- [Activities](https://www.chivacare.com/th/activities)
+- [Videos](https://www.chivacare.com/th/video)
+
+## Contact
+
+- Phone: 096-980-0126
+- LINE: https://line.me/R/ti/p/@sam6768c
+- Facebook: https://www.facebook.com/ChivaCareInfo/
+
+## Optional
+
+- [Privacy policy](https://www.chivacare.com/th/privacy-policy)
