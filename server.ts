@@ -92,7 +92,10 @@ function file(pathname: string) {
   if (!stat?.isFile()) return null;
   const cache = pathname.startsWith('/_astro/') ? 'public, max-age=31536000, immutable'
     : pathname.startsWith('/assets/') ? 'public, max-age=2592000' : 'no-cache';
-  return new Response(Bun.file(target), { headers: { 'Cache-Control': cache } });
+  const headers: Record<string, string> = { 'Cache-Control': cache };
+  // RFC 8288 discovery links so agents find the site summary and page list without parsing HTML.
+  if (target.endsWith('.html')) headers.Link = '</llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml"';
+  return new Response(Bun.file(target), { headers });
 }
 
 Bun.serve({
