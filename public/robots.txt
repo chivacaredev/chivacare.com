@@ -1,0 +1,35 @@
+# https://www.rfc-editor.org/rfc/rfc9309 · https://contentsignals.org/
+# Appointment wizard steps are per-visitor forms, not content.
+
+User-agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Allow: /
+Disallow: /api/
+Disallow: /*/appointment/step
+Disallow: /*/appointment/success
+
+# AI search and user-triggered fetchers: allowed, so the clinic shows up in AI answers.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Allow: /
+Disallow: /api/
+Disallow: /*/appointment/step
+Disallow: /*/appointment/success
+
+# AI training crawlers: blocked. This does not affect AI search results.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Disallow: /
+
+Sitemap: https://www.chivacare.com/sitemap.xml
