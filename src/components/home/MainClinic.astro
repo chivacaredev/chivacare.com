@@ -2,7 +2,7 @@
 /** Legacy section.main-clinic: banner background, CTA icons, about text and header video. */
 import { getBanner, site, theme } from '../../lib/db';
 import { t, url, type Lang } from '../../lib/i18n';
-import { youtubeEmbed } from '../../lib/text';
+import YouTube from '../YouTube.astro';
 import { hasImage, pickHtml, PHYSIO } from './helpers';
 
 interface Props {
@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 
 const banner = getBanner('29709');
 const bannerSrc = banner && hasImage(banner.src) ? banner.src : undefined;
-const video = site.link_youtube_header ? `${youtubeEmbed(site.link_youtube_header)}?autoplay=1&mute=1` : '';
+const video = site.link_youtube_header ?? '';
 
 const ctas = [
   {
@@ -73,13 +73,7 @@ const ctas = [
       video && (
         <div class="flex items-center">
           <div class="relative aspect-video w-full border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.2)] md:mt-16 md:-ml-20">
-            <iframe
-              class="absolute inset-0 size-full"
-              src={video}
-              title="ChivaCare"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            />
+            <YouTube url={video} title="ChivaCare" class="absolute inset-0 size-full" />
           </div>
         </div>
       )

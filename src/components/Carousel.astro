@@ -30,7 +30,20 @@ const config = JSON.stringify({ perView, autoplay });
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
 
-  for (const el of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
+  // Set each carousel up shortly before it scrolls into view, not all at once on load.
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const { isIntersecting, target } of entries) {
+        if (!isIntersecting) continue;
+        io.unobserve(target);
+        init(target as HTMLElement);
+      }
+    },
+    { rootMargin: '600px 0px' },
+  );
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((el) => io.observe(el));
+
+  function init(el: HTMLElement) {
     const { perView, autoplay } = JSON.parse(el.dataset.carousel ?? '{}');
     new Swiper(el, {
       modules: [Navigation, Pagination, Autoplay],

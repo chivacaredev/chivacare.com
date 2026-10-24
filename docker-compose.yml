@@ -10,6 +10,7 @@ services:
     labels:
       caddy: www.chivacare.com
       caddy.reverse_proxy: "{{upstreams 3000}}"
+      caddy.encode: zstd gzip
       caddy_1: chivacare.com
       caddy_1.redir: "https://www.chivacare.com{uri} permanent"
     networks:

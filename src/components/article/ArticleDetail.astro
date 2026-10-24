@@ -12,7 +12,8 @@ import Breadcrumb from '../Breadcrumb.astro';
 import Carousel from '../Carousel.astro';
 import { getCategory, site, type Row } from '../../lib/db';
 import { pick, t, url, type Lang } from '../../lib/i18n';
-import { slug, youtubeEmbed } from '../../lib/text';
+import { slug } from '../../lib/text';
+import YouTube from '../YouTube.astro';
 import ArticleCard from './ArticleCard.astro';
 import ArticleImage from './ArticleImage.astro';
 import RelatedDoctors from './RelatedDoctors.astro';
@@ -58,13 +59,7 @@ const consultLabel = lang === 'th' ? 'ปรึกษาเราตอนนี
       {
         youtube ? (
           <div class="aspect-video w-full">
-            <iframe
-              src={youtubeEmbed(youtube)}
-              title={title}
-              class="size-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
+            <YouTube url={youtube} title={title} />
           </div>
         ) : imageSrc(mod, row) ? (
           <ArticleImage mod={mod} row={row} lang={lang} loading="eager" class={mod === 'activities' ? 'mx-auto !w-auto max-w-full shadow-soft' : 'shadow-soft'} />
