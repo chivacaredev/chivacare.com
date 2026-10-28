@@ -37,7 +37,7 @@ const groups = getTeamGroups()
       <FieldError>{s.errMode}</FieldError>
     </fieldset>
 
-    <fieldset id="box-physician" class="group mt-4" data-field="physician" hidden>
+    <fieldset id="box-physician" class="group mt-4 min-w-0" data-field="physician" hidden>
       <legend class="sr-only">{s.choosePhysicianWanted}</legend>
       {
         groups.map((g) => (
