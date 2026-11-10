@@ -1,7 +1,8 @@
 /**
  * Per-visitor wizard state, kept in sessionStorage (one tab, cleared when the tab closes).
  * The legacy site kept this in a single server file shared by every visitor; we do not.
- * Patient details from step 4 are never stored here — they go straight to the endpoint.
+ * Patient details from step 4 are never stored here — they go straight to the endpoint
+ * (only the contact email/phone is kept in `Booked`, for the success page).
  */
 export interface WizardState {
   step1?: { is_services: string };
@@ -34,6 +35,31 @@ export function clear() {
     sessionStorage.removeItem(KEY);
   } catch {
     /* ignore */
+  }
+}
+
+/** Booking summary shown on the success page after a successful submit (this tab only). */
+export interface Booked {
+  rows: [string, string][];
+  email: string;
+  phone: string;
+}
+
+const BOOKED_KEY = 'chivacare:appointment:booked';
+
+export function saveBooked(b: Booked) {
+  try {
+    sessionStorage.setItem(BOOKED_KEY, JSON.stringify(b));
+  } catch {
+    /* ignore: the success page then shows only the thank-you text */
+  }
+}
+
+export function loadBooked(): Booked | null {
+  try {
+    return JSON.parse(sessionStorage.getItem(BOOKED_KEY) ?? 'null');
+  } catch {
+    return null;
   }
 }
 
