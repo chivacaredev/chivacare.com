@@ -121,7 +121,7 @@ const config = JSON.stringify({
 </Wizard>
 
 <script>
-  import { clear, load, setError, langPrefix } from './state';
+  import { clear, load, saveBooked, setError, langPrefix } from './state';
 
   const saved = load();
   // Legacy step4 redirected to step3 when there was no wizard state.
@@ -185,16 +185,17 @@ const config = JSON.stringify({
     return !first;
   }
 
+  const summaryRows = (): [string, string][] => [
+    [labels.service ?? '', cfg.services[saved.step1?.is_services ?? ''] ?? saved.step1?.is_services ?? ''],
+    [labels.physician ?? '', saved.step2?.physician ? (cfg.names[saved.step2.physician] ?? '') : cfg.pickForMe],
+    [labels.date ?? '', `${saved.step3?.is_date ?? ''} ${saved.step3?.is_time ?? ''}`],
+  ];
+
   function showNotice(kind: 'offline' | 'error') {
     notice.querySelectorAll<HTMLElement>('[data-notice]').forEach((n) => (n.hidden = n.dataset.notice !== kind));
     const dl = document.getElementById('appt-summary')!;
-    const rows: [string, string][] = [
-      [labels.service ?? '', cfg.services[saved.step1?.is_services ?? ''] ?? saved.step1?.is_services ?? ''],
-      [labels.physician ?? '', saved.step2?.physician ? (cfg.names[saved.step2.physician] ?? '') : cfg.pickForMe],
-      [labels.date ?? '', `${saved.step3?.is_date ?? ''} ${saved.step3?.is_time ?? ''}`],
-    ];
     dl.replaceChildren(
-      ...rows.flatMap(([k, v]) => {
+      ...summaryRows().flatMap(([k, v]) => {
         const dt = document.createElement('dt');
         dt.className = 'font-medium';
         dt.textContent = k;
@@ -244,6 +245,7 @@ const config = JSON.stringify({
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(String(res.status));
+      saveBooked({ rows: summaryRows(), email: payload.email, phone: payload.phone });
       clear();
       location.href = `${langPrefix()}/appointment/success`;
     } catch {
