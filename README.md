@@ -31,4 +31,4 @@ When a variable is unset, that form shows the clinic phone numbers and LINE link
 
 ## Deploy
 
-Pushes to `main` deploy to Portainer (`.github/workflows/portainer.yml`). The Docker image runs `server.ts`, which serves `dist/` and handles `POST /api/appointment` (the image's default `PUBLIC_APPOINTMENT_ENDPOINT`) by posting the booking to the Discord webhook in `APPOINTMENT_WEBHOOK`. Set that as a GitHub secret or as a Portainer stack env var. Test with `bun test`.
+Pushes to `main` deploy to Portainer (`.github/workflows/portainer.yml`). The Docker image runs `server.ts`, which serves `dist/` and handles `POST /api/appointment` (the image's default `PUBLIC_APPOINTMENT_ENDPOINT`) by posting the booking to the Discord webhook in `APPOINTMENT_WEBHOOK`. Set that as a GitHub secret or as a Portainer stack env var. Optionally set `STAFF_BOOKING_URL` and `STAFF_BOOKING_SECRET` to also forward each booking, HMAC-signed, to the staff app's clinic inbox (unset means off; the secret must equal the staff app's `CLINIC_WEB_BOOKING_SECRET`). Test with `bun test`.

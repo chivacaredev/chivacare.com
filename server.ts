@@ -4,9 +4,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHmac } from 'node:crypto';
 
 const root = path.resolve(import.meta.dir, 'dist');
 const webhook = process.env.APPOINTMENT_WEBHOOK?.trim();
+const staffUrl = process.env.STAFF_BOOKING_URL?.trim();
+const staffSecret = process.env.STAFF_BOOKING_SECRET?.trim();
 const port = Number(process.env.PORT ?? 3000);
 
 // Field labels for the Discord message, in the order the wizard sends them.
@@ -33,6 +36,32 @@ function limited(ip: string) {
   recent.push(now);
   hits.set(ip, recent);
   return recent.length > 5;
+}
+
+// Signed copy of each booking for the staff app's clinic inbox. Same booking_id on the retry so staff dedupes.
+// shortcut: one retry, no queue; a booking is lost if staff is down for both tries (Discord still has it).
+async function forward(payload: Record<string, unknown>) {
+  let failure = '';
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const body = JSON.stringify(payload);
+    const ts = String(Math.floor(Date.now() / 1000));
+    const sig = createHmac('sha256', staffSecret!).update(`${ts}.${body}`).digest('hex');
+    try {
+      const res = await fetch(staffUrl!, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Timestamp': ts, 'X-Signature': `sha256=${sig}` },
+        body,
+        signal: AbortSignal.timeout(5000),
+      });
+      if (res.ok) return;
+      if (res.status < 500) return console.error('Staff booking rejected', res.status); // 4xx: retrying won't help
+      failure = String(res.status);
+    } catch (e) {
+      failure = (e as Error).name; // name only: messages can echo the URL
+    }
+    if (attempt === 0) await Bun.sleep(2000);
+  }
+  console.error('Staff booking failed', failure);
 }
 
 const json = (status: number, body: object) => Response.json(body, { status });
@@ -75,6 +104,17 @@ async function appointment(req: Request, ip: string) {
   if (!res.ok) {
     console.error('Discord webhook failed', res.status, await res.text());
     return json(502, { error: 'delivery failed' });
+  }
+  if (staffUrl && staffSecret) {
+    const optional = Object.fromEntries(FIELDS.map(([k]) => k).filter((k) => k !== 'phone' && val(k)).map((k) => [k, val(k)]));
+    void forward({
+      ...optional,
+      booking_id: crypto.randomUUID(),
+      firstname: val('firstname'),
+      lastname: val('lastname'),
+      phone: val('phone'),
+      is_profile: !!val('is_profile'),
+    }).catch((e) => console.error('Staff booking failed', (e as Error).name));
   }
   return json(200, { ok: true });
 }
