@@ -17,6 +17,8 @@ services:
       - caddy_net
     environment:
       APPOINTMENT_WEBHOOK: ${APPOINTMENT_WEBHOOK:-}
+      STAFF_BOOKING_URL: ${STAFF_BOOKING_URL:-}
+      STAFF_BOOKING_SECRET: ${STAFF_BOOKING_SECRET:-}
     restart: unless-stopped
 
 networks:
